@@ -1,0 +1,142 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>美洽客服視窗不顯示 / 接入報錯速查 - 網頁外掛不載入、按鈕不顯示、entId 不一致、SPA 整合、SDK 推播排查</title>
+<meta name="description" content="美洽（Meiqia）網頁客服外掛不顯示、聊天按鈕不出現、meiqia.js 被 ERR_BLOCKED_BY_CLIENT 攔、樣式錯亂、SPA 路由切換後消失、entId 不一致客服收不到對話、行動版不彈、SDK 推播收不到？輸入或點選症狀，查 L1 現象與官方定位 + L2 深度真因（第三方外網域 JS 非同步注入 / 廣告攔截規則 / 頁面 CSS 層級 / SPA 生命週期 / entId 與網域白名單綁定 / SDK AppKey 與推播鏈路），並看美洽五種接入方式對照與 2026 估算。">
+<link rel="canonical" href="https://meiqiscom.github.io/zh-tw/">
+<link rel="alternate" hreflang="zh-Hans" href="https://meiqiscom.github.io/">
+<link rel="alternate" hreflang="en" href="https://meiqiscom.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://meiqiscom.github.io/ja/">
+<link rel="alternate" hreflang="zh-Hant" href="https://meiqiscom.github.io/zh-tw/">
+<link rel="alternate" hreflang="x-default" href="https://meiqiscom.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "美洽客服接入不顯示 / 報錯速查",
+   "url": "https://meiqiscom.github.io/zh-tw/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "inLanguage": "zh-Hant",
+   "description": "美洽（Meiqia）網頁客服外掛不顯示、聊天按鈕不出現、meiqia.js 被 ERR_BLOCKED_BY_CLIENT 攔、樣式錯亂、SPA 路由切換後消失、entId 不一致客服收不到對話、行動版不彈、SDK 推播收不到？輸入或點選症狀，查 L1 現象與官方定位 + L2 深度真因（第三方外網域 JS 非同步注入 / 廣告攔截規則 / 頁面 CSS 層級 / SPA 生命週期 / entId 與網域白名單綁定 / SDK AppKey 與推播鏈路），並看美洽五種接入方式對照與 2026 估算。",
+   "isAccessibleForFree": true,
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "zh-Hant",
+   "url": "https://meiqiscom.github.io/zh-tw/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "美洽客服視窗 / 浮窗整體不顯示怎麼解決？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽網頁外掛只需複製一段專屬 JS 程式碼貼到網站頁面即可載入浮動客服視窗；需確認程式碼已正確嵌入且接入網站已在後台設定。 網頁外掛是 meiqia.js 非同步載入後動態注入 DOM 的，整體不顯示通常意味著「腳本根本沒載入成功」——程式碼沒貼對位置、被廣告攔截 / 快取擋住、或網域 / entId 沒配對，導致注入這一步沒發生。 F12 → Network 搜 meiqia.js：沒有請求→程式碼沒生效（查位置 / 清快取）；有請求但非 200→被攔或路徑問題；都正常仍不顯示→看 entId / 網域授權與下面各分類。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽腳本載入了但聊天按鈕不出現怎麼解決？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "網頁外掛程式碼會自動適配網站樣式並顯示聊天按鈕；如顯示異常可檢查是否被樣式隱藏或腳本執行被中斷。 腳本載入成功但按鈕不出現，多是「顯示層」問題：站點全域 CSS 覆蓋了按鈕定位 / 把它 display:none、z-index 被壓、或被其它固定定位元素蓋住；也可能頁面裡另一個 JS 報錯中斷了初始化。 F12 → Elements 搜美洽容器看是否存在、是否被隱藏 / 移到螢幕外；暫時停用站點自訂 CSS / 其它腳本復測；主控台看有無報錯中斷執行。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽meiqia.js 被廣告攔截擴充攔截怎麼解決？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽客服腳本來自第三方網域；若瀏覽器安裝了攔截類擴充，可能將其識別為廣告 / 追蹤而阻止載入，建議關閉攔截或加入白名單。 ERR_BLOCKED_BY_CLIENT 是瀏覽器擴充（AdBlock / uBlock / AdGuard）按其過濾規則名單攔截了請求。美洽腳本是「第三方外網域 + 即時通訊」，常被這類規則誤判為廣告 / 追蹤而攔，造成「後台資料正常、使用者側不顯示」的假失敗。 無痕視窗或關閉廣告攔截擴充復測——能顯示即為攔截所致；引導使用者把站點加白名單；前端可對客服腳本做延遲 / 條件載入以繞過部分自動規則。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽meiqia.js 請求 404 / 狀態異常 / 混合內容怎麼解決？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "部署後可在開發者工具 Network 面板搜尋 meiqia.js，狀態碼 200 表示腳本位置正確、已正常載入。 非 200 的常見原因：程式碼被頁面快取 / CDN 快取擋住（發布後沒重新整理）、HTTP 頁面下載入 / 憑證鏈不全觸發混合內容攔截、或程式碼被改壞 / 複製不全。腳本這一步失敗，後面的注入與連線都不會發生。 發布後清 CDN / 瀏覽器快取或用無痕視窗；確保全站 HTTPS、憑證鏈完整、無混合內容；核對複製的程式碼完整無缺、未被轉義。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽程式碼貼錯位置（head 阻塞 / 不生效）怎麼解決？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽官方建議把程式碼貼到網站頁面底部、</body> 標籤之前；外掛程式碼會在頁面主要內容載入完成後執行。 網頁外掛需在 DOM 就緒後再注入容器。貼在 <head> 會阻塞渲染（弱網先白屏）、或在 DOM 未就緒時執行導致注入失敗；貼進某些非同步 / 模組作用域裡也可能載入順序錯亂。 把美洽 JS 放到所有頁面的公共底部、</body> 之前；SPA 見「SPA 路由」一條用 manualInit；確保它不被打包工具 tree-shaking 掉。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽聊天視窗 / 按鈕樣式錯亂怎麼解決？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "網頁外掛會動態插入自身樣式並自動適配網站；若與站點全域樣式衝突，可能出現外觀異常。 美洽腳本執行時動態插入 CSS；如果站點全域樣式（萬用選擇器 / 高優先規則 / reset）先覆蓋了它的類別，按鈕位置、層級、字體就會錯亂——這是「動態注入 + 共享同一文件樣式空間」的副作用。 F12 看是哪條站點規則覆蓋了美洽容器，給站點全域樣式收窄作用域 / 降低對通用類別的影響；必要時聯絡美洽調整容器層級。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽按鈕跑到螢幕外 / 被遮擋怎麼解決？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "外掛按鈕以固定定位浮窗形式出現在頁面；如被其它固定元素遮擋可調整層級或位置。 站點裡其它 position:fixed 元素（回到頂部、懸浮廣告、客服條）z-index 更高把美洽按鈕蓋住，或主題樣式把它的定位座標算偏，按鈕就「在螢幕外 / 被遮」。 F12 選中美洽容器看實際座標 / z-index；調高它或調低遮擋元素層級；避免多個固定浮窗疊在同一角落。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽第三方外掛 / 統計改 DOM 衝突怎麼解決？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "頁面中其它腳本若修改 DOM 結構或攔截請求，可能影響美洽外掛的正常載入與顯示。 熱圖 / 統計 / 轉換類腳本會改寫 DOM、注入遮罩層或攔請求；它們與美洽都往同一文件注入元素，層級 / 事件互相干擾，導致美洽容器被覆蓋或初始化被打斷。 逐個暫時停用可疑外掛復測定位衝突源；調整載入順序 / 容器層級；讓熱圖等避開美洽容器區域。"
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">語言：<a href="/">简体中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <strong>繁體中文</strong></nav>
+<h1>美洽 客服視窗不顯示 / 接入報錯 速查</h1>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_tw.webp"><img src="/img/cover_tw.png" alt="美洽客服視窗不顯示 / 接入報錯速查工具示意圖" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>圖：美洽客服接入不顯示 / 報錯速查（L1 現象 + L2 深度真因 + 五種接入方式對照）</figcaption></figure>
+<p><strong>美洽</strong>的<strong>網頁客服外掛</strong>貼了程式碼卻<strong>不顯示</strong>、<strong>聊天按鈕不出現</strong>、主控台報 <code>meiqia.js</code> 被攔、或<strong>客服後台收不到對話</strong>？先想清三件事——<strong>是腳本根本沒載入（程式碼位置 / 廣告攔截 / 快取），還是載入了但被頁面樣式 / 層級蓋住，還是載入正常但設定沒對上（entId / 網域 / SPA 生命週期）</strong>。輸入或點選你遇到的<strong>症狀或關鍵字</strong>（如 <code>不顯示</code>、<code>廣告攔截</code>、<code>entId</code>、<code>SPA</code>、<code>行動版</code>、<code>SDK推播</code>），先看 <strong>L1 現象與官方定位</strong>，再看 <strong>L2 深度真因與排查</strong>，最後對照五種接入方式與真實情境。需要安裝 / 教學可到 <a href="https://meiqis.com/">美洽下載 / 客服系統接入教學</a>。</p>
+<input id="q" placeholder="輸入症狀或關鍵字，例如 不顯示 / 廣告攔截 / entId / SPA / 行動版 / SDK推播" autocomplete="off">
+<button id="go">查詢</button>
+<div id="out"></div>
+<h2>第一步：先看腳本載入沒、再分四類（別急著重貼程式碼）</h2>
+<p>美洽客服不顯示，九成落在四類上、先分清誰的鍋：先看<strong>腳本到底載入了沒</strong>——F12 → Network 搜 <code>meiqia.js</code>，沒有請求或狀態非 200 就是沒載入。① <strong>載入失敗類</strong>——程式碼貼錯位置（應在 <code>&lt;/body&gt;</code> 前、非 <code>&lt;head&gt;</code>）、被廣告攔截擴充按廣告規則攔（<code>ERR_BLOCKED_BY_CLIENT</code>）、CDN / 瀏覽器快取擋住、HTTPS 憑證 / 混合內容；② <strong>設定授權類</strong>——entId 與工作台不一致（腳本能載入但客服收不到對話）、網站網域沒在後台授權；③ <strong>框架整合類</strong>——Vue/React/Next 單頁應用路由切換銷毀容器、外掛沒重建；④ <strong>顯示 / 行動 / SDK 類</strong>——站點 CSS 把浮窗推到螢幕外 / 第三方外掛改 DOM 蓋住層級、行動版要單獨部署、APP 內要用 SDK。更完整的接入步驟見 <a href="https://meiqis.com/zh-tw/website-integration/">美洽網站接入教學</a>。</p>
+<div class="cat"><div class="catbox"><b>載入失敗類</b><span class="cs">程式碼位置 · 廣告攔截 · 快取 · HTTPS</span><div>把美洽 JS 貼在 </body> 前（非 <head>）；F12 → Network 搜 meiqia.js 看狀態碼（應 200）；被 ERR_BLOCKED_BY_CLIENT 攔多為廣告攔截擴充，用無痕視窗或加白名單復測；發布後清 CDN 快取；確認全站 HTTPS、無混合內容。</div></div><div class="catbox"><b>設定授權類</b><span class="cs">entId · 網域白名單 · 子渠道</span><div>entId 是企業唯一識別，與工作台不一致會「腳本能載入但客服收不到對話」（核對【設定-團隊管理-ID查詢】）；網站網域要在後台「新增接入網站」授權；多業務線用子渠道（探頭）各自獨立設定，別一段程式碼混用。</div></div><div class="catbox"><b>框架整合類</b><span class="cs">SPA · 路由切換 · 手動初始化</span><div>Vue/React/Next 單頁應用路由切換會銷毀 DOM、外掛不會自動重建；用 _MEIQIA('manualInit') 阻止自動初始化，在路由鉤子（如 useEffect / mounted）裡按需 _MEIQIA('init') 重新掛載。</div></div><div class="catbox"><b>顯示異常類</b><span class="cs">樣式衝突 · 層級覆蓋 · 第三方外掛</span><div>腳本已載入但看不到：多為站點全域 CSS 覆蓋了浮窗按鈕位置、或熱圖 / 統計 / SEO 外掛改 DOM 把容器層級蓋住；F12 → Elements 搜 meiqia 容器，看是否被 display:none、z-index 壓住或移到螢幕外。</div></div><div class="catbox"><b>行動 / SDK 類</b><span class="cs">行動網頁 · AppKey · 推播</span><div>行動 / PC 網頁是同一段程式碼但需分別部署接入；APP 內用原生 SDK（先在後台「新增 APP 設定」拿 AppKey）；推播分「不推播」（僅 APP 內收）與「自訂推播伺服器」（離開 APP 也能收）。</div></div><div class="catbox"><b>介面呼叫類</b><span class="cs">withoutBtn · showPanel · 顧客資訊</span><div>想用自己的按鈕：_MEIQIA('withoutBtn') 隱藏自帶按鈕、點擊時呼叫 _MEIQIA('showPanel') 開啟聊天視窗；傳遞 / 同步顧客資訊要在初始化時序內呼叫，否則不生效。</div></div></div><figure><svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="美洽客服視窗不顯示排查決策流程圖" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">客服視窗 / 按鈕不顯示排查流程（先分兩步：腳本載入了嗎 → 設定對了嗎）</text><rect x="20" y="46" width="150" height="46" rx="10" fill="#111"/><text x="95" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff">客服不顯示</text><path d="M170 69 H206" stroke="#999" stroke-width="2" fill="none" marker-end="url(#a)"/><rect x="206" y="46" width="172" height="46" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="292" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1d4ed8">先分兩類</text><rect x="440" y="20" width="262" height="56" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="455" y="42" font-family="system-ui,Arial" font-size="12.5" fill="#1d4ed8">腳本沒載入 →</text><text x="455" y="62" font-family="system-ui,Arial" font-size="11.5" fill="#1e3a8a">程式碼位置 · 廣告攔截 · 快取</text><rect x="440" y="86" width="262" height="56" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="455" y="108" font-family="system-ui,Arial" font-size="12.5" fill="#b45309">載入了但不顯 / 連不上 →</text><text x="455" y="128" font-family="system-ui,Arial" font-size="11.5" fill="#92400e">樣式層級 · entId · 網域 · SPA</text><path d="M378 60 H410 V48 H440" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M378 78 H410 V114 H440" stroke="#d97706" stroke-width="2" fill="none" marker-end="url(#a)"/><text x="20" y="178" font-family="system-ui,Arial" font-size="13" font-weight="700" fill="#1d1d1f">四類根因（逐項看真因 / 排查）</text><g font-family="system-ui,Arial" font-size="12"><rect x="20" y="190" width="162" height="92" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="32" y="212" font-weight="700" fill="#1d4ed8">① 載入失敗</text><text x="32" y="234" fill="#555" font-size="11">位置 · 攔截 · 快取</text><rect x="194" y="190" width="162" height="92" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="206" y="212" font-weight="700" fill="#1d4ed8">② 設定授權</text><text x="206" y="234" fill="#555" font-size="11">entId · 網域白名單</text><rect x="368" y="190" width="162" height="92" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="380" y="212" font-weight="700" fill="#b45309">③ 框架整合</text><text x="380" y="234" fill="#555" font-size="11">SPA 路由 · init</text><rect x="542" y="190" width="160" height="92" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="554" y="212" font-weight="700" fill="#047857">④ 顯示 / 行動 / SDK</text><text x="554" y="234" fill="#555" font-size="11">層級 · 行動 · 推播</text></g><defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#999"/></marker></defs></svg><figcaption>圖1：美洽客服不顯示排查決策流程——先看腳本載入沒，再分載入失敗 / 設定授權 / 框架 / 顯示四類</figcaption></figure>
+<h2>第二步：最常被忽略的真因 → L2 深度（網頁外掛 = 第三方外網域 JS 非同步注入）</h2>
+<p>關鍵認知：<strong>美洽網頁外掛不是嵌在你頁面裡的靜態元件，而是一段 <code>meiqia.js</code> 非同步從美洽外網域載入、再動態往你的頁面裡建立客服容器（DOM / iframe），並和美洽伺服器建一條跨網域長連線</strong>。這就解釋了大半「玄學」不顯示——① <strong>它是第三方外網域腳本</strong>：AdBlock / uBlock 按「第三方追蹤 / 廣告」規則名單直接攔，於是 <code>ERR_BLOCKED_BY_CLIENT</code>、按鈕根本不出現（後台卻顯示正常）；② <strong>它非同步注入 DOM</strong>：貼在 <code>&lt;head&gt;</code> 會阻塞、SPA 路由切換銷毀容器後不會自動重建（要 <code>manualInit</code> + <code>_MEIQIA('init')</code>）、其它熱圖 / 統計外掛改 DOM 會蓋住它的層級；③ <strong>它靠 entId 綁企業、靠網域白名單授權</strong>：entId 錯或網域沒授權時，腳本能載入、但「連不上對話」；④ <strong>行動版與 PC 是兩套獨立接入</strong>，APP 內則是 SDK（AppKey）、推播還分「不推播 / 自訂推播伺服器」兩條鏈路。理解這條注入鏈路，下面每個症狀的排查就有了統一邏輯。下圖是接入自檢面板示意；再往下是五種接入方式對照與 2026 估算。</p>
+<figure><svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="美洽接入前自檢面板示意圖" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">接入自檢面板示意（綠=已確認 / 紅=易忽略待查）</text><rect x="20" y="42" width="680" height="226" rx="14" fill="#f8fafc" stroke="#e2e8f0"/><text x="38" y="66" font-family="system-ui,Arial" font-size="12.5" font-weight="700" fill="#475569">自檢項</text><text x="300" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">判斷</text><text x="610" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">狀態</text><line x1="38" y1="74" x2="682" y2="74" stroke="#e2e8f0" stroke-width="1"/><text x="38" y="98" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">美洽程式碼貼在 </body> 前（非 <head>）</text><text x="300" y="98" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">程式碼位置</text><circle cx="612" cy="94" r="6" fill="#16a34a"/><text x="628" y="98" font-family="system-ui,Arial" font-size="12" fill="#16a34a">已確認</text><text x="38" y="128" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">F12 → Network 裡 meiqia.js 狀態 200</text><text x="300" y="128" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">腳本載入</text><circle cx="612" cy="124" r="6" fill="#16a34a"/><text x="628" y="128" font-family="system-ui,Arial" font-size="12" fill="#16a34a">已確認</text><text x="38" y="158" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">主控台 typeof _MEIQIA 為 function</text><text x="300" y="158" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">已初始化</text><circle cx="612" cy="154" r="6" fill="#16a34a"/><text x="628" y="158" font-family="system-ui,Arial" font-size="12" fill="#16a34a">已確認</text><text x="38" y="188" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">無痕視窗 / 關廣告攔截能顯示</text><text x="300" y="188" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">廣告攔截</text><circle cx="612" cy="184" r="6" fill="#ef4444"/><text x="628" y="188" font-family="system-ui,Arial" font-size="12" fill="#ef4444">待查</text><text x="38" y="218" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">entId 與工作台一致 + 網域已授權</text><text x="300" y="218" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">設定授權</text><circle cx="612" cy="214" r="6" fill="#16a34a"/><text x="628" y="218" font-family="system-ui,Arial" font-size="12" fill="#16a34a">已確認</text><text x="38" y="248" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">SPA 路由切換後重新 init + 無外掛覆蓋層級</text><text x="300" y="248" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">框架 / 層級</text><circle cx="612" cy="244" r="6" fill="#ef4444"/><text x="628" y="248" font-family="system-ui,Arial" font-size="12" fill="#ef4444">待查</text><text x="20" y="296" font-family="system-ui,Arial" font-size="11.5" fill="#94a3b8">註：紅 = 最易被忽略兩點——廣告攔截擴充（ERR_BLOCKED_BY_CLIENT）與 框架 / 層級（SPA 切頁、第三方外掛改 DOM）；先按這兩點核。</text></svg><figcaption>圖2：美洽接入自檢面板示意（綠=已確認 / 紅=易忽略待查）</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_tw.webp"><img src="/img/board_tw.png" alt="美洽接入前自檢面板紅綠項示意圖" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>圖：先核「程式碼位置 + meiqia.js 200 + 已初始化」，再看「廣告攔截 + 框架/層級」——後兩點最易忽略</figcaption></figure>
+<h2>全部症狀對照表（L1 現象 / 官方定位 · L2 深度真因）</h2>
+<table id="tbl"></table>
+<h2>美洽五種接入方式對照（程式碼 / 難度 / 功能 / 情境 / 生效速度 · 官方口徑）</h2>
+<table class="cmp"><tr><th>接入方式</th><th>程式碼 / 難度</th><th>功能完整度</th><th>適用情境</th><th>生效速度</th></tr><tr><td>網頁 JS 外掛</td><td>一段 JS · 低</td><td>最全（浮窗 / 彈窗 / 自動迎賓 / 訪客軌跡）</td><td>PC + 行動官網（官方推薦）</td><td>約 3–5 分鐘</td></tr><tr><td>聊天連結</td><td>無程式碼 · 最低</td><td>基礎對話</td><td>無技術 / 臨時放個客服連結</td><td>即時</td></tr><tr><td>API / WebIM SDK</td><td>需開發 · 高</td><td>深度客製（自訂介面 / 系統整合 / 訂單打通）</td><td>有開發能力做深度融合</td><td>視開發</td></tr><tr><td>APP 原生 SDK</td><td>整合 SDK · 高</td><td>APP 內客服 + 訊息推播</td><td>iOS / Android APP</td><td>視開發</td></tr><tr><td>CMS 快捷設定</td><td>外掛 / 一鍵 · 低</td><td>同 JS 外掛</td><td>WordPress / 凡科 / Shopify 等建站</td><td>幾分鐘</td></tr></table><section class="i4data">
+<h2>美洽接入不顯示主因與接入方式對照（2026 估算）</h2>
+<p>以下為綜合美洽官方說明（接入渠道 / JavaScript 網頁外掛介面）與公開接入排錯經驗的 <strong>2026 估算</strong>（非廠商承諾值、非一手實測，僅供參考；隨版本與瀏覽器策略變化）：</p>
+<table>
+<tr><th>維度</th><th>估算 / 對照</th></tr>
+<tr><td>接入不顯示主因占比（社群 / 工單經驗 · 估算）</td><td><strong>程式碼位置 / 未載入 ≈ 35%</strong> &gt; <strong>廣告攔截 / 瀏覽器擴充 ≈ 25%</strong> &gt; 設定授權（entId / 網域）≈ 20% &gt; 框架整合（SPA）≈ 12% &gt; 樣式 / 第三方外掛衝突 ≈ 8%</td></tr>
+<tr><td>接入技術本質</td><td>網頁外掛 = <strong>第三方外網域非同步 JS 注入 DOM + 跨網域長連線</strong>（非內嵌靜態元件）；故受程式碼位置、廣告攔截規則、頁面 CSS 層級、SPA 生命週期影響</td></tr>
+<tr><td>各端接入方式（估算）</td><td>PC / 行動網頁 = <strong>JS 外掛（同程式碼、分別部署）</strong>；APP = <strong>原生 SDK（AppKey）</strong>；微信 / 抖音 / 小紅書 = 渠道授權接入</td></tr>
+<tr><td>廣告攔截影響（估算）</td><td>PC 端約 <strong>30–40%</strong> 使用者裝廣告攔截擴充 → 第三方客服腳本被按廣告規則攔（ERR_BLOCKED_BY_CLIENT），是「後台正常、使用者側不顯示」的高發因</td></tr>
+<tr><td>JS 外掛生效速度（官方口徑）</td><td>複製專屬 JS 程式碼貼到頁面底部，約 <strong>3–5 分鐘</strong>生效；entId 為企業唯一識別，與工作台不一致則客服收不到對話</td></tr>
+</table>
+<p><small>估算口徑：信源基線 + 時間外推（綜合 meiqia.com/help 接入渠道 / JavaScript 網頁外掛、meiqia.im 接入官網指南、公開接入排錯帖 2026 抓取），隨版本與瀏覽器攔截策略會變；請以美洽最新官方為準。</small></p>
+</section>
+<h2>真實情境速判</h2>
+<ul class="scenes"><li>網站貼了程式碼卻沒有客服浮窗：先 F12 → Network 搜 meiqia.js——沒有這個請求或狀態非 200，多半是程式碼沒貼對位置 / 被快取擋住；清 CDN 快取或用無痕視窗重開。</li><li>主控台報 meiqia.js net::ERR_BLOCKED_BY_CLIENT：是 AdBlock / uBlock / AdGuard 把第三方客服腳本按廣告規則攔了——關攔截擴充或把站點加白名單即恢復；這也是「使用者那邊不顯示、你自己後台正常」的高發原因。</li><li>腳本載入了（主控台 typeof _MEIQIA 為 function）但看不到按鈕：多為站點主題 CSS 把浮窗推到螢幕外、或熱圖 / 統計外掛改了 DOM 層級——F12 → Elements 裡搜美洽容器逐項核。</li><li>Vue / React 單頁站首頁有客服、點進二級路由就沒了：SPA 切路由銷毀了容器、外掛沒重建——用 manualInit 關自動初始化，在路由切換鉤子裡呼叫 _MEIQIA('init') 重新掛載。</li><li>客服視窗能彈，但客服後台收不到訪客訊息：八成是 entId 與工作台不一致（複製了別處的程式碼 / 多帳號搞混）——核對【設定-團隊管理-ID查詢】的企業 ID 與程式碼裡的 entId 是否一致。</li><li>測試環境好用、換到正式網域就不載入：正式網域沒在後台「新增接入網站」授權——把線上網域加進接入網站清單再發布。</li><li>想去掉美洽自帶的圓形按鈕、用頁面裡自己的「聯絡客服」按鈕：先 _MEIQIA('withoutBtn') 隱藏自帶按鈕，再給自己的按鈕綁 _MEIQIA('showPanel') 開啟聊天視窗。</li></ul><div class="related"><h2>相關</h2><ul><li><a href="https://meiqis.com/">美洽下載 / 安裝與接入教學</a></li><li><a href="https://meiqis.com/zh-tw/website-integration/">美洽網站接入教學（JS 外掛）</a></li><li><a href="https://meiqis.com/zh-tw/tools/meiqia-integration-troubleshooting/">美洽接入排錯速查（本站權威版 · 全量表）</a></li><li><a href="https://meiqiaa.com/">美洽官網（姊妹站）</a></li></ul></div></main>
+<footer>網頁外掛 / JS 介面（manualInit / init / withoutBtn / showPanel / 傳遞顧客資訊）、entId / 網域授權、子渠道、SDK AppKey 與推播方式口徑整理自美洽官方說明中心（meiqia.com/help · 接入渠道 / JavaScript 網頁外掛）與接入官網指南（meiqia.im）；廣告攔截 ERR_BLOCKED_BY_CLIENT、熱圖 / 統計外掛 DOM 衝突、SPA 整合等整理自公開接入排錯經驗（已二次提煉）。2026 占比 / 比例為估算、非廠商承諾值、非一手實測，僅供參考，請以美洽最新官方為準。<br>工具頁 · 接入排查不取代美洽官方後台</footer>
+</div>
+<script src="/zh-tw/codes.js"></script><script src="/app.js"></script>
+</body></html>
