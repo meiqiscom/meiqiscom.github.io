@@ -1,0 +1,142 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>美洽（Meiqia）チャットが表示されない / 設置エラー 対処検索 - ウィジェット未読込・ボタン非表示・entId 不一致・SPA・SDK プッシュ</title>
+<meta name="description" content="美洽（Meiqia）のウェブ接客チャットが表示されない、チャットボタンが出ない、meiqia.js が ERR_BLOCKED_BY_CLIENT で拒否、スタイル崩れ、SPA ルート遷移後に消える、entId 不一致で対話を受けられない、モバイルで出ない、SDK プッシュが届かない？症状を検索し、L1 現象と公式の位置づけ + L2 根本原因（サードパーティ外部ドメインの非同期 JS 注入 / 広告ブロックルール / ページ CSS の重なり / SPA ライフサイクル / entId とドメイン許可の紐付け / SDK AppKey とプッシュ経路）を確認。美洽 5 つの設置方式の比較と 2026 推計も。">
+<link rel="canonical" href="https://meiqiscom.github.io/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://meiqiscom.github.io/">
+<link rel="alternate" hreflang="en" href="https://meiqiscom.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://meiqiscom.github.io/ja/">
+<link rel="alternate" hreflang="zh-Hant" href="https://meiqiscom.github.io/zh-tw/">
+<link rel="alternate" hreflang="x-default" href="https://meiqiscom.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "美洽 チャット設置 非表示 / エラー 対処検索",
+   "url": "https://meiqiscom.github.io/ja/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "inLanguage": "ja",
+   "description": "美洽（Meiqia）のウェブ接客チャットが表示されない、チャットボタンが出ない、meiqia.js が ERR_BLOCKED_BY_CLIENT で拒否、スタイル崩れ、SPA ルート遷移後に消える、entId 不一致で対話を受けられない、モバイルで出ない、SDK プッシュが届かない？症状を検索し、L1 現象と公式の位置づけ + L2 根本原因（サードパーティ外部ドメインの非同期 JS 注入 / 広告ブロックルール / ページ CSS の重なり / SPA ライフサイクル / entId とドメイン許可の紐付け / SDK AppKey とプッシュ経路）を確認。美洽 5 つの設置方式の比較と 2026 推計も。",
+   "isAccessibleForFree": true,
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "ja",
+   "url": "https://meiqiscom.github.io/ja/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "美洽のチャットウィンドウ / 吹き出しが全く表示されないはどう直す？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽ウェブウィジェットは貼り付けた 1 つの JS でフローティングチャットを読み込む；コードが正しく埋め込まれ、接入サイトが管理画面で設定済みか確認。 ウィジェットは meiqia.js が非同期読込後に DOM へ注入する仕組み。全く出ないのは通常「スクリプトが読み込まれていない」——位置ミス、広告ブロック / キャッシュ、ドメイン / entId 不一致で注入が走っていない。 F12 → Network で meiqia.js：リクエスト無し→コード未反映（位置 / キャッシュ）；200 以外→遮断かパス；全て正常でも非表示→entId / ドメイン許可と下の各分類を確認。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽の読込めたがチャットボタンが出ないはどう直す？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ウィジェットコードはサイトに自動適応してチャットボタンを表示する；表示異常ならスタイルで隠れていないか、初期化が中断していないか確認。 読込めたのにボタンが出ないのは多く「表示層」の問題：サイト全体 CSS がボタン位置を上書き / display:none、z-index 負け、他の固定要素が覆う；ページ内の別 JS エラーで初期化が中断する場合も。 F12 → Elements で美洽コンテナの有無 / 非表示 / 画面外を確認；サイトのカスタム CSS / 他スクリプトを一時停止し再確認；コンソールで中断エラーを確認。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽のmeiqia.js が広告ブロック拡張に遮断されるはどう直す？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽の接客スクリプトはサードパーティドメイン由来；ブロック拡張があると広告 / トラッカーと判定し読込を阻止する場合があり、ブロック解除かホワイトリストを推奨。 ERR_BLOCKED_BY_CLIENT はブラウザ拡張（AdBlock / uBlock / AdGuard）がフィルタリストでリクエストを遮断したもの。美洽は「サードパーティ外部 + リアルタイム通信」で、こうしたルールに広告 / トラッカーと誤判定され「管理画面は正常、ユーザー側は非表示」の偽障害に。 シークレット / 広告ブロック OFF で再確認——表示されれば遮断が原因；ユーザーにサイトのホワイトリスト化を案内；フロントで接客スクリプトを遅延 / 条件読込し一部の自動ルールを回避。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽のmeiqia.js が 404 / 異常ステータス / 混在コンテンツはどう直す？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "デプロイ後、Network パネルで meiqia.js を検索；ステータス 200 なら位置が正しく正常読込。 200 以外の主因：ページ / CDN キャッシュで保持（公開後未更新）、HTTP ページで読込 / 証明書チェーン不全で混在コンテンツ遮断、コード破損 / コピー不足。ここで失敗すると注入も接続も起きない。 公開後は CDN / ブラウザキャッシュをクリア（またはシークレット）；全サイト HTTPS・証明書チェーン完全・混在コンテンツ無し；コピーしたコードの完全性・未エスケープを確認。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽のコードの位置ミス（head ブロック / 無効）はどう直す？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽公式はページ末尾・</body> タグの前への貼付を推奨；ウィジェットはページ主要コンテンツの読込後に実行。 ウィジェットは DOM 準備後にコンテナ注入が必要。<head> では描画をブロック（弱回線で先に白画面）、DOM 未準備で実行し注入失敗；一部の非同期 / モジュールスコープ内では読込順が崩れる。 美洽 JS を全ページ共通の末尾・</body> の前へ；SPA は「SPA ルート」項目で manualInit；バンドラの tree-shaking で消えないよう注意。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽のチャットウィンドウ / ボタンのスタイル崩れはどう直す？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ウィジェットは自身のスタイルを挿入しサイトに自動適応；サイト全体スタイルと競合すると外観異常の場合あり。 美洽は実行時に CSS を挿入；サイト全体スタイル（ユニバーサルセレクタ / 高優先度 / reset）がそのクラスを先に上書きすると、ボタン位置・重なり・フォントが崩れる——「動的注入 + 同一ドキュメントのスタイル空間共有」の副作用。 F12 でどのサイトルールが美洽コンテナを上書きしたか確認；サイト全体スタイルのスコープを絞り汎用クラスへの影響を低減；必要なら美洽にコンテナの重なり調整を依頼。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽のボタンが画面外 / 覆われるはどう直す？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ウィジェットボタンは固定配置のフローティングで出る；他の固定要素に覆われたら重なり / 位置を調整。 サイトの他の position:fixed 要素（トップへ戻る、フローティング広告、自前サポートバー）が高い z-index で覆う、またはテーマが座標を誤算し、ボタンが「画面外 / 覆われる」。 F12 で美洽コンテナの実座標 / z-index を確認；それを上げるか覆う要素を下げる；複数の固定フローティングを同じ隅に重ねない。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽の他プラグイン / 解析の DOM 競合はどう直す？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "DOM を変更したりリクエストを横取りする他スクリプトは、ウィジェットの正常な読込 / 表示に影響しうる。 ヒートマップ / 解析 / コンバージョン系は DOM を書換え、オーバーレイを注入、リクエストを横取りする；美洽と同じドキュメントへ注入するため重なり / イベントが干渉し、コンテナが覆われたり init が中断。 疑わしいプラグインを 1 つずつ一時停止し競合源を特定；読込順 / コンテナ重なりを調整；ヒートマップ等を美洽コンテナ領域から除外。"
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">言語：<a href="/">简体中文</a> · <a href="/en/">English</a> · <strong>日本語</strong> · <a href="/zh-tw/">繁體中文</a></nav>
+<h1>美洽 チャットが表示されない / 設置エラー 対処検索</h1>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_ja.webp"><img src="/img/cover_ja.png" alt="美洽 チャット非表示 / 設置エラー 対処検索ツールの図" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>図：美洽 チャット設置 非表示 / エラー 対処検索（L1 現象 + L2 根本原因 + 5 つの設置方式）</figcaption></figure>
+<p><strong>美洽</strong>の<strong>ウェブ接客チャット</strong>がコードを貼っても<strong>表示されない</strong>、<strong>チャットボタンが出ない</strong>、コンソールに <code>meiqia.js</code> 拒否、または<strong>対話を受けられない</strong>？まず 3 つを切り分け——<strong>スクリプトがそもそも読み込まれていないのか（位置 / 広告ブロック / キャッシュ）、読み込まれたがページの装飾 / 重なりで隠れているのか、読み込みは正常だが設定が合っていないのか（entId / ドメイン / SPA ライフサイクル）</strong>。出会った<strong>症状やキーワード</strong>（例：<code>非表示</code>、<code>広告ブロック</code>、<code>entid</code>、<code>spa</code>、<code>モバイル</code>、<code>sdk プッシュ</code>）を検索し、まず <strong>L1 現象と公式の位置づけ</strong>、次に <strong>L2 根本原因と対処</strong>、最後に 5 つの設置方式と実例を確認。導入 / 設定は <a href="https://meiqis.com/">美洽ダウンロード / 接客システム設置ガイド</a> へ。</p>
+<input id="q" placeholder="症状かキーワードを入力（例：非表示 / 広告ブロック / entid / spa / モバイル / sdk プッシュ）" autocomplete="off">
+<button id="go">検索</button>
+<div id="out"></div>
+<h2>ステップ1：まずスクリプトが読込めたか確認、次に 4 分類</h2>
+<p>美洽のチャットが出ない時、9 割は 4 つのどれか。まず<strong>スクリプトが読み込まれたか</strong>——F12 → Network で <code>meiqia.js</code> を検索、リクエストが無い / 200 以外なら未読込。① <strong>読込失敗</strong>——コードの位置ミス（<code>&lt;/body&gt;</code> の前へ、<code>&lt;head&gt;</code> 不可）、広告ブロックルールで拒否（<code>ERR_BLOCKED_BY_CLIENT</code>）、CDN / ブラウザキャッシュ、HTTPS 証明書 / 混在コンテンツ；② <strong>設定 / 許可</strong>——entId がワークベンチと不一致（読込めても対話を受けられない）、サイトのドメインが管理画面で未許可；③ <strong>フレームワーク</strong>——Vue/React/Next の SPA がルート遷移でコンテナを破棄しウィジェットが再構築されない；④ <strong>表示 / モバイル / SDK</strong>——サイト CSS が吹き出しを画面外へ / 他プラグインが DOM を上書き、モバイルは別途設置、アプリ内は SDK。詳しくは <a href="https://meiqis.com/ja/website-integration/">美洽サイト設置ガイド</a>。</p>
+<div class="cat"><div class="catbox"><b>読込失敗</b><span class="cs">位置 . 広告ブロック . キャッシュ . HTTPS</span><div>美洽 JS は </body> の前に貼る（<head> 不可）；F12 → Network で meiqia.js のステータス（200 が正）を確認；ERR_BLOCKED_BY_CLIENT は広告ブロック拡張が多い——シークレットで再確認 / ホワイトリスト；公開後は CDN キャッシュをクリア；全サイト HTTPS・混在コンテンツ無しを確認。</div></div><div class="catbox"><b>設定 / 許可</b><span class="cs">entId . ドメイン許可 . サブチャネル</span><div>entId は企業の一意 ID。ワークベンチと不一致だと「読込めても対話を受けられない」（設定-チーム-ID 照会で確認）；サイトのドメインは管理画面で「接入サイトを追加」して許可；事業ラインごとにサブチャネル（探頭）で個別設定し、1 つのコードを使い回さない。</div></div><div class="catbox"><b>フレームワーク</b><span class="cs">SPA . ルート遷移 . manualInit</span><div>Vue/React/Next の SPA はルート遷移で DOM を破棄し、ウィジェットは自動再構築されない；_MEIQIA('manualInit') で自動初期化を止め、ルートフック（useEffect / mounted）で必要に応じ _MEIQIA('init') して再マウント。</div></div><div class="catbox"><b>表示異常</b><span class="cs">スタイル競合 . 重なり . 他プラグイン</span><div>読込めたが見えない：サイト全体 CSS が吹き出し位置を上書き、またはヒートマップ / 解析 / SEO プラグインが DOM を変えてコンテナを覆う；F12 → Elements で meiqia コンテナを検索し、display:none、z-index 負け、画面外座標を確認。</div></div><div class="catbox"><b>モバイル / SDK</b><span class="cs">モバイル Web . AppKey . プッシュ</span><div>モバイル / PC の Web は同じコードだが別途設置が必要；アプリ内はネイティブ SDK（まず管理画面で「APP 設定を追加」して AppKey を取得）；プッシュは「プッシュしない」（アプリ内のみ）と「カスタムプッシュサーバ」（アプリ終了後も配信）に分かれる。</div></div><div class="catbox"><b>API 呼び出し</b><span class="cs">withoutBtn . showPanel . 顧客情報</span><div>自前ボタンを使う：_MEIQIA('withoutBtn') で内蔵ボタンを隠し、クリック時に _MEIQIA('showPanel') でチャットを開く；顧客情報の受け渡し / 同期は初期化のタイミング内で呼ばないと効かない。</div></div></div><figure><svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="美洽 チャット非表示の切り分けフロー" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">チャット / ボタン非表示の切り分け（まず 2 段階：スクリプト読込めたか → 設定は合っているか）</text><rect x="20" y="46" width="150" height="46" rx="10" fill="#111"/><text x="95" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff">チャット非表示</text><path d="M170 69 H206" stroke="#999" stroke-width="2" fill="none" marker-end="url(#a)"/><rect x="206" y="46" width="172" height="46" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="292" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1d4ed8">まず 2 分類</text><rect x="440" y="20" width="262" height="56" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="455" y="42" font-family="system-ui,Arial" font-size="12.5" fill="#1d4ed8">スクリプト未読込 →</text><text x="455" y="62" font-family="system-ui,Arial" font-size="11.5" fill="#1e3a8a">位置 . 広告ブロック . キャッシュ</text><rect x="440" y="86" width="262" height="56" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="455" y="108" font-family="system-ui,Arial" font-size="12.5" fill="#b45309">読込めたが非表示 / 未接続 →</text><text x="455" y="128" font-family="system-ui,Arial" font-size="11.5" fill="#92400e">重なり . entId . ドメイン . SPA</text><path d="M378 60 H410 V48 H440" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M378 78 H410 V114 H440" stroke="#d97706" stroke-width="2" fill="none" marker-end="url(#a)"/><text x="20" y="178" font-family="system-ui,Arial" font-size="13" font-weight="700" fill="#1d1d1f">4 つの根因（原因 / 対処を見る）</text><g font-family="system-ui,Arial" font-size="12"><rect x="20" y="190" width="162" height="92" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="32" y="212" font-weight="700" fill="#1d4ed8">1. 読込失敗</text><text x="32" y="234" fill="#555" font-size="11">位置 . 遮断 . キャッシュ</text><rect x="194" y="190" width="162" height="92" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="206" y="212" font-weight="700" fill="#1d4ed8">2. 設定 / 許可</text><text x="206" y="234" fill="#555" font-size="11">entId . ドメイン許可</text><rect x="368" y="190" width="162" height="92" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="380" y="212" font-weight="700" fill="#b45309">3. フレームワーク</text><text x="380" y="234" fill="#555" font-size="11">SPA ルート . init</text><rect x="542" y="190" width="160" height="92" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="554" y="212" font-weight="700" fill="#047857">4. 表示 / モバイル / SDK</text><text x="554" y="234" fill="#555" font-size="11">重なり . モバイル . プッシュ</text></g><defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#999"/></marker></defs></svg><figcaption>図1：美洽 非表示の切り分けフロー——まずスクリプト読込、次に 読込失敗 / 設定許可 / フレームワーク / 表示 の 4 分類</figcaption></figure>
+<h2>ステップ2：最も見落とす根因 → L2（ウィジェット = サードパーティ外部ドメインの非同期 JS 注入）</h2>
+<p>要点：<strong>美洽のウェブウィジェットはページに埋め込まれた静的コンポーネントではなく、<code>meiqia.js</code> を美洽の外部ドメインから非同期で読み込み、あなたのページへチャットコンテナ（DOM / iframe）を動的に注入し、美洽サーバへクロスオリジンの長時間接続を張る</strong>。これで「謎の」非表示の大半が説明できる——① <strong>サードパーティ外部スクリプト</strong>：AdBlock / uBlock が「第三者トラッキング / 広告」ルールで遮断し <code>ERR_BLOCKED_BY_CLIENT</code>、ボタンが出ない（管理画面は正常）；② <strong>DOM を非同期注入</strong>：<code>&lt;head&gt;</code> ではブロック、SPA のルート遷移でコンテナ破棄後は自動再構築されない（<code>manualInit</code> + <code>_MEIQIA('init')</code> が必要）、ヒートマップ / 解析プラグインが DOM を変えると重なりを覆う；③ <strong>entId で企業に紐付け、ドメイン許可でゲート</strong>：entId 誤り / ドメイン未許可だと読込めても「対話に繋がらない」；④ <strong>モバイルと PC は別々の設置</strong>、アプリ内は SDK（AppKey）、プッシュは「プッシュしない / カスタムプッシュサーバ」の 2 経路。この注入経路を理解すれば、以下の各症状の対処に一貫したロジックが通る。下図は設置セルフチェック盤、さらに下に 5 つの設置方式と 2026 推計。</p>
+<figure><svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="美洽 設置前セルフチェック盤" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">設置セルフチェック盤（緑＝確認済み / 赤＝見落としやすい）</text><rect x="20" y="42" width="680" height="226" rx="14" fill="#f8fafc" stroke="#e2e8f0"/><text x="38" y="66" font-family="system-ui,Arial" font-size="12.5" font-weight="700" fill="#475569">チェック項目</text><text x="300" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">判断</text><text x="610" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">状態</text><line x1="38" y1="74" x2="682" y2="74" stroke="#e2e8f0" stroke-width="1"/><text x="38" y="98" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">美洽コードを </body> の前に貼った（<head> 不可）</text><text x="300" y="98" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">コード位置</text><circle cx="612" cy="94" r="6" fill="#16a34a"/><text x="628" y="98" font-family="system-ui,Arial" font-size="12" fill="#16a34a">確認済み</text><text x="38" y="128" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">F12 → Network で meiqia.js が 200</text><text x="300" y="128" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">読込</text><circle cx="612" cy="124" r="6" fill="#16a34a"/><text x="628" y="128" font-family="system-ui,Arial" font-size="12" fill="#16a34a">確認済み</text><text x="38" y="158" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">コンソール typeof _MEIQIA が function</text><text x="300" y="158" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">初期化済み</text><circle cx="612" cy="154" r="6" fill="#16a34a"/><text x="628" y="158" font-family="system-ui,Arial" font-size="12" fill="#16a34a">確認済み</text><text x="38" y="188" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">シークレット / 広告ブロック OFF で表示</text><text x="300" y="188" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">広告ブロック</text><circle cx="612" cy="184" r="6" fill="#ef4444"/><text x="628" y="188" font-family="system-ui,Arial" font-size="12" fill="#ef4444">要確認</text><text x="38" y="218" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">entId がワークベンチ一致 + ドメイン許可済み</text><text x="300" y="218" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">設定 / 許可</text><circle cx="612" cy="214" r="6" fill="#16a34a"/><text x="628" y="218" font-family="system-ui,Arial" font-size="12" fill="#16a34a">確認済み</text><text x="38" y="248" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">SPA ルート遷移後に再 init + プラグイン非上書き</text><text x="300" y="248" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">フレーム / 重なり</text><circle cx="612" cy="244" r="6" fill="#ef4444"/><text x="628" y="248" font-family="system-ui,Arial" font-size="12" fill="#ef4444">要確認</text><text x="20" y="296" font-family="system-ui,Arial" font-size="11.5" fill="#94a3b8">注：赤＝最も見落とす 2 点——広告ブロック拡張（ERR_BLOCKED_BY_CLIENT）と フレームワーク / 重なり（SPA 遷移、他プラグインの DOM 改変）。まずこの 2 点を確認。</text></svg><figcaption>図2：美洽 設置セルフチェック盤（緑＝確認済み / 赤＝見落としやすい）</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_ja.webp"><img src="/img/board_ja.png" alt="美洽 設置前セルフチェック盤の緑/赤項目の図" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>図：先に「コード位置 + meiqia.js 200 + 初期化済み」、次に「広告ブロック + フレームワーク/重なり」——後者 2 つが最も見落とされる</figcaption></figure>
+<h2>全症状対照表（L1 現象 / 公式の位置づけ・L2 根本原因）</h2>
+<table id="tbl"></table>
+<h2>美洽 5 つの設置方式の比較（コード / 難度 / 機能 / 用途 / 反映速度・公開情報）</h2>
+<table class="cmp"><tr><th>設置方式</th><th>コード / 難度</th><th>機能の充実度</th><th>用途</th><th>反映速度</th></tr><tr><td>ウェブ JS ウィジェット</td><td>1 つの JS . 低</td><td>最も充実（フロート / ポップ / 自動挨拶 / 訪問者軌跡）</td><td>PC + モバイルサイト（公式推奨）</td><td>約 3〜5 分</td></tr><tr><td>チャットリンク</td><td>コード無し . 最低</td><td>基本対話</td><td>技術無し / チャットリンクを手軽に</td><td>即時</td></tr><tr><td>API / WebIM SDK</td><td>開発要 . 高</td><td>深い customization（独自 UI / システム / 注文連携）</td><td>開発力があり深く融合</td><td>開発次第</td></tr><tr><td>ネイティブ App SDK</td><td>SDK 統合 . 高</td><td>アプリ内チャット + メッセージプッシュ</td><td>iOS / Android アプリ</td><td>開発次第</td></tr><tr><td>CMS 簡易設定</td><td>プラグイン / ワンクリック . 低</td><td>JS ウィジェットと同等</td><td>WordPress / 凡科 / Shopify 等</td><td>数分</td></tr></table><section class="i4data">
+<h2>美洽 非表示の原因と設置方式の比較（2026 推計）</h2>
+<p>以下は美洽公式ヘルプ（接入渠道 / JavaScript ウェブウィジェット API）と公開の設置トラブル対応を総合した <strong>2026 推計</strong>（各社の確約値でも一次測定でもなく参考用。版とブラウザポリシーで変動）：</p>
+<table>
+<tr><th>項目</th><th>推計 / 対照</th></tr>
+<tr><td>非表示の原因内訳（コミュニティ / チケット・推計）</td><td><strong>位置 / 未読込 ≈ 35%</strong> &gt; <strong>広告ブロック / 拡張 ≈ 25%</strong> &gt; 設定 / 許可（entId / ドメイン）≈ 20% &gt; フレームワーク（SPA）≈ 12% &gt; スタイル / 他プラグイン競合 ≈ 8%</td></tr>
+<tr><td>設置の本質</td><td>ウェブウィジェット = <strong>サードパーティ外部ドメインの非同期 JS が DOM を注入 + クロスオリジン長時間接続</strong>（埋め込み静的コンポーネントではない）。ゆえに位置・広告ブロックルール・ページ CSS の重なり・SPA ライフサイクルの影響を受ける</td></tr>
+<tr><td>各端の設置方式（推計）</td><td>PC / モバイル Web = <strong>JS ウィジェット（同一コード・別途設置）</strong>；アプリ = <strong>ネイティブ SDK（AppKey）</strong>；WeChat / 抖音 / 小紅書 = チャネル許可接入</td></tr>
+<tr><td>広告ブロックの影響（推計）</td><td>PC で約 <strong>30〜40%</strong> のユーザーが広告ブロック拡張を導入 → サードパーティの接客スクリプトが広告ルールで遮断（ERR_BLOCKED_BY_CLIENT）、「管理画面は正常、ユーザー側は非表示」の主因</td></tr>
+<tr><td>JS ウィジェット反映速度（公式）</td><td>専用 JS をページ末尾に貼ると約 <strong>3〜5 分</strong>で反映；entId は企業の一意 ID、ワークベンチと不一致だと対話を受けられない</td></tr>
+</table>
+<p><small>推計の根拠：出典基線 + 時間外挿（meiqia.com/help 接入渠道 / JavaScript ウェブウィジェット、meiqia.im 設置ガイド、公開の設置トラブル対応 2026 取得）。版とブラウザの遮断ポリシーで変動。美洽の最新公式を基準に。</small></p>
+</section>
+<h2>実例・クイック判定</h2>
+<ul class="scenes"><li>コードを貼ったのにチャット吹き出しが無い：まず F12 → Network で meiqia.js を検索——リクエストが無い / 200 以外なら位置ミス / キャッシュ；CDN キャッシュをクリアかシークレットで再表示。</li><li>コンソールに meiqia.js net::ERR_BLOCKED_BY_CLIENT：広告ブロッカー（AdBlock / uBlock / AdGuard）がサードパーティの接客スクリプトを広告ルールで遮断——拡張を切る / サイトをホワイトリスト；「自分は正常、一部ユーザーで非表示」の主因でもある。</li><li>読込めた（コンソール typeof _MEIQIA が function）がボタンが見えない：テーマ CSS が吹き出しを画面外へ、またはヒートマップ / 解析プラグインが DOM の重なりを変えた——F12 → Elements で美洽コンテナを 1 つずつ確認。</li><li>Vue / React の SPA でトップにはチャット、別ルートへ進むと消える：SPA がコンテナを破棄しウィジェット未再構築——manualInit で自動初期化を止め、ルートフックで _MEIQIA('init') して再マウント。</li><li>チャットは開くが、対応者に訪問者メッセージが届かない：多くは entId がワークベンチと不一致（他所のコード / 複数アカウント混同）——設定-チーム-ID 照会の企業 ID とコード内 entId を照合。</li><li>ステージングは動くが本番ドメインで読み込まない：本番ドメインが「接入サイトを追加」で未許可——本番ドメインを接入サイト一覧に追加して再公開。</li><li>美洽の内蔵丸ボタンを消して、ページ内の自前「お問い合わせ」ボタンを使いたい：先に _MEIQIA('withoutBtn') で内蔵を隠し、自前ボタンに _MEIQIA('showPanel') を紐付けてチャットを開く。</li></ul><div class="related"><h2>関連</h2><ul><li><a href="https://meiqis.com/">美洽ダウンロード / 導入・設置ガイド</a></li><li><a href="https://meiqis.com/ja/website-integration/">美洽サイト設置ガイド（JS ウィジェット）</a></li><li><a href="https://meiqis.com/ja/tools/meiqia-integration-troubleshooting/">美洽 設置対処検索（権威版・全量表）</a></li><li><a href="https://meiqiaa.com/">美洽公式サイト（姉妹サイト）</a></li></ul></div></main>
+<footer>ウェブウィジェット / JS インターフェース（manualInit / init / withoutBtn / showPanel / 顧客情報の受け渡し）、entId / ドメイン許可、サブチャネル、SDK AppKey とプッシュ方式は美洽公式ヘルプセンター（meiqia.com/help・接入渠道 / JavaScript ウェブウィジェット）と設置ガイド（meiqia.im）より整理。広告ブロック ERR_BLOCKED_BY_CLIENT、ヒートマップ / 解析プラグインの DOM 競合、SPA 設置などは公開の設置トラブル対応から（再構成）。2026 の割合 / 比率は推計であり、各社の確約値でも一次測定でもありません。参考用、美洽の最新公式を基準に。<br>ツールページ・設置切り分け、美洽公式管理画面の代替ではありません</footer>
+</div>
+<script src="/ja/codes.js"></script><script src="/app.js"></script>
+</body></html>
