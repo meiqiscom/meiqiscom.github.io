@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="pl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>美洽(Meiqia) widget czatu się nie pokazuje / napraw błąd integracji - meiqia.js zablokowany, brak przycisku, entId, SPA, push SDK</title>
+<meta name="description" content="Widget czatu web 美洽(Meiqia) się nie pokazuje, brak przycisku, meiqia.js zablokowany przez ERR_BLOCKED_BY_CLIENT, popsute style, znika po zmianie trasy SPA, entId niezgodny i agenci nie odbierają czatów, brak na mobile, push SDK nie dochodzi? Wyszukaj objaw, by zobaczyć zachowanie L1 i przyczynę źródłową L2: asynchroniczne wstrzykiwanie JS firm trzecich spoza domeny, reguły adblock, nakładanie CSS, cykl życia SPA, entId i białą listę domen, AppKey i ścieżkę push SDK; z porównaniem pięciu metod integracji i szacunkami 2026.">
+<link rel="canonical" href="https://meiqiscom.github.io/pl/">
+<link rel="alternate" hreflang="zh-Hans" href="https://meiqiscom.github.io/">
+<link rel="alternate" hreflang="en" href="https://meiqiscom.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://meiqiscom.github.io/ja/">
+<link rel="alternate" hreflang="zh-Hant" href="https://meiqiscom.github.io/zh-tw/">
+<link rel="alternate" hreflang="ko" href="https://meiqiscom.github.io/ko/">
+<link rel="alternate" hreflang="id" href="https://meiqiscom.github.io/id/">
+<link rel="alternate" hreflang="vi" href="https://meiqiscom.github.io/vi/">
+<link rel="alternate" hreflang="th" href="https://meiqiscom.github.io/th/">
+<link rel="alternate" hreflang="es" href="https://meiqiscom.github.io/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://meiqiscom.github.io/pt-br/">
+<link rel="alternate" hreflang="de" href="https://meiqiscom.github.io/de/">
+<link rel="alternate" hreflang="fr" href="https://meiqiscom.github.io/fr/">
+<link rel="alternate" hreflang="ru" href="https://meiqiscom.github.io/ru/">
+<link rel="alternate" hreflang="it" href="https://meiqiscom.github.io/it/">
+<link rel="alternate" hreflang="pl" href="https://meiqiscom.github.io/pl/">
+<link rel="alternate" hreflang="nl" href="https://meiqiscom.github.io/nl/">
+<link rel="alternate" hreflang="tr" href="https://meiqiscom.github.io/tr/">
+<link rel="alternate" hreflang="ar" href="https://meiqiscom.github.io/ar/">
+<link rel="alternate" hreflang="hi" href="https://meiqiscom.github.io/hi/">
+<link rel="alternate" hreflang="ms" href="https://meiqiscom.github.io/ms/">
+<link rel="alternate" hreflang="fa" href="https://meiqiscom.github.io/fa/">
+<link rel="alternate" hreflang="bn" href="https://meiqiscom.github.io/bn/">
+<link rel="alternate" hreflang="ta" href="https://meiqiscom.github.io/ta/">
+<link rel="alternate" hreflang="te" href="https://meiqiscom.github.io/te/">
+<link rel="alternate" hreflang="fil" href="https://meiqiscom.github.io/fil/">
+<link rel="alternate" hreflang="ur" href="https://meiqiscom.github.io/ur/">
+<link rel="alternate" hreflang="lo" href="https://meiqiscom.github.io/lo/">
+<link rel="alternate" hreflang="km" href="https://meiqiscom.github.io/km/">
+<link rel="alternate" hreflang="my" href="https://meiqiscom.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://meiqiscom.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "美洽 czat się nie pokazuje / naprawa błędów integracji",
+   "url": "https://meiqiscom.github.io/pl/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "inLanguage": "pl",
+   "description": "Widget czatu web 美洽(Meiqia) się nie pokazuje, brak przycisku, meiqia.js zablokowany przez ERR_BLOCKED_BY_CLIENT, popsute style, znika po zmianie trasy SPA, entId niezgodny i agenci nie odbierają czatów, brak na mobile, push SDK nie dochodzi? Wyszukaj objaw, by zobaczyć zachowanie L1 i przyczynę źródłową L2: asynchroniczne wstrzykiwanie JS firm trzecich spoza domeny, reguły adblock, nakładanie CSS, cykl życia SPA, entId i białą listę domen, AppKey i ścieżkę push SDK; z porównaniem pięciu metod integracji i szacunkami 2026.",
+   "isAccessibleForFree": true,
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "pl",
+   "url": "https://meiqiscom.github.io/pl/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "美洽 Okno / bąbel czatu w ogóle się nie pokazuje — jak naprawić?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Widget web 美洽 ładuje pływające okno czatu jednym wklejonym snippetem JS; potwierdź, że kod jest dobrze osadzony, a witryna integracji skonfigurowana w konsoli. Widget to meiqia.js wstrzyknięty do DOM po asynchronicznym załadowaniu, więc «nic w ogóle» zwykle oznacza «skrypt nigdy się nie załadował»: złe umiejscowienie, zablokowany przez adblock / cache, lub niezgodna domena / entId, więc wstrzyknięcie nigdy nie nastąpiło. F12 → Network, wyszukaj meiqia.js: brak żądania → kod bez efektu (sprawdź umiejscowienie / wyczyść cache); żądanie, ale nie-200 → zablokowany lub problem ścieżki; wszystko OK, ale wciąż ukryty → sprawdź entId / autoryzację domeny i grupy poniżej."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Skrypt załadowany, ale brak przycisku czatu — jak naprawić?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Kod widgetu dostosowuje się do witryny i pokazuje przycisk czatu; jeśli wyświetlanie zawodzi, sprawdź, czy jest ukryty przez style lub czy inicjalizacja została przerwana. Jeśli skrypt się ładuje, ale brak przycisku, zwykle to problem «warstwy wyświetlania»: globalny CSS nadpisuje pozycję / ustawia display:none, z-index przegrywa, lub inny stały element go zakrywa; inny błąd JS też może przerwać inicjalizację. F12 → Elements, znajdź kontener 美洽 — obecny, ukryty czy poza ekranem?; tymczasowo wyłącz własny CSS / skrypty, by przetestować; sprawdź w konsoli błąd, który przerwał wykonanie."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js zablokowany przez rozszerzenie adblock — jak naprawić?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Skrypt czatu 美洽 pochodzi z domeny firm trzecich; jeśli zainstalowane jest rozszerzenie blokujące, może uznać go za reklamę / tracker i uniemożliwić ładowanie — wyłącz blokowanie lub dodaj do białej listy. ERR_BLOCKED_BY_CLIENT oznacza, że rozszerzenie przeglądarki (AdBlock / uBlock / AdGuard) zablokowało żądanie listami filtrów. Skrypt 美洽 to «firmy trzecie spoza domeny + komunikacja w czasie rzeczywistym», którą takie reguły często mylą z reklamą / trackerem, powodując fałszywą awarię «konsola OK, strona użytkownika pusta». Przetestuj w incognito lub z wyłączonym adblock — jeśli się pojawia, blokowanie było przyczyną; poproś użytkowników o dodanie witryny do białej listy; front może ładować skrypt czatu z opóźnieniem / warunkowo, by ominąć część reguł automatycznych."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js 404 / zły status / mieszana treść — jak naprawić?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Po wdrożeniu wyszukaj meiqia.js w panelu Network; status 200 oznacza, że skrypt jest dobrze umieszczony i załadowany. Częste przyczyny nie-200: kod wstrzymany przez cache strony / CDN (brak odświeżenia po publikacji), ładowanie na stronie HTTP / niekompletny łańcuch certyfikatów wyzwalający blokadę mieszanej treści, lub uszkodzony / częściowo skopiowany kod. Gdy ten krok zawodzi, wstrzyknięcie i połączenie nigdy nie następują. Wyczyść cache CDN / przeglądarki (lub incognito) po publikacji; zapewnij pełne HTTPS z całym łańcuchem certyfikatów i bez mieszanej treści; sprawdź, czy skopiowany kod jest kompletny i nie escape'owany."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Kod w złym miejscu (blokada w head / bez efektu) — jak naprawić?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽 zaleca wklejenie kodu na dole strony, przed </body>; widget działa po załadowaniu głównej treści. Widget musi wstrzyknąć kontener po gotowości DOM. W <head> blokuje render (pusty ekran najpierw przy wolnej sieci) lub działa przed gotowością DOM i zawodzi; w niektórych zakresach async / modułu kolejność ładowania też może się popsuć. Umieść JS 美洽 we wspólnej stopce każdej strony, przed </body>; dla SPA zobacz wpis «trasa SPA» i użyj manualInit; upewnij się, że bundler nie usunie go przez tree-shaking."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Popsuty styl okna / przycisku czatu — jak naprawić?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Widget wstrzykuje własne style i dostosowuje się do witryny; konflikty z globalnymi stylami mogą powodować anomalie wizualne. Skrypt 美洽 wstrzykuje CSS w czasie działania; jeśli globalne style (selektory uniwersalne / reguły wysokiego priorytetu / resety) nadpisują jego klasy najpierw, pozycja, nakładanie i czcionki się psują — efekt uboczny «dynamicznego wstrzykiwania + współdzielenia jednej przestrzeni stylów dokumentu». F12, by zobaczyć, która reguła witryny nadpisuje kontener 美洽; zawęź globalne style / zmniejsz wpływ na klasy ogólne; w razie potrzeby poproś 美洽 o dostosowanie nakładania kontenera."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Przycisk poza ekranem / zakryty — jak naprawić?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Przycisk widgetu pojawia się jako pływający o stałej pozycji; jeśli zakryty przez inne stałe elementy, dostosuj nakładanie lub pozycję. Inne elementy position:fixed witryny (powrót na górę, pływające reklamy, własny pasek wsparcia) z wyższym z-index zakrywają przycisk 美洽, lub motyw źle liczy jego współrzędne, zostawiając go «poza ekranem / zakrytym». Wybierz kontener 美洽 w F12, by zobaczyć rzeczywiste współrzędne / z-index; podnieś go lub obniż z-index elementu zakrywającego; unikaj układania wielu stałych pływaków w jednym rogu."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Konflikt DOM z wtyczką / analityką firm trzecich — jak naprawić?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Inne skrypty strony, które modyfikują DOM lub przechwytują żądania, mogą wpływać na normalne ładowanie i wyświetlanie widgetu. Skrypty heatmap / analityki / konwersji przepisują DOM, wstrzykują nakładki lub przechwytują żądania; ponieważ one i 美洽 wstrzykują do tego samego dokumentu, nakładanie / zdarzenia zakłócają się i kontener 美洽 zostaje zakryty lub jego init przerwany. Wyłączaj podejrzane wtyczki po kolei, by zlokalizować konflikt; dostosuj kolejność ładowania / nakładanie kontenera; spraw, by heatmapy itd. omijały obszar kontenera 美洽."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">Język: <a href="/">简体中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/ko/">한국어</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/th/">ไทย</a> · <a href="/es/">Español</a> · <a href="/pt-br/">Português (BR)</a> · <a href="/de/">Deutsch</a> · <a href="/fr/">Français</a> · <a href="/ru/">Русский</a> · <a href="/it/">Italiano</a> · <strong>Polski</strong> · <a href="/nl/">Nederlands</a> · <a href="/tr/">Türkçe</a> · <a href="/ar/">العربية</a> · <a href="/hi/">हिन्दी</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fa/">فارسی</a> · <a href="/bn/">বাংলা</a> · <a href="/ta/">தமிழ்</a> · <a href="/te/">తెలుగు</a> · <a href="/fil/">Filipino</a> · <a href="/ur/">اردو</a> · <a href="/lo/">ພາສາລາວ</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>美洽 widget czatu się nie pokazuje / napraw błąd integracji</h1>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_pl.webp"><img src="/img/cover_pl.png" alt="Ilustracja narzędzia 美洽 widget czatu się nie pokazuje / naprawa błędów" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Rys: 美洽 czat się nie pokazuje / naprawa błędów (zachowanie L1 + przyczyna źródłowa L2 + pięć metod integracji)</figcaption></figure>
+<p>Wkleiłeś kod <strong>美洽(Meiqia)</strong>, a <strong>widget czatu web</strong> się nie pokazuje, <strong>przycisk czatu nigdy się nie pojawia</strong>, konsola zgłasza zablokowany <code>meiqia.js</code>, albo <strong>agenci nie odbierają czatów</strong>? Wyjaśnij najpierw trzy rzeczy: <strong>czy skrypt w ogóle się nie załadował (umiejscowienie / adblock / cache), załadował się, ale został ukryty przez style / nakładanie, czy załadował się dobrze, ale konfiguracja się nie zgadza (entId / domena / cykl życia SPA)?</strong> Wyszukaj <strong>objaw lub słowo kluczowe</strong> (np. <code>not showing</code>, <code>adblock</code>, <code>entId</code>, <code>SPA</code>, <code>mobile</code>, <code>sdk push</code>): najpierw <strong>zachowanie L1 i pozycję oficjalną</strong>, potem <strong>przyczynę źródłową L2 i rozwiązanie</strong>. Instalacja / przewodnik? Zobacz <a href="https://meiqis.com/">pobieranie 美洽 / przewodnik integracji obsługi klienta</a>.</p>
+<input id="q" placeholder="Wpisz objaw lub słowo kluczowe, np. not showing / adblock / entId / SPA / mobile / sdk push" autocomplete="off">
+<button id="go">Szukaj</button>
+<div id="out"></div>
+<h2>Krok 1: sprawdź, czy skrypt się załadował, a potem podziel na cztery grupy</h2>
+<p>Gdy czat 美洽 się nie pokazuje, w 9 na 10 przypadków to jedna z czterech grup; najpierw zobacz, <strong>czy skrypt w ogóle się załadował</strong>: F12 → Network, wyszukaj <code>meiqia.js</code>; brak żądania lub status inny niż 200 oznacza niezaładowany. ① <strong>Błąd ładowania</strong>: kod w złym miejscu (powinien być przed <code>&lt;/body&gt;</code>, nie w <code>&lt;head&gt;</code>), zablokowany regułą adblock (<code>ERR_BLOCKED_BY_CLIENT</code>), wstrzymany przez cache CDN / przeglądarki, lub certyfikat HTTPS / mieszana treść. ② <strong>Konfiguracja / autoryzacja</strong>: entId niezgodny z panelem (ładuje się, ale agenci nie odbierają czatów), lub domena witryny nieautoryzowana w konsoli. ③ <strong>Integracja frameworka</strong>: SPA Vue/React/Next niszczy kontener przy zmianie trasy i widget nie jest odtwarzany. ④ <strong>Wyświetlanie / mobile / SDK</strong>: CSS witryny wypycha bąbel poza ekran, wtyczka firm trzecich nakłada DOM, mobile wymaga własnego wdrożenia, in-app wymaga SDK. Pełniej: <a href="https://meiqis.com/website-integration/">przewodnik integracji web 美洽</a>.</p>
+<div class="cat"><div class="catbox"><b>Błąd ładowania</b><span class="cs">umiejscowienie · adblock · cache · HTTPS</span><div>Wklej JS 美洽 przed </body> (nie w <head>); F12 → Network, wyszukaj meiqia.js i sprawdź status (powinien być 200); ERR_BLOCKED_BY_CLIENT zwykle to rozszerzenie adblock — przetestuj w trybie incognito lub dodaj do białej listy; wyczyść cache CDN po publikacji; zapewnij pełne HTTPS bez mieszanej treści.</div></div><div class="catbox"><b>Konfiguracja / autoryzacja</b><span class="cs">entId · biała lista domen · podkanały</span><div>entId to unikalny id Twojej firmy; przy niezgodności z panelem «skrypt ładuje się, ale agenci nie odbierają czatów» (Ustawienia - Zespół - wyszukiwanie ID); domena witryny musi być autoryzowana przez «Dodaj witrynę integracji»; użyj osobnego podkanału (sondy) na linię biznesową.</div></div><div class="catbox"><b>Integracja frameworka</b><span class="cs">SPA · zmiana trasy · manualInit</span><div>SPA Vue/React/Next niszczy DOM przy zmianie trasy i widget nie jest odtwarzany; użyj _MEIQIA('manualInit'), by zatrzymać auto-init, i wywołaj _MEIQIA('init') w hooku trasy (useEffect / mounted), by go zamontować ponownie.</div></div><div class="catbox"><b>Problemy wyświetlania</b><span class="cs">konflikt stylu · nakładanie · wtyczki firm trzecich</span><div>Załadowany, ale niewidoczny: zwykle globalny CSS witryny nadpisuje pozycję bąbla, lub wtyczka heatmap / analityki / SEO edytuje DOM i zakrywa kontener; F12 → Elements, wyszukaj kontener meiqia i sprawdź display:none, przegrany z-index lub współrzędne poza ekranem.</div></div><div class="catbox"><b>Mobile / SDK</b><span class="cs">web mobilny · AppKey · push</span><div>Web mobilny / PC to ten sam snippet, ale wymaga własnego wdrożenia; in-app używa natywnego SDK (najpierw «Dodaj konfig APP» w konsoli po AppKey); push dzieli się na «brak push» (tylko in-app) i «własny serwer push» (dostarczany nawet po opuszczeniu aplikacji).</div></div><div class="catbox"><b>Wywołania API</b><span class="cs">withoutBtn · showPanel · dane klienta</span><div>Własny przycisk? _MEIQIA('withoutBtn') ukrywa natywny przycisk, a wywołaj _MEIQIA('showPanel') po kliknięciu, by otworzyć czat; przekaż / synchronizuj dane klienta w czasie init, inaczej nie zadziała.</div></div></div><figure><svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram triażu 美洽 czat się nie pokazuje" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">Triaż okna / przycisku, gdy się nie pokazuje (najpierw dwa kroki: czy skrypt się załadował → czy konfig jest poprawny)</text><rect x="20" y="46" width="150" height="46" rx="10" fill="#111"/><text x="95" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff">Czat niewidoczny</text><path d="M170 69 H206" stroke="#999" stroke-width="2" fill="none" marker-end="url(#a)"/><rect x="206" y="46" width="172" height="46" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="292" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1d4ed8">Dwie grupy</text><rect x="440" y="20" width="262" height="56" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="455" y="42" font-family="system-ui,Arial" font-size="12.5" fill="#1d4ed8">Skrypt niezaładowany →</text><text x="455" y="62" font-family="system-ui,Arial" font-size="11.5" fill="#1e3a8a">umiejscowienie · adblock · cache</text><rect x="440" y="86" width="262" height="56" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="455" y="108" font-family="system-ui,Arial" font-size="12.5" fill="#b45309">Załadowany, ale ukryty / brak połączenia →</text><text x="455" y="128" font-family="system-ui,Arial" font-size="11.5" fill="#92400e">nakładanie · entId · domena · SPA</text><path d="M378 60 H410 V48 H440" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M378 78 H410 V114 H440" stroke="#d97706" stroke-width="2" fill="none" marker-end="url(#a)"/><text x="20" y="178" font-family="system-ui,Arial" font-size="13" font-weight="700" fill="#1d1d1f">Cztery grupy źródłowe (przyczyna / rozwiązanie na pozycję)</text><g font-family="system-ui,Arial" font-size="12"><rect x="20" y="190" width="162" height="92" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="32" y="212" font-weight="700" fill="#1d4ed8">① Błąd ładowania</text><text x="32" y="234" fill="#555" font-size="11">umiejscowienie · blokada · cache</text><rect x="194" y="190" width="162" height="92" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="206" y="212" font-weight="700" fill="#1d4ed8">② Konfig / autoryz.</text><text x="206" y="234" fill="#555" font-size="11">entId · biała lista domen</text><rect x="368" y="190" width="162" height="92" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="380" y="212" font-weight="700" fill="#b45309">③ Framework</text><text x="380" y="234" fill="#555" font-size="11">trasa SPA · init</text><rect x="542" y="190" width="160" height="92" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="554" y="212" font-weight="700" fill="#047857">④ Wyświetlanie / mobile / SDK</text><text x="554" y="234" fill="#555" font-size="11">nakładanie · mobile · push</text></g><defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#999"/></marker></defs></svg><figcaption>Rys 1: triaż 美洽 się nie pokazuje — sprawdź ładowanie skryptu (meiqia.js w F12), potem ładowanie / konfig / framework / wyświetlanie</figcaption></figure>
+<h2>Krok 2: najczęściej pomijana przyczyna źródłowa → L2 (widget = asynchroniczne wstrzykiwanie JS firm trzecich spoza domeny)</h2>
+<p>Wystarczy jedna myśl: <strong>widget web 美洽 to nie statyczny komponent osadzony w Twojej stronie — to <code>meiqia.js</code> ładowany asynchronicznie z zewnętrznej domeny 美洽, który następnie dynamicznie wstrzykuje kontener czatu (DOM / iframe) i otwiera trwałe połączenie cross-origin do serwerów 美洽</strong>. To wyjaśnia większość «tajemniczych zniknięć»: ① <strong>to skrypt firm trzecich spoza domeny</strong>, więc AdBlock / uBlock blokują go listami «śledzenie / reklamy» (<code>ERR_BLOCKED_BY_CLIENT</code>) i przycisk nigdy się nie pojawia (choć konsola wygląda dobrze); ② <strong>wstrzykuje DOM asynchronicznie</strong>: w <code>&lt;head&gt;</code> blokuje, zmiana trasy SPA niszczy kontener i nie jest odtwarzany sam (użyj <code>manualInit</code> + <code>_MEIQIA('init')</code>), a wtyczki heatmap / analityki edytujące DOM mogą go zakryć; ③ <strong>wiąże się z Twoją firmą przez entId i jest bramkowany białą listą domen</strong>: przy błędnym entId lub nieautoryzowanej domenie skrypt ładuje się, ale «nie łączy czatu»; ④ <strong>mobile i PC to dwie osobne integracje</strong>, in-app to SDK (AppKey), a push dzieli się na «brak push» vs «własny serwer push». Gdy zobaczysz ten łańcuch wstrzykiwania, każdy objaw poniżej ma jedną logikę. Poniżej panel autokontroli; niżej pięć metod i szacunki 2026.</p>
+<figure><svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Panel autokontroli przed integracją 美洽" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">Panel autokontroli integracji (zielony = potwierdzone / czerwony = łatwo pominąć)</text><rect x="20" y="42" width="680" height="226" rx="14" fill="#f8fafc" stroke="#e2e8f0"/><text x="38" y="66" font-family="system-ui,Arial" font-size="12.5" font-weight="700" fill="#475569">Pozycja</text><text x="300" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">Werdykt</text><text x="610" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">Stan</text><line x1="38" y1="74" x2="682" y2="74" stroke="#e2e8f0" stroke-width="1"/><text x="38" y="98" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Kod 美洽 wklejony przed </body> (nie <head>)</text><text x="300" y="98" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">umiejscowienie</text><circle cx="612" cy="94" r="6" fill="#16a34a"/><text x="628" y="98" font-family="system-ui,Arial" font-size="12" fill="#16a34a">potwierdzone</text><text x="38" y="128" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Status 200 meiqia.js w F12 → Network</text><text x="300" y="128" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">ładowanie skryptu</text><circle cx="612" cy="124" r="6" fill="#16a34a"/><text x="628" y="128" font-family="system-ui,Arial" font-size="12" fill="#16a34a">potwierdzone</text><text x="38" y="158" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Konsola typeof _MEIQIA to function</text><text x="300" y="158" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">zainicjowano</text><circle cx="612" cy="154" r="6" fill="#16a34a"/><text x="628" y="158" font-family="system-ui,Arial" font-size="12" fill="#16a34a">potwierdzone</text><text x="38" y="188" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Widoczne w incognito / z wyłączonym adblock</text><text x="300" y="188" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">adblock</text><circle cx="612" cy="184" r="6" fill="#ef4444"/><text x="628" y="188" font-family="system-ui,Arial" font-size="12" fill="#ef4444">do sprawdzenia</text><text x="38" y="218" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">entId zgodny z panelem + domena autoryzowana</text><text x="300" y="218" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">konfig / autoryz.</text><circle cx="612" cy="214" r="6" fill="#16a34a"/><text x="628" y="218" font-family="system-ui,Arial" font-size="12" fill="#16a34a">potwierdzone</text><text x="38" y="248" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Re-init po zmianie trasy SPA + brak nakładki wtyczki</text><text x="300" y="248" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">framework / nakładanie</text><circle cx="612" cy="244" r="6" fill="#ef4444"/><text x="628" y="248" font-family="system-ui,Arial" font-size="12" fill="#ef4444">do sprawdzenia</text><text x="20" y="296" font-family="system-ui,Arial" font-size="11.5" fill="#94a3b8">Uwaga: czerwony = dwa najczęściej pomijane — rozszerzenia adblock (ERR_BLOCKED_BY_CLIENT) i framework / nakładanie (zmiany trasy SPA, wtyczki firm trzecich edytujące DOM); sprawdź te dwa najpierw.</text></svg><figcaption>Rys 2: panel autokontroli integracji 美洽 (zielony = potwierdzone / czerwony = łatwo pominąć)</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_pl.webp"><img src="/img/board_pl.png" alt="Ilustracja panelu autokontroli przed integracją 美洽, pozycje zielone/czerwone" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Rys: sprawdź najpierw «umiejscowienie kodu + meiqia.js 200 + zainicjowano», potem «adblock + framework/nakładanie» — dwa ostatnie są najczęściej pomijane</figcaption></figure>
+<h2>Pełna tabela objawów (zachowanie / pozycja oficjalna · przyczyna źródłowa L2)</h2>
+<table id="tbl"></table>
+<h2>Pięć metod integracji 美洽 porównanych (kod / trudność / funkcje / scenariusz / czas uruchomienia · dok oficjalna)</h2>
+<table class="cmp"><tr><th>Metoda integracji</th><th>Kod / trudność</th><th>Pełnia funkcji</th><th>Najlepsze dla</th><th>Czas uruchomienia</th></tr><tr><td>Widget JS web</td><td>jeden snippet JS · niska</td><td>najpełniejsza (pływający / popup / auto-powitanie / ślad odwiedzającego)</td><td>witryny PC + mobile (oficjalnie zalecane)</td><td>~3-5 min</td></tr><tr><td>Link czatu</td><td>bez kodu · minimalna</td><td>podstawowy czat</td><td>bez technika / wstawić szybki link czatu</td><td>natychmiast</td></tr><tr><td>API / SDK WebIM</td><td>wymaga dev · wysoka</td><td>głęboka personalizacja (własny UI / system / integracja zamówień)</td><td>zespoły z możliwościami dev do głębokiej fuzji</td><td>zależnie od dev</td></tr><tr><td>Natywny SDK aplikacji</td><td>integracja SDK · wysoka</td><td>czat w aplikacji + push wiadomości</td><td>aplikacje iOS / Android</td><td>zależnie od dev</td></tr><tr><td>Szybka konfig CMS</td><td>wtyczka / jedno kliknięcie · niska</td><td>jak widget JS</td><td>witryny WordPress / Fkw / Shopify</td><td>minuty</td></tr></table><section class="i4data">
+<h2>美洽 przyczyny niewyświetlania & porównanie metod integracji (szacunek 2026)</h2>
+<p>Poniżej <strong>szacunki 2026</strong> zsyntetyzowane z oficjalnej pomocy 美洽 (Kanały dostępu / API widgetu web JavaScript) i publicznego troubleshootingu integracji (nie są zobowiązaniami dostawcy ani pomiarem bezpośrednim; orientacyjnie, zmieniają się wg wersji i polityki przeglądarki):</p>
+<table>
+<tr><th>Wymiar</th><th>Szacunek / porównanie</th></tr>
+<tr><td>Rozkład przyczyn niewyświetlania (społeczność / zgłoszenia · szac.)</td><td><strong>umiejscowienie / niezaładowane ~35%</strong> &gt; <strong>adblock / rozszerzenie przeglądarki ~25%</strong> &gt; konfig / autoryzacja (entId / domena) ~20% &gt; framework (SPA) ~12% &gt; konflikt stylu / wtyczki firm trzecich ~8%</td></tr>
+<tr><td>Czym naprawdę jest integracja</td><td>widget web = <strong>asynchroniczny JS firm trzecich spoza domeny wstrzykujący DOM + trwałe połączenie cross-origin</strong> (nie osadzony statyczny komponent); stąd wpływ umiejscowienia, reguł adblock, nakładania CSS, cyklu życia SPA</td></tr>
+<tr><td>Integracja na platformę (szac.)</td><td>web PC / mobilny = <strong>widget JS (ten sam kod, wdrażany osobno)</strong>; aplikacja = <strong>natywny SDK (AppKey)</strong>; WeChat / Douyin / RED = integracja autoryzowana kanałem</td></tr>
+<tr><td>Wpływ adblock (szac.)</td><td>około <strong>30-40%</strong> użytkowników PC używa rozszerzenia adblock → skrypt czatu firm trzecich jest blokowany regułami reklam (ERR_BLOCKED_BY_CLIENT), główna przyczyna «konsola OK, strona użytkownika pusta»</td></tr>
+<tr><td>Czas uruchomienia widgetu JS (oficjalnie)</td><td>wklej dedykowany JS na dole strony i uruchamia się w około <strong>3-5 minut</strong>; entId to unikalny id firmy, a niezgodność z panelem zostawia agentów bez czatów</td></tr>
+</table>
+<p><small>Podstawa szacunku: bazowa linia źródeł + ekstrapolacja czasowa (meiqia.com/help Kanały dostępu / widget web JavaScript, przewodnik integracji meiqia.im, publiczny troubleshooting, 2026); zmienia się wg wersji i polityki blokowania przeglądarki. Kieruj się najnowszymi oficjalnymi informacjami 美洽. Nieoficjalne · lokalizacja LLM.</small></p>
+</section>
+<h2>Realne przypadki — szybka lektura</h2>
+<ul class="scenes"><li>Kod wklejony, ale brak bąbla czatu: najpierw F12 → Network, wyszukaj meiqia.js — brak żądania lub nie-200 oznacza złe umiejscowienie / wstrzymanie przez cache; wyczyść cache CDN lub otwórz ponownie w incognito.</li><li>Konsola mówi meiqia.js net::ERR_BLOCKED_BY_CLIENT: adblock (AdBlock / uBlock / AdGuard) zablokował skrypt czatu firm trzecich regułami reklam — wyłącz rozszerzenie lub dodaj witrynę do białej listy; dlatego «brakuje dla niektórych użytkowników, gdy Twoja konsola wygląda dobrze».</li><li>Skrypt załadowany (konsola typeof _MEIQIA to function), ale brak przycisku: zwykle CSS motywu wypchnął bąbel poza ekran lub wtyczka heatmap / analityki zmieniła nakładanie DOM — F12 → Elements, wyszukaj kontener 美洽 i sprawdź pozycję po pozycji.</li><li>Strona główna ma czat w SPA Vue / React, ale druga trasa nie: zmiana trasy SPA zniszczyła kontener i widget nie został odtworzony — użyj manualInit, by zatrzymać auto-init, i wywołaj _MEIQIA('init') w hooku trasy, by zamontować ponownie.</li><li>Czat się otwiera, ale agenci nie odbierają wiadomości odwiedzających: najprawdopodobniej entId niezgodny z panelem (skopiowano cudzy snippet / pomylono konta) — porównaj ID firmy w Ustawienia - Zespół - wyszukiwanie ID z entId w kodzie.</li><li>Działa na stagingu, nie ładuje się na domenie produkcyjnej: domena produkcyjna nie została autoryzowana przez «Dodaj witrynę integracji» — dodaj domenę live do listy i opublikuj ponownie.</li><li>Chcesz usunąć okrągły natywny przycisk 美洽 i użyć własnego «Kontakt»: wywołaj _MEIQIA('withoutBtn'), by ukryć natywny, potem powiąż _MEIQIA('showPanel') z własnym przyciskiem, by otworzyć czat.</li></ul><div class="related"><h2>Powiązane</h2><ul><li><a href="https://meiqis.com/">Pobieranie 美洽 / instalacja & przewodnik integracji</a></li><li><a href="https://meiqis.com/pl/website-integration/">Przewodnik integracji web 美洽 (widget JS)</a></li><li><a href="https://meiqis.com/pl/tools/meiqia-integration-troubleshooting/">Troubleshooting integracji 美洽 (pełna tabela referencyjna)</a></li><li><a href="https://meiqiaa.com/">Oficjalna witryna 美洽 (witryna siostrzana)</a></li></ul></div></main>
+<footer>Widget web / API JS (manualInit / init / withoutBtn / showPanel / przekaż dane klienta), autoryzacja entId / domeny, podkanały, AppKey SDK & tryby push są zebrane z oficjalnego Centrum Pomocy 美洽 (meiqia.com/help · Kanały dostępu / widget web JavaScript) i przewodnika integracji 美洽 (meiqia.im); adblock ERR_BLOCKED_BY_CLIENT, konflikty DOM heatmap / analityki i integracja SPA pochodzą z publicznego troubleshootingu (przeformułowane). Liczby 2026 to szacunki, nie zobowiązania dostawcy ani pomiar bezpośredni; tylko orientacyjnie, kieruj się najnowszymi oficjalnymi informacjami 美洽. Nieoficjalne · lokalizacja LLM.<br>Strona narzędzia · triaż integracji, nie zastępuje konsoli 美洽</footer>
+</div>
+<script src="/pl/codes.js"></script><script src="/app.js"></script>
+</body></html>
