@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="th"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>美洽(Meiqia) วิดเจ็ตแชทไม่แสดง / แก้ข้อผิดพลาดการเชื่อมต่อ - meiqia.js ถูกบล็อก, ไม่มีปุ่ม, entId, SPA, พุช SDK</title>
+<meta name="description" content="วิดเจ็ตแชทเว็บ 美洽(Meiqia) ไม่แสดง, ไม่มีปุ่ม, meiqia.js ถูก ERR_BLOCKED_BY_CLIENT บล็อก, สไตล์เพี้ยน, หายไปหลังเปลี่ยนเส้นทาง SPA, entId ไม่ตรงทำให้เจ้าหน้าที่ไม่ได้รับแชท, ไม่ขึ้นบนมือถือ, พุช SDK ไม่มา? ค้นหาอาการเพื่อดูพฤติกรรม L1 และสาเหตุราก L2: การฉีด JS อะซิงโครนัสจากบุคคลที่สามนอกโดเมน, กฎ adblock, การซ้อน CSS, วงจรชีวิต SPA, entId และไวต์ลิสต์โดเมน, AppKey และเส้นทางพุช SDK; พร้อมเปรียบเทียบห้าวิธีเชื่อมต่อและประมาณการ 2026.">
+<link rel="canonical" href="https://meiqiscom.github.io/th/">
+<link rel="alternate" hreflang="zh-Hans" href="https://meiqiscom.github.io/">
+<link rel="alternate" hreflang="en" href="https://meiqiscom.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://meiqiscom.github.io/ja/">
+<link rel="alternate" hreflang="zh-Hant" href="https://meiqiscom.github.io/zh-tw/">
+<link rel="alternate" hreflang="ko" href="https://meiqiscom.github.io/ko/">
+<link rel="alternate" hreflang="id" href="https://meiqiscom.github.io/id/">
+<link rel="alternate" hreflang="vi" href="https://meiqiscom.github.io/vi/">
+<link rel="alternate" hreflang="th" href="https://meiqiscom.github.io/th/">
+<link rel="alternate" hreflang="es" href="https://meiqiscom.github.io/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://meiqiscom.github.io/pt-br/">
+<link rel="alternate" hreflang="de" href="https://meiqiscom.github.io/de/">
+<link rel="alternate" hreflang="fr" href="https://meiqiscom.github.io/fr/">
+<link rel="alternate" hreflang="ru" href="https://meiqiscom.github.io/ru/">
+<link rel="alternate" hreflang="it" href="https://meiqiscom.github.io/it/">
+<link rel="alternate" hreflang="pl" href="https://meiqiscom.github.io/pl/">
+<link rel="alternate" hreflang="nl" href="https://meiqiscom.github.io/nl/">
+<link rel="alternate" hreflang="tr" href="https://meiqiscom.github.io/tr/">
+<link rel="alternate" hreflang="ar" href="https://meiqiscom.github.io/ar/">
+<link rel="alternate" hreflang="hi" href="https://meiqiscom.github.io/hi/">
+<link rel="alternate" hreflang="ms" href="https://meiqiscom.github.io/ms/">
+<link rel="alternate" hreflang="fa" href="https://meiqiscom.github.io/fa/">
+<link rel="alternate" hreflang="bn" href="https://meiqiscom.github.io/bn/">
+<link rel="alternate" hreflang="ta" href="https://meiqiscom.github.io/ta/">
+<link rel="alternate" hreflang="te" href="https://meiqiscom.github.io/te/">
+<link rel="alternate" hreflang="fil" href="https://meiqiscom.github.io/fil/">
+<link rel="alternate" hreflang="ur" href="https://meiqiscom.github.io/ur/">
+<link rel="alternate" hreflang="lo" href="https://meiqiscom.github.io/lo/">
+<link rel="alternate" hreflang="km" href="https://meiqiscom.github.io/km/">
+<link rel="alternate" hreflang="my" href="https://meiqiscom.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://meiqiscom.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "美洽 แชทไม่แสดง / แก้ข้อผิดพลาดการเชื่อมต่อ",
+   "url": "https://meiqiscom.github.io/th/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "inLanguage": "th",
+   "description": "วิดเจ็ตแชทเว็บ 美洽(Meiqia) ไม่แสดง, ไม่มีปุ่ม, meiqia.js ถูก ERR_BLOCKED_BY_CLIENT บล็อก, สไตล์เพี้ยน, หายไปหลังเปลี่ยนเส้นทาง SPA, entId ไม่ตรงทำให้เจ้าหน้าที่ไม่ได้รับแชท, ไม่ขึ้นบนมือถือ, พุช SDK ไม่มา? ค้นหาอาการเพื่อดูพฤติกรรม L1 และสาเหตุราก L2: การฉีด JS อะซิงโครนัสจากบุคคลที่สามนอกโดเมน, กฎ adblock, การซ้อน CSS, วงจรชีวิต SPA, entId และไวต์ลิสต์โดเมน, AppKey และเส้นทางพุช SDK; พร้อมเปรียบเทียบห้าวิธีเชื่อมต่อและประมาณการ 2026.",
+   "isAccessibleForFree": true,
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "th",
+   "url": "https://meiqiscom.github.io/th/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "美洽 หน้าต่าง / ฟองแชทไม่แสดงเลย — แก้ไขอย่างไร?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "วิดเจ็ตเว็บ 美洽 โหลดหน้าต่างแชทลอยด้วยสนิปเป็ต JS ที่วางหนึ่งชุด; ยืนยันว่าโค้ดฝังถูกต้องและไซต์เชื่อมต่อถูกตั้งค่าในคอนโซล. วิดเจ็ตคือ meiqia.js ที่ฉีดเข้า DOM หลังโหลดอะซิงโครนัส ดังนั้น «ไม่มีอะไรเลย» มักหมายถึง «สคริปต์ไม่เคยโหลด»: วางผิดที่, ถูก adblock / แคชบล็อก, หรือโดเมน / entId ไม่ตรง การฉีดจึงไม่เคยทำงาน. F12 → Network ค้นหา meiqia.js: ไม่มีคำขอ → โค้ดไม่มีผล (ตรวจตำแหน่ง / ล้างแคช); มีคำขอแต่ไม่ใช่ 200 → ถูกบล็อกหรือปัญหาเส้นทาง; ทุกอย่างดีแต่ยังซ่อน → ตรวจ entId / สิทธิ์โดเมนและกลุ่มด้านล่าง."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 สคริปต์โหลดแต่ปุ่มแชทหาย — แก้ไขอย่างไร?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "โค้ดวิดเจ็ตปรับตามเว็บและแสดงปุ่มแชท; ถ้าการแสดงผลล้มเหลว ตรวจว่าถูกสไตล์ซ่อนหรือการเริ่มต้นถูกขัดจังหวะ. ถ้าสคริปต์โหลดแต่ปุ่มหาย มักเป็นปัญหา «ชั้นการแสดงผล»: CSS ทั้งเว็บเขียนทับตำแหน่งปุ่ม / ตั้ง display:none, z-index แพ้, หรือองค์ประกอบคงที่อื่นทับ; ข้อผิดพลาด JS อื่นก็อาจขัดการเริ่มต้น. F12 → Elements ค้นหาคอนเทนเนอร์ 美洽 — มีอยู่ ซ่อน หรือนอกจอ?; ปิด CSS / สคริปต์ของคุณชั่วคราวเพื่อทดสอบใหม่; ตรวจคอนโซลหาข้อผิดพลาดที่ขัดการทำงาน."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js ถูกส่วนขยาย adblock บล็อก — แก้ไขอย่างไร?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "สคริปต์แชท 美洽 มาจากโดเมนบุคคลที่สาม; ถ้ามีส่วนขยายบล็อกติดตั้งอยู่ อาจมองว่าเป็นโฆษณา / ตัวติดตามและขัดการโหลด — ปิดการบล็อกหรือใส่ไวต์ลิสต์. ERR_BLOCKED_BY_CLIENT หมายถึงส่วนขยายเบราว์เซอร์ (AdBlock / uBlock / AdGuard) บล็อกคำขอตามรายการกรอง. สคริปต์ 美洽 เป็น «บุคคลที่สามนอกโดเมน + การสื่อสารแบบเรียลไทม์» ซึ่งกฎเหล่านั้นมักเข้าใจผิดว่าเป็นโฆษณา / ตัวติดตาม ทำให้เกิดความล้มเหลวลวง «คอนโซลปกติ ฝั่งผู้ใช้หาย». ทดสอบใหม่ในโหมดไม่ระบุตัวตนหรือปิด adblock — ถ้าปรากฏ การบล็อกคือสาเหตุ; ขอให้ผู้ใช้ใส่ไวต์ลิสต์; ฟรอนต์เอนด์อาจโหลดสคริปต์แชทแบบหน่วง / มีเงื่อนไขเพื่อเลี่ยงกฎอัตโนมัติบางอย่าง."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js 404 / สถานะผิด / เนื้อหาผสม — แก้ไขอย่างไร?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "หลังดีพลอย ค้นหา meiqia.js ในแผง Network; สถานะ 200 หมายถึงสคริปต์วางถูกและโหลดแล้ว. สาเหตุไม่ใช่-200 ที่พบบ่อย: โค้ดค้างที่แคชหน้า / CDN (ไม่รีเฟรชหลังเผยแพร่), โหลดบนหน้า HTTP / ห่วงโซ่ใบรับรองไม่ครบกระตุ้นการบล็อกเนื้อหาผสม, หรือโค้ดเสีย / คัดลอกไม่ครบ. เมื่อขั้นนี้ล้มเหลว การฉีดและการเชื่อมต่อจะไม่เกิด. ล้างแคช CDN / เบราว์เซอร์ (หรือโหมดไม่ระบุตัวตน) หลังเผยแพร่; ให้เป็น HTTPS เต็มพร้อมห่วงโซ่ใบรับรองครบและไม่มีเนื้อหาผสม; ยืนยันว่าโค้ดที่คัดลอกครบและไม่ถูก escape."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 โค้ดวางผิดที่ (บล็อกใน head / ไม่มีผล) — แก้ไขอย่างไร?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽 แนะนำให้วางโค้ดที่ด้านล่างหน้า ก่อน </body>; วิดเจ็ตทำงานหลังเนื้อหาหลักโหลดเสร็จ. วิดเจ็ตต้องฉีดคอนเทนเนอร์หลัง DOM พร้อม. ใน <head> มันบล็อกการเรนเดอร์ (จอว่างก่อนบนเครือข่ายช้า) หรือทำงานก่อน DOM พร้อมแล้วล้มเหลว; ในบาง async / module scope ลำดับการโหลดก็อาจผิดพลาด. วาง JS ของ 美洽 ในฟุตเตอร์ร่วมของทุกหน้า ก่อน </body>; สำหรับ SPA ดูรายการ «เส้นทาง SPA» และใช้ manualInit; ให้แน่ใจว่า bundler ไม่ลบมันด้วย tree-shaking."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 สไตล์หน้าต่าง / ปุ่มแชทเพี้ยน — แก้ไขอย่างไร?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "วิดเจ็ตฉีดสไตล์ของตัวเองและปรับตามเว็บ; ความขัดแย้งกับสไตล์ทั้งเว็บอาจทำให้เกิดความผิดปกติทางสายตา. สคริปต์ 美洽 ฉีด CSS ขณะรันไทม์; ถ้าสไตล์ทั้งเว็บ (ตัวเลือกสากล / กฎลำดับสูง / reset) เขียนทับคลาสของมันก่อน ตำแหน่ง การซ้อน และฟอนต์จะเพี้ยน — ผลข้างเคียงของ «การฉีดไดนามิก + แชร์พื้นที่สไตล์เอกสารเดียว». F12 เพื่อดูว่ากฎเว็บใดเขียนทับคอนเทนเนอร์ 美洽; จำกัดสไตล์ทั้งเว็บ / ลดผลต่อคลาสทั่วไป; หากจำเป็นขอให้ 美洽 ปรับการซ้อนคอนเทนเนอร์."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 ปุ่มหลุดนอกจอ / ถูกบัง — แก้ไขอย่างไร?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ปุ่มวิดเจ็ตปรากฏเป็นลอยตำแหน่งคงที่; ถ้าถูกองค์ประกอบคงที่อื่นบัง ปรับการซ้อนหรือตำแหน่ง. องค์ประกอบ position:fixed อื่นของเว็บ (กลับขึ้นบน, โฆษณาลอย, แถบสนับสนุนของตัวเอง) ที่มี z-index สูงกว่าบังปุ่ม 美洽, หรือธีมคำนวณพิกัดผิด ทำให้มัน «นอกจอ / ถูกบัง». เลือกคอนเทนเนอร์ 美洽 ใน F12 เพื่อดูพิกัด / z-index จริง; ยกมันขึ้นหรือลด z-index ขององค์ประกอบที่บัง; เลี่ยงการซ้อนลอยคงที่หลายอันในมุมเดียว."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 ความขัดแย้ง DOM ปลั๊กอิน / วิเคราะห์บุคคลที่สาม — แก้ไขอย่างไร?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "สคริปต์อื่นบนหน้าที่แก้ DOM หรือดักคำขออาจกระทบการโหลดและการแสดงผลปกติของวิดเจ็ต. สคริปต์ฮีตแมป / วิเคราะห์ / คอนเวอร์ชันเขียน DOM ใหม่ ฉีดทับ หรือดักคำขอ; เพราะมันกับ 美洽 ฉีดเข้าเอกสารเดียวกัน การซ้อน / เหตุการณ์จึงรบกวนกันและคอนเทนเนอร์ 美洽 ถูกบังหรือ init ถูกขัด. ปิดปลั๊กอินที่สงสัยทีละตัวเพื่อหาความขัดแย้ง; ปรับลำดับการโหลด / การซ้อนคอนเทนเนอร์; ให้ฮีตแมปฯลฯเลี่ยงพื้นที่คอนเทนเนอร์ 美洽."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">ภาษา: <a href="/">简体中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/ko/">한국어</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/vi/">Tiếng Việt</a> · <strong>ไทย</strong> · <a href="/es/">Español</a> · <a href="/pt-br/">Português (BR)</a> · <a href="/de/">Deutsch</a> · <a href="/fr/">Français</a> · <a href="/ru/">Русский</a> · <a href="/it/">Italiano</a> · <a href="/pl/">Polski</a> · <a href="/nl/">Nederlands</a> · <a href="/tr/">Türkçe</a> · <a href="/ar/">العربية</a> · <a href="/hi/">हिन्दी</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fa/">فارسی</a> · <a href="/bn/">বাংলা</a> · <a href="/ta/">தமிழ்</a> · <a href="/te/">తెలుగు</a> · <a href="/fil/">Filipino</a> · <a href="/ur/">اردو</a> · <a href="/lo/">ພາສາລາວ</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>美洽 วิดเจ็ตแชทไม่แสดง / แก้ข้อผิดพลาดการเชื่อมต่อ</h1>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_th.webp"><img src="/img/cover_th.png" alt="ภาพประกอบเครื่องมือ 美洽 วิดเจ็ตแชทไม่แสดง / แก้ข้อผิดพลาด" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>รูป: 美洽 แชทไม่แสดง / แก้ข้อผิดพลาด (พฤติกรรม L1 + สาเหตุราก L2 + ห้าวิธีเชื่อมต่อ)</figcaption></figure>
+<p>วางโค้ด <strong>美洽(Meiqia)</strong> แล้วแต่ <strong>วิดเจ็ตแชทเว็บ</strong> ไม่แสดง, <strong>ปุ่มแชทไม่เคยขึ้น</strong>, คอนโซลรายงานว่า <code>meiqia.js</code> ถูกบล็อก, หรือ <strong>เจ้าหน้าที่ไม่ได้รับแชท</strong>? ทำสามสิ่งให้ชัดก่อน: <strong>สคริปต์ไม่โหลดเลย (ตำแหน่ง / adblock / แคช), โหลดแต่ถูกซ่อนด้วยสไตล์ / การซ้อน, หรือโหลดดีแต่การตั้งค่าไม่ตรง (entId / โดเมน / วงจรชีวิต SPA)?</strong> ค้นหา <strong>อาการหรือคำสำคัญ</strong> (เช่น <code>not showing</code>, <code>adblock</code>, <code>entId</code>, <code>SPA</code>, <code>mobile</code>, <code>sdk push</code>): ก่อนคือ <strong>พฤติกรรม L1 และตำแหน่งทางการ</strong>, จากนั้น <strong>สาเหตุราก L2 และวิธีแก้</strong>. ติดตั้ง / คู่มือ? ดู <a href="https://meiqis.com/">ดาวน์โหลด 美洽 / คู่มือเชื่อมต่อบริการลูกค้า</a>.</p>
+<input id="q" placeholder="พิมพ์อาการหรือคำสำคัญ เช่น not showing / adblock / entId / SPA / mobile / sdk push" autocomplete="off">
+<button id="go">ค้นหา</button>
+<div id="out"></div>
+<h2>ขั้นที่ 1: ตรวจว่าสคริปต์โหลดหรือไม่ แล้วแบ่งเป็นสี่กลุ่ม</h2>
+<p>เมื่อแชท 美洽 ไม่แสดง 9 ใน 10 ครั้งเป็นหนึ่งในสี่กลุ่ม; ดูก่อนว่า <strong>สคริปต์โหลดหรือไม่</strong>: F12 → Network, ค้นหา <code>meiqia.js</code>; ไม่มีคำขอหรือสถานะไม่ใช่ 200 แปลว่าไม่ได้โหลด. ① <strong>โหลดล้มเหลว</strong>: โค้ดผิดที่ (ต้องอยู่ก่อน <code>&lt;/body&gt;</code> ไม่ใช่ใน <code>&lt;head&gt;</code>), ถูกกฎ adblock บล็อก (<code>ERR_BLOCKED_BY_CLIENT</code>), ค้างที่แคช CDN / เบราว์เซอร์, หรือใบรับรอง HTTPS / เนื้อหาผสม. ② <strong>การตั้งค่า / สิทธิ์</strong>: entId ไม่ตรงกับเวิร์กเบนช์ (โหลดแต่เจ้าหน้าที่ไม่ได้รับแชท), หรือโดเมนเว็บไม่ได้รับอนุญาตในคอนโซล. ③ <strong>การเชื่อมต่อเฟรมเวิร์ก</strong>: SPA Vue/React/Next ทำลายคอนเทนเนอร์เมื่อเปลี่ยนเส้นทางและวิดเจ็ตไม่ถูกสร้างใหม่. ④ <strong>การแสดงผล / มือถือ / SDK</strong>: CSS เว็บดันฟองออกนอกจอ, ปลั๊กอินบุคคลที่สามทับ DOM, มือถือต้องดีพลอยเอง, ในแอปต้องใช้ SDK. ครบถ้วนกว่า: <a href="https://meiqis.com/website-integration/">คู่มือเชื่อมต่อเว็บ 美洽</a>.</p>
+<div class="cat"><div class="catbox"><b>โหลดล้มเหลว</b><span class="cs">ตำแหน่ง · adblock · แคช · HTTPS</span><div>วาง JS ของ 美洽 ก่อน </body> (ไม่ใช่ใน <head>); F12 → Network ค้นหา meiqia.js และตรวจสถานะ (ควรเป็น 200); ERR_BLOCKED_BY_CLIENT มักเป็นส่วนขยาย adblock — ทดสอบในโหมดไม่ระบุตัวตนหรือใส่ไวต์ลิสต์; ล้างแคช CDN หลังเผยแพร่; ให้เป็น HTTPS เต็มโดยไม่มีเนื้อหาผสม.</div></div><div class="catbox"><b>ตั้งค่า / สิทธิ์</b><span class="cs">entId · ไวต์ลิสต์โดเมน · ช่องย่อย</span><div>entId คือไอดีเฉพาะของบริษัทคุณ; ถ้าไม่ตรงกับเวิร์กเบนช์ «สคริปต์โหลดแต่เจ้าหน้าที่ไม่ได้รับแชท» (ตั้งค่า - ทีม - ค้นหาไอดี); โดเมนเว็บต้องได้รับอนุญาตผ่าน «เพิ่มไซต์เชื่อมต่อ»; ใช้ช่องย่อย (โพรบ) แยกต่อสายธุรกิจ.</div></div><div class="catbox"><b>เชื่อมต่อเฟรมเวิร์ก</b><span class="cs">SPA · เปลี่ยนเส้นทาง · manualInit</span><div>SPA Vue/React/Next ทำลาย DOM เมื่อเปลี่ยนเส้นทางและวิดเจ็ตไม่ถูกสร้างใหม่; ใช้ _MEIQIA('manualInit') เพื่อหยุด auto-init และเรียก _MEIQIA('init') ใน route hook (useEffect / mounted) เพื่อเมานต์ใหม่.</div></div><div class="catbox"><b>ปัญหาการแสดงผล</b><span class="cs">ขัดแย้งสไตล์ · การซ้อน · ปลั๊กอินบุคคลที่สาม</span><div>โหลดแล้วแต่มองไม่เห็น: มักเป็น CSS ทั้งเว็บที่เขียนทับตำแหน่งฟอง, หรือปลั๊กอินฮีตแมป / วิเคราะห์ / SEO แก้ DOM และทับคอนเทนเนอร์; F12 → Elements ค้นหาคอนเทนเนอร์ meiqia และตรวจ display:none, z-index ที่แพ้ หรือพิกัดนอกจอ.</div></div><div class="catbox"><b>มือถือ / SDK</b><span class="cs">เว็บมือถือ · AppKey · พุช</span><div>เว็บมือถือ / PC เป็นสนิปเป็ตเดียวกันแต่ต้องดีพลอยเอง; ในแอปใช้ SDK เนทีฟ (ก่อนอื่น «เพิ่มการตั้งค่า APP» ในคอนโซลเพื่อรับ AppKey); พุชแบ่งเป็น «ไม่พุช» (ในแอปเท่านั้น) และ «เซิร์ฟเวอร์พุชกำหนดเอง» (ส่งแม้ออกจากแอปแล้ว).</div></div><div class="catbox"><b>การเรียก API</b><span class="cs">withoutBtn · showPanel · ข้อมูลลูกค้า</span><div>ปุ่มของคุณเอง? _MEIQIA('withoutBtn') ซ่อนปุ่มเนทีฟ และเรียก _MEIQIA('showPanel') เมื่อคลิกเพื่อเปิดแชท; ส่ง / ซิงค์ข้อมูลลูกค้าภายในจังหวะ init มิฉะนั้นจะไม่มีผล.</div></div></div><figure><svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ไดอะแกรมคัดแยก 美洽 แชทไม่แสดง" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">คัดแยกหน้าต่าง / ปุ่มไม่แสดง (สองขั้นก่อน: สคริปต์โหลดไหม → ตั้งค่าถูกไหม?)</text><rect x="20" y="46" width="150" height="46" rx="10" fill="#111"/><text x="95" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff">แชทไม่แสดง</text><path d="M170 69 H206" stroke="#999" stroke-width="2" fill="none" marker-end="url(#a)"/><rect x="206" y="46" width="172" height="46" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="292" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1d4ed8">สองกลุ่ม</text><rect x="440" y="20" width="262" height="56" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="455" y="42" font-family="system-ui,Arial" font-size="12.5" fill="#1d4ed8">สคริปต์ไม่โหลด →</text><text x="455" y="62" font-family="system-ui,Arial" font-size="11.5" fill="#1e3a8a">ตำแหน่ง · adblock · แคช</text><rect x="440" y="86" width="262" height="56" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="455" y="108" font-family="system-ui,Arial" font-size="12.5" fill="#b45309">โหลดแต่ถูกซ่อน / ไม่เชื่อม →</text><text x="455" y="128" font-family="system-ui,Arial" font-size="11.5" fill="#92400e">การซ้อน · entId · โดเมน · SPA</text><path d="M378 60 H410 V48 H440" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M378 78 H410 V114 H440" stroke="#d97706" stroke-width="2" fill="none" marker-end="url(#a)"/><text x="20" y="178" font-family="system-ui,Arial" font-size="13" font-weight="700" fill="#1d1d1f">สี่กลุ่มราก (สาเหตุ / วิธีแก้ต่อรายการ)</text><g font-family="system-ui,Arial" font-size="12"><rect x="20" y="190" width="162" height="92" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="32" y="212" font-weight="700" fill="#1d4ed8">① โหลดล้มเหลว</text><text x="32" y="234" fill="#555" font-size="11">ตำแหน่ง · บล็อก · แคช</text><rect x="194" y="190" width="162" height="92" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="206" y="212" font-weight="700" fill="#1d4ed8">② ตั้งค่า / สิทธิ์</text><text x="206" y="234" fill="#555" font-size="11">entId · ไวต์ลิสต์โดเมน</text><rect x="368" y="190" width="162" height="92" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="380" y="212" font-weight="700" fill="#b45309">③ เฟรมเวิร์ก</text><text x="380" y="234" fill="#555" font-size="11">เส้นทาง SPA · init</text><rect x="542" y="190" width="160" height="92" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="554" y="212" font-weight="700" fill="#047857">④ แสดงผล / มือถือ / SDK</text><text x="554" y="234" fill="#555" font-size="11">การซ้อน · มือถือ · พุช</text></g><defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#999"/></marker></defs></svg><figcaption>รูป 1: คัดแยก 美洽 ไม่แสดง — ตรวจการโหลดสคริปต์ (meiqia.js ใน F12), แล้วโหลด / ตั้งค่า / เฟรมเวิร์ก / การแสดงผล</figcaption></figure>
+<h2>ขั้นที่ 2: สาเหตุรากที่ถูกมองข้ามมากที่สุด → L2 (วิดเจ็ต = การฉีด JS อะซิงโครนัสจากบุคคลที่สามนอกโดเมน)</h2>
+<p>ความคิดเดียวก็พอ: <strong>วิดเจ็ตเว็บ 美洽 ไม่ใช่คอมโพเนนต์สแตติกที่ฝังในหน้าของคุณ — แต่เป็น <code>meiqia.js</code> ที่โหลดแบบอะซิงโครนัสจากโดเมนภายนอกของ 美洽 แล้วฉีดคอนเทนเนอร์แชท (DOM / iframe) แบบไดนามิกและเปิดการเชื่อมต่อข้ามต้นทางที่ยาวนานไปยังเซิร์ฟเวอร์ 美洽</strong>. นี่อธิบาย «การหายไปอย่างลึกลับ» ส่วนใหญ่: ① <strong>เป็นสคริปต์บุคคลที่สามนอกโดเมน</strong>, AdBlock / uBlock จึงบล็อกตามรายการ «การติดตาม / โฆษณา» (<code>ERR_BLOCKED_BY_CLIENT</code>) และปุ่มไม่เคยขึ้น (แม้คอนโซลดูปกติ); ② <strong>ฉีด DOM แบบอะซิงโครนัส</strong>: ใน <code>&lt;head&gt;</code> มันบล็อก, การเปลี่ยนเส้นทาง SPA ทำลายคอนเทนเนอร์และไม่สร้างใหม่เอง (ใช้ <code>manualInit</code> + <code>_MEIQIA('init')</code>), และปลั๊กอินฮีตแมป / วิเคราะห์ที่แก้ DOM อาจทับมัน; ③ <strong>ผูกกับบริษัทผ่าน entId และควบคุมด้วยไวต์ลิสต์โดเมน</strong>: entId ผิดหรือโดเมนไม่ได้รับอนุญาต สคริปต์โหลดแต่ «เชื่อมแชทไม่ได้»; ④ <strong>มือถือกับ PC เป็นการเชื่อมต่อสองชุดแยกกัน</strong>, ในแอปคือ SDK (AppKey), และพุชแบ่งเป็น «ไม่พุช» กับ «เซิร์ฟเวอร์พุชกำหนดเอง». เมื่อเห็นห่วงโซ่การฉีดนี้ ทุกอาการด้านล่างมีตรรกะเดียว. ด้านล่างคือแผงตรวจสอบตนเอง; ลึกลงไปคือห้าวิธีและประมาณการ 2026.</p>
+<figure><svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="แผงตรวจสอบตนเองก่อนเชื่อมต่อ 美洽" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">แผงตรวจสอบตนเองการเชื่อมต่อ (เขียว = ยืนยัน / แดง = มองข้ามง่าย)</text><rect x="20" y="42" width="680" height="226" rx="14" fill="#f8fafc" stroke="#e2e8f0"/><text x="38" y="66" font-family="system-ui,Arial" font-size="12.5" font-weight="700" fill="#475569">รายการตรวจ</text><text x="300" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">คำตัดสิน</text><text x="610" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">สถานะ</text><line x1="38" y1="74" x2="682" y2="74" stroke="#e2e8f0" stroke-width="1"/><text x="38" y="98" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">วางโค้ด 美洽 ก่อน </body> (ไม่ใช่ <head>)</text><text x="300" y="98" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">ตำแหน่ง</text><circle cx="612" cy="94" r="6" fill="#16a34a"/><text x="628" y="98" font-family="system-ui,Arial" font-size="12" fill="#16a34a">ยืนยันแล้ว</text><text x="38" y="128" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">สถานะ 200 ของ meiqia.js ใน F12 → Network</text><text x="300" y="128" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">โหลดสคริปต์</text><circle cx="612" cy="124" r="6" fill="#16a34a"/><text x="628" y="128" font-family="system-ui,Arial" font-size="12" fill="#16a34a">ยืนยันแล้ว</text><text x="38" y="158" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">คอนโซล typeof _MEIQIA เป็น function</text><text x="300" y="158" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">เริ่มต้นแล้ว</text><circle cx="612" cy="154" r="6" fill="#16a34a"/><text x="628" y="158" font-family="system-ui,Arial" font-size="12" fill="#16a34a">ยืนยันแล้ว</text><text x="38" y="188" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">แสดงในโหมดไม่ระบุตัวตน / ปิด adblock</text><text x="300" y="188" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">adblock</text><circle cx="612" cy="184" r="6" fill="#ef4444"/><text x="628" y="188" font-family="system-ui,Arial" font-size="12" fill="#ef4444">ต้องตรวจ</text><text x="38" y="218" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">entId ตรงกับเวิร์กเบนช์ + โดเมนได้รับอนุญาต</text><text x="300" y="218" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">ตั้งค่า / สิทธิ์</text><circle cx="612" cy="214" r="6" fill="#16a34a"/><text x="628" y="218" font-family="system-ui,Arial" font-size="12" fill="#16a34a">ยืนยันแล้ว</text><text x="38" y="248" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">init ใหม่หลังเปลี่ยนเส้นทาง SPA + ไม่มีปลั๊กอินทับ</text><text x="300" y="248" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">เฟรมเวิร์ก / การซ้อน</text><circle cx="612" cy="244" r="6" fill="#ef4444"/><text x="628" y="248" font-family="system-ui,Arial" font-size="12" fill="#ef4444">ต้องตรวจ</text><text x="20" y="296" font-family="system-ui,Arial" font-size="11.5" fill="#94a3b8">หมายเหตุ: แดง = สองอย่างที่ถูกมองข้ามมากที่สุด — ส่วนขยาย adblock (ERR_BLOCKED_BY_CLIENT) และเฟรมเวิร์ก / การซ้อน (การเปลี่ยนเส้นทาง SPA, ปลั๊กอินบุคคลที่สามที่แก้ DOM); ตรวจสองอย่างนี้ก่อน.</text></svg><figcaption>รูป 2: แผงตรวจสอบตนเองการเชื่อมต่อ 美洽 (เขียว = ยืนยัน / แดง = มองข้ามง่าย)</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_th.webp"><img src="/img/board_th.png" alt="ภาพประกอบแผงตรวจสอบตนเองก่อนเชื่อมต่อ 美洽 รายการเขียว/แดง" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>รูป: ตรวจ «ตำแหน่งโค้ด + meiqia.js 200 + เริ่มต้นแล้ว» ก่อน, แล้ว «adblock + เฟรมเวิร์ก/การซ้อน» — สองอย่างหลังถูกมองข้ามมากที่สุด</figcaption></figure>
+<h2>ตารางอาการครบถ้วน (พฤติกรรม / ตำแหน่งทางการ · สาเหตุราก L2)</h2>
+<table id="tbl"></table>
+<h2>เปรียบเทียบห้าวิธีเชื่อมต่อ 美洽 (โค้ด / ความยาก / ฟีเจอร์ / สถานการณ์ / เวลาขึ้นใช้งาน · เอกสารทางการ)</h2>
+<table class="cmp"><tr><th>วิธีเชื่อมต่อ</th><th>โค้ด / ความยาก</th><th>ความครบฟีเจอร์</th><th>เหมาะกับ</th><th>เวลาขึ้นใช้งาน</th></tr><tr><td>วิดเจ็ต JS เว็บ</td><td>สนิปเป็ต JS เดียว · ต่ำ</td><td>ครบที่สุด (ลอย / ป๊อปอัป / ทักทายอัตโนมัติ / ร่องรอยผู้เยี่ยมชม)</td><td>ไซต์ PC + มือถือ (แนะนำทางการ)</td><td>~3-5 นาที</td></tr><tr><td>ลิงก์แชท</td><td>ไม่มีโค้ด · ต่ำสุด</td><td>แชทพื้นฐาน</td><td>ไม่มีเทคนิค / วางลิงก์แชทเร็ว</td><td>ทันที</td></tr><tr><td>API / WebIM SDK</td><td>ต้องพัฒนา · สูง</td><td>ปรับแต่งลึก (UI ของตัวเอง / ระบบ / รวมคำสั่งซื้อ)</td><td>ทีมที่มีกำลังพัฒนาเพื่อหลอมรวมลึก</td><td>ตามการพัฒนา</td></tr><tr><td>SDK เนทีฟแอป</td><td>เชื่อมต่อ SDK · สูง</td><td>แชทในแอป + พุชข้อความ</td><td>แอป iOS / Android</td><td>ตามการพัฒนา</td></tr><tr><td>ตั้งค่าเร็ว CMS</td><td>ปลั๊กอิน / คลิกเดียว · ต่ำ</td><td>เหมือนวิดเจ็ต JS</td><td>ไซต์ WordPress / Fkw / Shopify</td><td>นาที</td></tr></table><section class="i4data">
+<h2>美洽 สาเหตุไม่แสดง & เปรียบเทียบวิธีเชื่อมต่อ (ประมาณการ 2026)</h2>
+<p>ต่อไปนี้คือ <strong>ประมาณการ 2026</strong> ที่สังเคราะห์จากความช่วยเหลือทางการของ 美洽 (ช่องการเข้าถึง / API วิดเจ็ตเว็บ JavaScript) และการแก้ปัญหาการเชื่อมต่อสาธารณะ (ไม่ใช่คำมั่นของผู้ขายหรือการวัดโดยตรง; เพื่ออ้างอิง เปลี่ยนตามเวอร์ชันและนโยบายเบราว์เซอร์):</p>
+<table>
+<tr><th>มิติ</th><th>ประมาณการ / เปรียบเทียบ</th></tr>
+<tr><td>การกระจายสาเหตุไม่แสดง (ชุมชน / ทิกเก็ต · ปม.)</td><td><strong>ตำแหน่ง / ไม่โหลด ~35%</strong> &gt; <strong>adblock / ส่วนขยายเบราว์เซอร์ ~25%</strong> &gt; ตั้งค่า / สิทธิ์ (entId / โดเมน) ~20% &gt; เฟรมเวิร์ก (SPA) ~12% &gt; ขัดแย้งสไตล์ / ปลั๊กอินบุคคลที่สาม ~8%</td></tr>
+<tr><td>การเชื่อมต่อคืออะไรจริง ๆ</td><td>วิดเจ็ตเว็บ = <strong>JS อะซิงโครนัสบุคคลที่สามนอกโดเมนที่ฉีด DOM + การเชื่อมต่อข้ามต้นทางยาวนาน</strong> (ไม่ใช่คอมโพเนนต์สแตติกฝัง); จึงได้รับผลจากตำแหน่ง กฎ adblock การซ้อน CSS วงจรชีวิต SPA</td></tr>
+<tr><td>การเชื่อมต่อต่อแพลตฟอร์ม (ปม.)</td><td>เว็บ PC / มือถือ = <strong>วิดเจ็ต JS (โค้ดเดียวกัน ดีพลอยแยก)</strong>; แอป = <strong>SDK เนทีฟ (AppKey)</strong>; WeChat / Douyin / RED = การเชื่อมต่อที่ได้รับอนุญาตช่อง</td></tr>
+<tr><td>ผลของ adblock (ปม.)</td><td>ราว <strong>30-40%</strong> ของผู้ใช้ PC ใช้ส่วนขยาย adblock → สคริปต์แชทบุคคลที่สามถูกบล็อกตามกฎโฆษณา (ERR_BLOCKED_BY_CLIENT) สาเหตุหลักของ «คอนโซลปกติ ฝั่งผู้ใช้หาย»</td></tr>
+<tr><td>เวลาขึ้นใช้งานวิดเจ็ต JS (ทางการ)</td><td>วาง JS เฉพาะที่ด้านล่างหน้า ขึ้นใช้งานในราว <strong>3-5 นาที</strong>; entId คือไอดีเฉพาะของบริษัท และความไม่ตรงกับเวิร์กเบนช์ทำให้เจ้าหน้าที่ไม่มีแชท</td></tr>
+</table>
+<p><small>ฐานประมาณการ: เส้นฐานแหล่งที่มา + การคาดการณ์เวลา (meiqia.com/help ช่องการเข้าถึง / วิดเจ็ตเว็บ JavaScript, คู่มือเชื่อมต่อ meiqia.im, การแก้ปัญหาสาธารณะ, 2026); เปลี่ยนตามเวอร์ชันและนโยบายการบล็อกของเบราว์เซอร์. โปรดยึดข้อมูลทางการล่าสุดของ 美洽. ไม่เป็นทางการ · การแปลโดย LLM.</small></p>
+</section>
+<h2>กรณีจริง — อ่านเร็ว</h2>
+<ul class="scenes"><li>วางโค้ดแล้วแต่ไม่มีฟองแชท: ก่อนอื่น F12 → Network ค้นหา meiqia.js — ไม่มีคำขอหรือไม่ใช่ 200 แปลว่าวางผิดที่ / ค้างที่แคช; ล้างแคช CDN หรือเปิดใหม่ในโหมดไม่ระบุตัวตน.</li><li>คอนโซลแจ้ง meiqia.js net::ERR_BLOCKED_BY_CLIENT: adblock (AdBlock / uBlock / AdGuard) บล็อกสคริปต์แชทบุคคลที่สามตามกฎโฆษณา — ปิดส่วนขยายหรือใส่ไวต์ลิสต์; นี่คือสาเหตุที่ «หายไปสำหรับผู้ใช้บางคนขณะที่คอนโซลของคุณดูปกติ».</li><li>สคริปต์โหลดแล้ว (คอนโซล typeof _MEIQIA เป็น function) แต่ไม่มีปุ่ม: มักเป็น CSS ธีมดันฟองออกนอกจอหรือปลั๊กอินฮีตแมป / วิเคราะห์เปลี่ยนการซ้อน DOM — F12 → Elements ค้นหาคอนเทนเนอร์ 美洽 และตรวจทีละรายการ.</li><li>หน้าแรกมีแชทใน SPA Vue / React แต่เส้นทางที่สองไม่มี: การเปลี่ยนเส้นทาง SPA ทำลายคอนเทนเนอร์และวิดเจ็ตไม่ถูกสร้างใหม่ — ใช้ manualInit หยุด auto-init และเรียก _MEIQIA('init') ใน route hook เพื่อเมานต์ใหม่.</li><li>แชทเปิดได้แต่เจ้าหน้าที่ไม่ได้รับข้อความผู้เยี่ยมชม: เป็นไปได้มากว่า entId ไม่ตรงกับเวิร์กเบนช์ (คัดลอกสนิปเป็ตคนอื่น / สับสนบัญชี) — เทียบไอดีบริษัทใน ตั้งค่า - ทีม - ค้นหาไอดี กับ entId ในโค้ด.</li><li>ใช้ได้บน staging แต่ไม่โหลดบนโดเมนโปรดักชัน: โดเมนโปรดักชันไม่ได้รับอนุญาตผ่าน «เพิ่มไซต์เชื่อมต่อ» — เพิ่มโดเมนจริงในรายการแล้วเผยแพร่ใหม่.</li><li>อยากเอาปุ่มกลมเนทีฟของ 美洽 ออกและใช้ปุ่ม «ติดต่อ» ของตัวเอง: เรียก _MEIQIA('withoutBtn') เพื่อซ่อนเนทีฟ แล้วผูก _MEIQIA('showPanel') กับปุ่มของคุณเพื่อเปิดแชท.</li></ul><div class="related"><h2>ที่เกี่ยวข้อง</h2><ul><li><a href="https://meiqis.com/">ดาวน์โหลด 美洽 / ติดตั้ง & คู่มือเชื่อมต่อ</a></li><li><a href="https://meiqis.com/th/website-integration/">คู่มือเชื่อมต่อเว็บ 美洽 (วิดเจ็ต JS)</a></li><li><a href="https://meiqis.com/th/tools/meiqia-integration-troubleshooting/">แก้ปัญหาการเชื่อมต่อ 美洽 (ตารางครบถ้วนทางการ)</a></li><li><a href="https://meiqiaa.com/">เว็บไซต์ทางการ 美洽 (เว็บไซต์พี่น้อง)</a></li></ul></div></main>
+<footer>วิดเจ็ตเว็บ / JS API (manualInit / init / withoutBtn / showPanel / ส่งข้อมูลลูกค้า), สิทธิ์ entId / โดเมน, ช่องย่อย, AppKey SDK และโหมดพุช รวบรวมจากศูนย์ช่วยเหลือทางการของ 美洽 (meiqia.com/help · ช่องการเข้าถึง / วิดเจ็ตเว็บ JavaScript) และคู่มือเชื่อมต่อ 美洽 (meiqia.im); adblock ERR_BLOCKED_BY_CLIENT, ความขัดแย้ง DOM ฮีตแมป / วิเคราะห์ และการเชื่อมต่อ SPA จากการแก้ปัญหาสาธารณะ (เรียบเรียงใหม่). ตัวเลข 2026 เป็นการประมาณ ไม่ใช่คำมั่นของผู้ขายหรือการวัดโดยตรง; เพื่ออ้างอิงเท่านั้น โปรดยึดข้อมูลทางการล่าสุดของ 美洽. ไม่เป็นทางการ · การแปลโดย LLM.<br>หน้าเครื่องมือ · คัดแยกการเชื่อมต่อ ไม่แทนคอนโซล 美洽</footer>
+</div>
+<script src="/th/codes.js"></script><script src="/app.js"></script>
+</body></html>
