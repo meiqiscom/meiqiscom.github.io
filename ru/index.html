@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>美洽(Meiqia) виджет чата не появляется / исправить ошибку интеграции - meiqia.js заблокирован, нет кнопки, entId, SPA, push SDK</title>
+<meta name="description" content="Веб-виджет чата 美洽(Meiqia) не появляется, нет кнопки, meiqia.js заблокирован ERR_BLOCKED_BY_CLIENT, сломанные стили, исчезает после смены маршрута SPA, entId не совпадает и агенты не получают чаты, не виден на мобильном, push SDK не приходит? Найдите симптом для поведения L1 и корневой причины L2: асинхронная инъекция стороннего внедоменного JS, правила adblock, наложение CSS, жизненный цикл SPA, entId и белый список доменов, AppKey и путь push SDK; со сравнением пяти методов интеграции и оценками 2026.">
+<link rel="canonical" href="https://meiqiscom.github.io/ru/">
+<link rel="alternate" hreflang="zh-Hans" href="https://meiqiscom.github.io/">
+<link rel="alternate" hreflang="en" href="https://meiqiscom.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://meiqiscom.github.io/ja/">
+<link rel="alternate" hreflang="zh-Hant" href="https://meiqiscom.github.io/zh-tw/">
+<link rel="alternate" hreflang="ko" href="https://meiqiscom.github.io/ko/">
+<link rel="alternate" hreflang="id" href="https://meiqiscom.github.io/id/">
+<link rel="alternate" hreflang="vi" href="https://meiqiscom.github.io/vi/">
+<link rel="alternate" hreflang="th" href="https://meiqiscom.github.io/th/">
+<link rel="alternate" hreflang="es" href="https://meiqiscom.github.io/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://meiqiscom.github.io/pt-br/">
+<link rel="alternate" hreflang="de" href="https://meiqiscom.github.io/de/">
+<link rel="alternate" hreflang="fr" href="https://meiqiscom.github.io/fr/">
+<link rel="alternate" hreflang="ru" href="https://meiqiscom.github.io/ru/">
+<link rel="alternate" hreflang="it" href="https://meiqiscom.github.io/it/">
+<link rel="alternate" hreflang="pl" href="https://meiqiscom.github.io/pl/">
+<link rel="alternate" hreflang="nl" href="https://meiqiscom.github.io/nl/">
+<link rel="alternate" hreflang="tr" href="https://meiqiscom.github.io/tr/">
+<link rel="alternate" hreflang="ar" href="https://meiqiscom.github.io/ar/">
+<link rel="alternate" hreflang="hi" href="https://meiqiscom.github.io/hi/">
+<link rel="alternate" hreflang="ms" href="https://meiqiscom.github.io/ms/">
+<link rel="alternate" hreflang="fa" href="https://meiqiscom.github.io/fa/">
+<link rel="alternate" hreflang="bn" href="https://meiqiscom.github.io/bn/">
+<link rel="alternate" hreflang="ta" href="https://meiqiscom.github.io/ta/">
+<link rel="alternate" hreflang="te" href="https://meiqiscom.github.io/te/">
+<link rel="alternate" hreflang="fil" href="https://meiqiscom.github.io/fil/">
+<link rel="alternate" hreflang="ur" href="https://meiqiscom.github.io/ur/">
+<link rel="alternate" hreflang="lo" href="https://meiqiscom.github.io/lo/">
+<link rel="alternate" hreflang="km" href="https://meiqiscom.github.io/km/">
+<link rel="alternate" hreflang="my" href="https://meiqiscom.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://meiqiscom.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "美洽 чат не появляется / исправление ошибок интеграции",
+   "url": "https://meiqiscom.github.io/ru/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "inLanguage": "ru",
+   "description": "Веб-виджет чата 美洽(Meiqia) не появляется, нет кнопки, meiqia.js заблокирован ERR_BLOCKED_BY_CLIENT, сломанные стили, исчезает после смены маршрута SPA, entId не совпадает и агенты не получают чаты, не виден на мобильном, push SDK не приходит? Найдите симптом для поведения L1 и корневой причины L2: асинхронная инъекция стороннего внедоменного JS, правила adblock, наложение CSS, жизненный цикл SPA, entId и белый список доменов, AppKey и путь push SDK; со сравнением пяти методов интеграции и оценками 2026.",
+   "isAccessibleForFree": true,
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "ru",
+   "url": "https://meiqiscom.github.io/ru/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "美洽 Окно / пузырь чата вообще не появляется — как исправить?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Веб-виджет 美洽 загружает плавающее окно чата одним вставленным JS-сниппетом; убедитесь, что код корректно встроен, а сайт интеграции настроен в консоли. Виджет — это meiqia.js, внедряемый в DOM после асинхронной загрузки, поэтому «совсем ничего» обычно значит «скрипт так и не загрузился»: неверное размещение, заблокирован adblock / кэшем или несовпадение домена / entId, так что инъекция не выполнилась. F12 → Network, найдите meiqia.js: нет запроса → код не действует (проверьте размещение / очистите кэш); запрос есть, но не-200 → заблокирован или проблема пути; всё в порядке, но всё ещё скрыт → проверьте entId / авторизацию домена и группы ниже."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Скрипт загружен, но кнопка чата отсутствует — как исправить?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Код виджета адаптируется к сайту и показывает кнопку чата; если отображение сбоит, проверьте, не скрыт ли он стилями или не прервана ли инициализация. Если скрипт загружается, но кнопки нет, обычно это проблема «слоя отображения»: глобальный CSS переопределяет позицию кнопки / ставит display:none, проигрывает z-index, или другой фиксированный элемент перекрывает её; другая JS-ошибка тоже может прервать инициализацию. F12 → Elements, найдите контейнер 美洽 — присутствует, скрыт или за экраном?; временно отключите свой CSS / другие скрипты для перепроверки; проверьте консоль на ошибку, прервавшую выполнение."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js заблокирован расширением adblock — как исправить?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Скрипт чата 美洽 приходит со стороннего домена; если установлено блокирующее расширение, оно может счесть его рекламой / трекером и предотвратить загрузку — отключите блокировку или добавьте в белый список. ERR_BLOCKED_BY_CLIENT означает, что расширение браузера (AdBlock / uBlock / AdGuard) заблокировало запрос по своим спискам фильтров. Скрипт 美洽 — «сторонний внедоменный + связь в реальном времени», что такие правила часто принимают за рекламу / трекер, вызывая ложный сбой «консоль ок, у пользователя отсутствует». Перепроверьте в инкогнито или с выключенным adblock — если появляется, причина в блокировке; попросите пользователей добавить сайт в белый список; фронтенд может загружать скрипт чата отложенно / условно, чтобы обойти часть авто-правил."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js 404 / плохой статус / смешанный контент — как исправить?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "После развёртывания найдите meiqia.js на панели Network; статус 200 означает, что скрипт корректно размещён и загружен. Частые причины не-200: код удерживается кэшем страницы / CDN (не обновлён после публикации), загрузка на HTTP-странице / неполная цепочка сертификатов вызывает блокировку смешанного контента, или сломанный / частично скопированный код. При сбое этого шага инъекция и соединение не происходят. Очистите кэш CDN / браузера (или инкогнито) после публикации; обеспечьте полный HTTPS с целостной цепочкой сертификатов и без смешанного контента; проверьте, что скопированный код полон и не экранирован."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Код не в том месте (блокировка в head / без эффекта) — как исправить?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽 рекомендует вставлять код внизу страницы, перед </body>; виджет запускается после загрузки основного контента. Виджет должен внедрить контейнер после готовности DOM. В <head> он блокирует рендер (сначала пустой экран при слабой сети) или запускается до готовности DOM и сбоит; в некоторых async / модульных областях порядок загрузки тоже может сбиться. Поместите JS 美洽 в общий футер каждой страницы, перед </body>; для SPA см. пункт «маршрут SPA» и используйте manualInit; убедитесь, что бандлер не удалит его через tree-shaking."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Сломанные стили окна / кнопки чата — как исправить?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Виджет внедряет свои стили и адаптируется к сайту; конфликты с глобальными стилями могут вызвать визуальные сбои. Скрипт 美洽 внедряет CSS во время выполнения; если глобальные стили (универсальные селекторы / правила высокого приоритета / сбросы) переопределяют его классы первыми, ломаются позиция, наложение и шрифты — побочный эффект «динамической инъекции + общего пространства стилей документа». F12, чтобы увидеть, какое правило сайта переопределяет контейнер 美洽; сузьте глобальные стили / уменьшите влияние на общие классы; при необходимости попросите 美洽 настроить наложение контейнера."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Кнопка за экраном / перекрыта — как исправить?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Кнопка виджета появляется как плавающая с фиксированной позицией; если перекрыта другими фиксированными элементами, настройте наложение или позицию. Другие элементы position:fixed на сайте (наверх, плавающая реклама, своя панель поддержки) с большим z-index перекрывают кнопку 美洽, или тема неверно вычисляет её координаты, оставляя её «за экраном / перекрытой». Выберите контейнер 美洽 в F12, чтобы увидеть реальные координаты / z-index; поднимите его или понизьте z-index перекрывающего элемента; избегайте нагромождения нескольких фиксированных плавающих в одном углу."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Конфликт DOM со сторонним плагином / аналитикой — как исправить?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Другие скрипты страницы, изменяющие DOM или перехватывающие запросы, могут влиять на нормальную загрузку и отображение виджета. Скрипты тепловой карты / аналитики / конверсии переписывают DOM, внедряют наложения или перехватывают запросы; так как они и 美洽 внедряются в один документ, наложение / события мешают, и контейнер 美洽 перекрывается или его init прерывается. Отключайте подозрительные плагины по одному, чтобы локализовать конфликт; настройте порядок загрузки / наложение контейнера; пусть тепловые карты и т.п. избегают области контейнера 美洽."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">Язык: <a href="/">简体中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/ko/">한국어</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/th/">ไทย</a> · <a href="/es/">Español</a> · <a href="/pt-br/">Português (BR)</a> · <a href="/de/">Deutsch</a> · <a href="/fr/">Français</a> · <strong>Русский</strong> · <a href="/it/">Italiano</a> · <a href="/pl/">Polski</a> · <a href="/nl/">Nederlands</a> · <a href="/tr/">Türkçe</a> · <a href="/ar/">العربية</a> · <a href="/hi/">हिन्दी</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fa/">فارسی</a> · <a href="/bn/">বাংলা</a> · <a href="/ta/">தமிழ்</a> · <a href="/te/">తెలుగు</a> · <a href="/fil/">Filipino</a> · <a href="/ur/">اردو</a> · <a href="/lo/">ພາສາລາວ</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>美洽 виджет чата не появляется / исправить ошибку интеграции</h1>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_ru.webp"><img src="/img/cover_ru.png" alt="Иллюстрация инструмента 美洽 виджет чата не появляется / исправление ошибок" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Рис: 美洽 чат не появляется / исправление ошибок (поведение L1 + корневая причина L2 + пять методов интеграции)</figcaption></figure>
+<p>Вставили код <strong>美洽(Meiqia)</strong>, а <strong>веб-виджет чата</strong> не появляется, <strong>кнопка чата так и не возникает</strong>, консоль сообщает о блокировке <code>meiqia.js</code> или <strong>агенты не получают чаты</strong>? Сначала проясните три вещи: <strong>скрипт вообще не загрузился (размещение / adblock / кэш), загрузился, но скрыт стилями / наложением, или загрузился нормально, но конфигурация не совпадает (entId / домен / жизненный цикл SPA)?</strong> Найдите <strong>симптом или ключевое слово</strong> (напр. <code>not showing</code>, <code>adblock</code>, <code>entId</code>, <code>SPA</code>, <code>mobile</code>, <code>sdk push</code>): сначала <strong>поведение L1 и официальное позиционирование</strong>, затем <strong>корневую причину L2 и решение</strong>. Установка / руководство? См. <a href="https://meiqis.com/">загрузка 美洽 / руководство по интеграции поддержки</a>.</p>
+<input id="q" placeholder="Введите симптом или ключевое слово, напр. not showing / adblock / entId / SPA / mobile / sdk push" autocomplete="off">
+<button id="go">Найти</button>
+<div id="out"></div>
+<h2>Шаг 1: проверьте, загрузился ли скрипт, затем разделите на четыре группы</h2>
+<p>Когда чат 美洽 не появляется, в 9 из 10 случаев это одна из четырёх групп; сначала посмотрите, <strong>загрузился ли скрипт вообще</strong>: F12 → Network, найдите <code>meiqia.js</code>; нет запроса или статус не 200 — значит не загрузился. ① <strong>Ошибка загрузки</strong>: код не в том месте (должен быть перед <code>&lt;/body&gt;</code>, а не в <code>&lt;head&gt;</code>), заблокирован правилом adblock (<code>ERR_BLOCKED_BY_CLIENT</code>), удерживается кэшем CDN / браузера, или сертификат HTTPS / смешанный контент. ② <strong>Конфигурация / авторизация</strong>: entId не совпадает с рабочим столом (загружается, но агенты не получают чаты), или домен сайта не авторизован в консоли. ③ <strong>Интеграция фреймворка</strong>: SPA Vue/React/Next уничтожает контейнер при смене маршрута, и виджет не пересоздаётся. ④ <strong>Отображение / мобильный / SDK</strong>: CSS сайта выталкивает пузырь за экран, сторонний плагин накладывается на DOM, мобильному нужно своё развёртывание, в приложении нужен SDK. Подробнее: <a href="https://meiqis.com/website-integration/">руководство по веб-интеграции 美洽</a>.</p>
+<div class="cat"><div class="catbox"><b>Ошибка загрузки</b><span class="cs">размещение · adblock · кэш · HTTPS</span><div>Вставьте JS 美洽 перед </body> (не в <head>); F12 → Network, найдите meiqia.js и проверьте статус (должен быть 200); ERR_BLOCKED_BY_CLIENT обычно расширение adblock — проверьте в инкогнито или добавьте в белый список; очистите кэш CDN после публикации; обеспечьте полный HTTPS без смешанного контента.</div></div><div class="catbox"><b>Конфиг / авторизация</b><span class="cs">entId · белый список домена · субканалы</span><div>entId — уникальный id вашей компании; при несовпадении с рабочим столом «скрипт загружается, но агенты не получают чаты» (Настройки - Команда - поиск ID); домен сайта должен быть авторизован через «Добавить сайт интеграции»; используйте отдельный субканал (зонд) на каждую бизнес-линию.</div></div><div class="catbox"><b>Интеграция фреймворка</b><span class="cs">SPA · смена маршрута · manualInit</span><div>SPA Vue/React/Next уничтожает DOM при смене маршрута, и виджет не пересоздаётся; используйте _MEIQIA('manualInit') для остановки авто-инициализации и вызовите _MEIQIA('init') в хуке маршрута (useEffect / mounted) для повторного монтирования.</div></div><div class="catbox"><b>Проблемы отображения</b><span class="cs">конфликт стилей · наложение · сторонние плагины</span><div>Загружен, но невидим: обычно глобальный CSS сайта переопределяет позицию пузыря, или плагин тепловой карты / аналитики / SEO меняет DOM и перекрывает контейнер; F12 → Elements, найдите контейнер meiqia и проверьте display:none, проигравший z-index или координаты за экраном.</div></div><div class="catbox"><b>Мобильный / SDK</b><span class="cs">мобильный веб · AppKey · push</span><div>Мобильный / ПК веб — один и тот же сниппет, но нужно своё развёртывание; в приложении используется нативный SDK (сначала «Добавить конфиг APP» в консоли для AppKey); push делится на «без push» (только в приложении) и «свой push-сервер» (доставляется даже после выхода из приложения).</div></div><div class="catbox"><b>Вызовы API</b><span class="cs">withoutBtn · showPanel · данные клиента</span><div>Своя кнопка? _MEIQIA('withoutBtn') скрывает нативную кнопку, а вызовите _MEIQIA('showPanel') по клику для открытия чата; передавайте / синхронизируйте данные клиента в пределах тайминга init, иначе не сработает.</div></div></div><figure><svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Диаграмма триажа «美洽 чат не появляется»" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">Триаж «окно / кнопка не появляется» (сначала два шага: загрузился ли скрипт → верна ли конфигурация?)</text><rect x="20" y="46" width="150" height="46" rx="10" fill="#111"/><text x="95" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff">Чат не виден</text><path d="M170 69 H206" stroke="#999" stroke-width="2" fill="none" marker-end="url(#a)"/><rect x="206" y="46" width="172" height="46" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="292" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1d4ed8">Две группы</text><rect x="440" y="20" width="262" height="56" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="455" y="42" font-family="system-ui,Arial" font-size="12.5" fill="#1d4ed8">Скрипт не загрузился →</text><text x="455" y="62" font-family="system-ui,Arial" font-size="11.5" fill="#1e3a8a">размещение · adblock · кэш</text><rect x="440" y="86" width="262" height="56" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="455" y="108" font-family="system-ui,Arial" font-size="12.5" fill="#b45309">Загружен, но скрыт / нет связи →</text><text x="455" y="128" font-family="system-ui,Arial" font-size="11.5" fill="#92400e">наложение · entId · домен · SPA</text><path d="M378 60 H410 V48 H440" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M378 78 H410 V114 H440" stroke="#d97706" stroke-width="2" fill="none" marker-end="url(#a)"/><text x="20" y="178" font-family="system-ui,Arial" font-size="13" font-weight="700" fill="#1d1d1f">Четыре корневые группы (причина / решение по пункту)</text><g font-family="system-ui,Arial" font-size="12"><rect x="20" y="190" width="162" height="92" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="32" y="212" font-weight="700" fill="#1d4ed8">① Ошибка загрузки</text><text x="32" y="234" fill="#555" font-size="11">размещение · блок · кэш</text><rect x="194" y="190" width="162" height="92" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="206" y="212" font-weight="700" fill="#1d4ed8">② Конфиг / авториз.</text><text x="206" y="234" fill="#555" font-size="11">entId · белый список домена</text><rect x="368" y="190" width="162" height="92" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="380" y="212" font-weight="700" fill="#b45309">③ Фреймворк</text><text x="380" y="234" fill="#555" font-size="11">маршрут SPA · init</text><rect x="542" y="190" width="160" height="92" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="554" y="212" font-weight="700" fill="#047857">④ Отображение / моб. / SDK</text><text x="554" y="234" fill="#555" font-size="11">наложение · моб. · push</text></g><defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#999"/></marker></defs></svg><figcaption>Рис 1: триаж «美洽 не появляется» — проверьте загрузку скрипта (meiqia.js в F12), затем загрузка / конфиг / фреймворк / отображение</figcaption></figure>
+<h2>Шаг 2: самая упускаемая корневая причина → L2 (виджет = асинхронная инъекция стороннего внедоменного JS)</h2>
+<p>Достаточно одной идеи: <strong>веб-виджет 美洽 — это не статический компонент, встроенный в вашу страницу, а <code>meiqia.js</code>, который асинхронно загружается из внешнего домена 美洽, затем динамически внедряет контейнер чата (DOM / iframe) и открывает долгоживущее межоригинное соединение с серверами 美洽</strong>. Это объясняет большинство «загадочных исчезновений»: ① <strong>это сторонний внедоменный скрипт</strong>, поэтому AdBlock / uBlock блокируют его по своим спискам «трекинг / реклама» (<code>ERR_BLOCKED_BY_CLIENT</code>), и кнопка так и не появляется (хотя консоль выглядит нормально); ② <strong>он внедряет DOM асинхронно</strong>: в <code>&lt;head&gt;</code> он блокирует, смена маршрута SPA уничтожает контейнер, и он не пересоздаётся сам (используйте <code>manualInit</code> + <code>_MEIQIA('init')</code>), а плагины тепловых карт / аналитики, меняющие DOM, могут его перекрыть; ③ <strong>он привязан к вашей компании через entId и контролируется белым списком доменов</strong>: при неверном entId или неавторизованном домене скрипт загружается, но «не соединяет чат»; ④ <strong>мобильный и ПК — две отдельные интеграции</strong>, в приложении это SDK (AppKey), а push делится на «без push» и «свой push-сервер». Увидев эту цепочку инъекции, каждый симптом ниже получает единую логику. Ниже панель самопроверки; ещё ниже пять методов и оценки 2026.</p>
+<figure><svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Панель самопроверки перед интеграцией 美洽" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">Панель самопроверки интеграции (зелёный = подтверждено / красный = легко упустить)</text><rect x="20" y="42" width="680" height="226" rx="14" fill="#f8fafc" stroke="#e2e8f0"/><text x="38" y="66" font-family="system-ui,Arial" font-size="12.5" font-weight="700" fill="#475569">Пункт</text><text x="300" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">Вердикт</text><text x="610" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">Статус</text><line x1="38" y1="74" x2="682" y2="74" stroke="#e2e8f0" stroke-width="1"/><text x="38" y="98" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Код 美洽 вставлен перед </body> (не <head>)</text><text x="300" y="98" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">размещение</text><circle cx="612" cy="94" r="6" fill="#16a34a"/><text x="628" y="98" font-family="system-ui,Arial" font-size="12" fill="#16a34a">подтверждено</text><text x="38" y="128" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Статус 200 meiqia.js в F12 → Network</text><text x="300" y="128" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">загрузка скрипта</text><circle cx="612" cy="124" r="6" fill="#16a34a"/><text x="628" y="128" font-family="system-ui,Arial" font-size="12" fill="#16a34a">подтверждено</text><text x="38" y="158" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Консоль typeof _MEIQIA — function</text><text x="300" y="158" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">инициализирован</text><circle cx="612" cy="154" r="6" fill="#16a34a"/><text x="628" y="158" font-family="system-ui,Arial" font-size="12" fill="#16a34a">подтверждено</text><text x="38" y="188" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Виден в инкогнито / с выключенным adblock</text><text x="300" y="188" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">adblock</text><circle cx="612" cy="184" r="6" fill="#ef4444"/><text x="628" y="188" font-family="system-ui,Arial" font-size="12" fill="#ef4444">проверить</text><text x="38" y="218" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">entId совпадает с рабочим столом + домен авторизован</text><text x="300" y="218" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">конфиг / авториз.</text><circle cx="612" cy="214" r="6" fill="#16a34a"/><text x="628" y="218" font-family="system-ui,Arial" font-size="12" fill="#16a34a">подтверждено</text><text x="38" y="248" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Повторный init после смены маршрута SPA + нет наложения плагина</text><text x="300" y="248" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">фреймворк / наложение</text><circle cx="612" cy="244" r="6" fill="#ef4444"/><text x="628" y="248" font-family="system-ui,Arial" font-size="12" fill="#ef4444">проверить</text><text x="20" y="296" font-family="system-ui,Arial" font-size="11.5" fill="#94a3b8">Примечание: красный = два самых упускаемых — расширения adblock (ERR_BLOCKED_BY_CLIENT) и фреймворк / наложение (смены маршрута SPA, сторонние плагины, меняющие DOM); проверьте эти два первыми.</text></svg><figcaption>Рис 2: панель самопроверки интеграции 美洽 (зелёный = подтверждено / красный = легко упустить)</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_ru.webp"><img src="/img/board_ru.png" alt="Иллюстрация панели самопроверки перед интеграцией 美洽, зелёные/красные пункты" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Рис: сначала проверьте «размещение кода + meiqia.js 200 + инициализирован», затем «adblock + фреймворк/наложение» — последние два упускают чаще всего</figcaption></figure>
+<h2>Полная таблица симптомов (поведение / официальное позиционирование · корневая причина L2)</h2>
+<table id="tbl"></table>
+<h2>Сравнение пяти методов интеграции 美洽 (код / сложность / функции / сценарий / время до запуска · офиц. документация)</h2>
+<table class="cmp"><tr><th>Метод интеграции</th><th>Код / сложность</th><th>Полнота функций</th><th>Лучше для</th><th>Время до запуска</th></tr><tr><td>Веб JS-виджет</td><td>один JS-сниппет · низкая</td><td>самый полный (плавающий / попап / авто-приветствие / след посетителя)</td><td>ПК + мобильные сайты (офиц. рекомендация)</td><td>~3-5 мин</td></tr><tr><td>Ссылка на чат</td><td>без кода · минимальная</td><td>базовый чат</td><td>без техники / быстро поставить ссылку чата</td><td>мгновенно</td></tr><tr><td>API / WebIM SDK</td><td>нужна разработка · высокая</td><td>глубокая кастомизация (свой UI / система / интеграция заказов)</td><td>команды с возможностями разработки для глубокой интеграции</td><td>по разработке</td></tr><tr><td>Нативный SDK приложения</td><td>интегрировать SDK · высокая</td><td>чат в приложении + push сообщений</td><td>приложения iOS / Android</td><td>по разработке</td></tr><tr><td>Быстрая настройка CMS</td><td>плагин / один клик · низкая</td><td>как JS-виджет</td><td>сайты WordPress / Fkw / Shopify</td><td>минуты</td></tr></table><section class="i4data">
+<h2>美洽 причины непоявления & сравнение методов интеграции (оценка 2026)</h2>
+<p>Ниже <strong>оценки 2026</strong>, синтезированные из официальной помощи 美洽 (Каналы доступа / API JavaScript веб-виджета) и публичного устранения неполадок интеграции (не обязательства поставщика и не измерения из первых рук; для справки, меняются по версии и политике браузера):</p>
+<table>
+<tr><th>Измерение</th><th>Оценка / сравнение</th></tr>
+<tr><td>Распределение причин непоявления (сообщество / тикеты · оц.)</td><td><strong>размещение / не загружено ~35%</strong> &gt; <strong>adblock / расширение браузера ~25%</strong> &gt; конфиг / авторизация (entId / домен) ~20% &gt; фреймворк (SPA) ~12% &gt; конфликт стилей / стороннего плагина ~8%</td></tr>
+<tr><td>Что такое интеграция на самом деле</td><td>веб-виджет = <strong>сторонний внедоменный асинхронный JS, внедряющий DOM + долгоживущее межоригинное соединение</strong> (не встроенный статический компонент); отсюда влияние размещения, правил adblock, наложения CSS, жизненного цикла SPA</td></tr>
+<tr><td>Интеграция по платформам (оц.)</td><td>ПК / мобильный веб = <strong>JS-виджет (тот же код, развёрнут отдельно)</strong>; приложение = <strong>нативный SDK (AppKey)</strong>; WeChat / Douyin / RED = интеграция с авторизацией канала</td></tr>
+<tr><td>Влияние adblock (оц.)</td><td>около <strong>30-40%</strong> ПК-пользователей используют расширение adblock → сторонний скрипт чата блокируется рекламными правилами (ERR_BLOCKED_BY_CLIENT), главная причина «консоль ок, у пользователя отсутствует»</td></tr>
+<tr><td>Время до запуска JS-виджета (офиц.)</td><td>вставьте выделенный JS внизу страницы, и он запустится примерно за <strong>3-5 минут</strong>; entId — уникальный id компании, и несовпадение с рабочим столом оставляет агентов без чатов</td></tr>
+</table>
+<p><small>Основа оценки: базовая линия источников + временная экстраполяция (meiqia.com/help Каналы доступа / JavaScript веб-виджет, руководство по интеграции meiqia.im, публичное устранение неполадок, 2026); меняется по версии и политике блокировки браузера. Следуйте новейшей официальной информации 美洽. Неофициально · LLM-локализация.</small></p>
+</section>
+<h2>Реальные случаи — быстрое чтение</h2>
+<ul class="scenes"><li>Код вставлен, но пузыря чата нет: сначала F12 → Network, найдите meiqia.js — нет запроса или не-200 означает неверное размещение / удержание кэшем; очистите кэш CDN или откройте заново в инкогнито.</li><li>Консоль сообщает meiqia.js net::ERR_BLOCKED_BY_CLIENT: adblock (AdBlock / uBlock / AdGuard) заблокировал сторонний скрипт чата по своим рекламным правилам — отключите расширение или добавьте сайт в белый список; вот почему «отсутствует у части пользователей, хотя ваша консоль выглядит нормально».</li><li>Скрипт загружен (консоль typeof _MEIQIA — function), но кнопки нет: обычно CSS темы вытолкнул пузырь за экран или плагин тепловой карты / аналитики изменил наложение DOM — F12 → Elements, найдите контейнер 美洽 и проверяйте пункт за пунктом.</li><li>На главной есть чат в SPA Vue / React, но на втором маршруте нет: смена маршрута SPA уничтожила контейнер, и виджет не был пересоздан — используйте manualInit для остановки авто-инициализации и вызовите _MEIQIA('init') в хуке маршрута для повторного монтирования.</li><li>Чат открывается, но агенты не получают сообщения посетителей: скорее всего entId не совпадает с рабочим столом (скопирован чужой сниппет / перепутаны аккаунты) — сравните ID компании в Настройки - Команда - поиск ID с entId в коде.</li><li>Работает на staging, не загружается на боевом домене: боевой домен не авторизован через «Добавить сайт интеграции» — добавьте живой домен в список и опубликуйте заново.</li><li>Хотите убрать круглую нативную кнопку 美洽 и использовать свою кнопку «Связаться»: вызовите _MEIQIA('withoutBtn') для скрытия нативной, затем привяжите _MEIQIA('showPanel') к своей кнопке для открытия чата.</li></ul><div class="related"><h2>Связанное</h2><ul><li><a href="https://meiqis.com/">Загрузка 美洽 / установка & руководство по интеграции</a></li><li><a href="https://meiqis.com/ru/website-integration/">Руководство по веб-интеграции 美洽 (JS-виджет)</a></li><li><a href="https://meiqis.com/ru/tools/meiqia-integration-troubleshooting/">Устранение неполадок интеграции 美洽 (авторитетная полная таблица)</a></li><li><a href="https://meiqiaa.com/">Официальный сайт 美洽 (родственный сайт)</a></li></ul></div></main>
+<footer>Веб-виджет / JS API (manualInit / init / withoutBtn / showPanel / передача данных клиента), авторизация entId / домена, субканалы, AppKey SDK и режимы push собраны из официального Центра помощи 美洽 (meiqia.com/help · Каналы доступа / JavaScript веб-виджет) и руководства по интеграции 美洽 (meiqia.im); adblock ERR_BLOCKED_BY_CLIENT, конфликты DOM тепловых карт / аналитики и интеграция SPA — из публичного устранения неполадок (переформулировано). Цифры 2026 — оценки, не обязательства поставщика и не измерения из первых рук; только для справки, следуйте новейшей официальной информации 美洽. Неофициально · LLM-локализация.<br>Страница инструмента · триаж интеграции, не замена консоли 美洽</footer>
+</div>
+<script src="/ru/codes.js"></script><script src="/app.js"></script>
+</body></html>
