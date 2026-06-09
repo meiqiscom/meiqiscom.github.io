@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="fa" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>美洽(Meiqia) ابزارک گفتگو نمایش داده نمی‌شود / رفع خطای یکپارچه‌سازی - meiqia.js مسدود، بدون دکمه، entId، SPA، push SDK</title>
+<meta name="description" content="ابزارک گفتگوی وب 美洽(Meiqia) نمایش داده نمی‌شود، دکمه نیست، meiqia.js با ERR_BLOCKED_BY_CLIENT مسدود شده، استایل خراب، پس از تغییر مسیر SPA ناپدید می‌شود، entId ناهمخوان است و کارشناسان گفتگو دریافت نمی‌کنند، روی موبایل نمی‌آید، push SDK نمی‌رسد؟ علامت را جستجو کنید تا رفتار L1 و علت ریشه‌ای L2 را ببینید: تزریق JS ناهمگام شخص ثالث خارج از دامنه، قوانین adblock، انباشت CSS، چرخه عمر SPA، entId و فهرست سفید دامنه، AppKey و مسیر push SDK؛ با مقایسه پنج روش یکپارچه‌سازی و برآوردهای ۲۰۲۶.">
+<link rel="canonical" href="https://meiqiscom.github.io/fa/">
+<link rel="alternate" hreflang="zh-Hans" href="https://meiqiscom.github.io/">
+<link rel="alternate" hreflang="en" href="https://meiqiscom.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://meiqiscom.github.io/ja/">
+<link rel="alternate" hreflang="zh-Hant" href="https://meiqiscom.github.io/zh-tw/">
+<link rel="alternate" hreflang="ko" href="https://meiqiscom.github.io/ko/">
+<link rel="alternate" hreflang="id" href="https://meiqiscom.github.io/id/">
+<link rel="alternate" hreflang="vi" href="https://meiqiscom.github.io/vi/">
+<link rel="alternate" hreflang="th" href="https://meiqiscom.github.io/th/">
+<link rel="alternate" hreflang="es" href="https://meiqiscom.github.io/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://meiqiscom.github.io/pt-br/">
+<link rel="alternate" hreflang="de" href="https://meiqiscom.github.io/de/">
+<link rel="alternate" hreflang="fr" href="https://meiqiscom.github.io/fr/">
+<link rel="alternate" hreflang="ru" href="https://meiqiscom.github.io/ru/">
+<link rel="alternate" hreflang="it" href="https://meiqiscom.github.io/it/">
+<link rel="alternate" hreflang="pl" href="https://meiqiscom.github.io/pl/">
+<link rel="alternate" hreflang="nl" href="https://meiqiscom.github.io/nl/">
+<link rel="alternate" hreflang="tr" href="https://meiqiscom.github.io/tr/">
+<link rel="alternate" hreflang="ar" href="https://meiqiscom.github.io/ar/">
+<link rel="alternate" hreflang="hi" href="https://meiqiscom.github.io/hi/">
+<link rel="alternate" hreflang="ms" href="https://meiqiscom.github.io/ms/">
+<link rel="alternate" hreflang="fa" href="https://meiqiscom.github.io/fa/">
+<link rel="alternate" hreflang="bn" href="https://meiqiscom.github.io/bn/">
+<link rel="alternate" hreflang="ta" href="https://meiqiscom.github.io/ta/">
+<link rel="alternate" hreflang="te" href="https://meiqiscom.github.io/te/">
+<link rel="alternate" hreflang="fil" href="https://meiqiscom.github.io/fil/">
+<link rel="alternate" hreflang="ur" href="https://meiqiscom.github.io/ur/">
+<link rel="alternate" hreflang="lo" href="https://meiqiscom.github.io/lo/">
+<link rel="alternate" hreflang="km" href="https://meiqiscom.github.io/km/">
+<link rel="alternate" hreflang="my" href="https://meiqiscom.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://meiqiscom.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "美洽 گفتگو نمایش داده نمی‌شود / رفع خطای یکپارچه‌سازی",
+   "url": "https://meiqiscom.github.io/fa/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "inLanguage": "fa",
+   "description": "ابزارک گفتگوی وب 美洽(Meiqia) نمایش داده نمی‌شود، دکمه نیست، meiqia.js با ERR_BLOCKED_BY_CLIENT مسدود شده، استایل خراب، پس از تغییر مسیر SPA ناپدید می‌شود، entId ناهمخوان است و کارشناسان گفتگو دریافت نمی‌کنند، روی موبایل نمی‌آید، push SDK نمی‌رسد؟ علامت را جستجو کنید تا رفتار L1 و علت ریشه‌ای L2 را ببینید: تزریق JS ناهمگام شخص ثالث خارج از دامنه، قوانین adblock، انباشت CSS، چرخه عمر SPA، entId و فهرست سفید دامنه، AppKey و مسیر push SDK؛ با مقایسه پنج روش یکپارچه‌سازی و برآوردهای ۲۰۲۶.",
+   "isAccessibleForFree": true,
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "fa",
+   "url": "https://meiqiscom.github.io/fa/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "美洽 پنجره / حباب گفتگو اصلاً نمایش داده نمی‌شود — چگونه رفع شود؟",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ابزارک وب 美洽 با یک قطعه JS چسبانده‌شده یک پنجره گفتگوی شناور بارگذاری می‌کند؛ تأیید کنید کد درست تعبیه شده و سایت یکپارچه‌سازی در کنسول پیکربندی شده است. ابزارک همان meiqia.js است که پس از بارگذاری ناهمگام به DOM تزریق می‌شود، پس «هیچ‌چیز» معمولاً یعنی «اسکریپت هرگز بارگذاری نشد»: مکان اشتباه، مسدود با adblock / حافظه پنهان، یا دامنه / entId ناهمخوان، پس تزریق هرگز اجرا نشد. F12 → Network، meiqia.js را جستجو کنید: بدون درخواست ← کد بی‌اثر (مکان را بررسی / حافظه را پاک کنید)؛ درخواست اما غیر ۲۰۰ ← مسدود یا مشکل مسیر؛ همه‌چیز سالم اما هنوز پنهان ← entId / مجوز دامنه و گروه‌های زیر را بررسی کنید."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 اسکریپت بارگذاری شده اما دکمه گفتگو نیست — چگونه رفع شود؟",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "کد ابزارک با سایت سازگار می‌شود و دکمه گفتگو نشان می‌دهد؛ اگر نمایش ناموفق است، بررسی کنید آیا با استایل پنهان شده یا مقداردهی قطع شده. اگر اسکریپت بارگذاری اما دکمه نیست، معمولاً مشکل «لایه نمایش» است: CSS سراسری موقعیت دکمه را بازنویسی / display:none می‌کند، z-index بازنده می‌شود، یا عنصر ثابت دیگری آن را می‌پوشاند؛ خطای JS دیگر هم می‌تواند مقداردهی را قطع کند. F12 → Elements، ظرف 美洽 را بیابید — موجود، پنهان، یا بیرون صفحه؟؛ موقتاً CSS / اسکریپت‌های خود را خاموش و دوباره آزمایش کنید؛ کنسول را برای خطای قطع اجرا بررسی کنید."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js با افزونه adblock مسدود شده — چگونه رفع شود؟",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "اسکریپت گفتگوی 美洽 از دامنه شخص ثالث می‌آید؛ اگر افزونه مسدودکننده نصب باشد ممکن است آن را تبلیغ / ردیاب بداند و بارگذاری را مانع شود — مسدودسازی را خاموش یا به فهرست سفید بیفزایید. ERR_BLOCKED_BY_CLIENT یعنی افزونه مرورگر (AdBlock / uBlock / AdGuard) درخواست را با فهرست‌های فیلتر مسدود کرده. اسکریپت 美洽 «شخص ثالث خارج از دامنه + ارتباط بی‌درنگ» است که این قوانین اغلب با تبلیغ / ردیاب اشتباه می‌گیرند و شکست کاذب «کنسول سالم، سمت کاربر نیست» می‌سازند. در حالت ناشناس یا با خاموش‌بودن adblock دوباره آزمایش کنید — اگر ظاهر شد، مسدودسازی علت بوده؛ از کاربران بخواهید سایت را به فهرست سفید بیفزایند؛ فرانت‌اند می‌تواند اسکریپت گفتگو را با تأخیر / مشروط بارگذاری کند تا برخی قوانین خودکار را دور بزند."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js 404 / وضعیت بد / محتوای مختلط — چگونه رفع شود؟",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "پس از استقرار، meiqia.js را در پنل Network جستجو کنید؛ وضعیت ۲۰۰ یعنی اسکریپت درست جای‌گذاری و بارگذاری شده. علل رایج غیر ۲۰۰: کد گیرافتاده در حافظه پنهان صفحه / CDN (پس از انتشار تازه نشده)، بارگذاری روی صفحه HTTP / زنجیره گواهی ناقص که مسدودسازی محتوای مختلط را برمی‌انگیزد، یا کد خراب / ناقص کپی‌شده. با شکست این گام، تزریق و اتصال هرگز رخ نمی‌دهند. پس از انتشار حافظه پنهان CDN / مرورگر را پاک کنید (یا حالت ناشناس)؛ HTTPS کامل با زنجیره گواهی سالم و بدون محتوای مختلط را تضمین کنید؛ تأیید کنید کد کپی‌شده کامل و بدون escape است."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 کد در جای اشتباه (مسدودسازی در head / بی‌اثر) — چگونه رفع شود؟",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽 توصیه می‌کند کد را پایین صفحه، پیش از </body> بچسبانید؛ ابزارک پس از بارگذاری محتوای اصلی اجرا می‌شود. ابزارک باید ظرف خود را پس از آماده‌شدن DOM تزریق کند. در <head> رندر را مسدود می‌کند (روی شبکه ضعیف ابتدا صفحه خالی) یا پیش از آماده‌شدن DOM اجرا و ناموفق می‌شود؛ در برخی scopeهای async / ماژول ترتیب بارگذاری هم می‌تواند خراب شود. JS مربوط به 美洽 را در فوتر مشترک هر صفحه، پیش از </body> بگذارید؛ برای SPA مدخل «مسیر SPA» را ببینید و از manualInit استفاده کنید؛ مطمئن شوید بسته‌بند آن را با tree-shaking حذف نمی‌کند."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 استایل پنجره / دکمه گفتگو خراب — چگونه رفع شود؟",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ابزارک استایل خود را تزریق و با سایت سازگار می‌شود؛ تعارض با استایل‌های سراسری می‌تواند نقص بصری ایجاد کند. اسکریپت 美洽 در زمان اجرا CSS تزریق می‌کند؛ اگر استایل‌های سراسری (انتخابگرهای عمومی / قوانین اولویت بالا / reset) کلاس‌های آن را زودتر بازنویسی کنند، موقعیت، انباشت و فونت خراب می‌شوند — عارضه جانبی «تزریق پویا + اشتراک یک فضای استایل سند». F12 تا ببینید کدام قانون سایت ظرف 美洽 را بازنویسی می‌کند؛ استایل‌های سراسری را محدود / اثر روی کلاس‌های عمومی را کم کنید؛ در صورت نیاز از 美洽 بخواهید انباشت ظرف را تنظیم کند."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 دکمه بیرون صفحه / پوشانده — چگونه رفع شود؟",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "دکمه ابزارک به‌صورت شناور با موقعیت ثابت ظاهر می‌شود؛ اگر با عناصر ثابت دیگر پوشانده شد، انباشت یا موقعیت را تنظیم کنید. عناصر position:fixed دیگر سایت (بازگشت به بالا، تبلیغ شناور، نوار پشتیبانی خودتان) با z-index بالاتر دکمه 美洽 را می‌پوشانند، یا قالب مختصاتش را اشتباه محاسبه می‌کند و آن را «بیرون صفحه / پوشانده» می‌گذارد. ظرف 美洽 را در F12 انتخاب کنید تا مختصات / z-index واقعی را ببینید؛ آن را بالا ببرید یا z-index عنصر پوشاننده را پایین بیاورید؛ از انباشت چند شناور ثابت در یک گوشه بپرهیزید."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 تعارض DOM با افزونه / تحلیل شخص ثالث — چگونه رفع شود؟",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "اسکریپت‌های دیگر صفحه که DOM را تغییر یا درخواست‌ها را رهگیری می‌کنند می‌توانند بر بارگذاری و نمایش عادی ابزارک اثر بگذارند. اسکریپت‌های نقشه حرارتی / تحلیل / تبدیل DOM را بازنویسی، روی‌هم تزریق یا درخواست‌ها را رهگیری می‌کنند؛ چون آن‌ها و 美洽 در یک سند تزریق می‌شوند، انباشت / رویدادها تداخل و ظرف 美洽 پوشانده یا init آن قطع می‌شود. افزونه‌های مشکوک را یکی‌یکی خاموش کنید تا تعارض را بیابید؛ ترتیب بارگذاری / انباشت ظرف را تنظیم کنید؛ کاری کنید نقشه حرارتی و مانند آن از ناحیه ظرف 美洽 دوری کنند."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">زبان: <a href="/">简体中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/ko/">한국어</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/th/">ไทย</a> · <a href="/es/">Español</a> · <a href="/pt-br/">Português (BR)</a> · <a href="/de/">Deutsch</a> · <a href="/fr/">Français</a> · <a href="/ru/">Русский</a> · <a href="/it/">Italiano</a> · <a href="/pl/">Polski</a> · <a href="/nl/">Nederlands</a> · <a href="/tr/">Türkçe</a> · <a href="/ar/">العربية</a> · <a href="/hi/">हिन्दी</a> · <a href="/ms/">Bahasa Melayu</a> · <strong>فارسی</strong> · <a href="/bn/">বাংলা</a> · <a href="/ta/">தமிழ்</a> · <a href="/te/">తెలుగు</a> · <a href="/fil/">Filipino</a> · <a href="/ur/">اردو</a> · <a href="/lo/">ພາສາລາວ</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>美洽 ابزارک گفتگو نمایش داده نمی‌شود / رفع خطای یکپارچه‌سازی</h1>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_fa.webp"><img src="/img/cover_fa.png" alt="تصویرسازی ابزار 美洽 ابزارک گفتگو نمایش داده نمی‌شود / رفع خطا" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>شکل: 美洽 گفتگو نمایش داده نمی‌شود / رفع خطا (رفتار L1 + علت ریشه‌ای L2 + پنج روش یکپارچه‌سازی)</figcaption></figure>
+<p>کد <strong>美洽(Meiqia)</strong> را چسبانده‌اید اما <strong>ابزارک گفتگوی وب</strong> نمایش داده نمی‌شود، <strong>دکمه گفتگو هرگز ظاهر نمی‌شود</strong>، کنسول گزارش می‌دهد <code>meiqia.js</code> مسدود است، یا <strong>کارشناسان گفتگو دریافت نمی‌کنند</strong>؟ ابتدا سه چیز را روشن کنید: <strong>آیا اسکریپت اصلاً بارگذاری نشده (مکان / adblock / حافظه پنهان)، بارگذاری شده اما با استایل / انباشت پنهان شده، یا خوب بارگذاری شده اما پیکربندی همخوان نیست (entId / دامنه / چرخه عمر SPA)؟</strong> <strong>علامت یا کلیدواژه</strong> خود را جستجو کنید (مثل <code>not showing</code>، <code>adblock</code>، <code>entId</code>، <code>SPA</code>، <code>mobile</code>، <code>sdk push</code>): ابتدا <strong>رفتار L1 و موقعیت رسمی</strong>، سپس <strong>علت ریشه‌ای L2 و راه‌حل</strong>. نصب / راهنما؟ ببینید <a href="https://meiqis.com/">دانلود 美洽 / راهنمای یکپارچه‌سازی پشتیبانی مشتری</a>.</p>
+<input id="q" placeholder="علامت یا کلیدواژه بنویسید، مثل not showing / adblock / entId / SPA / mobile / sdk push" autocomplete="off">
+<button id="go">جستجو</button>
+<div id="out"></div>
+<h2>گام ۱: بررسی کنید اسکریپت بارگذاری شده یا نه، سپس به چهار گروه تقسیم کنید</h2>
+<p>وقتی گفتگوی 美洽 نمایش داده نمی‌شود، در ۹ از ۱۰ بار یکی از چهار گروه است؛ ابتدا ببینید <strong>آیا اسکریپت اصلاً بارگذاری شده</strong>: F12 → Network، <code>meiqia.js</code> را جستجو کنید؛ نبود درخواست یا وضعیت غیر ۲۰۰ یعنی بارگذاری نشده. ① <strong>شکست بارگذاری</strong>: کد در جای اشتباه (باید پیش از <code>&lt;/body&gt;</code> باشد، نه در <code>&lt;head&gt;</code>)، با قانون adblock مسدود (<code>ERR_BLOCKED_BY_CLIENT</code>)، گیرافتاده در حافظه پنهان CDN / مرورگر، یا گواهی HTTPS / محتوای مختلط. ② <strong>پیکربندی / مجوز</strong>: entId با میز کار همخوان نیست (بارگذاری می‌شود اما کارشناسان گفتگو دریافت نمی‌کنند)، یا دامنه سایت در کنسول مجاز نشده. ③ <strong>یکپارچه‌سازی فریم‌ورک</strong>: SPA با Vue/React/Next هنگام تغییر مسیر ظرف را نابود می‌کند و ابزارک بازسازی نمی‌شود. ④ <strong>نمایش / موبایل / SDK</strong>: CSS سایت حباب را بیرون صفحه می‌راند، افزونه شخص ثالث روی DOM می‌نشیند، موبایل استقرار جدا می‌خواهد، درون‌برنامه SDK می‌خواهد. کامل‌تر: <a href="https://meiqis.com/website-integration/">راهنمای یکپارچه‌سازی وب 美洽</a>.</p>
+<div class="cat"><div class="catbox"><b>شکست بارگذاری</b><span class="cs">مکان · adblock · حافظه پنهان · HTTPS</span><div>JS مربوط به 美洽 را پیش از </body> بچسبانید (نه در <head>)؛ F12 → Network، meiqia.js را جستجو و وضعیت را بررسی کنید (باید ۲۰۰ باشد)؛ ERR_BLOCKED_BY_CLIENT معمولاً افزونه adblock است — در حالت ناشناس آزمایش یا به فهرست سفید بیفزایید؛ پس از انتشار حافظه پنهان CDN را پاک کنید؛ HTTPS کامل بدون محتوای مختلط را تضمین کنید.</div></div><div class="catbox"><b>پیکربندی / مجوز</b><span class="cs">entId · فهرست سفید دامنه · زیرکانال</span><div>entId شناسه یکتای شرکت شماست؛ اگر با میز کار همخوان نباشد «اسکریپت بارگذاری می‌شود اما کارشناسان گفتگو دریافت نمی‌کنند» (تنظیمات - تیم - جستجوی شناسه)؛ دامنه سایت باید از طریق «افزودن سایت یکپارچه‌سازی» مجاز شود؛ برای هر خط کسب‌وکار زیرکانال (پروب) جدا به‌کار ببرید.</div></div><div class="catbox"><b>یکپارچه‌سازی فریم‌ورک</b><span class="cs">SPA · تغییر مسیر · manualInit</span><div>SPA با Vue/React/Next هنگام تغییر مسیر DOM را نابود می‌کند و ابزارک بازسازی نمی‌شود؛ برای توقف مقداردهی خودکار از _MEIQIA('manualInit') استفاده کنید و برای نصب مجدد در یک قلاب مسیر (useEffect / mounted) _MEIQIA('init') را فراخوانید.</div></div><div class="catbox"><b>مشکلات نمایش</b><span class="cs">تعارض استایل · انباشت · افزونه‌های شخص ثالث</span><div>بارگذاری‌شده اما نامرئی: معمولاً CSS سراسری سایت موقعیت حباب را بازنویسی می‌کند، یا افزونه نقشه حرارتی / تحلیل / SEO، DOM را تغییر داده و ظرف را می‌پوشاند؛ F12 → Elements، ظرف meiqia را بیابید و display:none، z-index بازنده یا مختصات بیرون صفحه را بررسی کنید.</div></div><div class="catbox"><b>موبایل / SDK</b><span class="cs">وب موبایل · AppKey · push</span><div>وب موبایل / رایانه همان قطعه است اما استقرار جدا می‌خواهد؛ درون‌برنامه از SDK بومی استفاده می‌کند (ابتدا «افزودن پیکربندی APP» در کنسول برای AppKey)؛ push به «بدون push» (فقط درون‌برنامه) و «سرور push سفارشی» (حتی پس از خروج از برنامه تحویل) تقسیم می‌شود.</div></div><div class="catbox"><b>فراخوانی‌های API</b><span class="cs">withoutBtn · showPanel · اطلاعات مشتری</span><div>دکمه خودتان؟ _MEIQIA('withoutBtn') دکمه بومی را پنهان می‌کند و هنگام کلیک برای باز کردن گفتگو _MEIQIA('showPanel') را فراخوانید؛ اطلاعات مشتری را در زمان‌بندی init ارسال / همگام کنید، وگرنه اثر ندارد.</div></div></div><figure><svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="نمودار تفکیک «美洽 گفتگو نمایش داده نمی‌شود»" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">تفکیک «پنجره / دکمه نمایش داده نمی‌شود» (دو گام نخست: اسکریپت بارگذاری شده ← پیکربندی درست است؟)</text><rect x="20" y="46" width="150" height="46" rx="10" fill="#111"/><text x="95" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff">گفتگو دیده نمی‌شود</text><path d="M170 69 H206" stroke="#999" stroke-width="2" fill="none" marker-end="url(#a)"/><rect x="206" y="46" width="172" height="46" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="292" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1d4ed8">دو گروه</text><rect x="440" y="20" width="262" height="56" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="455" y="42" font-family="system-ui,Arial" font-size="12.5" fill="#1d4ed8">اسکریپت بارگذاری نشد ←</text><text x="455" y="62" font-family="system-ui,Arial" font-size="11.5" fill="#1e3a8a">مکان · adblock · حافظه پنهان</text><rect x="440" y="86" width="262" height="56" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="455" y="108" font-family="system-ui,Arial" font-size="12.5" fill="#b45309">بارگذاری اما پنهان / بدون اتصال ←</text><text x="455" y="128" font-family="system-ui,Arial" font-size="11.5" fill="#92400e">انباشت · entId · دامنه · SPA</text><path d="M378 60 H410 V48 H440" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M378 78 H410 V114 H440" stroke="#d97706" stroke-width="2" fill="none" marker-end="url(#a)"/><text x="20" y="178" font-family="system-ui,Arial" font-size="13" font-weight="700" fill="#1d1d1f">چهار گروه ریشه‌ای (علت / راه‌حل هر مورد)</text><g font-family="system-ui,Arial" font-size="12"><rect x="20" y="190" width="162" height="92" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="32" y="212" font-weight="700" fill="#1d4ed8">① شکست بارگذاری</text><text x="32" y="234" fill="#555" font-size="11">مکان · مسدود · حافظه</text><rect x="194" y="190" width="162" height="92" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="206" y="212" font-weight="700" fill="#1d4ed8">② پیکربندی / مجوز</text><text x="206" y="234" fill="#555" font-size="11">entId · فهرست سفید دامنه</text><rect x="368" y="190" width="162" height="92" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="380" y="212" font-weight="700" fill="#b45309">③ فریم‌ورک</text><text x="380" y="234" fill="#555" font-size="11">مسیر SPA · init</text><rect x="542" y="190" width="160" height="92" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="554" y="212" font-weight="700" fill="#047857">④ نمایش / موبایل / SDK</text><text x="554" y="234" fill="#555" font-size="11">انباشت · موبایل · push</text></g><defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#999"/></marker></defs></svg><figcaption>شکل ۱: تفکیک «美洽 نمایش داده نمی‌شود» — بارگذاری اسکریپت را بررسی کنید (meiqia.js در F12)، سپس بارگذاری / پیکربندی / فریم‌ورک / نمایش</figcaption></figure>
+<h2>گام ۲: نادیده‌گرفته‌شده‌ترین علت ریشه‌ای → L2 (ابزارک = تزریق JS ناهمگام شخص ثالث خارج از دامنه)</h2>
+<p>یک ایده کافی است: <strong>ابزارک وب 美洽 یک مؤلفه ایستا تعبیه‌شده در صفحه شما نیست — بلکه یک <code>meiqia.js</code> است که به‌صورت ناهمگام از دامنه بیرونی 美洽 بارگذاری می‌شود، سپس به‌صورت پویا یک ظرف گفتگو (DOM / iframe) تزریق می‌کند و یک اتصال طولانی‌مدت میان‌مبدأ به سرورهای 美洽 باز می‌کند</strong>. این بیشتر «ناپدیدشدن‌های مرموز» را توضیح می‌دهد: ① <strong>اسکریپت شخص ثالث خارج از دامنه است</strong>، پس AdBlock / uBlock آن را با فهرست‌های «ردیابی / تبلیغات» مسدود می‌کنند (<code>ERR_BLOCKED_BY_CLIENT</code>) و دکمه هرگز ظاهر نمی‌شود (هرچند کنسول سالم به‌نظر برسد)؛ ② <strong>DOM را ناهمگام تزریق می‌کند</strong>: در <code>&lt;head&gt;</code> مسدود می‌کند، تغییر مسیر SPA ظرف را نابود می‌کند و خودبه‌خود بازسازی نمی‌شود (از <code>manualInit</code> + <code>_MEIQIA('init')</code> استفاده کنید)، و افزونه‌های نقشه حرارتی / تحلیل که DOM را تغییر می‌دهند می‌توانند آن را بپوشانند؛ ③ <strong>با entId به شرکت شما پیوند می‌خورد و با فهرست سفید دامنه کنترل می‌شود</strong>: با entId اشتباه یا دامنه غیرمجاز اسکریپت بارگذاری می‌شود اما «گفتگو را وصل نمی‌کند»؛ ④ <strong>موبایل و رایانه دو یکپارچه‌سازی جدا هستند</strong>، درون‌برنامه SDK است (AppKey)، و push به «بدون push» و «سرور push سفارشی» تقسیم می‌شود. با دیدن این زنجیره تزریق، هر علامت زیر یک منطق دارد. زیر، پنل خودبررسی؛ پایین‌تر پنج روش و برآوردهای ۲۰۲۶.</p>
+<figure><svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="پنل خودبررسی پیش از یکپارچه‌سازی 美洽" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">پنل خودبررسی یکپارچه‌سازی (سبز = تأییدشده / قرمز = به‌آسانی نادیده)</text><rect x="20" y="42" width="680" height="226" rx="14" fill="#f8fafc" stroke="#e2e8f0"/><text x="38" y="66" font-family="system-ui,Arial" font-size="12.5" font-weight="700" fill="#475569">مورد بررسی</text><text x="300" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">حکم</text><text x="610" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">وضعیت</text><line x1="38" y1="74" x2="682" y2="74" stroke="#e2e8f0" stroke-width="1"/><text x="38" y="98" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">کد 美洽 پیش از </body> چسبانده شده (نه <head>)</text><text x="300" y="98" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">مکان</text><circle cx="612" cy="94" r="6" fill="#16a34a"/><text x="628" y="98" font-family="system-ui,Arial" font-size="12" fill="#16a34a">تأییدشده</text><text x="38" y="128" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">وضعیت ۲۰۰ meiqia.js در F12 → Network</text><text x="300" y="128" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">بارگذاری اسکریپت</text><circle cx="612" cy="124" r="6" fill="#16a34a"/><text x="628" y="128" font-family="system-ui,Arial" font-size="12" fill="#16a34a">تأییدشده</text><text x="38" y="158" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">کنسول typeof _MEIQIA تابع است</text><text x="300" y="158" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">مقداردهی‌شده</text><circle cx="612" cy="154" r="6" fill="#16a34a"/><text x="628" y="158" font-family="system-ui,Arial" font-size="12" fill="#16a34a">تأییدشده</text><text x="38" y="188" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">در حالت ناشناس / با خاموش‌بودن adblock نمایش</text><text x="300" y="188" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">adblock</text><circle cx="612" cy="184" r="6" fill="#ef4444"/><text x="628" y="188" font-family="system-ui,Arial" font-size="12" fill="#ef4444">برای بررسی</text><text x="38" y="218" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">entId با میز کار همخوان + دامنه مجاز</text><text x="300" y="218" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">پیکربندی / مجوز</text><circle cx="612" cy="214" r="6" fill="#16a34a"/><text x="628" y="218" font-family="system-ui,Arial" font-size="12" fill="#16a34a">تأییدشده</text><text x="38" y="248" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">init مجدد پس از تغییر مسیر SPA + بدون روی‌هم‌نشستن افزونه</text><text x="300" y="248" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">فریم‌ورک / انباشت</text><circle cx="612" cy="244" r="6" fill="#ef4444"/><text x="628" y="248" font-family="system-ui,Arial" font-size="12" fill="#ef4444">برای بررسی</text><text x="20" y="296" font-family="system-ui,Arial" font-size="11.5" fill="#94a3b8">نکته: قرمز = دو مورد بیشترین نادیده — افزونه‌های adblock (ERR_BLOCKED_BY_CLIENT) و فریم‌ورک / انباشت (تغییر مسیر SPA، افزونه‌های شخص ثالث که DOM را تغییر می‌دهند)؛ این دو را نخست بررسی کنید.</text></svg><figcaption>شکل ۲: پنل خودبررسی یکپارچه‌سازی 美洽 (سبز = تأییدشده / قرمز = به‌آسانی نادیده)</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_fa.webp"><img src="/img/board_fa.png" alt="تصویرسازی پنل خودبررسی پیش از یکپارچه‌سازی 美洽، موارد سبز/قرمز" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>شکل: ابتدا «مکان کد + meiqia.js 200 + مقداردهی‌شده» را بررسی کنید، سپس «adblock + فریم‌ورک/انباشت» — دو مورد آخر بیشترین نادیده‌گرفته‌شده‌اند</figcaption></figure>
+<h2>جدول کامل علائم (رفتار / موقعیت رسمی · علت ریشه‌ای L2)</h2>
+<table id="tbl"></table>
+<h2>مقایسه پنج روش یکپارچه‌سازی 美洽 (کد / دشواری / ویژگی‌ها / سناریو / زمان فعال‌شدن · مستندات رسمی)</h2>
+<table class="cmp"><tr><th>روش یکپارچه‌سازی</th><th>کد / دشواری</th><th>کامل‌بودن ویژگی</th><th>بهترین برای</th><th>زمان فعال‌شدن</th></tr><tr><td>ابزارک JS وب</td><td>یک قطعه JS · کم</td><td>کامل‌ترین (شناور / پاپ‌آپ / خوش‌آمد خودکار / رد بازدیدکننده)</td><td>سایت‌های رایانه + موبایل (توصیه رسمی)</td><td>~۳-۵ دقیقه</td></tr><tr><td>پیوند گفتگو</td><td>بدون کد · حداقل</td><td>گفتگوی پایه</td><td>بدون فنی / گذاشتن پیوند گفتگوی سریع</td><td>آنی</td></tr><tr><td>API / WebIM SDK</td><td>نیازمند توسعه · بالا</td><td>سفارشی‌سازی عمیق (رابط خود / سیستم / یکپارچه‌سازی سفارش)</td><td>تیم‌های دارای توان توسعه برای ادغام عمیق</td><td>بسته به توسعه</td></tr><tr><td>SDK بومی برنامه</td><td>یکپارچه‌سازی SDK · بالا</td><td>گفتگوی درون‌برنامه + push پیام</td><td>برنامه‌های iOS / Android</td><td>بسته به توسعه</td></tr><tr><td>تنظیم سریع CMS</td><td>افزونه / یک‌کلیک · کم</td><td>مانند ابزارک JS</td><td>سایت‌های WordPress / Fkw / Shopify</td><td>دقایق</td></tr></table><section class="i4data">
+<h2>美洽 علل نمایش‌نشدن & مقایسه روش‌های یکپارچه‌سازی (برآورد ۲۰۲۶)</h2>
+<p>موارد زیر <strong>برآوردهای ۲۰۲۶</strong> ترکیب‌شده از راهنمای رسمی 美洽 (کانال‌های دسترسی / API ابزارک وب JavaScript) و عیب‌یابی عمومی یکپارچه‌سازی است (نه تعهد فروشنده و نه اندازه‌گیری دست‌اول؛ برای مرجع، با نسخه و سیاست مرورگر تغییر می‌کند):</p>
+<table>
+<tr><th>بُعد</th><th>برآورد / مقایسه</th></tr>
+<tr><td>توزیع علل نمایش‌نشدن (جامعه / تیکت · بر.)</td><td><strong>مکان / بارگذاری‌نشده ~۳۵٪</strong> &gt; <strong>adblock / افزونه مرورگر ~۲۵٪</strong> &gt; پیکربندی / مجوز (entId / دامنه) ~۲۰٪ &gt; فریم‌ورک (SPA) ~۱۲٪ &gt; تعارض استایل / افزونه شخص ثالث ~۸٪</td></tr>
+<tr><td>یکپارچه‌سازی واقعاً چیست</td><td>ابزارک وب = <strong>JS ناهمگام شخص ثالث خارج از دامنه که DOM را تزریق می‌کند + اتصال طولانی‌مدت میان‌مبدأ</strong> (نه مؤلفه ایستای تعبیه‌شده)؛ از این رو متأثر از مکان، قوانین adblock، انباشت CSS، چرخه عمر SPA</td></tr>
+<tr><td>یکپارچه‌سازی هر سکو (بر.)</td><td>وب رایانه / موبایل = <strong>ابزارک JS (همان کد، جدا مستقر)</strong>؛ برنامه = <strong>SDK بومی (AppKey)</strong>؛ WeChat / Douyin / RED = یکپارچه‌سازی مجاز کانال</td></tr>
+<tr><td>اثر adblock (بر.)</td><td>حدود <strong>۳۰-۴۰٪</strong> کاربران رایانه افزونه adblock دارند ← اسکریپت گفتگوی شخص ثالث با قوانین تبلیغات مسدود می‌شود (ERR_BLOCKED_BY_CLIENT)، علت اصلی «کنسول سالم، سمت کاربر نیست»</td></tr>
+<tr><td>زمان فعال‌شدن ابزارک JS (رسمی)</td><td>JS اختصاصی را پایین صفحه بچسبانید تا در حدود <strong>۳-۵ دقیقه</strong> فعال شود؛ entId شناسه یکتای شرکت است و ناهمخوانی با میز کار کارشناسان را بی‌گفتگو می‌گذارد</td></tr>
+</table>
+<p><small>مبنای برآورد: خط پایه منابع + برون‌یابی زمانی (meiqia.com/help کانال‌های دسترسی / ابزارک وب JavaScript، راهنمای یکپارچه‌سازی meiqia.im، عیب‌یابی عمومی، ۲۰۲۶)؛ با نسخه و سیاست مسدودسازی مرورگر تغییر می‌کند. آخرین اطلاعات رسمی 美洽 را دنبال کنید. غیررسمی · بومی‌سازی LLM.</small></p>
+</section>
+<h2>موارد واقعی — خواندن سریع</h2>
+<ul class="scenes"><li>کد چسبانده شده اما حباب گفتگو نیست: ابتدا F12 → Network، meiqia.js را جستجو کنید — نبود درخواست یا غیر ۲۰۰ یعنی جای اشتباه / گیر در حافظه پنهان؛ حافظه پنهان CDN را پاک کنید یا در حالت ناشناس دوباره باز کنید.</li><li>کنسول می‌گوید meiqia.js net::ERR_BLOCKED_BY_CLIENT: یک adblock (AdBlock / uBlock / AdGuard) اسکریپت گفتگوی شخص ثالث را با قوانین تبلیغات مسدود کرده — افزونه را خاموش یا سایت را به فهرست سفید بیفزایید؛ به همین دلیل «برای برخی کاربران نیست در حالی که کنسول شما سالم به‌نظر می‌رسد».</li><li>اسکریپت بارگذاری شده (کنسول typeof _MEIQIA تابع است) اما دکمه نیست: معمولاً CSS قالب حباب را بیرون صفحه رانده یا افزونه نقشه حرارتی / تحلیل انباشت DOM را تغییر داده — F12 → Elements، ظرف 美洽 را بیابید و مورد به مورد بررسی کنید.</li><li>صفحه اصلی در SPA با Vue / React گفتگو دارد اما مسیر دوم ندارد: تغییر مسیر SPA ظرف را نابود کرده و ابزارک بازسازی نشده — برای توقف مقداردهی خودکار از manualInit استفاده و در قلاب مسیر _MEIQIA('init') را برای نصب مجدد فراخوانید.</li><li>گفتگو باز می‌شود اما کارشناسان پیام بازدیدکننده دریافت نمی‌کنند: محتمل‌ترین حالت entId با میز کار همخوان نیست (قطعه دیگری کپی شده / حساب‌ها قاطی شده) — شناسه شرکت در تنظیمات - تیم - جستجوی شناسه را با entId در کد مقایسه کنید.</li><li>در staging کار می‌کند، روی دامنه تولید بارگذاری نمی‌شود: دامنه تولید از طریق «افزودن سایت یکپارچه‌سازی» مجاز نشده — دامنه زنده را به فهرست بیفزایید و دوباره منتشر کنید.</li><li>می‌خواهید دکمه گرد بومی 美洽 را بردارید و دکمه «تماس» خودتان را به‌کار ببرید: برای پنهان‌کردن بومی _MEIQIA('withoutBtn') را فراخوانید، سپس _MEIQIA('showPanel') را به دکمه‌تان ببندید تا گفتگو باز شود.</li></ul><div class="related"><h2>مرتبط</h2><ul><li><a href="https://meiqis.com/">دانلود 美洽 / نصب & راهنمای یکپارچه‌سازی</a></li><li><a href="https://meiqis.com/fa/website-integration/">راهنمای یکپارچه‌سازی وب 美洽 (ابزارک JS)</a></li><li><a href="https://meiqis.com/fa/tools/meiqia-integration-troubleshooting/">عیب‌یابی یکپارچه‌سازی 美洽 (جدول کامل مرجع)</a></li><li><a href="https://meiqiaa.com/">سایت رسمی 美洽 (سایت خواهر)</a></li></ul></div></main>
+<footer>ابزارک وب / API جاوااسکریپت (manualInit / init / withoutBtn / showPanel / ارسال اطلاعات مشتری)، مجوز entId / دامنه، زیرکانال‌ها، AppKey برای SDK و حالت‌های push از مرکز راهنمای رسمی 美洽 (meiqia.com/help · کانال‌های دسترسی / ابزارک وب JavaScript) و راهنمای یکپارچه‌سازی 美洽 (meiqia.im) گردآوری شده؛ adblock ERR_BLOCKED_BY_CLIENT، تعارض‌های DOM نقشه حرارتی / تحلیل و یکپارچه‌سازی SPA از عیب‌یابی عمومی (بازنویسی‌شده). اعداد ۲۰۲۶ برآوردند، نه تعهد فروشنده و نه اندازه‌گیری دست‌اول؛ فقط برای مرجع، آخرین اطلاعات رسمی 美洽 را دنبال کنید. غیررسمی · بومی‌سازی LLM.<br>صفحه ابزار · تفکیک یکپارچه‌سازی، جایگزین کنسول 美洽 نیست</footer>
+</div>
+<script src="/fa/codes.js"></script><script src="/app.js"></script>
+</body></html>
