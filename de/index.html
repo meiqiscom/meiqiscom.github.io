@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>美洽(Meiqia) Chat-Widget wird nicht angezeigt / Integrationsfehler beheben - meiqia.js blockiert, kein Button, entId, SPA, SDK-Push</title>
+<meta name="description" content="美洽(Meiqia) Web-Chat-Widget wird nicht angezeigt, Button fehlt, meiqia.js durch ERR_BLOCKED_BY_CLIENT blockiert, Styling kaputt, nach SPA-Routenwechsel weg, entId stimmt nicht und Agenten erhalten keine Chats, mobil nicht sichtbar, SDK-Push kommt nicht an? Suche das Symptom für das L1-Verhalten und die L2-Grundursache: asynchrone Drittanbieter-JS-Injektion außerhalb der Domain, Adblock-Regeln, CSS-Stacking, SPA-Lebenszyklus, entId und Domain-Whitelist, SDK-AppKey und Push-Pfad; mit Vergleich von fünf Integrationsmethoden und 2026-Schätzungen.">
+<link rel="canonical" href="https://meiqiscom.github.io/de/">
+<link rel="alternate" hreflang="zh-Hans" href="https://meiqiscom.github.io/">
+<link rel="alternate" hreflang="en" href="https://meiqiscom.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://meiqiscom.github.io/ja/">
+<link rel="alternate" hreflang="zh-Hant" href="https://meiqiscom.github.io/zh-tw/">
+<link rel="alternate" hreflang="ko" href="https://meiqiscom.github.io/ko/">
+<link rel="alternate" hreflang="id" href="https://meiqiscom.github.io/id/">
+<link rel="alternate" hreflang="vi" href="https://meiqiscom.github.io/vi/">
+<link rel="alternate" hreflang="th" href="https://meiqiscom.github.io/th/">
+<link rel="alternate" hreflang="es" href="https://meiqiscom.github.io/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://meiqiscom.github.io/pt-br/">
+<link rel="alternate" hreflang="de" href="https://meiqiscom.github.io/de/">
+<link rel="alternate" hreflang="fr" href="https://meiqiscom.github.io/fr/">
+<link rel="alternate" hreflang="ru" href="https://meiqiscom.github.io/ru/">
+<link rel="alternate" hreflang="it" href="https://meiqiscom.github.io/it/">
+<link rel="alternate" hreflang="pl" href="https://meiqiscom.github.io/pl/">
+<link rel="alternate" hreflang="nl" href="https://meiqiscom.github.io/nl/">
+<link rel="alternate" hreflang="tr" href="https://meiqiscom.github.io/tr/">
+<link rel="alternate" hreflang="ar" href="https://meiqiscom.github.io/ar/">
+<link rel="alternate" hreflang="hi" href="https://meiqiscom.github.io/hi/">
+<link rel="alternate" hreflang="ms" href="https://meiqiscom.github.io/ms/">
+<link rel="alternate" hreflang="fa" href="https://meiqiscom.github.io/fa/">
+<link rel="alternate" hreflang="bn" href="https://meiqiscom.github.io/bn/">
+<link rel="alternate" hreflang="ta" href="https://meiqiscom.github.io/ta/">
+<link rel="alternate" hreflang="te" href="https://meiqiscom.github.io/te/">
+<link rel="alternate" hreflang="fil" href="https://meiqiscom.github.io/fil/">
+<link rel="alternate" hreflang="ur" href="https://meiqiscom.github.io/ur/">
+<link rel="alternate" hreflang="lo" href="https://meiqiscom.github.io/lo/">
+<link rel="alternate" hreflang="km" href="https://meiqiscom.github.io/km/">
+<link rel="alternate" hreflang="my" href="https://meiqiscom.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://meiqiscom.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "美洽 Chat nicht sichtbar / Integrationsfehler-Behebung",
+   "url": "https://meiqiscom.github.io/de/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "inLanguage": "de",
+   "description": "美洽(Meiqia) Web-Chat-Widget wird nicht angezeigt, Button fehlt, meiqia.js durch ERR_BLOCKED_BY_CLIENT blockiert, Styling kaputt, nach SPA-Routenwechsel weg, entId stimmt nicht und Agenten erhalten keine Chats, mobil nicht sichtbar, SDK-Push kommt nicht an? Suche das Symptom für das L1-Verhalten und die L2-Grundursache: asynchrone Drittanbieter-JS-Injektion außerhalb der Domain, Adblock-Regeln, CSS-Stacking, SPA-Lebenszyklus, entId und Domain-Whitelist, SDK-AppKey und Push-Pfad; mit Vergleich von fünf Integrationsmethoden und 2026-Schätzungen.",
+   "isAccessibleForFree": true,
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "de",
+   "url": "https://meiqiscom.github.io/de/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "美洽 Chat-Fenster / Bubble wird gar nicht angezeigt — wie behebt man das?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Das 美洽-Web-Widget lädt ein schwebendes Chat-Fenster mit einem einzigen eingefügten JS-Snippet; bestätige, dass der Code korrekt eingebettet und die Integrationssite in der Konsole konfiguriert ist. Das Widget ist meiqia.js, das nach asynchronem Laden ins DOM injiziert wird, daher heißt «gar nichts» meist «das Skript wurde nie geladen» — falsche Platzierung, von Adblock / Cache blockiert, oder Domain / entId stimmen nicht, sodass die Injektion nie lief. F12 → Network, suche meiqia.js: keine Anfrage → Code wirkungslos (Platzierung prüfen / Cache leeren); Anfrage, aber Nicht-200 → blockiert oder Pfadproblem; alles ok, aber weiterhin verdeckt → entId / Domain-Autorisierung und die Gruppen unten prüfen."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Skript geladen, aber Chat-Button fehlt — wie behebt man das?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Der Widget-Code passt sich der Site an und zeigt einen Chat-Button; bei Anzeigeproblemen prüfe, ob er durch Styles versteckt oder die Initialisierung unterbrochen ist. Wenn das Skript lädt, aber der Button fehlt, ist es meist ein «Anzeige-Layer»-Problem: site-weites CSS überschreibt die Button-Position / setzt display:none, der z-index verliert, oder ein anderes festes Element verdeckt ihn; ein anderer JS-Fehler kann die Initialisierung ebenfalls abbrechen. F12 → Elements, finde den 美洽-Container — vorhanden, versteckt oder außerhalb des Bildes?; eigenes CSS / andere Skripte testweise deaktivieren; Konsole auf einen Fehler prüfen, der die Ausführung abbrach."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js durch eine Adblock-Erweiterung blockiert — wie behebt man das?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Das 美洽-Chat-Skript kommt von einer Drittanbieter-Domain; ist eine Blockier-Erweiterung installiert, kann sie es als Werbung / Tracker behandeln und das Laden verhindern — Blockierung ausschalten oder whitelisten. ERR_BLOCKED_BY_CLIENT bedeutet, dass eine Browser-Erweiterung (AdBlock / uBlock / AdGuard) die Anfrage per Filterlisten blockierte. Das 美洽-Skript ist «Drittanbieter außerhalb der Domain + Echtzeit-Kommunikation», was solche Regeln oft als Werbung / Tracker fehldeuten — ein falscher Ausfall «Konsole ok, Nutzerseite fehlt». Im Inkognito oder mit ausgeschaltetem Adblock testen — erscheint es, war die Blockierung die Ursache; Nutzer bitten, die Site zu whitelisten; das Frontend kann das Chat-Skript verzögert / bedingt laden, um manche Auto-Regeln zu umgehen."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js 404 / falscher Status / Mixed Content — wie behebt man das?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Nach dem Deployment suche meiqia.js im Network-Panel; ein 200-Status heißt, das Skript ist korrekt platziert und geladen. Häufige Nicht-200-Ursachen: Code von Seiten- / CDN-Cache zurückgehalten (nach dem Publizieren nicht aktualisiert), Laden auf einer HTTP-Seite / unvollständige Zertifikatskette löst Mixed-Content-Blockierung aus, oder kaputter / teilweise kopierter Code. Schlägt dieser Schritt fehl, passieren Injektion und Verbindung nie. Nach dem Publizieren CDN- / Browser-Cache leeren (oder Inkognito); volles HTTPS mit vollständiger Zertifikatskette und ohne Mixed Content sicherstellen; prüfen, dass der kopierte Code vollständig und nicht escaped ist."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Code falsch platziert (head-Blockierung / wirkungslos) — wie behebt man das?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽 empfiehlt, den Code am Seitenende vor </body> einzufügen; das Widget läuft, nachdem der Hauptinhalt geladen ist. Das Widget muss seinen Container nach DOM-Bereitschaft injizieren. Im <head> blockiert es das Rendern (leerer Bildschirm zuerst bei langsamem Netz) oder läuft vor DOM-Bereitschaft und scheitert; in manchem async- / Modul-Scope kann auch die Ladereihenfolge danebengehen. Setze das 美洽-JS in den gemeinsamen Footer jeder Seite, vor </body>; für SPAs siehe den Eintrag «SPA-Route» und nutze manualInit; stelle sicher, dass ein Bundler es nicht per Tree-Shaking entfernt."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Chat-Fenster / Button-Styling kaputt — wie behebt man das?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Das Widget injiziert eigene Styles und passt sich der Site an; Konflikte mit site-weiten Styles können visuelle Fehler verursachen. Das 美洽-Skript injiziert CSS zur Laufzeit; überschreiben site-weite Styles (Universalselektoren / hochpriore Regeln / Resets) seine Klassen zuerst, brechen Position, Stacking und Schriften — eine Nebenwirkung von «dynamischer Injektion + geteiltem Dokument-Stilraum». F12, um zu sehen, welche Site-Regel den 美洽-Container überschreibt; site-weite Styles enger fassen / Einfluss auf generische Klassen reduzieren; bei Bedarf 美洽 bitten, das Container-Stacking anzupassen."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Button außerhalb des Bildes / verdeckt — wie behebt man das?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Der Widget-Button erscheint als schwebendes Element mit fester Position; wird er von anderen festen Elementen verdeckt, passe Stacking oder Position an. Andere position:fixed-Elemente der Site (Nach-oben, schwebende Werbung, eine eigene Support-Leiste) mit höherem z-index verdecken den 美洽-Button, oder das Theme berechnet seine Koordinaten falsch, sodass er «außerhalb des Bildes / verdeckt» ist. Wähle den 美洽-Container in F12, um echte Koordinaten / z-index zu sehen; ihn anheben oder den z-index des verdeckenden Elements senken; vermeide, mehrere feste Elemente in einer Ecke zu stapeln."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 DOM-Konflikt mit Drittanbieter-Plugin / Analytics — wie behebt man das?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Andere Skripte der Seite, die das DOM ändern oder Anfragen abfangen, können das normale Laden und Anzeigen des Widgets beeinträchtigen. Heatmap- / Analytics- / Conversion-Skripte schreiben das DOM um, injizieren Overlays oder fangen Anfragen ab; da sie und 美洽 ins selbe Dokument injizieren, stören sich Stacking / Events und der 美洽-Container wird verdeckt oder seine Init unterbrochen. Verdächtige Plugins einzeln deaktivieren, um den Konflikt zu lokalisieren; Ladereihenfolge / Container-Stacking anpassen; Heatmaps usw. den 美洽-Container-Bereich meiden lassen."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">Sprache: <a href="/">简体中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/ko/">한국어</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/th/">ไทย</a> · <a href="/es/">Español</a> · <a href="/pt-br/">Português (BR)</a> · <strong>Deutsch</strong> · <a href="/fr/">Français</a> · <a href="/ru/">Русский</a> · <a href="/it/">Italiano</a> · <a href="/pl/">Polski</a> · <a href="/nl/">Nederlands</a> · <a href="/tr/">Türkçe</a> · <a href="/ar/">العربية</a> · <a href="/hi/">हिन्दी</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fa/">فارسی</a> · <a href="/bn/">বাংলা</a> · <a href="/ta/">தமிழ்</a> · <a href="/te/">తెలుగు</a> · <a href="/fil/">Filipino</a> · <a href="/ur/">اردو</a> · <a href="/lo/">ພາສາລາວ</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>美洽 Chat-Widget wird nicht angezeigt / Integrationsfehler beheben</h1>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_de.webp"><img src="/img/cover_de.png" alt="Illustration des Tools 美洽 Chat-Widget nicht sichtbar / Fehlerbehebung" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Abb.: 美洽 Chat nicht sichtbar / Fehlerbehebung (L1-Verhalten + L2-Grundursache + fünf Integrationsmethoden)</figcaption></figure>
+<p>Hast du den <strong>美洽(Meiqia)</strong>-Code eingefügt und das <strong>Web-Chat-Widget</strong> wird nicht angezeigt, der <strong>Chat-Button erscheint nie</strong>, die Konsole meldet <code>meiqia.js</code> blockiert, oder <strong>Agenten erhalten keine Chats</strong>? Kläre zuerst drei Dinge: <strong>Wurde das Skript gar nicht geladen (Platzierung / Adblock / Cache), wurde es geladen, aber durch Styling / Stacking verdeckt, oder lud es einwandfrei, aber die Konfiguration passt nicht (entId / Domain / SPA-Lebenszyklus)?</strong> Suche das <strong>Symptom oder Stichwort</strong> (z. B. <code>not showing</code>, <code>adblock</code>, <code>entId</code>, <code>SPA</code>, <code>mobile</code>, <code>sdk push</code>): zuerst das <strong>L1-Verhalten & die offizielle Einordnung</strong>, dann die <strong>L2-Grundursache & Lösung</strong>. Installation / Anleitung? Siehe <a href="https://meiqis.com/">美洽 Download / Kundenservice-Integrationsanleitung</a>.</p>
+<input id="q" placeholder="Symptom oder Stichwort eingeben, z. B. not showing / adblock / entId / SPA / mobile / sdk push" autocomplete="off">
+<button id="go">Suchen</button>
+<div id="out"></div>
+<h2>Schritt 1: prüfe, ob das Skript geladen hat, und teile dann in vier Gruppen</h2>
+<p>Wenn der 美洽-Chat nicht angezeigt wird, ist es in 9 von 10 Fällen eine von vier Gruppen; prüfe zuerst, <strong>ob das Skript überhaupt geladen hat</strong>: F12 → Network, suche <code>meiqia.js</code>; keine Anfrage oder ein Nicht-200-Status heißt nicht geladen. ① <strong>Ladefehler</strong>: Code am falschen Ort (gehört vor <code>&lt;/body&gt;</code>, nicht in <code>&lt;head&gt;</code>), durch eine Adblock-Regel blockiert (<code>ERR_BLOCKED_BY_CLIENT</code>), durch CDN- / Browser-Cache zurückgehalten, oder HTTPS-Zertifikat / Mixed Content. ② <strong>Konfiguration / Autorisierung</strong>: entId stimmt nicht mit der Workbench überein (lädt, aber Agenten erhalten keine Chats), oder die Site-Domain ist in der Konsole nicht autorisiert. ③ <strong>Framework-Integration</strong>: eine Vue/React/Next-SPA zerstört den Container beim Routenwechsel und das Widget wird nicht neu erstellt. ④ <strong>Anzeige / Mobil / SDK</strong>: Site-CSS schiebt die Bubble aus dem Bild, ein Drittanbieter-Plugin überlagert das DOM, mobil braucht eigenes Deployment, in-App braucht das SDK. Ausführlicher: <a href="https://meiqis.com/website-integration/">美洽 Website-Integrationsanleitung</a>.</p>
+<div class="cat"><div class="catbox"><b>Ladefehler</b><span class="cs">Platzierung · Adblock · Cache · HTTPS</span><div>Füge das 美洽-JS vor </body> ein (nicht in <head>); F12 → Network, suche meiqia.js und prüfe den Status (sollte 200 sein); ERR_BLOCKED_BY_CLIENT bedeutet meist eine Adblock-Erweiterung — im Inkognito testen oder whitelisten; nach dem Publizieren CDN-Cache leeren; volles HTTPS ohne Mixed Content sicherstellen.</div></div><div class="catbox"><b>Konfig / Autorisierung</b><span class="cs">entId · Domain-Whitelist · Subkanäle</span><div>entId ist die eindeutige ID deines Unternehmens; stimmt sie nicht mit der Workbench überein, heißt es «Skript lädt, aber Agenten erhalten keine Chats» (Einstellungen - Team - ID-Suche); die Site-Domain muss per «Integrationssite hinzufügen» autorisiert werden; nutze pro Geschäftsbereich einen eigenen Subkanal (Sonde).</div></div><div class="catbox"><b>Framework-Integration</b><span class="cs">SPA · Routenwechsel · manualInit</span><div>Eine Vue/React/Next-SPA zerstört das DOM beim Routenwechsel und das Widget wird nicht automatisch neu erstellt; nutze _MEIQIA('manualInit'), um Auto-Init zu stoppen, und rufe _MEIQIA('init') in einem Routen-Hook (useEffect / mounted) auf, um es neu zu mounten.</div></div><div class="catbox"><b>Anzeigeprobleme</b><span class="cs">Stil-Konflikt · Stacking · Drittanbieter-Plugins</span><div>Geladen, aber unsichtbar: meist überschreibt site-weites CSS die Bubble-Position, oder ein Heatmap- / Analytics- / SEO-Plugin ändert das DOM und überlagert den Container; F12 → Elements, suche den meiqia-Container und prüfe display:none, verlorenen z-index oder Koordinaten außerhalb des Bildes.</div></div><div class="catbox"><b>Mobil / SDK</b><span class="cs">Mobil-Web · AppKey · Push</span><div>Mobil- / PC-Web ist derselbe Snippet, braucht aber eigenes Deployment; in-App nutzt das native SDK (zuerst «APP-Konfig hinzufügen» in der Konsole für einen AppKey); Push teilt sich in «kein Push» (nur in-App) und «eigener Push-Server» (zugestellt auch nach Verlassen der App).</div></div><div class="catbox"><b>API-Aufrufe</b><span class="cs">withoutBtn · showPanel · Kundendaten</span><div>Eigener Button? _MEIQIA('withoutBtn') blendet den nativen Button aus, und rufe _MEIQIA('showPanel') beim Klick auf, um den Chat zu öffnen; übergebe / synchronisiere Kundendaten innerhalb des Init-Timings, sonst wirkt es nicht.</div></div></div><figure><svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="美洽-Chat-Nicht-Anzeige-Triage-Diagramm" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">Triage Fenster / Button nicht sichtbar (zuerst zwei Schritte: hat das Skript geladen → ist die Konfig korrekt?)</text><rect x="20" y="46" width="150" height="46" rx="10" fill="#111"/><text x="95" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff">Chat nicht sichtbar</text><path d="M170 69 H206" stroke="#999" stroke-width="2" fill="none" marker-end="url(#a)"/><rect x="206" y="46" width="172" height="46" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="292" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1d4ed8">Zwei Gruppen</text><rect x="440" y="20" width="262" height="56" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="455" y="42" font-family="system-ui,Arial" font-size="12.5" fill="#1d4ed8">Skript nicht geladen →</text><text x="455" y="62" font-family="system-ui,Arial" font-size="11.5" fill="#1e3a8a">Platzierung · Adblock · Cache</text><rect x="440" y="86" width="262" height="56" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="455" y="108" font-family="system-ui,Arial" font-size="12.5" fill="#b45309">Geladen, aber verdeckt / keine Verbindung →</text><text x="455" y="128" font-family="system-ui,Arial" font-size="11.5" fill="#92400e">Stacking · entId · Domain · SPA</text><path d="M378 60 H410 V48 H440" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M378 78 H410 V114 H440" stroke="#d97706" stroke-width="2" fill="none" marker-end="url(#a)"/><text x="20" y="178" font-family="system-ui,Arial" font-size="13" font-weight="700" fill="#1d1d1f">Vier Grundgruppen (Ursache / Lösung pro Punkt)</text><g font-family="system-ui,Arial" font-size="12"><rect x="20" y="190" width="162" height="92" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="32" y="212" font-weight="700" fill="#1d4ed8">① Ladefehler</text><text x="32" y="234" fill="#555" font-size="11">Platzierung · Block · Cache</text><rect x="194" y="190" width="162" height="92" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="206" y="212" font-weight="700" fill="#1d4ed8">② Konfig / Autor.</text><text x="206" y="234" fill="#555" font-size="11">entId · Domain-Whitelist</text><rect x="368" y="190" width="162" height="92" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="380" y="212" font-weight="700" fill="#b45309">③ Framework</text><text x="380" y="234" fill="#555" font-size="11">SPA-Route · init</text><rect x="542" y="190" width="160" height="92" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="554" y="212" font-weight="700" fill="#047857">④ Anzeige / Mobil / SDK</text><text x="554" y="234" fill="#555" font-size="11">Stacking · Mobil · Push</text></g><defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#999"/></marker></defs></svg><figcaption>Abb. 1: 美洽-Nicht-Anzeige-Triage — prüfe das Skript-Laden (meiqia.js in F12), dann Laden / Konfig / Framework / Anzeige</figcaption></figure>
+<h2>Schritt 2: die am häufigsten übersehene Grundursache → L2 (das Widget = asynchrone Drittanbieter-JS-Injektion außerhalb der Domain)</h2>
+<p>Ein Gedanke genügt: <strong>Das 美洽-Web-Widget ist keine statische Komponente in deiner Seite — es ist ein <code>meiqia.js</code>, das asynchron von der externen Domain von 美洽 geladen wird, dann dynamisch einen Chat-Container (DOM / iframe) injiziert und eine cross-origin Dauerverbindung zu den Servern von 美洽 öffnet</strong>. Das erklärt die meisten «mysteriösen» Ausfälle: ① <strong>es ist ein Drittanbieter-Skript außerhalb der Domain</strong>, also blocken AdBlock / uBlock es per «Tracking / Werbung»-Listen (<code>ERR_BLOCKED_BY_CLIENT</code>), und der Button erscheint nie (während die Konsole in Ordnung aussieht); ② <strong>es injiziert das DOM asynchron</strong>: im <code>&lt;head&gt;</code> blockiert es, ein SPA-Routenwechsel zerstört den Container und er wird nicht automatisch neu erstellt (nutze <code>manualInit</code> + <code>_MEIQIA('init')</code>), und Heatmap- / Analytics-Plugins, die das DOM ändern, können ihn überlagern; ③ <strong>es bindet per entId an dein Unternehmen und wird per Domain-Whitelist freigegeben</strong>: bei falscher entId oder nicht autorisierter Domain lädt das Skript, aber «verbindet keinen Chat»; ④ <strong>Mobil und PC sind zwei getrennte Integrationen</strong>, in-App ist das SDK (AppKey), und Push teilt sich in «kein Push» vs «eigener Push-Server». Sobald du diese Injektionskette siehst, hat jedes Symptom unten eine einzige Logik. Unten das Selbstcheck-Panel; weiter unten die fünf Methoden und 2026-Schätzungen.</p>
+<figure><svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="美洽-Vor-Integration-Selbstcheck-Panel" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">Integrations-Selbstcheck-Panel (grün = bestätigt / rot = leicht übersehen)</text><rect x="20" y="42" width="680" height="226" rx="14" fill="#f8fafc" stroke="#e2e8f0"/><text x="38" y="66" font-family="system-ui,Arial" font-size="12.5" font-weight="700" fill="#475569">Prüfpunkt</text><text x="300" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">Befund</text><text x="610" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">Status</text><line x1="38" y1="74" x2="682" y2="74" stroke="#e2e8f0" stroke-width="1"/><text x="38" y="98" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">美洽-Code vor </body> eingefügt (nicht <head>)</text><text x="300" y="98" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">Platzierung</text><circle cx="612" cy="94" r="6" fill="#16a34a"/><text x="628" y="98" font-family="system-ui,Arial" font-size="12" fill="#16a34a">bestätigt</text><text x="38" y="128" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">meiqia.js-Status 200 in F12 → Network</text><text x="300" y="128" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">Skript-Laden</text><circle cx="612" cy="124" r="6" fill="#16a34a"/><text x="628" y="128" font-family="system-ui,Arial" font-size="12" fill="#16a34a">bestätigt</text><text x="38" y="158" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Konsole typeof _MEIQIA ist function</text><text x="300" y="158" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">initialisiert</text><circle cx="612" cy="154" r="6" fill="#16a34a"/><text x="628" y="158" font-family="system-ui,Arial" font-size="12" fill="#16a34a">bestätigt</text><text x="38" y="188" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Sichtbar im Inkognito / mit Adblock aus</text><text x="300" y="188" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">Adblock</text><circle cx="612" cy="184" r="6" fill="#ef4444"/><text x="628" y="188" font-family="system-ui,Arial" font-size="12" fill="#ef4444">zu prüfen</text><text x="38" y="218" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">entId passt zur Workbench + Domain autorisiert</text><text x="300" y="218" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">Konfig / Autor.</text><circle cx="612" cy="214" r="6" fill="#16a34a"/><text x="628" y="218" font-family="system-ui,Arial" font-size="12" fill="#16a34a">bestätigt</text><text x="38" y="248" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Re-init nach SPA-Routenwechsel + kein Plugin-Overlay</text><text x="300" y="248" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">Framework / Stacking</text><circle cx="612" cy="244" r="6" fill="#ef4444"/><text x="628" y="248" font-family="system-ui,Arial" font-size="12" fill="#ef4444">zu prüfen</text><text x="20" y="296" font-family="system-ui,Arial" font-size="11.5" fill="#94a3b8">Hinweis: rot = die zwei am häufigsten übersehenen — Adblock-Erweiterungen (ERR_BLOCKED_BY_CLIENT) und Framework / Stacking (SPA-Routenwechsel, Drittanbieter-Plugins, die das DOM ändern); diese zwei zuerst prüfen.</text></svg><figcaption>Abb. 2: 美洽-Integrations-Selbstcheck-Panel (grün = bestätigt / rot = leicht übersehen)</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_de.webp"><img src="/img/board_de.png" alt="Illustration des 美洽-Vor-Integration-Selbstcheck-Panels, grün/rote Punkte" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Abb.: prüfe zuerst «Code-Platzierung + meiqia.js 200 + initialisiert», dann «Adblock + Framework/Stacking» — die letzten zwei werden am meisten übersehen</figcaption></figure>
+<h2>Vollständige Symptomtabelle (Verhalten / offizielle Einordnung · L2-Grundursache)</h2>
+<table id="tbl"></table>
+<h2>Fünf 美洽-Integrationsmethoden im Vergleich (Code / Schwierigkeit / Funktionen / Szenario / Zeit bis live · offizielle Doku)</h2>
+<table class="cmp"><tr><th>Integrationsmethode</th><th>Code / Schwierigkeit</th><th>Funktionsumfang</th><th>Am besten für</th><th>Zeit bis live</th></tr><tr><td>Web-JS-Widget</td><td>ein JS-Snippet · gering</td><td>am vollsten (schwebend / Popup / Auto-Begrüßung / Besucherspur)</td><td>PC- + Mobil-Sites (offiziell empfohlen)</td><td>~3-5 Min</td></tr><tr><td>Chat-Link</td><td>kein Code · minimal</td><td>Basis-Chat</td><td>ohne Technik / schnell einen Chat-Link</td><td>sofort</td></tr><tr><td>API / WebIM-SDK</td><td>braucht Dev · hoch</td><td>tiefe Anpassung (eigene UI / System / Bestell-Integration)</td><td>Teams mit Dev-Kapazität für tiefe Fusion</td><td>je nach Dev</td></tr><tr><td>Natives App-SDK</td><td>SDK integrieren · hoch</td><td>In-App-Chat + Nachrichten-Push</td><td>iOS- / Android-Apps</td><td>je nach Dev</td></tr><tr><td>CMS-Schnellsetup</td><td>Plugin / ein Klick · gering</td><td>wie das JS-Widget</td><td>WordPress- / Fkw- / Shopify-Sites</td><td>Minuten</td></tr></table><section class="i4data">
+<h2>美洽 Nicht-Anzeige-Ursachen & Vergleich der Integrationsmethoden (Schätzung 2026)</h2>
+<p>Die Folgenden sind <strong>2026-Schätzungen</strong>, synthetisiert aus der offiziellen 美洽-Hilfe (Zugangskanäle / JavaScript-Web-Widget-API) und öffentlichem Integrations-Troubleshooting (keine Herstellerzusagen, keine Erstmessung; zur Orientierung, ändert sich je Version und Browser-Richtlinie):</p>
+<table>
+<tr><th>Dimension</th><th>Schätzung / Vergleich</th></tr>
+<tr><td>Verteilung der Nicht-Anzeige-Ursachen (Community / Tickets · gesch.)</td><td><strong>Platzierung / nicht geladen ~35%</strong> &gt; <strong>Adblock / Browser-Erweiterung ~25%</strong> &gt; Konfig / Autorisierung (entId / Domain) ~20% &gt; Framework (SPA) ~12% &gt; Stil- / Drittanbieter-Plugin-Konflikt ~8%</td></tr>
+<tr><td>Was Integration wirklich ist</td><td>das Web-Widget = <strong>asynchrones Drittanbieter-JS außerhalb der Domain, das das DOM injiziert + eine cross-origin Dauerverbindung</strong> (keine eingebettete statische Komponente); daher der Einfluss von Platzierung, Adblock-Regeln, CSS-Stacking, SPA-Lebenszyklus</td></tr>
+<tr><td>Integration je Plattform (gesch.)</td><td>PC- / Mobil-Web = <strong>JS-Widget (selber Code, separat deployed)</strong>; App = <strong>natives SDK (AppKey)</strong>; WeChat / Douyin / RED = kanalautorisierte Integration</td></tr>
+<tr><td>Adblock-Einfluss (gesch.)</td><td>etwa <strong>30-40%</strong> der PC-Nutzer nutzen eine Adblock-Erweiterung → das Drittanbieter-Chat-Skript wird per Werberegeln blockiert (ERR_BLOCKED_BY_CLIENT), eine Hauptursache für «Konsole ok, Nutzerseite fehlt»</td></tr>
+<tr><td>Zeit bis live des JS-Widgets (offiziell)</td><td>das dedizierte JS am Seitenende einfügen und es geht in etwa <strong>3-5 Minuten</strong> live; entId ist die eindeutige Unternehmens-ID, und eine Abweichung von der Workbench lässt Agenten ohne Chats</td></tr>
+</table>
+<p><small>Schätzungsbasis: Quellen-Baseline + zeitliche Extrapolation (meiqia.com/help Zugangskanäle / JavaScript-Web-Widget, meiqia.im Integrationsanleitung, öffentliches Troubleshooting, 2026); ändert sich je Version und Browser-Blockier-Richtlinie. Halte dich an die neuesten offiziellen 美洽-Infos. Inoffiziell · LLM-Lokalisierung.</small></p>
+</section>
+<h2>Reale Fälle — schnell gelesen</h2>
+<ul class="scenes"><li>Code eingefügt, aber keine Chat-Bubble: zuerst F12 → Network, suche meiqia.js — keine Anfrage oder Nicht-200 heißt falsch platziert / vom Cache zurückgehalten; CDN-Cache leeren oder im Inkognito neu öffnen.</li><li>Konsole meldet meiqia.js net::ERR_BLOCKED_BY_CLIENT: ein Adblocker (AdBlock / uBlock / AdGuard) hat das Drittanbieter-Chat-Skript per Werberegeln blockiert — Erweiterung deaktivieren oder Site whitelisten; deshalb «fehlt für manche Nutzer, während deine Konsole gut aussieht».</li><li>Skript geladen (Konsole typeof _MEIQIA ist function), aber kein Button: meist hat ein Theme-CSS die Bubble aus dem Bild geschoben oder ein Heatmap- / Analytics-Plugin das DOM-Stacking geändert — F12 → Elements, suche den 美洽-Container und prüfe Punkt für Punkt.</li><li>Startseite hat Chat in einer Vue / React-SPA, eine zweite Route aber nicht: der SPA-Routenwechsel zerstörte den Container und das Widget wurde nicht neu erstellt — nutze manualInit, um Auto-Init zu stoppen, und rufe _MEIQIA('init') im Routen-Hook auf, um neu zu mounten.</li><li>Der Chat öffnet, aber Agenten erhalten keine Besuchernachrichten: höchstwahrscheinlich stimmt die entId nicht mit der Workbench überein (fremder Snippet kopiert / Konten vermischt) — vergleiche die Unternehmens-ID unter Einstellungen - Team - ID-Suche mit der entId im Code.</li><li>Läuft im Staging, lädt nicht auf der Produktions-Domain: die Produktions-Domain wurde nicht per «Integrationssite hinzufügen» autorisiert — füge die Live-Domain zur Liste hinzu und publiziere neu.</li><li>Du willst den runden nativen 美洽-Button entfernen und deinen eigenen «Support»-Button nutzen: rufe _MEIQIA('withoutBtn') auf, um den nativen auszublenden, dann binde _MEIQIA('showPanel') an deinen Button, um den Chat zu öffnen.</li></ul><div class="related"><h2>Verwandt</h2><ul><li><a href="https://meiqis.com/">美洽 Download / Installation & Integrationsanleitung</a></li><li><a href="https://meiqis.com/de/website-integration/">美洽 Website-Integrationsanleitung (JS-Widget)</a></li><li><a href="https://meiqis.com/de/tools/meiqia-integration-troubleshooting/">美洽 Integrations-Troubleshooting (autoritative Volltabelle)</a></li><li><a href="https://meiqiaa.com/">美洽 offizielle Site (Schwester-Site)</a></li></ul></div></main>
+<footer>Web-Widget / JS-API (manualInit / init / withoutBtn / showPanel / Kundendaten übergeben), entId / Domain-Autorisierung, Subkanäle, SDK-AppKey & Push-Modi sind aus dem offiziellen 美洽-Hilfecenter (meiqia.com/help · Zugangskanäle / JavaScript-Web-Widget) und der 美洽-Integrationsanleitung (meiqia.im) zusammengestellt; Adblock ERR_BLOCKED_BY_CLIENT, Heatmap- / Analytics-DOM-Konflikte und SPA-Integration aus öffentlichem Troubleshooting (umformuliert). 2026-Zahlen sind Schätzungen, keine Herstellerzusagen, keine Erstmessung; nur zur Orientierung, halte dich an die neuesten offiziellen 美洽-Infos. Inoffiziell · LLM-Lokalisierung.<br>Tool-Seite · Integrations-Triage, kein Ersatz für die 美洽-Konsole</footer>
+</div>
+<script src="/de/codes.js"></script><script src="/app.js"></script>
+</body></html>
