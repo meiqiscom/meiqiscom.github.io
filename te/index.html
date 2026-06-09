@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="te"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>美洽(Meiqia) చాట్ విడ్జెట్ కనిపించడం లేదు / ఇంటిగ్రేషన్ లోపం పరిష్కరించండి - meiqia.js బ్లాక్, బటన్ లేదు, entId, SPA, SDK పుష్</title>
+<meta name="description" content="美洽(Meiqia) వెబ్ చాట్ విడ్జెట్ కనిపించడం లేదు, బటన్ లేదు, meiqia.js ERR_BLOCKED_BY_CLIENT చేత బ్లాక్, స్టైల్ విరిగింది, SPA రూట్ మార్పు తర్వాత అదృశ్యమవుతుంది, entId సరిపోలక ఏజెంట్లకు చాట్లు రావు, మొబైల్‌లో రాదు, SDK పుష్ రాదు? లక్షణాన్ని వెతికి L1 ప్రవర్తన మరియు L2 మూల కారణం చూడండి: థర్డ్-పార్టీ ఆఫ్-డొమైన్ అసమకాలిక JS ఇంజెక్షన్, adblock నియమాలు, CSS స్టాకింగ్, SPA జీవితచక్రం, entId మరియు డొమైన్ వైట్‌లిస్ట్, AppKey మరియు SDK పుష్ మార్గం; ఐదు ఇంటిగ్రేషన్ పద్ధతుల పోలిక మరియు 2026 అంచనాలతో.">
+<link rel="canonical" href="https://meiqiscom.github.io/te/">
+<link rel="alternate" hreflang="zh-Hans" href="https://meiqiscom.github.io/">
+<link rel="alternate" hreflang="en" href="https://meiqiscom.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://meiqiscom.github.io/ja/">
+<link rel="alternate" hreflang="zh-Hant" href="https://meiqiscom.github.io/zh-tw/">
+<link rel="alternate" hreflang="ko" href="https://meiqiscom.github.io/ko/">
+<link rel="alternate" hreflang="id" href="https://meiqiscom.github.io/id/">
+<link rel="alternate" hreflang="vi" href="https://meiqiscom.github.io/vi/">
+<link rel="alternate" hreflang="th" href="https://meiqiscom.github.io/th/">
+<link rel="alternate" hreflang="es" href="https://meiqiscom.github.io/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://meiqiscom.github.io/pt-br/">
+<link rel="alternate" hreflang="de" href="https://meiqiscom.github.io/de/">
+<link rel="alternate" hreflang="fr" href="https://meiqiscom.github.io/fr/">
+<link rel="alternate" hreflang="ru" href="https://meiqiscom.github.io/ru/">
+<link rel="alternate" hreflang="it" href="https://meiqiscom.github.io/it/">
+<link rel="alternate" hreflang="pl" href="https://meiqiscom.github.io/pl/">
+<link rel="alternate" hreflang="nl" href="https://meiqiscom.github.io/nl/">
+<link rel="alternate" hreflang="tr" href="https://meiqiscom.github.io/tr/">
+<link rel="alternate" hreflang="ar" href="https://meiqiscom.github.io/ar/">
+<link rel="alternate" hreflang="hi" href="https://meiqiscom.github.io/hi/">
+<link rel="alternate" hreflang="ms" href="https://meiqiscom.github.io/ms/">
+<link rel="alternate" hreflang="fa" href="https://meiqiscom.github.io/fa/">
+<link rel="alternate" hreflang="bn" href="https://meiqiscom.github.io/bn/">
+<link rel="alternate" hreflang="ta" href="https://meiqiscom.github.io/ta/">
+<link rel="alternate" hreflang="te" href="https://meiqiscom.github.io/te/">
+<link rel="alternate" hreflang="fil" href="https://meiqiscom.github.io/fil/">
+<link rel="alternate" hreflang="ur" href="https://meiqiscom.github.io/ur/">
+<link rel="alternate" hreflang="lo" href="https://meiqiscom.github.io/lo/">
+<link rel="alternate" hreflang="km" href="https://meiqiscom.github.io/km/">
+<link rel="alternate" hreflang="my" href="https://meiqiscom.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://meiqiscom.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "美洽 చాట్ కనిపించడం లేదు / ఇంటిగ్రేషన్ లోప పరిష్కారం",
+   "url": "https://meiqiscom.github.io/te/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "inLanguage": "te",
+   "description": "美洽(Meiqia) వెబ్ చాట్ విడ్జెట్ కనిపించడం లేదు, బటన్ లేదు, meiqia.js ERR_BLOCKED_BY_CLIENT చేత బ్లాక్, స్టైల్ విరిగింది, SPA రూట్ మార్పు తర్వాత అదృశ్యమవుతుంది, entId సరిపోలక ఏజెంట్లకు చాట్లు రావు, మొబైల్‌లో రాదు, SDK పుష్ రాదు? లక్షణాన్ని వెతికి L1 ప్రవర్తన మరియు L2 మూల కారణం చూడండి: థర్డ్-పార్టీ ఆఫ్-డొమైన్ అసమకాలిక JS ఇంజెక్షన్, adblock నియమాలు, CSS స్టాకింగ్, SPA జీవితచక్రం, entId మరియు డొమైన్ వైట్‌లిస్ట్, AppKey మరియు SDK పుష్ మార్గం; ఐదు ఇంటిగ్రేషన్ పద్ధతుల పోలిక మరియు 2026 అంచనాలతో.",
+   "isAccessibleForFree": true,
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "te",
+   "url": "https://meiqiscom.github.io/te/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "美洽 చాట్ విండో / బబుల్ అసలు కనిపించడం లేదు — ఎలా పరిష్కరించాలి?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽 వెబ్ విడ్జెట్ ఒక అతికించిన JS స్నిప్పెట్‌తో తేలియాడే చాట్ విండోను లోడ్ చేస్తుంది; కోడ్ సరిగా పొందుపరచబడిందని మరియు ఇంటిగ్రేషన్ సైట్ కన్సోల్‌లో కాన్ఫిగర్ అయిందని నిర్ధారించండి. విడ్జెట్ అసమకాలిక లోడ్ తర్వాత DOMలో ఇంజెక్ట్ అయ్యే meiqia.js, కాబట్టి «అసలు ఏమీ లేదు» సాధారణంగా «స్క్రిప్ట్ ఎప్పటికీ లోడ్ కాలేదు» — తప్పు స్థానం, adblock / కాష్‌తో బ్లాక్, లేదా సరిపోలని డొమైన్ / entId, కాబట్టి ఇంజెక్షన్ ఎప్పటికీ నడవలేదు. F12 → Network, meiqia.js వెతకండి: అభ్యర్థన లేదు → కోడ్ పనిచేయదు (స్థానం తనిఖీ / కాష్ క్లియర్); అభ్యర్థన కానీ 200 కాదు → బ్లాక్ లేదా మార్గ సమస్య; అన్నీ సరి కానీ ఇంకా దాగింది → entId / డొమైన్ అధికారం మరియు కింది గ్రూపులు తనిఖీ చేయండి."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 స్క్రిప్ట్ లోడ్ అయింది కానీ చాట్ బటన్ లేదు — ఎలా పరిష్కరించాలి?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "విడ్జెట్ కోడ్ సైట్‌కు అనుగుణంగా చాట్ బటన్ చూపుతుంది; ప్రదర్శన విఫలమైతే స్టైల్‌తో దాగిందా లేదా init అంతరాయమైందా తనిఖీ చేయండి. స్క్రిప్ట్ లోడ్ అయి బటన్ లేకపోతే, సాధారణంగా «ప్రదర్శన పొర» సమస్య: సైట్-వ్యాప్త CSS బటన్ స్థానాన్ని ఓవర్‌రైడ్ / display:none, z-index ఓడుతుంది, లేదా మరో స్థిర ఎలిమెంట్ కప్పుతుంది; మరో JS లోపం కూడా init అంతరాయం చేయవచ్చు. F12 → Elements, 美洽 కంటైనర్ వెతకండి — ఉందా, దాగిందా, స్క్రీన్ బయటా?; మళ్లీ పరీక్షించడానికి తాత్కాలికంగా కస్టమ్ CSS / ఇతర స్క్రిప్ట్‌లు ఆఫ్ చేయండి; అమలును ఆపిన లోపం కోసం కన్సోల్ తనిఖీ చేయండి."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js adblock ఎక్స్‌టెన్షన్‌తో బ్లాక్ — ఎలా పరిష్కరించాలి?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽 చాట్ స్క్రిప్ట్ థర్డ్-పార్టీ డొమైన్ నుండి వస్తుంది; బ్లాకింగ్ ఎక్స్‌టెన్షన్ ఇన్‌స్టాల్ అయితే దాన్ని ప్రకటన / ట్రాకర్‌గా భావించి లోడ్ ఆపవచ్చు — బ్లాకింగ్ ఆఫ్ చేయండి లేదా వైట్‌లిస్ట్ చేయండి. ERR_BLOCKED_BY_CLIENT అంటే బ్రౌజర్ ఎక్స్‌టెన్షన్ (AdBlock / uBlock / AdGuard) ఫిల్టర్ జాబితాలతో అభ్యర్థనను బ్లాక్ చేసింది. 美洽 స్క్రిప్ట్ «థర్డ్-పార్టీ ఆఫ్-డొమైన్ + రియల్-టైమ్ కమ్యూనికేషన్», దీన్ని అలాంటి నియమాలు తరచూ ప్రకటన / ట్రాకర్‌గా పొరబడి «కన్సోల్ సరి, వినియోగదారు వైపు లేదు» తప్పుడు వైఫల్యం కలిగిస్తాయి. ఇన్‌కాగ్నిటోలో లేదా adblock ఆఫ్‌లో మళ్లీ పరీక్షించండి — కనిపిస్తే బ్లాకింగే కారణం; వినియోగదారులను సైట్ వైట్‌లిస్ట్ చేయమని అడగండి; ఫ్రంట్‌ఎండ్ కొన్ని auto నియమాలను తప్పించడానికి చాట్ స్క్రిప్ట్‌ను ఆలస్యంగా / షరతుతో లోడ్ చేయవచ్చు."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js 404 / చెడ్డ స్థితి / మిశ్రమ కంటెంట్ — ఎలా పరిష్కరించాలి?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "డిప్లాయ్ తర్వాత Network ప్యానెల్‌లో meiqia.js వెతకండి; 200 స్థితి అంటే స్క్రిప్ట్ సరిగా ఉంచబడి లోడ్ అయింది. సాధారణ 200-కాని కారణాలు: కోడ్ పేజీ / CDN కాష్‌లో ఇరుక్కుంది (ప్రచురణ తర్వాత రిఫ్రెష్ కాలేదు), HTTP పేజీలో లోడ్ / అసంపూర్ణ సర్టిఫికేట్ చైన్ మిశ్రమ-కంటెంట్ బ్లాకింగ్ ట్రిగ్గర్, లేదా విరిగిన / పాక్షికంగా కాపీ చేసిన కోడ్. ఈ దశ విఫలమైతే ఇంజెక్షన్ మరియు కనెక్షన్ ఎప్పటికీ జరగవు. ప్రచురణ తర్వాత CDN / బ్రౌజర్ కాష్ క్లియర్ చేయండి (లేదా ఇన్‌కాగ్నిటో); పూర్తి సర్టిఫికేట్ చైన్‌తో పూర్తి HTTPS మరియు మిశ్రమ కంటెంట్ లేకుండా నిర్ధారించండి; కాపీ చేసిన కోడ్ పూర్తి మరియు escape కాలేదని ధృవీకరించండి."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 కోడ్ తప్పు స్థానంలో (head బ్లాకింగ్ / పనిచేయదు) — ఎలా పరిష్కరించాలి?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽 కోడ్‌ను పేజీ కింద, </body>కి ముందు అతికించమని సిఫార్సు చేస్తుంది; విడ్జెట్ ప్రధాన కంటెంట్ లోడ్ అయ్యాక నడుస్తుంది. విడ్జెట్ DOM సిద్ధమయ్యాక కంటైనర్‌ను ఇంజెక్ట్ చేయాలి. <head>లో ఇది రెండర్‌ను బ్లాక్ చేస్తుంది (బలహీన నెట్‌వర్క్‌లో ముందు ఖాళీ స్క్రీన్) లేదా DOM సిద్ధం కాకముందే నడిచి విఫలమవుతుంది; కొన్ని async / module scopeలో లోడ్ క్రమం కూడా తప్పవచ్చు. 美洽 JSను ప్రతి పేజీ ఉమ్మడి ఫుటర్‌లో, </body>కి ముందు ఉంచండి; SPAకు «SPA రూట్» ఎంట్రీ చూసి manualInit వాడండి; bundler దాన్ని tree-shakingతో తీసివేయదని నిర్ధారించండి."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 చాట్ విండో / బటన్ స్టైల్ విరిగింది — ఎలా పరిష్కరించాలి?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "విడ్జెట్ తన సొంత స్టైల్‌లను ఇంజెక్ట్ చేసి సైట్‌కు అనుగుణమవుతుంది; సైట్-వ్యాప్త స్టైల్‌లతో వైరుధ్యం దృశ్య లోపాలు కలిగించవచ్చు. 美洽 స్క్రిప్ట్ రన్‌టైమ్‌లో CSS ఇంజెక్ట్ చేస్తుంది; సైట్-వ్యాప్త స్టైల్‌లు (సార్వత్రిక సెలెక్టర్లు / అధిక-ప్రాధాన్య నియమాలు / రీసెట్) ముందు దాని క్లాస్‌లను ఓవర్‌రైడ్ చేస్తే స్థానం, స్టాకింగ్ మరియు ఫాంట్‌లు విరుగుతాయి — «డైనమిక్ ఇంజెక్షన్ + ఒక డాక్యుమెంట్ స్టైల్ స్పేస్ పంచుకోవడం» యొక్క దుష్ప్రభావం. ఏ సైట్ నియమం 美洽 కంటైనర్‌ను ఓవర్‌రైడ్ చేస్తుందో చూడటానికి F12; సైట్-వ్యాప్త స్టైల్‌లను సంకుచితం / సాధారణ క్లాస్‌లపై ప్రభావం తగ్గించండి; అవసరమైతే కంటైనర్ స్టాకింగ్ సర్దుబాటు చేయమని 美洽ను అడగండి."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 బటన్ స్క్రీన్ బయట / కప్పబడింది — ఎలా పరిష్కరించాలి?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "విడ్జెట్ బటన్ స్థిర-స్థాన తేలియాడేదిగా కనిపిస్తుంది; ఇతర స్థిర ఎలిమెంట్‌లతో కప్పబడితే స్టాకింగ్ లేదా స్థానం సర్దుబాటు చేయండి. సైట్‌లోని ఇతర position:fixed ఎలిమెంట్‌లు (పైకి, తేలియాడే ప్రకటనలు, సొంత సపోర్ట్ బార్) ఎక్కువ z-indexతో 美洽 బటన్‌ను కప్పుతాయి, లేదా థీమ్ దాని కోఆర్డినేట్‌లను తప్పుగా లెక్కించి «స్క్రీన్ బయట / కప్పబడింది» ఉంచుతుంది. నిజ కోఆర్డినేట్‌లు / z-index చూడటానికి F12లో 美洽 కంటైనర్ ఎంచుకోండి; దాన్ని పెంచండి లేదా కప్పే ఎలిమెంట్ z-index తగ్గించండి; ఒక మూలలో అనేక స్థిర తేలియాడేవి పేర్చడం తప్పించండి."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 థర్డ్-పార్టీ ప్లగిన్ / అనలిటిక్స్ DOM వైరుధ్యం — ఎలా పరిష్కరించాలి?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "DOM మార్చే లేదా అభ్యర్థనలను అడ్డగించే పేజీలోని ఇతర స్క్రిప్ట్‌లు విడ్జెట్ సాధారణ లోడ్ మరియు ప్రదర్శనను ప్రభావితం చేయవచ్చు. హీట్‌మ్యాప్ / అనలిటిక్స్ / మార్పిడి స్క్రిప్ట్‌లు DOMను తిరిగి రాస్తాయి, ఓవర్‌లే ఇంజెక్ట్ లేదా అభ్యర్థనలను అడ్డగిస్తాయి; అవి మరియు 美洽 ఒకే డాక్యుమెంట్‌లో ఇంజెక్ట్ చేయడంతో స్టాకింగ్ / ఈవెంట్‌లు అంతరాయం కలిగించి 美洽 కంటైనర్ కప్పబడుతుంది లేదా దాని init అంతరాయమవుతుంది. వైరుధ్యం గుర్తించడానికి అనుమానిత ప్లగిన్‌లను ఒక్కొక్కటిగా ఆఫ్ చేయండి; లోడ్ క్రమం / కంటైనర్ స్టాకింగ్ సర్దుబాటు; హీట్‌మ్యాప్ మొదలైనవి 美洽 కంటైనర్ ప్రాంతాన్ని తప్పించేలా చేయండి."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">భాష: <a href="/">简体中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/ko/">한국어</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/th/">ไทย</a> · <a href="/es/">Español</a> · <a href="/pt-br/">Português (BR)</a> · <a href="/de/">Deutsch</a> · <a href="/fr/">Français</a> · <a href="/ru/">Русский</a> · <a href="/it/">Italiano</a> · <a href="/pl/">Polski</a> · <a href="/nl/">Nederlands</a> · <a href="/tr/">Türkçe</a> · <a href="/ar/">العربية</a> · <a href="/hi/">हिन्दी</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fa/">فارسی</a> · <a href="/bn/">বাংলা</a> · <a href="/ta/">தமிழ்</a> · <strong>తెలుగు</strong> · <a href="/fil/">Filipino</a> · <a href="/ur/">اردو</a> · <a href="/lo/">ພາສາລາວ</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>美洽 చాట్ విడ్జెట్ కనిపించడం లేదు / ఇంటిగ్రేషన్ లోపం పరిష్కరించండి</h1>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_te.webp"><img src="/img/cover_te.png" alt="美洽 చాట్ విడ్జెట్ కనిపించడం లేదు / లోప పరిష్కార టూల్ చిత్రం" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>చిత్రం: 美洽 చాట్ కనిపించడం లేదు / లోప పరిష్కారం (L1 ప్రవర్తన + L2 మూల కారణం + ఐదు ఇంటిగ్రేషన్ పద్ధతులు)</figcaption></figure>
+<p><strong>美洽(Meiqia)</strong> కోడ్ అతికించారు కానీ <strong>వెబ్ చాట్ విడ్జెట్</strong> కనిపించడం లేదు, <strong>చాట్ బటన్ ఎప్పటికీ రాదు</strong>, కన్సోల్ <code>meiqia.js</code> బ్లాక్ అని చెబుతోంది, లేదా <strong>ఏజెంట్లకు చాట్లు రావు</strong>? ముందుగా మూడు విషయాలు స్పష్టం చేయండి: <strong>స్క్రిప్ట్ అసలు లోడ్ కాలేదా (స్థానం / adblock / కాష్), లోడ్ అయింది కానీ స్టైల్ / స్టాకింగ్‌తో దాగింది, లేదా బాగా లోడ్ అయింది కానీ కాన్ఫిగ్ సరిపోలదా (entId / డొమైన్ / SPA జీవితచక్రం)?</strong> మీ <strong>లక్షణం లేదా కీవర్డ్</strong> వెతకండి (ఉదా. <code>not showing</code>, <code>adblock</code>, <code>entId</code>, <code>SPA</code>, <code>mobile</code>, <code>sdk push</code>): ముందు <strong>L1 ప్రవర్తన మరియు అధికారిక స్థానం</strong>, తర్వాత <strong>L2 మూల కారణం మరియు పరిష్కారం</strong>. ఇన్‌స్టాల్ / గైడ్? చూడండి <a href="https://meiqis.com/">美洽 డౌన్‌లోడ్ / కస్టమర్ సర్వీస్ ఇంటిగ్రేషన్ గైడ్</a>.</p>
+<input id="q" placeholder="లక్షణం లేదా కీవర్డ్ టైప్ చేయండి, ఉదా. not showing / adblock / entId / SPA / mobile / sdk push" autocomplete="off">
+<button id="go">వెతకండి</button>
+<div id="out"></div>
+<h2>దశ 1: స్క్రిప్ట్ లోడ్ అయిందో లేదో చూడండి, తర్వాత నాలుగు గ్రూపులుగా విభజించండి</h2>
+<p>美洽 చాట్ కనిపించనప్పుడు, 10లో 9 సార్లు ఇది నాలుగు గ్రూపులలో ఒకటి; ముందు చూడండి <strong>స్క్రిప్ట్ అసలు లోడ్ అయిందా</strong>: F12 → Network, <code>meiqia.js</code> వెతకండి; అభ్యర్థన లేకపోతే లేదా స్థితి 200 కాకపోతే లోడ్ కాలేదు. ① <strong>లోడ్ వైఫల్యం</strong>: కోడ్ తప్పు స్థానంలో (<code>&lt;/body&gt;</code>కి ముందు ఉండాలి, <code>&lt;head&gt;</code>లో కాదు), adblock నియమంతో బ్లాక్ (<code>ERR_BLOCKED_BY_CLIENT</code>), CDN / బ్రౌజర్ కాష్‌లో ఇరుక్కుంది, లేదా HTTPS సర్టిఫికేట్ / మిశ్రమ కంటెంట్. ② <strong>కాన్ఫిగ్ / అధికారం</strong>: entId వర్క్‌బెంచ్‌తో సరిపోలదు (లోడ్ అవుతుంది కానీ ఏజెంట్లకు చాట్లు రావు), లేదా సైట్ డొమైన్ కన్సోల్‌లో అధికారం లేదు. ③ <strong>ఫ్రేమ్‌వర్క్ ఇంటిగ్రేషన్</strong>: Vue/React/Next SPA రూట్ మార్పులో కంటైనర్‌ను నాశనం చేస్తుంది మరియు విడ్జెట్ తిరిగి నిర్మించబడదు. ④ <strong>ప్రదర్శన / మొబైల్ / SDK</strong>: సైట్ CSS బబుల్‌ను స్క్రీన్ బయటకు నెట్టుతుంది, థర్డ్-పార్టీ ప్లగిన్ DOMను కప్పుతుంది, మొబైల్‌కు సొంత డిప్లాయ్ అవసరం, ఇన్-యాప్‌కు SDK అవసరం. మరింత పూర్తి: <a href="https://meiqis.com/website-integration/">美洽 వెబ్ ఇంటిగ్రేషన్ గైడ్</a>.</p>
+<div class="cat"><div class="catbox"><b>లోడ్ వైఫల్యం</b><span class="cs">స్థానం · adblock · కాష్ · HTTPS</span><div>美洽 JSను </body>కి ముందు అతికించండి (<head>లో కాదు); F12 → Network, meiqia.js వెతికి స్థితి తనిఖీ చేయండి (200 ఉండాలి); ERR_BLOCKED_BY_CLIENT సాధారణంగా adblock ఎక్స్‌టెన్షన్ — ఇన్‌కాగ్నిటోలో పరీక్షించండి లేదా వైట్‌లిస్ట్ చేయండి; ప్రచురణ తర్వాత CDN కాష్ క్లియర్ చేయండి; మిశ్రమ కంటెంట్ లేకుండా పూర్తి HTTPS నిర్ధారించండి.</div></div><div class="catbox"><b>కాన్ఫిగ్ / అధికారం</b><span class="cs">entId · డొమైన్ వైట్‌లిస్ట్ · ఉప-ఛానెల్</span><div>entId మీ కంపెనీ ప్రత్యేక ఐడి; వర్క్‌బెంచ్‌తో సరిపోలకపోతే «స్క్రిప్ట్ లోడ్ అవుతుంది కానీ ఏజెంట్లకు చాట్లు రావు» (సెట్టింగ్‌లు - టీమ్ - ఐడి శోధన); సైట్ డొమైన్ «ఇంటిగ్రేషన్ సైట్ జోడించు» ద్వారా అధికారం పొందాలి; ప్రతి వ్యాపార లైన్‌కు వేరు ఉప-ఛానెల్ (ప్రోబ్) వాడండి.</div></div><div class="catbox"><b>ఫ్రేమ్‌వర్క్ ఇంటిగ్రేషన్</b><span class="cs">SPA · రూట్ మార్పు · manualInit</span><div>Vue/React/Next SPA రూట్ మార్పులో DOMను నాశనం చేస్తుంది మరియు విడ్జెట్ తిరిగి నిర్మించబడదు; auto-init ఆపడానికి _MEIQIA('manualInit') వాడండి మరియు తిరిగి మౌంట్ చేయడానికి రూట్ హుక్‌లో (useEffect / mounted) _MEIQIA('init') కాల్ చేయండి.</div></div><div class="catbox"><b>ప్రదర్శన సమస్యలు</b><span class="cs">స్టైల్ వైరుధ్యం · స్టాకింగ్ · థర్డ్-పార్టీ ప్లగిన్</span><div>లోడ్ అయింది కానీ కనిపించడం లేదు: సాధారణంగా సైట్-వ్యాప్త CSS బబుల్ స్థానాన్ని ఓవర్‌రైడ్ చేస్తుంది, లేదా హీట్‌మ్యాప్ / అనలిటిక్స్ / SEO ప్లగిన్ DOM మార్చి కంటైనర్ కప్పుతుంది; F12 → Elements, meiqia కంటైనర్ వెతికి display:none, ఓడిన z-index, లేదా స్క్రీన్ బయటి కోఆర్డినేట్‌లు తనిఖీ చేయండి.</div></div><div class="catbox"><b>మొబైల్ / SDK</b><span class="cs">మొబైల్ వెబ్ · AppKey · పుష్</span><div>మొబైల్ / PC వెబ్ ఒకే స్నిప్పెట్ కానీ సొంత డిప్లాయ్ అవసరం; ఇన్-యాప్ నేటివ్ SDK వాడుతుంది (ముందు కన్సోల్‌లో AppKey కోసం «APP కాన్ఫిగ్ జోడించు»); పుష్ «పుష్ లేదు» (ఇన్-యాప్ మాత్రమే) మరియు «కస్టమ్ పుష్ సర్వర్» (యాప్ వదిలాక కూడా చేరుతుంది)గా విభజిస్తుంది.</div></div><div class="catbox"><b>API కాల్‌లు</b><span class="cs">withoutBtn · showPanel · కస్టమర్ సమాచారం</span><div>మీ సొంత బటన్? _MEIQIA('withoutBtn') నేటివ్ బటన్ దాచుతుంది, మరియు చాట్ తెరవడానికి క్లిక్‌లో _MEIQIA('showPanel') కాల్ చేయండి; కస్టమర్ సమాచారం init సమయంలో పంపండి / సింక్ చేయండి, లేకపోతే పనిచేయదు.</div></div></div><figure><svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="美洽 చాట్ కనిపించడం లేదు ట్రయాజ్ రేఖాచిత్రం" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">విండో / బటన్ కనిపించడం లేదు ట్రయాజ్ (ముందు రెండు దశలు: స్క్రిప్ట్ లోడ్ అయిందా → కాన్ఫిగ్ సరైనదా?)</text><rect x="20" y="46" width="150" height="46" rx="10" fill="#111"/><text x="95" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff">చాట్ కనిపించదు</text><path d="M170 69 H206" stroke="#999" stroke-width="2" fill="none" marker-end="url(#a)"/><rect x="206" y="46" width="172" height="46" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="292" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1d4ed8">రెండు గ్రూపులు</text><rect x="440" y="20" width="262" height="56" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="455" y="42" font-family="system-ui,Arial" font-size="12.5" fill="#1d4ed8">స్క్రిప్ట్ లోడ్ కాలేదు →</text><text x="455" y="62" font-family="system-ui,Arial" font-size="11.5" fill="#1e3a8a">స్థానం · adblock · కాష్</text><rect x="440" y="86" width="262" height="56" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="455" y="108" font-family="system-ui,Arial" font-size="12.5" fill="#b45309">లోడ్ అయింది కానీ దాగింది / కనెక్షన్ లేదు →</text><text x="455" y="128" font-family="system-ui,Arial" font-size="11.5" fill="#92400e">స్టాకింగ్ · entId · డొమైన్ · SPA</text><path d="M378 60 H410 V48 H440" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M378 78 H410 V114 H440" stroke="#d97706" stroke-width="2" fill="none" marker-end="url(#a)"/><text x="20" y="178" font-family="system-ui,Arial" font-size="13" font-weight="700" fill="#1d1d1f">నాలుగు మూల గ్రూపులు (అంశానికి కారణం / పరిష్కారం)</text><g font-family="system-ui,Arial" font-size="12"><rect x="20" y="190" width="162" height="92" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="32" y="212" font-weight="700" fill="#1d4ed8">① లోడ్ వైఫల్యం</text><text x="32" y="234" fill="#555" font-size="11">స్థానం · బ్లాక్ · కాష్</text><rect x="194" y="190" width="162" height="92" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="206" y="212" font-weight="700" fill="#1d4ed8">② కాన్ఫిగ్ / అధికారం</text><text x="206" y="234" fill="#555" font-size="11">entId · డొమైన్ వైట్‌లిస్ట్</text><rect x="368" y="190" width="162" height="92" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="380" y="212" font-weight="700" fill="#b45309">③ ఫ్రేమ్‌వర్క్</text><text x="380" y="234" fill="#555" font-size="11">SPA రూట్ · init</text><rect x="542" y="190" width="160" height="92" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="554" y="212" font-weight="700" fill="#047857">④ ప్రదర్శన / మొబైల్ / SDK</text><text x="554" y="234" fill="#555" font-size="11">స్టాకింగ్ · మొబైల్ · పుష్</text></g><defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#999"/></marker></defs></svg><figcaption>చిత్రం 1: 美洽 కనిపించడం లేదు ట్రయాజ్ — స్క్రిప్ట్ లోడ్ తనిఖీ (F12లో meiqia.js), తర్వాత లోడ్ / కాన్ఫిగ్ / ఫ్రేమ్‌వర్క్ / ప్రదర్శన</figcaption></figure>
+<h2>దశ 2: అత్యధికంగా విస్మరించబడే మూల కారణం → L2 (విడ్జెట్ = థర్డ్-పార్టీ ఆఫ్-డొమైన్ అసమకాలిక JS ఇంజెక్షన్)</h2>
+<p>ఒక ఆలోచన చాలు: <strong>美洽 వెబ్ విడ్జెట్ మీ పేజీలో పొందుపరిచిన స్థిర భాగం కాదు — ఇది 美洽 ఆఫ్-డొమైన్ నుండి అసమకాలికంగా లోడ్ అయ్యే <code>meiqia.js</code>, ఆపై డైనమిక్‌గా చాట్ కంటైనర్ (DOM / iframe) ఇంజెక్ట్ చేసి 美洽 సర్వర్లతో దీర్ఘకాలిక క్రాస్-ఆరిజిన్ కనెక్షన్ తెరుస్తుంది</strong>. ఇది చాలా «రహస్య అదృశ్యాలను» వివరిస్తుంది: ① <strong>ఇది థర్డ్-పార్టీ ఆఫ్-డొమైన్ స్క్రిప్ట్</strong>, కాబట్టి AdBlock / uBlock «ట్రాకింగ్ / ప్రకటనలు» జాబితాలతో బ్లాక్ చేస్తాయి (<code>ERR_BLOCKED_BY_CLIENT</code>) మరియు బటన్ ఎప్పటికీ రాదు (కన్సోల్ సరిగా కనిపించినా); ② <strong>ఇది DOMను అసమకాలికంగా ఇంజెక్ట్ చేస్తుంది</strong>: <code>&lt;head&gt;</code>లో ఇది బ్లాక్ చేస్తుంది, SPA రూట్ మార్పు కంటైనర్‌ను నాశనం చేసి తనంతట తాను తిరిగి నిర్మించబడదు (<code>manualInit</code> + <code>_MEIQIA('init')</code> వాడండి), మరియు DOM మార్చే హీట్‌మ్యాప్ / అనలిటిక్స్ ప్లగిన్‌లు దాన్ని కప్పవచ్చు; ③ <strong>ఇది entId ద్వారా మీ కంపెనీకి బంధించబడి డొమైన్ వైట్‌లిస్ట్‌తో నియంత్రించబడుతుంది</strong>: తప్పు entId లేదా అనధికార డొమైన్‌లో స్క్రిప్ట్ లోడ్ అవుతుంది కానీ «చాట్‌ను కనెక్ట్ చేయదు»; ④ <strong>మొబైల్ మరియు PC రెండు వేర్వేరు ఇంటిగ్రేషన్‌లు</strong>, ఇన్-యాప్ SDK (AppKey), మరియు పుష్ «పుష్ లేదు» vs «కస్టమ్ పుష్ సర్వర్»గా విభజిస్తుంది. ఈ ఇంజెక్షన్ గొలుసు చూశాక కింది ప్రతి లక్షణానికి ఒక తర్కం ఉంటుంది. కింద స్వీయ-తనిఖీ ప్యానెల్; ఇంకా కింద ఐదు పద్ధతులు మరియు 2026 అంచనాలు.</p>
+<figure><svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="美洽 పూర్వ-ఇంటిగ్రేషన్ స్వీయ-తనిఖీ ప్యానెల్" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">ఇంటిగ్రేషన్ స్వీయ-తనిఖీ ప్యానెల్ (ఆకుపచ్చ = నిర్ధారిత / ఎరుపు = సులభంగా విస్మరించబడేది)</text><rect x="20" y="42" width="680" height="226" rx="14" fill="#f8fafc" stroke="#e2e8f0"/><text x="38" y="66" font-family="system-ui,Arial" font-size="12.5" font-weight="700" fill="#475569">తనిఖీ అంశం</text><text x="300" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">తీర్పు</text><text x="610" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">స్థితి</text><line x1="38" y1="74" x2="682" y2="74" stroke="#e2e8f0" stroke-width="1"/><text x="38" y="98" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">美洽 కోడ్ </body>కి ముందు అతికించబడింది (<head> కాదు)</text><text x="300" y="98" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">స్థానం</text><circle cx="612" cy="94" r="6" fill="#16a34a"/><text x="628" y="98" font-family="system-ui,Arial" font-size="12" fill="#16a34a">నిర్ధారిత</text><text x="38" y="128" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">F12 → Networkలో meiqia.js స్థితి 200</text><text x="300" y="128" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">స్క్రిప్ట్ లోడ్</text><circle cx="612" cy="124" r="6" fill="#16a34a"/><text x="628" y="128" font-family="system-ui,Arial" font-size="12" fill="#16a34a">నిర్ధారిత</text><text x="38" y="158" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">కన్సోల్ typeof _MEIQIA function</text><text x="300" y="158" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">ప్రారంభించబడింది</text><circle cx="612" cy="154" r="6" fill="#16a34a"/><text x="628" y="158" font-family="system-ui,Arial" font-size="12" fill="#16a34a">నిర్ధారిత</text><text x="38" y="188" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">ఇన్‌కాగ్నిటోలో / adblock ఆఫ్‌లో కనిపిస్తుంది</text><text x="300" y="188" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">adblock</text><circle cx="612" cy="184" r="6" fill="#ef4444"/><text x="628" y="188" font-family="system-ui,Arial" font-size="12" fill="#ef4444">తనిఖీ చేయాలి</text><text x="38" y="218" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">entId వర్క్‌బెంచ్‌తో సరిపోలుతుంది + డొమైన్ అధికారం</text><text x="300" y="218" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">కాన్ఫిగ్ / అధికారం</text><circle cx="612" cy="214" r="6" fill="#16a34a"/><text x="628" y="218" font-family="system-ui,Arial" font-size="12" fill="#16a34a">నిర్ధారిత</text><text x="38" y="248" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">SPA రూట్ మార్పు తర్వాత తిరిగి init + ప్లగిన్ ఓవర్‌లే లేదు</text><text x="300" y="248" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">ఫ్రేమ్‌వర్క్ / స్టాకింగ్</text><circle cx="612" cy="244" r="6" fill="#ef4444"/><text x="628" y="248" font-family="system-ui,Arial" font-size="12" fill="#ef4444">తనిఖీ చేయాలి</text><text x="20" y="296" font-family="system-ui,Arial" font-size="11.5" fill="#94a3b8">గమనిక: ఎరుపు = అత్యధికంగా విస్మరించబడే రెండు — adblock ఎక్స్‌టెన్షన్‌లు (ERR_BLOCKED_BY_CLIENT) మరియు ఫ్రేమ్‌వర్క్ / స్టాకింగ్ (SPA రూట్ మార్పులు, DOM మార్చే థర్డ్-పార్టీ ప్లగిన్‌లు); ఈ రెండింటిని ముందు తనిఖీ చేయండి.</text></svg><figcaption>చిత్రం 2: 美洽 ఇంటిగ్రేషన్ స్వీయ-తనిఖీ ప్యానెల్ (ఆకుపచ్చ = నిర్ధారిత / ఎరుపు = సులభంగా విస్మరించబడేది)</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_te.webp"><img src="/img/board_te.png" alt="美洽 పూర్వ-ఇంటిగ్రేషన్ స్వీయ-తనిఖీ ప్యానెల్ ఆకుపచ్చ/ఎరుపు అంశాల చిత్రం" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>చిత్రం: ముందు «కోడ్ స్థానం + meiqia.js 200 + ప్రారంభించబడింది» తనిఖీ చేయండి, తర్వాత «adblock + ఫ్రేమ్‌వర్క్/స్టాకింగ్» — చివరి రెండు అత్యధికంగా విస్మరించబడేవి</figcaption></figure>
+<h2>పూర్తి లక్షణ పట్టిక (ప్రవర్తన / అధికారిక స్థానం · L2 మూల కారణం)</h2>
+<table id="tbl"></table>
+<h2>ఐదు 美洽 ఇంటిగ్రేషన్ పద్ధతుల పోలిక (కోడ్ / కష్టత / ఫీచర్లు / దృశ్యం / లైవ్ సమయం · అధికారిక డాక్)</h2>
+<table class="cmp"><tr><th>ఇంటిగ్రేషన్ పద్ధతి</th><th>కోడ్ / కష్టత</th><th>ఫీచర్ సంపూర్ణత</th><th>అనువైనది</th><th>లైవ్ సమయం</th></tr><tr><td>వెబ్ JS విడ్జెట్</td><td>ఒక JS స్నిప్పెట్ · తక్కువ</td><td>అత్యంత పూర్తి (తేలియాడే / పాప్అప్ / auto-స్వాగతం / సందర్శక ట్రెయిల్)</td><td>PC + మొబైల్ సైట్‌లు (అధికారిక సిఫార్సు)</td><td>~3-5 నిమిషాలు</td></tr><tr><td>చాట్ లింక్</td><td>కోడ్ లేదు · కనిష్ఠం</td><td>ప్రాథమిక చాట్</td><td>టెక్నిక్ లేకుండా / త్వరిత చాట్ లింక్ పెట్టడం</td><td>తక్షణం</td></tr><tr><td>API / WebIM SDK</td><td>డెవలప్ అవసరం · అధికం</td><td>లోతైన అనుకూలీకరణ (సొంత UI / సిస్టమ్ / ఆర్డర్ ఇంటిగ్రేషన్)</td><td>లోతైన కలయికకు dev సామర్థ్యం ఉన్న టీమ్‌లు</td><td>dev ప్రకారం</td></tr><tr><td>నేటివ్ యాప్ SDK</td><td>SDK ఇంటిగ్రేట్ · అధికం</td><td>ఇన్-యాప్ చాట్ + సందేశ పుష్</td><td>iOS / Android యాప్‌లు</td><td>dev ప్రకారం</td></tr><tr><td>CMS త్వరిత సెటప్</td><td>ప్లగిన్ / ఒక-క్లిక్ · తక్కువ</td><td>JS విడ్జెట్ లాగా</td><td>WordPress / Fkw / Shopify సైట్‌లు</td><td>నిమిషాలు</td></tr></table><section class="i4data">
+<h2>美洽 కనిపించని కారణాలు & ఇంటిగ్రేషన్ పద్ధతుల పోలిక (2026 అంచనా)</h2>
+<p>కిందివి 美洽 అధికారిక సహాయం (యాక్సెస్ ఛానెల్‌లు / JavaScript వెబ్ విడ్జెట్ API) మరియు పబ్లిక్ ఇంటిగ్రేషన్ ట్రబుల్‌షూటింగ్ నుండి సంశ్లేషించిన <strong>2026 అంచనాలు</strong> (విక్రేత హామీ లేదా ప్రత్యక్ష కొలత కాదు; సూచన కోసం, వెర్షన్ మరియు బ్రౌజర్ విధానం ప్రకారం మారుతుంది):</p>
+<table>
+<tr><th>పరిమాణం</th><th>అంచనా / పోలిక</th></tr>
+<tr><td>కనిపించని కారణాల పంపిణీ (కమ్యూనిటీ / టికెట్ · అం.)</td><td><strong>స్థానం / లోడ్ కాలేదు ~35%</strong> &gt; <strong>adblock / బ్రౌజర్ ఎక్స్‌టెన్షన్ ~25%</strong> &gt; కాన్ఫిగ్ / అధికారం (entId / డొమైన్) ~20% &gt; ఫ్రేమ్‌వర్క్ (SPA) ~12% &gt; స్టైల్ / థర్డ్-పార్టీ ప్లగిన్ వైరుధ్యం ~8%</td></tr>
+<tr><td>ఇంటిగ్రేషన్ నిజంగా ఏమిటి</td><td>వెబ్ విడ్జెట్ = <strong>DOM ఇంజెక్ట్ చేసే థర్డ్-పార్టీ ఆఫ్-డొమైన్ అసమకాలిక JS + దీర్ఘకాలిక క్రాస్-ఆరిజిన్ కనెక్షన్</strong> (పొందుపరిచిన స్థిర భాగం కాదు); కాబట్టి స్థానం, adblock నియమాలు, CSS స్టాకింగ్, SPA జీవితచక్రం ద్వారా ప్రభావితం</td></tr>
+<tr><td>ప్రతి-ప్లాట్‌ఫారమ్ ఇంటిగ్రేషన్ (అం.)</td><td>PC / మొబైల్ వెబ్ = <strong>JS విడ్జెట్ (ఒకే కోడ్, వేరుగా డిప్లాయ్)</strong>; యాప్ = <strong>నేటివ్ SDK (AppKey)</strong>; WeChat / Douyin / RED = ఛానెల్-అధికార ఇంటిగ్రేషన్</td></tr>
+<tr><td>adblock ప్రభావం (అం.)</td><td>సుమారు <strong>30-40%</strong> PC వినియోగదారులు adblock ఎక్స్‌టెన్షన్ వాడతారు → థర్డ్-పార్టీ చాట్ స్క్రిప్ట్ ప్రకటన నియమాలతో బ్లాక్ (ERR_BLOCKED_BY_CLIENT), «కన్సోల్ సరి, వినియోగదారు వైపు లేదు» యొక్క ప్రధాన కారణం</td></tr>
+<tr><td>JS విడ్జెట్ లైవ్ సమయం (అధికారిక)</td><td>ప్రత్యేక JSను పేజీ కింద అతికిస్తే సుమారు <strong>3-5 నిమిషాల్లో</strong> లైవ్; entId కంపెనీ ప్రత్యేక ఐడి, మరియు వర్క్‌బెంచ్‌తో సరిపోలకపోవడం ఏజెంట్లను చాట్ లేకుండా వదులుతుంది</td></tr>
+</table>
+<p><small>అంచనా ఆధారం: మూల బేస్‌లైన్ + సమయ ఎక్స్‌ట్రాపోలేషన్ (meiqia.com/help యాక్సెస్ ఛానెల్‌లు / JavaScript వెబ్ విడ్జెట్, meiqia.im ఇంటిగ్రేషన్ గైడ్, పబ్లిక్ ట్రబుల్‌షూటింగ్, 2026); వెర్షన్ మరియు బ్రౌజర్ బ్లాకింగ్ విధానం ప్రకారం మారుతుంది. 美洽 తాజా అధికారిక సమాచారాన్ని అనుసరించండి. అనధికారిక · LLM స్థానికీకరణ.</small></p>
+</section>
+<h2>నిజ సందర్భాలు — త్వరిత పఠనం</h2>
+<ul class="scenes"><li>కోడ్ అతికించారు కానీ చాట్ బబుల్ లేదు: ముందు F12 → Network, meiqia.js వెతకండి — అభ్యర్థన లేకపోతే లేదా 200 కాకపోతే తప్పు స్థానం / కాష్‌లో ఇరుక్కుంది; CDN కాష్ క్లియర్ చేయండి లేదా ఇన్‌కాగ్నిటోలో మళ్లీ తెరవండి.</li><li>కన్సోల్ meiqia.js net::ERR_BLOCKED_BY_CLIENT చెబుతోంది: adblock (AdBlock / uBlock / AdGuard) థర్డ్-పార్టీ చాట్ స్క్రిప్ట్‌ను ప్రకటన నియమాలతో బ్లాక్ చేసింది — ఎక్స్‌టెన్షన్ ఆఫ్ చేయండి లేదా సైట్ వైట్‌లిస్ట్ చేయండి; «మీ కన్సోల్ సరిగా కనిపించినా కొందరు వినియోగదారులకు లేకపోవడానికి» ఇదే కారణం.</li><li>స్క్రిప్ట్ లోడ్ అయింది (కన్సోల్ typeof _MEIQIA function) కానీ బటన్ లేదు: సాధారణంగా థీమ్ CSS బబుల్‌ను స్క్రీన్ బయటకు నెట్టింది లేదా హీట్‌మ్యాప్ / అనలిటిక్స్ ప్లగిన్ DOM స్టాకింగ్ మార్చింది — F12 → Elements, 美洽 కంటైనర్ వెతికి ఒక్కొక్కటిగా తనిఖీ చేయండి.</li><li>Vue / React SPAలో హోమ్ పేజీలో చాట్ ఉంది కానీ రెండో రూట్‌లో లేదు: SPA రూట్ మార్పు కంటైనర్‌ను నాశనం చేసి విడ్జెట్ తిరిగి నిర్మించబడలేదు — auto-init ఆపడానికి manualInit వాడండి మరియు తిరిగి మౌంట్‌కు రూట్ హుక్‌లో _MEIQIA('init') కాల్ చేయండి.</li><li>చాట్ తెరుస్తుంది కానీ ఏజెంట్లకు సందర్శకుల సందేశాలు రావు: చాలావరకు entId వర్క్‌బెంచ్‌తో సరిపోలదు (మరొకరి స్నిప్పెట్ కాపీ / ఖాతాలు కలిసాయి) — సెట్టింగ్‌లు - టీమ్ - ఐడి శోధనలోని కంపెనీ ఐడిని కోడ్‌లోని entIdతో పోల్చండి.</li><li>స్టేజింగ్‌లో పనిచేస్తుంది, ప్రొడక్షన్ డొమైన్‌లో లోడ్ కాదు: ప్రొడక్షన్ డొమైన్ «ఇంటిగ్రేషన్ సైట్ జోడించు» ద్వారా అధికారం లేదు — లైవ్ డొమైన్‌ను జాబితాకు జోడించి మళ్లీ ప్రచురించండి.</li><li>美洽 గుండ్రని నేటివ్ బటన్‌ను తీసేసి మీ సొంత «సంప్రదించు» బటన్ వాడాలనుకుంటున్నారు: నేటివ్ దాచడానికి _MEIQIA('withoutBtn') కాల్ చేయండి, తర్వాత చాట్ తెరవడానికి మీ బటన్‌తో _MEIQIA('showPanel') బైండ్ చేయండి.</li></ul><div class="related"><h2>సంబంధితం</h2><ul><li><a href="https://meiqis.com/">美洽 డౌన్‌లోడ్ / ఇన్‌స్టాల్ & ఇంటిగ్రేషన్ గైడ్</a></li><li><a href="https://meiqis.com/te/website-integration/">美洽 వెబ్ ఇంటిగ్రేషన్ గైడ్ (JS విడ్జెట్)</a></li><li><a href="https://meiqis.com/te/tools/meiqia-integration-troubleshooting/">美洽 ఇంటిగ్రేషన్ ట్రబుల్‌షూటింగ్ (అధికారిక పూర్తి పట్టిక)</a></li><li><a href="https://meiqiaa.com/">美洽 అధికారిక సైట్ (సోదర సైట్)</a></li></ul></div></main>
+<footer>వెబ్ విడ్జెట్ / JS API (manualInit / init / withoutBtn / showPanel / కస్టమర్ సమాచారం పంపు), entId / డొమైన్ అధికారం, ఉప-ఛానెల్‌లు, SDK AppKey మరియు పుష్ మోడ్‌లు 美洽 అధికారిక సహాయ కేంద్రం (meiqia.com/help · యాక్సెస్ ఛానెల్‌లు / JavaScript వెబ్ విడ్జెట్) మరియు 美洽 ఇంటిగ్రేషన్ గైడ్ (meiqia.im) నుండి సంకలనం; adblock ERR_BLOCKED_BY_CLIENT, హీట్‌మ్యాప్ / అనలిటిక్స్ DOM వైరుధ్యాలు మరియు SPA ఇంటిగ్రేషన్ పబ్లిక్ ట్రబుల్‌షూటింగ్ నుండి (పునర్‌వచనం). 2026 సంఖ్యలు అంచనాలు, విక్రేత హామీ లేదా ప్రత్యక్ష కొలత కాదు; సూచన కోసం మాత్రమే, 美洽 తాజా అధికారిక సమాచారాన్ని అనుసరించండి. అనధికారిక · LLM స్థానికీకరణ.<br>టూల్ పేజీ · ఇంటిగ్రేషన్ ట్రయాజ్, 美洽 కన్సోల్‌కు ప్రత్యామ్నాయం కాదు</footer>
+</div>
+<script src="/te/codes.js"></script><script src="/app.js"></script>
+</body></html>
