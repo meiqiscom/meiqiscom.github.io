@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="lo"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>美洽(Meiqia) widget ແຊັດບໍ່ປະກົດ / ແກ້ຂໍ້ຜິດພາດການເຊື່ອມຕໍ່ - meiqia.js ຖືກບລັອກ, ບໍ່ມີປຸ່ມ, entId, SPA, push SDK</title>
+<meta name="description" content="Widget ແຊັດເວັບ 美洽(Meiqia) ບໍ່ປະກົດ, ປຸ່ມຫາຍ, meiqia.js ຖືກ ERR_BLOCKED_BY_CLIENT ບລັອກ, ສະໄຕລ໌ແຕກ, ຫາຍໄປຫຼັງປ່ຽນເສັ້ນທາງ SPA, entId ບໍ່ກົງເຮັດໃຫ້ພະນັກງານບໍ່ໄດ້ຮັບແຊັດ, ບໍ່ຂຶ້ນເທິງມືຖື, push SDK ບໍ່ມາ? ຄົ້ນຫາອາການເພື່ອເບິ່ງພຶດຕິກຳ L1 ແລະ ສາເຫດຮາກ L2: ການສັກ JS ອະຊິງໂຄຣນັສຂອງພາກສ່ວນທີສາມນອກໂດເມນ, ກົດ adblock, ການຊ້ອນ CSS, ວົງຈອນຊີວິດ SPA, entId ແລະ whitelist ໂດເມນ, AppKey ແລະ ເສັ້ນທາງ push SDK; ພ້ອມການປຽບທຽບຫ້າວິທີເຊື່ອມຕໍ່ ແລະ ການຄາດຄະເນ 2026.">
+<link rel="canonical" href="https://meiqiscom.github.io/lo/">
+<link rel="alternate" hreflang="zh-Hans" href="https://meiqiscom.github.io/">
+<link rel="alternate" hreflang="en" href="https://meiqiscom.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://meiqiscom.github.io/ja/">
+<link rel="alternate" hreflang="zh-Hant" href="https://meiqiscom.github.io/zh-tw/">
+<link rel="alternate" hreflang="ko" href="https://meiqiscom.github.io/ko/">
+<link rel="alternate" hreflang="id" href="https://meiqiscom.github.io/id/">
+<link rel="alternate" hreflang="vi" href="https://meiqiscom.github.io/vi/">
+<link rel="alternate" hreflang="th" href="https://meiqiscom.github.io/th/">
+<link rel="alternate" hreflang="es" href="https://meiqiscom.github.io/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://meiqiscom.github.io/pt-br/">
+<link rel="alternate" hreflang="de" href="https://meiqiscom.github.io/de/">
+<link rel="alternate" hreflang="fr" href="https://meiqiscom.github.io/fr/">
+<link rel="alternate" hreflang="ru" href="https://meiqiscom.github.io/ru/">
+<link rel="alternate" hreflang="it" href="https://meiqiscom.github.io/it/">
+<link rel="alternate" hreflang="pl" href="https://meiqiscom.github.io/pl/">
+<link rel="alternate" hreflang="nl" href="https://meiqiscom.github.io/nl/">
+<link rel="alternate" hreflang="tr" href="https://meiqiscom.github.io/tr/">
+<link rel="alternate" hreflang="ar" href="https://meiqiscom.github.io/ar/">
+<link rel="alternate" hreflang="hi" href="https://meiqiscom.github.io/hi/">
+<link rel="alternate" hreflang="ms" href="https://meiqiscom.github.io/ms/">
+<link rel="alternate" hreflang="fa" href="https://meiqiscom.github.io/fa/">
+<link rel="alternate" hreflang="bn" href="https://meiqiscom.github.io/bn/">
+<link rel="alternate" hreflang="ta" href="https://meiqiscom.github.io/ta/">
+<link rel="alternate" hreflang="te" href="https://meiqiscom.github.io/te/">
+<link rel="alternate" hreflang="fil" href="https://meiqiscom.github.io/fil/">
+<link rel="alternate" hreflang="ur" href="https://meiqiscom.github.io/ur/">
+<link rel="alternate" hreflang="lo" href="https://meiqiscom.github.io/lo/">
+<link rel="alternate" hreflang="km" href="https://meiqiscom.github.io/km/">
+<link rel="alternate" hreflang="my" href="https://meiqiscom.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://meiqiscom.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "美洽 ແຊັດບໍ່ປະກົດ / ແກ້ຂໍ້ຜິດພາດການເຊື່ອມຕໍ່",
+   "url": "https://meiqiscom.github.io/lo/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "inLanguage": "lo",
+   "description": "Widget ແຊັດເວັບ 美洽(Meiqia) ບໍ່ປະກົດ, ປຸ່ມຫາຍ, meiqia.js ຖືກ ERR_BLOCKED_BY_CLIENT ບລັອກ, ສະໄຕລ໌ແຕກ, ຫາຍໄປຫຼັງປ່ຽນເສັ້ນທາງ SPA, entId ບໍ່ກົງເຮັດໃຫ້ພະນັກງານບໍ່ໄດ້ຮັບແຊັດ, ບໍ່ຂຶ້ນເທິງມືຖື, push SDK ບໍ່ມາ? ຄົ້ນຫາອາການເພື່ອເບິ່ງພຶດຕິກຳ L1 ແລະ ສາເຫດຮາກ L2: ການສັກ JS ອະຊິງໂຄຣນັສຂອງພາກສ່ວນທີສາມນອກໂດເມນ, ກົດ adblock, ການຊ້ອນ CSS, ວົງຈອນຊີວິດ SPA, entId ແລະ whitelist ໂດເມນ, AppKey ແລະ ເສັ້ນທາງ push SDK; ພ້ອມການປຽບທຽບຫ້າວິທີເຊື່ອມຕໍ່ ແລະ ການຄາດຄະເນ 2026.",
+   "isAccessibleForFree": true,
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "lo",
+   "url": "https://meiqiscom.github.io/lo/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "美洽 ໜ້າຕ່າງ / bubble ແຊັດບໍ່ປະກົດເລີຍ — ແກ້ໄຂແນວໃດ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "widget ເວັບ 美洽 ໂຫຼດໜ້າຕ່າງແຊັດລອຍດ້ວຍ snippet JS ດຽວທີວາງ; ຢືນຢັນວ່າໂຄ້ດຝັງຖືກ ແລະ ເວັບໄຊເຊື່ອມຕໍ່ຕັ້ງຄ່າໃນຄອນໂຊນ. widget ແມ່ນ meiqia.js ທີສັກເຂົ້າ DOM ຫຼັງໂຫຼດອະຊິງໂຄຣນັສ, ສະນັ້ນ «ບໍ່ມີຫຍັງເລີຍ» ມັກໝາຍຄວາມວ່າ «ສະຄຣິບບໍ່ເຄີຍໂຫຼດ»: ຕຳແໜ່ງຜິດ, ຖືກ adblock / cache ບລັອກ, ຫຼື ໂດເມນ / entId ບໍ່ກົງ, ສະນັ້ນການສັກບໍ່ເຄີຍແລ່ນ. F12 → Network, ຄົ້ນຫາ meiqia.js: ບໍ່ມີຄຳຮ້ອງ → ໂຄ້ດບໍ່ມີຜົນ (ກວດຕຳແໜ່ງ / ລ້າງ cache); ມີຄຳຮ້ອງແຕ່ບໍ່-200 → ຖືກບລັອກ ຫຼື ບັນຫາເສັ້ນທາງ; ທຸກຢ່າງດີແຕ່ຍັງເຊື່ອງ → ກວດ entId / ການອະນຸຍາດໂດເມນ ແລະ ກຸ່ມລຸ່ມນີ້."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 ສະຄຣິບໂຫຼດແຕ່ປຸ່ມແຊັດຫາຍ — ແກ້ໄຂແນວໃດ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ໂຄ້ດ widget ປັບຕາມເວັບໄຊ ແລະ ສະແດງປຸ່ມແຊັດ; ຖ້າການສະແດງລົ້ມເຫຼວ ກວດວ່າຖືກສະໄຕລ໌ເຊື່ອງ ຫຼື ການເລີ່ມຕົ້ນຖືກຂັດ. ຖ້າສະຄຣິບໂຫຼດແຕ່ປຸ່ມຫາຍ, ມັກແມ່ນບັນຫາ «ຊັ້ນການສະແດງ»: CSS ທົ່ວເວັບໄຊ override ຕຳແໜ່ງປຸ່ມ / ຕັ້ງ display:none, z-index ແພ້, ຫຼື ອົງປະກອບຄົງທີອື່ນບັງ; ຂໍ້ຜິດພາດ JS ອື່ນກໍອາດຂັດການເລີ່ມຕົ້ນ. F12 → Elements, ຄົ້ນຫາ container 美洽 — ມີ, ເຊື່ອງ, ຫຼື ນອກໜ້າຈໍ?; ປິດ CSS / script ເອງຊົ່ວຄາວເພື່ອທົດສອບໃໝ່; ກວດຄອນໂຊນຫາຂໍ້ຜິດພາດທີຂັດການແລ່ນ."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js ຖືກສ່ວນຂະຫຍາຍ adblock ບລັອກ — ແກ້ໄຂແນວໃດ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ສະຄຣິບແຊັດ 美洽 ມາຈາກໂດເມນພາກສ່ວນທີສາມ; ຖ້າມີສ່ວນຂະຫຍາຍບລັອກຕິດຕັ້ງ ມັນອາດຖືວ່າເປັນໂຄສະນາ / tracker ແລະ ກີດຂວາງການໂຫຼດ — ປິດການບລັອກ ຫຼື whitelist. ERR_BLOCKED_BY_CLIENT ໝາຍຄວາມວ່າສ່ວນຂະຫຍາຍ browser (AdBlock / uBlock / AdGuard) ບລັອກຄຳຮ້ອງດ້ວຍລາຍການກັ່ນຕອງ. ສະຄຣິບ 美洽 ແມ່ນ «ພາກສ່ວນທີສາມນອກໂດເມນ + ການສື່ສານ realtime», ທີກົດເຫຼົ່ານັ້ນມັກເຂົ້າໃຈຜິດເປັນໂຄສະນາ / tracker, ສ້າງຄວາມລົ້ມເຫຼວປອມ «ຄອນໂຊນດີ, ຝັ່ງຜູ້ໃຊ້ຫາຍ». ທົດສອບໃໝ່ໃນໂໝດສ່ວນຕົວ ຫຼື ປິດ adblock — ຖ້າປະກົດ ການບລັອກແມ່ນສາເຫດ; ຂໍໃຫ້ຜູ້ໃຊ້ whitelist ເວັບໄຊ; frontend ສາມາດໂຫຼດສະຄຣິບແຊັດແບບຊັກຊ້າ / ມີເງື່ອນໄຂເພື່ອຫຼີກກົດອັດຕະໂນມັດບາງອັນ."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js 404 / ສະຖານະບໍ່ດີ / ເນື້ອຫາປະສົມ — ແກ້ໄຂແນວໃດ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ຫຼັງ deploy, ຄົ້ນຫາ meiqia.js ໃນ panel Network; ສະຖານະ 200 ໝາຍຄວາມວ່າສະຄຣິບວາງຖືກ ແລະ ໂຫຼດແລ້ວ. ສາເຫດບໍ່-200 ທົ່ວໄປ: ໂຄ້ດຄ້າງ cache ໜ້າ / CDN (ບໍ່ refresh ຫຼັງເຜີຍແຜ່), ໂຫຼດໃນໜ້າ HTTP / ຕ່ອງໂສ້ໃບຮັບຮອງບໍ່ຄົບກະຕຸ້ນການບລັອກເນື້ອຫາປະສົມ, ຫຼື ໂຄ້ດເສຍ / ສຳເນົາບໍ່ຄົບ. ຂັ້ນຕອນນີ້ລົ້ມເຫຼວ ການສັກ ແລະ ການເຊື່ອມຕໍ່ບໍ່ເຄີຍເກີດ. ລ້າງ cache CDN / browser (ຫຼື ໂໝດສ່ວນຕົວ) ຫຼັງເຜີຍແຜ່; ຮັບປະກັນ HTTPS ເຕັມດ້ວຍຕ່ອງໂສ້ໃບຮັບຮອງຄົບ ແລະ ບໍ່ມີເນື້ອຫາປະສົມ; ກວດໂຄ້ດສຳເນົາຄົບ ແລະ ບໍ່ escape."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 ໂຄ້ດຜິດບ່ອນ (ບລັອກໃນ head / ບໍ່ມີຜົນ) — ແກ້ໄຂແນວໃດ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽 ແນະນຳໃຫ້ວາງໂຄ້ດທ້າຍໜ້າ, ກ່ອນ </body>; widget ແລ່ນຫຼັງເນື້ອຫາຫຼັກໂຫຼດ. widget ຕ້ອງສັກ container ຫຼັງ DOM ພ້ອມ. ໃນ <head> ມັນບລັອກ render (ໜ້າຈໍເປົ່າກ່ອນໃນເຄືອຂ່າຍອ່ອນ) ຫຼື ແລ່ນກ່ອນ DOM ພ້ອມແລ້ວລົ້ມເຫຼວ; ໃນບາງ async / module scope ລຳດັບໂຫຼດກໍອາດຜິດ. ວາງ JS ຂອງ 美洽 ໃນ footer ຮ່ວມຂອງທຸກໜ້າ, ກ່ອນ </body>; ສຳລັບ SPA ເບິ່ງລາຍການ «ເສັ້ນທາງ SPA» ແລະ ໃຊ້ manualInit; ຮັບປະກັນ bundler ບໍ່ລຶບມັນດ້ວຍ tree-shaking."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 ສະໄຕລ໌ ໜ້າຕ່າງ / ປຸ່ມ ແຊັດແຕກ — ແກ້ໄຂແນວໃດ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "widget ສັກສະໄຕລ໌ຂອງມັນເອງ ແລະ ປັບຕາມເວັບໄຊ; ການຂັດແຍ່ງກັບສະໄຕລ໌ທົ່ວເວັບໄຊອາດເຮັດໃຫ້ມີຄວາມຜິດປົກກະຕິທາງສາຍຕາ. ສະຄຣິບ 美洽 ສັກ CSS ໃນ runtime; ຖ້າສະໄຕລ໌ທົ່ວເວັບໄຊ (selector ສາກົນ / ກົດບູລິມະສິດສູງ / reset) override class ມັນກ່ອນ, ຕຳແໜ່ງ, ການຊ້ອນ ແລະ font ແຕກ — ຜົນຂ້າງຄຽງຂອງ «ການສັກໄດນາມິກ + ແບ່ງປັນພື້ນທີສະໄຕລ໌ເອກະສານດຽວ». F12 ເພື່ອເບິ່ງກົດເວັບໄຊໃດ override container 美洽; ຫຍໍ້ສະໄຕລ໌ທົ່ວເວັບໄຊ / ຫຼຸດຜົນຕໍ່ class ທົ່ວໄປ; ຖ້າຈຳເປັນ ຂໍໃຫ້ 美洽 ປັບການຊ້ອນ container."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 ປຸ່ມຢູ່ນອກໜ້າຈໍ / ຖືກບັງ — ແກ້ໄຂແນວໃດ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ປຸ່ມ widget ປະກົດເປັນລອຍຕຳແໜ່ງຄົງທີ; ຖ້າຖືກອົງປະກອບຄົງທີອື່ນບັງ ປັບການຊ້ອນ ຫຼື ຕຳແໜ່ງ. ອົງປະກອບ position:fixed ອື່ນຂອງເວັບໄຊ (ກັບຂຶ້ນເທິງ, ໂຄສະນາລອຍ, ແຖບສະໜັບສະໜູນເອງ) ດ້ວຍ z-index ສູງກວ່າບັງປຸ່ມ 美洽, ຫຼື theme ຄິດໄລ່ພິກັດຜິດ, ປ່ອຍໃຫ້ມັນ «ນອກໜ້າຈໍ / ຖືກບັງ». ເລືອກ container 美洽 ໃນ F12 ເພື່ອເບິ່ງພິກັດ / z-index ແທ້; ຍົກມັນຂຶ້ນ ຫຼື ຫຼຸດ z-index ຂອງອົງປະກອບທີບັງ; ຫຼີກການຊ້ອນລອຍຄົງທີຫຼາຍອັນໃນມຸມດຽວ."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 ການຂັດແຍ່ງ DOM plugin / analytics ພາກສ່ວນທີສາມ — ແກ້ໄຂແນວໃດ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "script ອື່ນໃນໜ້າທີແກ້ DOM ຫຼື ສະກັດຄຳຮ້ອງອາດສົ່ງຜົນຕໍ່ການໂຫຼດ ແລະ ການສະແດງປົກກະຕິຂອງ widget. script heatmap / analytics / conversion ຂຽນ DOM ໃໝ່, ສັກ overlay ຫຼື ສະກັດຄຳຮ້ອງ; ຍ້ອນເຂົາ ແລະ 美洽 ສັກເຂົ້າເອກະສານດຽວກັນ, ການຊ້ອນ / event ລົບກວນ ແລະ container 美洽 ຖືກບັງ ຫຼື init ມັນຖືກຂັດ. ປິດ plugin ສົງໄສເທື່ອລະອັນເພື່ອຊອກການຂັດແຍ່ງ; ປັບລຳດັບໂຫຼດ / ການຊ້ອນ container; ໃຫ້ heatmap ແລະ ອື່ນໆ ຫຼີກພື້ນທີ container 美洽."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">ພາສາ: <a href="/">简体中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/ko/">한국어</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/th/">ไทย</a> · <a href="/es/">Español</a> · <a href="/pt-br/">Português (BR)</a> · <a href="/de/">Deutsch</a> · <a href="/fr/">Français</a> · <a href="/ru/">Русский</a> · <a href="/it/">Italiano</a> · <a href="/pl/">Polski</a> · <a href="/nl/">Nederlands</a> · <a href="/tr/">Türkçe</a> · <a href="/ar/">العربية</a> · <a href="/hi/">हिन्दी</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fa/">فارسی</a> · <a href="/bn/">বাংলা</a> · <a href="/ta/">தமிழ்</a> · <a href="/te/">తెలుగు</a> · <a href="/fil/">Filipino</a> · <a href="/ur/">اردو</a> · <strong>ພາສາລາວ</strong> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>美洽 widget ແຊັດບໍ່ປະກົດ / ແກ້ຂໍ້ຜິດພາດການເຊື່ອມຕໍ່</h1>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_lo.webp"><img src="/img/cover_lo.png" alt="ຮູບປະກອບເຄື່ອງມື 美洽 widget ແຊັດບໍ່ປະກົດ / ແກ້ຂໍ້ຜິດພາດ" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>ຮູບ: 美洽 ແຊັດບໍ່ປະກົດ / ແກ້ຂໍ້ຜິດພາດ (ພຶດຕິກຳ L1 + ສາເຫດຮາກ L2 + ຫ້າວິທີເຊື່ອມຕໍ່)</figcaption></figure>
+<p>ວາງໂຄ້ດ <strong>美洽(Meiqia)</strong> ແລ້ວແຕ່ <strong>widget ແຊັດເວັບ</strong> ບໍ່ປະກົດ, <strong>ປຸ່ມແຊັດບໍ່ເຄີຍຂຶ້ນ</strong>, ຄອນໂຊນແຈ້ງ <code>meiqia.js</code> ຖືກບລັອກ, ຫຼື <strong>ພະນັກງານບໍ່ໄດ້ຮັບແຊັດ</strong>? ກ່ອນອື່ນແຈ້ງສາມຢ່າງ: <strong>ສະຄຣິບບໍ່ໄດ້ໂຫຼດເລີຍ (ຕຳແໜ່ງ / adblock / cache), ໂຫຼດແລ້ວແຕ່ຖືກສະໄຕລ໌ / ການຊ້ອນເຊື່ອງ, ຫຼື ໂຫຼດດີແຕ່ການຕັ້ງຄ່າບໍ່ກົງ (entId / ໂດເມນ / ວົງຈອນຊີວິດ SPA)?</strong> ຄົ້ນຫາ <strong>ອາການ ຫຼື ຄຳສຳຄັນ</strong> (ເຊັ່ນ <code>not showing</code>, <code>adblock</code>, <code>entId</code>, <code>SPA</code>, <code>mobile</code>, <code>sdk push</code>): ກ່ອນອື່ນ <strong>ພຶດຕິກຳ L1 ແລະ ຕຳແໜ່ງທາງການ</strong>, ຈາກນັ້ນ <strong>ສາເຫດຮາກ L2 ແລະ ວິທີແກ້</strong>. ຕິດຕັ້ງ / ຄູ່ມື? ເບິ່ງ <a href="https://meiqis.com/">ດາວໂຫຼດ 美洽 / ຄູ່ມືເຊື່ອມຕໍ່ບໍລິການລູກຄ້າ</a>.</p>
+<input id="q" placeholder="ພິມອາການ ຫຼື ຄຳສຳຄັນ, ເຊັ່ນ not showing / adblock / entId / SPA / mobile / sdk push" autocomplete="off">
+<button id="go">ຄົ້ນຫາ</button>
+<div id="out"></div>
+<h2>ຂັ້ນຕອນ 1: ກວດເບິ່ງວ່າສະຄຣິບໂຫຼດແລ້ວບໍ່, ຈາກນັ້ນແບ່ງເປັນສີ່ກຸ່ມ</h2>
+<p>ເມື່ອແຊັດ 美洽 ບໍ່ປະກົດ, 9 ໃນ 10 ເທື່ອມັນແມ່ນໜຶ່ງໃນສີ່ກຸ່ມ; ກ່ອນອື່ນເບິ່ງ <strong>ວ່າສະຄຣິບໂຫຼດແທ້ບໍ່</strong>: F12 → Network, ຄົ້ນຫາ <code>meiqia.js</code>; ບໍ່ມີຄຳຮ້ອງ ຫຼື ສະຖານະບໍ່ແມ່ນ 200 ໝາຍຄວາມວ່າບໍ່ໄດ້ໂຫຼດ. ① <strong>ໂຫຼດລົ້ມເຫຼວ</strong>: ໂຄ້ດຜິດບ່ອນ (ຕ້ອງຢູ່ກ່ອນ <code>&lt;/body&gt;</code>, ບໍ່ແມ່ນໃນ <code>&lt;head&gt;</code>), ຖືກກົດ adblock ບລັອກ (<code>ERR_BLOCKED_BY_CLIENT</code>), ຄ້າງຢູ່ cache CDN / browser, ຫຼື ໃບຮັບຮອງ HTTPS / ເນື້ອຫາປະສົມ. ② <strong>ການຕັ້ງຄ່າ / ການອະນຸຍາດ</strong>: entId ບໍ່ກົງກັບ workbench (ໂຫຼດໄດ້ແຕ່ພະນັກງານບໍ່ໄດ້ຮັບແຊັດ), ຫຼື ໂດເມນເວັບໄຊບໍ່ໄດ້ຮັບອະນຸຍາດໃນຄອນໂຊນ. ③ <strong>ການເຊື່ອມຕໍ່ framework</strong>: Vue/React/Next SPA ທຳລາຍ container ເມື່ອປ່ຽນເສັ້ນທາງ ແລະ widget ບໍ່ຖືກສ້າງຄືນ. ④ <strong>ການສະແດງ / ມືຖື / SDK</strong>: CSS ເວັບໄຊດັນ bubble ອອກນອກໜ້າຈໍ, plugin ພາກສ່ວນທີສາມບັງ DOM, ມືຖືຕ້ອງ deploy ເອງ, ໃນແອັບຕ້ອງ SDK. ສົມບູນກວ່າ: <a href="https://meiqis.com/website-integration/">ຄູ່ມືເຊື່ອມຕໍ່ເວັບ 美洽</a>.</p>
+<div class="cat"><div class="catbox"><b>ໂຫຼດລົ້ມເຫຼວ</b><span class="cs">ຕຳແໜ່ງ · adblock · cache · HTTPS</span><div>ວາງ JS ຂອງ 美洽 ກ່ອນ </body> (ບໍ່ແມ່ນໃນ <head>); F12 → Network, ຄົ້ນຫາ meiqia.js ແລະ ກວດສະຖານະ (ຄວນເປັນ 200); ERR_BLOCKED_BY_CLIENT ມັກແມ່ນສ່ວນຂະຫຍາຍ adblock — ທົດສອບໃນໂໝດສ່ວນຕົວ ຫຼື whitelist; ລ້າງ cache CDN ຫຼັງເຜີຍແຜ່; ຮັບປະກັນ HTTPS ເຕັມໂດຍບໍ່ມີເນື້ອຫາປະສົມ.</div></div><div class="catbox"><b>ຕັ້ງຄ່າ / ອະນຸຍາດ</b><span class="cs">entId · whitelist ໂດເມນ · ຊ່ອງຍ່ອຍ</span><div>entId ແມ່ນ id ສະເພາະຂອງບໍລິສັດທ່ານ; ບໍ່ກົງກັບ workbench «ສະຄຣິບໂຫຼດໄດ້ແຕ່ພະນັກງານບໍ່ໄດ້ຮັບແຊັດ» (ການຕັ້ງຄ່າ - ທີມ - ຄົ້ນຫາ ID); ໂດເມນເວັບໄຊຕ້ອງອະນຸຍາດຜ່ານ «ເພີ່ມເວັບໄຊເຊື່ອມຕໍ່»; ໃຊ້ຊ່ອງຍ່ອຍ (probe) ແຍກຕໍ່ສາຍທຸລະກິດ.</div></div><div class="catbox"><b>ເຊື່ອມຕໍ່ framework</b><span class="cs">SPA · ປ່ຽນເສັ້ນທາງ · manualInit</span><div>Vue/React/Next SPA ທຳລາຍ DOM ເມື່ອປ່ຽນເສັ້ນທາງ ແລະ widget ບໍ່ສ້າງຄືນ; ໃຊ້ _MEIQIA('manualInit') ເພື່ອຢຸດ auto-init ແລະ ເອີ້ນ _MEIQIA('init') ໃນ route hook (useEffect / mounted) ເພື່ອ mount ຄືນ.</div></div><div class="catbox"><b>ບັນຫາການສະແດງ</b><span class="cs">ຂັດແຍ່ງສະໄຕລ໌ · ການຊ້ອນ · plugin ພາກສ່ວນທີສາມ</span><div>ໂຫຼດແລ້ວແຕ່ບໍ່ເຫັນ: ມັກແມ່ນ CSS ທົ່ວເວັບໄຊ override ຕຳແໜ່ງ bubble, ຫຼື plugin heatmap / analytics / SEO ແກ້ DOM ແລະ ບັງ container; F12 → Elements, ຄົ້ນຫາ container meiqia ແລະ ກວດ display:none, z-index ແພ້, ຫຼື ພິກັດນອກໜ້າຈໍ.</div></div><div class="catbox"><b>ມືຖື / SDK</b><span class="cs">ເວັບມືຖື · AppKey · push</span><div>ເວັບມືຖື / PC ແມ່ນ snippet ດຽວກັນແຕ່ຕ້ອງ deploy ເອງ; ໃນແອັບໃຊ້ SDK native (ກ່ອນອື່ນ «ເພີ່ມການຕັ້ງຄ່າ APP» ໃນຄອນໂຊນເພື່ອ AppKey); push ແບ່ງເປັນ «ບໍ່ push» (ໃນແອັບເທົ່ານັ້ນ) ແລະ «push server ກຳນົດເອງ» (ສົ່ງເຖິງແມ້ອອກຈາກແອັບ).</div></div><div class="catbox"><b>ການເອີ້ນ API</b><span class="cs">withoutBtn · showPanel · ຂໍ້ມູນລູກຄ້າ</span><div>ປຸ່ມຂອງທ່ານ? _MEIQIA('withoutBtn') ເຊື່ອງປຸ່ມ native, ແລະ ເອີ້ນ _MEIQIA('showPanel') ເມື່ອຄລິກເພື່ອເປີດແຊັດ; ສົ່ງ / sync ຂໍ້ມູນລູກຄ້າພາຍໃນເວລາ init, ບໍ່ດັ່ງນັ້ນຈະບໍ່ມີຜົນ.</div></div></div><figure><svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ແຜນວາດການແຍກ 美洽 ແຊັດບໍ່ປະກົດ" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">ການແຍກ ໜ້າຕ່າງ / ປຸ່ມ ບໍ່ປະກົດ (ສອງຂັ້ນຕອນກ່ອນ: ສະຄຣິບໂຫຼດແລ້ວ → ການຕັ້ງຄ່າຖືກບໍ່?)</text><rect x="20" y="46" width="150" height="46" rx="10" fill="#111"/><text x="95" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff">ແຊັດບໍ່ເຫັນ</text><path d="M170 69 H206" stroke="#999" stroke-width="2" fill="none" marker-end="url(#a)"/><rect x="206" y="46" width="172" height="46" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="292" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1d4ed8">ສອງກຸ່ມ</text><rect x="440" y="20" width="262" height="56" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="455" y="42" font-family="system-ui,Arial" font-size="12.5" fill="#1d4ed8">ສະຄຣິບບໍ່ໂຫຼດ →</text><text x="455" y="62" font-family="system-ui,Arial" font-size="11.5" fill="#1e3a8a">ຕຳແໜ່ງ · adblock · cache</text><rect x="440" y="86" width="262" height="56" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="455" y="108" font-family="system-ui,Arial" font-size="12.5" fill="#b45309">ໂຫຼດແຕ່ເຊື່ອງ / ບໍ່ເຊື່ອມຕໍ່ →</text><text x="455" y="128" font-family="system-ui,Arial" font-size="11.5" fill="#92400e">ການຊ້ອນ · entId · ໂດເມນ · SPA</text><path d="M378 60 H410 V48 H440" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M378 78 H410 V114 H440" stroke="#d97706" stroke-width="2" fill="none" marker-end="url(#a)"/><text x="20" y="178" font-family="system-ui,Arial" font-size="13" font-weight="700" fill="#1d1d1f">ສີ່ກຸ່ມຮາກ (ສາເຫດ / ວິທີແກ້ຕໍ່ລາຍການ)</text><g font-family="system-ui,Arial" font-size="12"><rect x="20" y="190" width="162" height="92" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="32" y="212" font-weight="700" fill="#1d4ed8">① ໂຫຼດລົ້ມເຫຼວ</text><text x="32" y="234" fill="#555" font-size="11">ຕຳແໜ່ງ · ບລັອກ · cache</text><rect x="194" y="190" width="162" height="92" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="206" y="212" font-weight="700" fill="#1d4ed8">② ຕັ້ງຄ່າ / ອະນຸຍາດ</text><text x="206" y="234" fill="#555" font-size="11">entId · whitelist ໂດເມນ</text><rect x="368" y="190" width="162" height="92" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="380" y="212" font-weight="700" fill="#b45309">③ framework</text><text x="380" y="234" fill="#555" font-size="11">ເສັ້ນທາງ SPA · init</text><rect x="542" y="190" width="160" height="92" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="554" y="212" font-weight="700" fill="#047857">④ ສະແດງ / ມືຖື / SDK</text><text x="554" y="234" fill="#555" font-size="11">ການຊ້ອນ · ມືຖື · push</text></g><defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#999"/></marker></defs></svg><figcaption>ຮູບ 1: ການແຍກ 美洽 ບໍ່ປະກົດ — ກວດການໂຫຼດສະຄຣິບ (meiqia.js ໃນ F12), ຈາກນັ້ນ ໂຫຼດ / ຕັ້ງຄ່າ / framework / ການສະແດງ</figcaption></figure>
+<h2>ຂັ້ນຕອນ 2: ສາເຫດຮາກທີຖືກລະເລີຍຫຼາຍທີສຸດ → L2 (widget = ການສັກ JS ອະຊິງໂຄຣນັສຂອງພາກສ່ວນທີສາມນອກໂດເມນ)</h2>
+<p>ແນວຄິດດຽວກໍພຽງພໍ: <strong>widget ເວັບ 美洽 ບໍ່ແມ່ນອົງປະກອບຄົງທີຝັງໃນໜ້າຂອງທ່ານ — ມັນແມ່ນ <code>meiqia.js</code> ທີໂຫຼດແບບອະຊິງໂຄຣນັສຈາກໂດເມນນອກຂອງ 美洽 ແລ້ວສັກ container ແຊັດ (DOM / iframe) ແບບໄດນາມິກ ແລະ ເປີດການເຊື່ອມຕໍ່ cross-origin ໄລຍະຍາວກັບເຊີບເວີ 美洽</strong>. ນີ້ອະທິບາຍ «ການຫາຍໄປລຶກລັບ» ສ່ວນຫຼາຍ: ① <strong>ມັນແມ່ນສະຄຣິບພາກສ່ວນທີສາມນອກໂດເມນ</strong>, ສະນັ້ນ AdBlock / uBlock ບລັອກດ້ວຍລາຍການ «ຕິດຕາມ / ໂຄສະນາ» (<code>ERR_BLOCKED_BY_CLIENT</code>) ແລະ ປຸ່ມບໍ່ເຄີຍຂຶ້ນ (ເຖິງຄອນໂຊນເບິ່ງປົກກະຕິ); ② <strong>ມັນສັກ DOM ແບບອະຊິງໂຄຣນັສ</strong>: ໃນ <code>&lt;head&gt;</code> ມັນບລັອກ, ການປ່ຽນເສັ້ນທາງ SPA ທຳລາຍ container ແລະ ບໍ່ສ້າງຄືນເອງ (ໃຊ້ <code>manualInit</code> + <code>_MEIQIA('init')</code>), ແລະ plugin heatmap / analytics ທີແກ້ DOM ອາດບັງມັນ; ③ <strong>ມັນຜູກກັບບໍລິສັດຂອງທ່ານຜ່ານ entId ແລະ ຄວບຄຸມໂດຍ whitelist ໂດເມນ</strong>: entId ຜິດ ຫຼື ໂດເມນບໍ່ໄດ້ອະນຸຍາດ ສະຄຣິບໂຫຼດໄດ້ແຕ່ «ບໍ່ເຊື່ອມຕໍ່ແຊັດ»; ④ <strong>ມືຖື ແລະ PC ແມ່ນສອງການເຊື່ອມຕໍ່ແຍກກັນ</strong>, ໃນແອັບແມ່ນ SDK (AppKey), ແລະ push ແບ່ງເປັນ «ບໍ່ push» ກັບ «push server ກຳນົດເອງ». ເມື່ອເຫັນລະບົບການສັກນີ້ ທຸກອາການລຸ່ມນີ້ມີເຫດຜົນດຽວ. ລຸ່ມນີ້ແມ່ນແຜງກວດສອບເອງ; ລົງໄປແມ່ນຫ້າວິທີ ແລະ ການຄາດຄະເນ 2026.</p>
+<figure><svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ແຜງກວດສອບເອງກ່ອນເຊື່ອມຕໍ່ 美洽" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">ແຜງກວດສອບເອງການເຊື່ອມຕໍ່ (ຂຽວ = ຢືນຢັນ / ແດງ = ລະເລີຍງ່າຍ)</text><rect x="20" y="42" width="680" height="226" rx="14" fill="#f8fafc" stroke="#e2e8f0"/><text x="38" y="66" font-family="system-ui,Arial" font-size="12.5" font-weight="700" fill="#475569">ລາຍການກວດ</text><text x="300" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">ຄຳຕັດສິນ</text><text x="610" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">ສະຖານະ</text><line x1="38" y1="74" x2="682" y2="74" stroke="#e2e8f0" stroke-width="1"/><text x="38" y="98" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">ໂຄ້ດ 美洽 ວາງກ່ອນ </body> (ບໍ່ແມ່ນ <head>)</text><text x="300" y="98" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">ຕຳແໜ່ງ</text><circle cx="612" cy="94" r="6" fill="#16a34a"/><text x="628" y="98" font-family="system-ui,Arial" font-size="12" fill="#16a34a">ຢືນຢັນ</text><text x="38" y="128" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">ສະຖານະ meiqia.js 200 ໃນ F12 → Network</text><text x="300" y="128" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">ໂຫຼດສະຄຣິບ</text><circle cx="612" cy="124" r="6" fill="#16a34a"/><text x="628" y="128" font-family="system-ui,Arial" font-size="12" fill="#16a34a">ຢືນຢັນ</text><text x="38" y="158" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">ຄອນໂຊນ typeof _MEIQIA ເປັນ function</text><text x="300" y="158" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">ເລີ່ມຕົ້ນ</text><circle cx="612" cy="154" r="6" fill="#16a34a"/><text x="628" y="158" font-family="system-ui,Arial" font-size="12" fill="#16a34a">ຢືນຢັນ</text><text x="38" y="188" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">ສະແດງໃນໂໝດສ່ວນຕົວ / ປິດ adblock</text><text x="300" y="188" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">adblock</text><circle cx="612" cy="184" r="6" fill="#ef4444"/><text x="628" y="188" font-family="system-ui,Arial" font-size="12" fill="#ef4444">ຕ້ອງກວດ</text><text x="38" y="218" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">entId ກົງກັບ workbench + ໂດເມນອະນຸຍາດ</text><text x="300" y="218" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">ຕັ້ງຄ່າ / ອະນຸຍາດ</text><circle cx="612" cy="214" r="6" fill="#16a34a"/><text x="628" y="218" font-family="system-ui,Arial" font-size="12" fill="#16a34a">ຢືນຢັນ</text><text x="38" y="248" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">init ໃໝ່ຫຼັງປ່ຽນເສັ້ນທາງ SPA + ບໍ່ມີ overlay plugin</text><text x="300" y="248" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">framework / ການຊ້ອນ</text><circle cx="612" cy="244" r="6" fill="#ef4444"/><text x="628" y="248" font-family="system-ui,Arial" font-size="12" fill="#ef4444">ຕ້ອງກວດ</text><text x="20" y="296" font-family="system-ui,Arial" font-size="11.5" fill="#94a3b8">ໝາຍເຫດ: ແດງ = ສອງອັນທີຖືກລະເລີຍຫຼາຍສຸດ — ສ່ວນຂະຫຍາຍ adblock (ERR_BLOCKED_BY_CLIENT) ແລະ framework / ການຊ້ອນ (ການປ່ຽນເສັ້ນທາງ SPA, plugin ພາກສ່ວນທີສາມທີແກ້ DOM); ກວດສອງອັນນີ້ກ່ອນ.</text></svg><figcaption>ຮູບ 2: ແຜງກວດສອບເອງການເຊື່ອມຕໍ່ 美洽 (ຂຽວ = ຢືນຢັນ / ແດງ = ລະເລີຍງ່າຍ)</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_lo.webp"><img src="/img/board_lo.png" alt="ຮູບປະກອບແຜງກວດສອບເອງກ່ອນເຊື່ອມຕໍ່ 美洽 ລາຍການຂຽວ/ແດງ" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>ຮູບ: ກວດ «ຕຳແໜ່ງໂຄ້ດ + meiqia.js 200 + ເລີ່ມຕົ້ນ» ກ່ອນ, ຈາກນັ້ນ «adblock + framework/ການຊ້ອນ» — ສອງອັນສຸດທ້າຍຖືກລະເລີຍຫຼາຍສຸດ</figcaption></figure>
+<h2>ຕາຕະລາງອາການຄົບຖ້ວນ (ພຶດຕິກຳ / ຕຳແໜ່ງທາງການ · ສາເຫດຮາກ L2)</h2>
+<table id="tbl"></table>
+<h2>ປຽບທຽບຫ້າວິທີເຊື່ອມຕໍ່ 美洽 (ໂຄ້ດ / ຄວາມຍາກ / ຄຸນສົມບັດ / ສະຖານະການ / ເວລາໃຊ້ງານ · ເອກະສານທາງການ)</h2>
+<table class="cmp"><tr><th>ວິທີເຊື່ອມຕໍ່</th><th>ໂຄ້ດ / ຄວາມຍາກ</th><th>ຄວາມຄົບຄຸນສົມບັດ</th><th>ເໝາະສຳລັບ</th><th>ເວລາໃຊ້ງານ</th></tr><tr><td>widget JS ເວັບ</td><td>snippet JS ດຽວ · ຕ່ຳ</td><td>ຄົບສຸດ (ລອຍ / popup / ທັກທາຍອັດຕະໂນມັດ / ຮ່ອງຮອຍຜູ້ເຂົ້າຊົມ)</td><td>ເວັບໄຊ PC + ມືຖື (ແນະນຳທາງການ)</td><td>~3-5 ນາທີ</td></tr><tr><td>ລິ້ງແຊັດ</td><td>ບໍ່ມີໂຄ້ດ · ຕ່ຳສຸດ</td><td>ແຊັດພື້ນຖານ</td><td>ບໍ່ມີເທັກນິກ / ວາງລິ້ງແຊັດໄວ</td><td>ທັນທີ</td></tr><tr><td>API / WebIM SDK</td><td>ຕ້ອງພັດທະນາ · ສູງ</td><td>ປັບແຕ່ງເລິກ (UI ເອງ / ລະບົບ / ເຊື່ອມຕໍ່ຄຳສັ່ງຊື້)</td><td>ທີມທີມີຄວາມສາມາດ dev ສຳລັບການລວມເລິກ</td><td>ຕາມ dev</td></tr><tr><td>SDK native ແອັບ</td><td>ເຊື່ອມຕໍ່ SDK · ສູງ</td><td>ແຊັດໃນແອັບ + push ຂໍ້ຄວາມ</td><td>ແອັບ iOS / Android</td><td>ຕາມ dev</td></tr><tr><td>ຕັ້ງຄ່າໄວ CMS</td><td>plugin / ຄລິກດຽວ · ຕ່ຳ</td><td>ຄືກັບ widget JS</td><td>ເວັບໄຊ WordPress / Fkw / Shopify</td><td>ນາທີ</td></tr></table><section class="i4data">
+<h2>美洽 ສາເຫດບໍ່ປະກົດ & ການປຽບທຽບວິທີເຊື່ອມຕໍ່ (ການຄາດຄະເນ 2026)</h2>
+<p>ຕໍ່ໄປນີ້ແມ່ນ <strong>ການຄາດຄະເນ 2026</strong> ທີສັງເຄາະຈາກຄວາມຊ່ວຍເຫຼືອທາງການ 美洽 (ຊ່ອງເຂົ້າເຖິງ / API widget ເວັບ JavaScript) ແລະ ການແກ້ໄຂບັນຫາການເຊື່ອມຕໍ່ສາທາລະນະ (ບໍ່ແມ່ນຄຳໝັ້ນສັນຍາຂອງຜູ້ຂາຍ ຫຼື ການວັດແທກໂດຍກົງ; ເພື່ອອ້າງອີງ, ປ່ຽນຕາມເວີຊັນ ແລະ ນະໂຍບາຍ browser):</p>
+<table>
+<tr><th>ມິຕິ</th><th>ການຄາດຄະເນ / ການປຽບທຽບ</th></tr>
+<tr><td>ການກະຈາຍສາເຫດບໍ່ປະກົດ (ຊຸມຊົນ / ticket · ຄາດ.)</td><td><strong>ຕຳແໜ່ງ / ບໍ່ໂຫຼດ ~35%</strong> &gt; <strong>adblock / ສ່ວນຂະຫຍາຍ browser ~25%</strong> &gt; ຕັ້ງຄ່າ / ອະນຸຍາດ (entId / ໂດເມນ) ~20% &gt; framework (SPA) ~12% &gt; ຂັດແຍ່ງສະໄຕລ໌ / plugin ພາກສ່ວນທີສາມ ~8%</td></tr>
+<tr><td>ການເຊື່ອມຕໍ່ແທ້ໆແມ່ນຫຍັງ</td><td>widget ເວັບ = <strong>JS ອະຊິງໂຄຣນັສພາກສ່ວນທີສາມນອກໂດເມນທີສັກ DOM + ການເຊື່ອມຕໍ່ cross-origin ໄລຍະຍາວ</strong> (ບໍ່ແມ່ນອົງປະກອບຄົງທີຝັງ); ດັ່ງນັ້ນໄດ້ຮັບຜົນຈາກຕຳແໜ່ງ, ກົດ adblock, ການຊ້ອນ CSS, ວົງຈອນຊີວິດ SPA</td></tr>
+<tr><td>ການເຊື່ອມຕໍ່ຕໍ່ platform (ຄາດ.)</td><td>ເວັບ PC / ມືຖື = <strong>widget JS (ໂຄ້ດດຽວກັນ, deploy ແຍກ)</strong>; ແອັບ = <strong>SDK native (AppKey)</strong>; WeChat / Douyin / RED = ການເຊື່ອມຕໍ່ອະນຸຍາດຊ່ອງ</td></tr>
+<tr><td>ຜົນ adblock (ຄາດ.)</td><td>ປະມານ <strong>30-40%</strong> ຂອງຜູ້ໃຊ້ PC ໃຊ້ສ່ວນຂະຫຍາຍ adblock → ສະຄຣິບແຊັດພາກສ່ວນທີສາມຖືກບລັອກດ້ວຍກົດໂຄສະນາ (ERR_BLOCKED_BY_CLIENT), ສາເຫດຫຼັກຂອງ «ຄອນໂຊນດີ, ຝັ່ງຜູ້ໃຊ້ຫາຍ»</td></tr>
+<tr><td>ເວລາໃຊ້ງານ widget JS (ທາງການ)</td><td>ວາງ JS ສະເພາະທ້າຍໜ້າແລ້ວໃຊ້ງານໃນປະມານ <strong>3-5 ນາທີ</strong>; entId ແມ່ນ id ສະເພາະຂອງບໍລິສັດ, ແລະ ການບໍ່ກົງກັບ workbench ປ່ອຍໃຫ້ພະນັກງານບໍ່ມີແຊັດ</td></tr>
+</table>
+<p><small>ພື້ນຖານການຄາດຄະເນ: baseline ແຫຼ່ງ + ການຄາດຄະເນເວລາ (meiqia.com/help ຊ່ອງເຂົ້າເຖິງ / widget ເວັບ JavaScript, ຄູ່ມືເຊື່ອມຕໍ່ meiqia.im, ການແກ້ໄຂບັນຫາສາທາລະນະ, 2026); ປ່ຽນຕາມເວີຊັນ ແລະ ນະໂຍບາຍບລັອກຂອງ browser. ປະຕິບັດຕາມຂໍ້ມູນທາງການລ່າສຸດຂອງ 美洽. ບໍ່ເປັນທາງການ · ການແປ LLM.</small></p>
+</section>
+<h2>ກໍລະນີຈິງ — ອ່ານໄວ</h2>
+<ul class="scenes"><li>ວາງໂຄ້ດແລ້ວແຕ່ບໍ່ມີ bubble ແຊັດ: ກ່ອນອື່ນ F12 → Network, ຄົ້ນຫາ meiqia.js — ບໍ່ມີຄຳຮ້ອງ ຫຼື ບໍ່-200 ໝາຍຄວາມວ່າວາງຜິດ / ຄ້າງ cache; ລ້າງ cache CDN ຫຼື ເປີດໃໝ່ໃນໂໝດສ່ວນຕົວ.</li><li>ຄອນໂຊນເວົ້າ meiqia.js net::ERR_BLOCKED_BY_CLIENT: adblock (AdBlock / uBlock / AdGuard) ບລັອກສະຄຣິບແຊັດພາກສ່ວນທີສາມດ້ວຍກົດໂຄສະນາ — ປິດສ່ວນຂະຫຍາຍ ຫຼື whitelist ເວັບໄຊ; ນີ້ກໍແມ່ນເຫດຜົນ «ຫາຍສຳລັບບາງຜູ້ໃຊ້ ໃນຂະນະທີ່ຄອນໂຊນທ່ານເບິ່ງປົກກະຕິ».</li><li>ສະຄຣິບໂຫຼດແລ້ວ (ຄອນໂຊນ typeof _MEIQIA ເປັນ function) ແຕ່ບໍ່ມີປຸ່ມ: ມັກແມ່ນ theme CSS ດັນ bubble ອອກນອກໜ້າຈໍ ຫຼື plugin heatmap / analytics ປ່ຽນການຊ້ອນ DOM — F12 → Elements, ຄົ້ນຫາ container 美洽 ແລະ ກວດເທື່ອລະອັນ.</li><li>Vue / React SPA ໜ້າຫຼັກມີແຊັດແຕ່ເສັ້ນທາງທີສອງບໍ່ມີ: ການປ່ຽນເສັ້ນທາງ SPA ທຳລາຍ container ແລະ widget ບໍ່ສ້າງຄືນ — ໃຊ້ manualInit ເພື່ອຢຸດ auto-init ແລະ ເອີ້ນ _MEIQIA('init') ໃນ route hook ເພື່ອ mount ຄືນ.</li><li>ແຊັດເປີດໄດ້ແຕ່ພະນັກງານບໍ່ໄດ້ຮັບຂໍ້ຄວາມຜູ້ເຂົ້າຊົມ: ສ່ວນຫຼາຍ entId ບໍ່ກົງກັບ workbench (ສຳເນົາ snippet ຄົນອື່ນ / ບັນຊີປະປົນ) — ປຽບທຽບ ID ບໍລິສັດໃນ ການຕັ້ງຄ່າ - ທີມ - ຄົ້ນຫາ ID ກັບ entId ໃນໂຄ້ດ.</li><li>ໃຊ້ໄດ້ໃນ staging, ບໍ່ໂຫຼດໃນໂດເມນ production: ໂດເມນ production ບໍ່ໄດ້ອະນຸຍາດຜ່ານ «ເພີ່ມເວັບໄຊເຊື່ອມຕໍ່» — ເພີ່ມໂດເມນ live ເຂົ້າລາຍການແລ້ວເຜີຍແຜ່ໃໝ່.</li><li>ຢາກເອົາປຸ່ມມົນ native ຂອງ 美洽 ອອກ ແລະ ໃຊ້ປຸ່ມ «ຕິດຕໍ່» ຂອງທ່ານເອງ: ເອີ້ນ _MEIQIA('withoutBtn') ເພື່ອເຊື່ອງ native, ຈາກນັ້ນຜູກ _MEIQIA('showPanel') ກັບປຸ່ມຂອງທ່ານເພື່ອເປີດແຊັດ.</li></ul><div class="related"><h2>ກ່ຽວຂ້ອງ</h2><ul><li><a href="https://meiqis.com/">ດາວໂຫຼດ 美洽 / ຕິດຕັ້ງ & ຄູ່ມືເຊື່ອມຕໍ່</a></li><li><a href="https://meiqis.com/lo/website-integration/">ຄູ່ມືເຊື່ອມຕໍ່ເວັບ 美洽 (widget JS)</a></li><li><a href="https://meiqis.com/lo/tools/meiqia-integration-troubleshooting/">ການແກ້ໄຂບັນຫາການເຊື່ອມຕໍ່ 美洽 (ຕາຕະລາງຄົບຖ້ວນທາງການ)</a></li><li><a href="https://meiqiaa.com/">ເວັບໄຊທາງການ 美洽 (ເວັບໄຊພີ່ນ້ອງ)</a></li></ul></div></main>
+<footer>widget ເວັບ / JS API (manualInit / init / withoutBtn / showPanel / ສົ່ງຂໍ້ມູນລູກຄ້າ), ການອະນຸຍາດ entId / ໂດເມນ, ຊ່ອງຍ່ອຍ, AppKey SDK ແລະ ໂໝດ push ລວບລວມຈາກສູນຊ່ວຍເຫຼືອທາງການ 美洽 (meiqia.com/help · ຊ່ອງເຂົ້າເຖິງ / widget ເວັບ JavaScript) ແລະ ຄູ່ມືເຊື່ອມຕໍ່ 美洽 (meiqia.im); adblock ERR_BLOCKED_BY_CLIENT, ການຂັດແຍ່ງ DOM heatmap / analytics ແລະ ການເຊື່ອມຕໍ່ SPA ຈາກການແກ້ໄຂບັນຫາສາທາລະນະ (ຮຽບຮຽງໃໝ່). ຕົວເລກ 2026 ແມ່ນການຄາດຄະເນ, ບໍ່ແມ່ນຄຳໝັ້ນສັນຍາຂອງຜູ້ຂາຍ ຫຼື ການວັດແທກໂດຍກົງ; ເພື່ອອ້າງອີງເທົ່ານັ້ນ, ໃຫ້ປະຕິບັດຕາມຂໍ້ມູນທາງການລ່າສຸດຂອງ 美洽. ບໍ່ເປັນທາງການ · ການແປ LLM.<br>ໜ້າເຄື່ອງມື · ການແຍກການເຊື່ອມຕໍ່, ບໍ່ແທນຄອນໂຊນ 美洽</footer>
+</div>
+<script src="/lo/codes.js"></script><script src="/app.js"></script>
+</body></html>
