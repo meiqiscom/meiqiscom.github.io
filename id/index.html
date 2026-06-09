@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>美洽(Meiqia) widget chat tidak muncul / perbaiki error integrasi - meiqia.js diblokir, tombol hilang, entId, SPA, push SDK</title>
+<meta name="description" content="Widget chat web 美洽(Meiqia) tidak muncul, tombol hilang, meiqia.js diblokir oleh ERR_BLOCKED_BY_CLIENT, gaya rusak, hilang setelah perubahan rute SPA, entId tidak cocok sehingga agen tidak menerima chat, tidak muncul di seluler, push SDK tidak datang? Cari gejalanya untuk perilaku L1 dan akar masalah L2: injeksi JS asinkron pihak ketiga lintas domain, aturan adblock, penumpukan CSS, siklus hidup SPA, entId dan whitelist domain, AppKey dan jalur push SDK; dengan perbandingan lima metode integrasi dan perkiraan 2026.">
+<link rel="canonical" href="https://meiqiscom.github.io/id/">
+<link rel="alternate" hreflang="zh-Hans" href="https://meiqiscom.github.io/">
+<link rel="alternate" hreflang="en" href="https://meiqiscom.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://meiqiscom.github.io/ja/">
+<link rel="alternate" hreflang="zh-Hant" href="https://meiqiscom.github.io/zh-tw/">
+<link rel="alternate" hreflang="ko" href="https://meiqiscom.github.io/ko/">
+<link rel="alternate" hreflang="id" href="https://meiqiscom.github.io/id/">
+<link rel="alternate" hreflang="vi" href="https://meiqiscom.github.io/vi/">
+<link rel="alternate" hreflang="th" href="https://meiqiscom.github.io/th/">
+<link rel="alternate" hreflang="es" href="https://meiqiscom.github.io/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://meiqiscom.github.io/pt-br/">
+<link rel="alternate" hreflang="de" href="https://meiqiscom.github.io/de/">
+<link rel="alternate" hreflang="fr" href="https://meiqiscom.github.io/fr/">
+<link rel="alternate" hreflang="ru" href="https://meiqiscom.github.io/ru/">
+<link rel="alternate" hreflang="it" href="https://meiqiscom.github.io/it/">
+<link rel="alternate" hreflang="pl" href="https://meiqiscom.github.io/pl/">
+<link rel="alternate" hreflang="nl" href="https://meiqiscom.github.io/nl/">
+<link rel="alternate" hreflang="tr" href="https://meiqiscom.github.io/tr/">
+<link rel="alternate" hreflang="ar" href="https://meiqiscom.github.io/ar/">
+<link rel="alternate" hreflang="hi" href="https://meiqiscom.github.io/hi/">
+<link rel="alternate" hreflang="ms" href="https://meiqiscom.github.io/ms/">
+<link rel="alternate" hreflang="fa" href="https://meiqiscom.github.io/fa/">
+<link rel="alternate" hreflang="bn" href="https://meiqiscom.github.io/bn/">
+<link rel="alternate" hreflang="ta" href="https://meiqiscom.github.io/ta/">
+<link rel="alternate" hreflang="te" href="https://meiqiscom.github.io/te/">
+<link rel="alternate" hreflang="fil" href="https://meiqiscom.github.io/fil/">
+<link rel="alternate" hreflang="ur" href="https://meiqiscom.github.io/ur/">
+<link rel="alternate" hreflang="lo" href="https://meiqiscom.github.io/lo/">
+<link rel="alternate" hreflang="km" href="https://meiqiscom.github.io/km/">
+<link rel="alternate" hreflang="my" href="https://meiqiscom.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://meiqiscom.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "美洽 chat tidak muncul / perbaikan error integrasi",
+   "url": "https://meiqiscom.github.io/id/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "inLanguage": "id",
+   "description": "Widget chat web 美洽(Meiqia) tidak muncul, tombol hilang, meiqia.js diblokir oleh ERR_BLOCKED_BY_CLIENT, gaya rusak, hilang setelah perubahan rute SPA, entId tidak cocok sehingga agen tidak menerima chat, tidak muncul di seluler, push SDK tidak datang? Cari gejalanya untuk perilaku L1 dan akar masalah L2: injeksi JS asinkron pihak ketiga lintas domain, aturan adblock, penumpukan CSS, siklus hidup SPA, entId dan whitelist domain, AppKey dan jalur push SDK; dengan perbandingan lima metode integrasi dan perkiraan 2026.",
+   "isAccessibleForFree": true,
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "id",
+   "url": "https://meiqiscom.github.io/id/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "美洽 Jendela / gelembung chat tak muncul sama sekali — bagaimana memperbaikinya?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Widget web 美洽 memuat jendela chat mengambang dengan satu snippet JS yang ditempel; pastikan kode tertanam benar dan situs integrasi dikonfigurasi di konsol. Widget adalah meiqia.js yang disuntik ke DOM setelah pemuatan asinkron, jadi «tak ada apa-apa» biasanya berarti «skrip tak pernah dimuat»: salah tempat, diblokir adblock / cache, atau domain / entId tak cocok, sehingga injeksi tak pernah berjalan. F12 → Network, cari meiqia.js: tanpa permintaan → kode tak berlaku (cek penempatan / bersihkan cache); ada permintaan tapi bukan-200 → diblokir atau masalah jalur; semua baik tapi masih tertutup → cek entId / otorisasi domain dan kelompok di bawah."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Skrip dimuat tapi tombol chat hilang — bagaimana memperbaikinya?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Kode widget menyesuaikan situs dan menampilkan tombol chat; jika tampilan gagal, periksa apakah tersembunyi oleh gaya atau inisialisasi terputus. Jika skrip dimuat tapi tombol hilang, biasanya masalah «lapisan tampilan»: CSS global menimpa posisi tombol / set display:none, z-index kalah, atau elemen fiks lain menutupinya; error JS lain juga bisa membatalkan inisialisasi. F12 → Elements, cari kontainer 美洽 — ada, tersembunyi, atau di luar layar?; nonaktifkan sementara CSS / skrip sendiri untuk uji ulang; cek konsol untuk error yang membatalkan eksekusi."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js diblokir ekstensi adblock — bagaimana memperbaikinya?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Skrip chat 美洽 berasal dari domain pihak ketiga; jika ada ekstensi pemblokir, ia mungkin menganggapnya iklan / pelacak dan mencegah pemuatan — matikan pemblokiran atau whitelist. ERR_BLOCKED_BY_CLIENT berarti ekstensi browser (AdBlock / uBlock / AdGuard) memblokir permintaan lewat daftar filter. Skrip 美洽 adalah «pihak ketiga lintas domain + komunikasi real-time», yang sering disalahbaca aturan tersebut sebagai iklan / pelacak, menyebabkan kegagalan palsu «konsol baik, sisi pengguna hilang». Uji ulang di penyamaran atau dengan adblock mati — jika muncul, pemblokiran penyebabnya; minta pengguna whitelist situs; frontend bisa memuat skrip chat tertunda / kondisional untuk menghindari sebagian aturan otomatis."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js 404 / status buruk / konten campuran — bagaimana memperbaikinya?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Setelah deploy, cari meiqia.js di panel Network; status 200 berarti skrip ditempatkan benar dan dimuat. Sebab umum bukan-200: kode tertahan cache halaman / CDN (tak di-refresh setelah publikasi), dimuat di halaman HTTP / rantai sertifikat tak lengkap memicu blokir konten campuran, atau kode rusak / disalin sebagian. Jika langkah ini gagal, injeksi dan koneksi tak pernah terjadi. Bersihkan cache CDN / browser (atau penyamaran) setelah publikasi; pastikan HTTPS penuh dengan rantai sertifikat utuh dan tanpa konten campuran; verifikasi kode yang disalin lengkap dan tak ter-escape."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Kode salah tempat (blokir head / tak berlaku) — bagaimana memperbaikinya?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽 menyarankan menempel kode di bagian bawah halaman, sebelum </body>; widget berjalan setelah konten utama dimuat. Widget harus menyuntik kontainer setelah DOM siap. Di <head> ia memblokir render (layar kosong dulu di jaringan lemah) atau berjalan sebelum DOM siap dan gagal; dalam sebagian scope async / modul urutan muat juga bisa kacau. Letakkan JS 美洽 di footer umum tiap halaman, sebelum </body>; untuk SPA lihat entri «rute SPA» dan pakai manualInit; pastikan bundler tak menghapusnya lewat tree-shaking."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Gaya jendela / tombol chat rusak — bagaimana memperbaikinya?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Widget menyuntik gayanya sendiri dan menyesuaikan situs; konflik dengan gaya global bisa menyebabkan anomali visual. Skrip 美洽 menyuntik CSS saat runtime; jika gaya global (selektor universal / aturan prioritas tinggi / reset) menimpa kelasnya lebih dulu, posisi, penumpukan, dan font rusak — efek samping «injeksi dinamis + berbagi satu ruang gaya dokumen». F12 untuk lihat aturan situs mana yang menimpa kontainer 美洽; persempit gaya global / kurangi dampaknya pada kelas umum; bila perlu minta 美洽 menyesuaikan penumpukan kontainer."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Tombol di luar layar / tertutup — bagaimana memperbaikinya?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Tombol widget muncul sebagai mengambang posisi fiks; jika tertutup elemen fiks lain, sesuaikan penumpukan atau posisi. Elemen position:fixed lain di situs (kembali ke atas, iklan mengambang, bilah dukungan kustom) dengan z-index lebih tinggi menutup tombol 美洽, atau tema salah hitung koordinatnya, membuatnya «di luar layar / tertutup». Pilih kontainer 美洽 di F12 untuk lihat koordinat / z-index nyata; naikkan atau turunkan z-index elemen penutup; hindari menumpuk banyak mengambang fiks di satu sudut."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Konflik DOM plugin / analitik pihak ketiga — bagaimana memperbaikinya?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Skrip lain di halaman yang mengubah DOM atau mencegat permintaan bisa memengaruhi pemuatan dan tampilan normal widget. Skrip heatmap / analitik / konversi menulis ulang DOM, menyuntik overlay atau mencegat permintaan; karena mereka dan 美洽 menyuntik ke dokumen yang sama, penumpukan / event saling ganggu dan kontainer 美洽 tertutup atau init-nya terputus. Nonaktifkan plugin mencurigakan satu per satu untuk melokalkan konflik; sesuaikan urutan muat / penumpukan kontainer; buat heatmap dll. menghindari area kontainer 美洽."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">Bahasa: <a href="/">简体中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/ko/">한국어</a> · <strong>Bahasa Indonesia</strong> · <a href="/vi/">Tiếng Việt</a> · <a href="/th/">ไทย</a> · <a href="/es/">Español</a> · <a href="/pt-br/">Português (BR)</a> · <a href="/de/">Deutsch</a> · <a href="/fr/">Français</a> · <a href="/ru/">Русский</a> · <a href="/it/">Italiano</a> · <a href="/pl/">Polski</a> · <a href="/nl/">Nederlands</a> · <a href="/tr/">Türkçe</a> · <a href="/ar/">العربية</a> · <a href="/hi/">हिन्दी</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fa/">فارسی</a> · <a href="/bn/">বাংলা</a> · <a href="/ta/">தமிழ்</a> · <a href="/te/">తెలుగు</a> · <a href="/fil/">Filipino</a> · <a href="/ur/">اردو</a> · <a href="/lo/">ພາສາລາວ</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>美洽 widget chat tidak muncul / perbaiki error integrasi</h1>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_id.webp"><img src="/img/cover_id.png" alt="Ilustrasi alat 美洽 widget chat tidak muncul / perbaikan error" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Gbr: 美洽 chat tidak muncul / perbaikan error (perilaku L1 + akar masalah L2 + lima metode integrasi)</figcaption></figure>
+<p>Sudah menempel kode <strong>美洽(Meiqia)</strong> tapi <strong>widget chat web</strong> tidak muncul, <strong>tombol chat tak pernah tampil</strong>, konsol melaporkan <code>meiqia.js</code> diblokir, atau <strong>agen tidak menerima chat</strong>? Perjelas tiga hal dulu: <strong>apakah skrip tidak dimuat sama sekali (penempatan / adblock / cache), dimuat tapi tertutup gaya / penumpukan, atau dimuat baik tapi konfigurasi tidak cocok (entId / domain / siklus hidup SPA)?</strong> Cari <strong>gejala atau kata kunci</strong> (mis. <code>not showing</code>, <code>adblock</code>, <code>entId</code>, <code>SPA</code>, <code>mobile</code>, <code>sdk push</code>): pertama <strong>perilaku L1 & posisi resmi</strong>, lalu <strong>akar masalah L2 & solusi</strong>. Pemasangan / panduan? Lihat <a href="https://meiqis.com/">unduh 美洽 / panduan integrasi layanan pelanggan</a>.</p>
+<input id="q" placeholder="Ketik gejala atau kata kunci, mis. not showing / adblock / entId / SPA / mobile / sdk push" autocomplete="off">
+<button id="go">Cari</button>
+<div id="out"></div>
+<h2>Langkah 1: periksa apakah skrip dimuat, lalu bagi jadi empat kelompok</h2>
+<p>Saat chat 美洽 tidak muncul, 9 dari 10 kali itu salah satu dari empat kelompok; lihat dulu <strong>apakah skrip benar-benar dimuat</strong>: F12 → Network, cari <code>meiqia.js</code>; tanpa permintaan atau status bukan 200 berarti tidak dimuat. ① <strong>Gagal muat</strong>: kode di tempat salah (harus sebelum <code>&lt;/body&gt;</code>, bukan di <code>&lt;head&gt;</code>), diblokir aturan adblock (<code>ERR_BLOCKED_BY_CLIENT</code>), tertahan cache CDN / browser, atau sertifikat HTTPS / konten campuran. ② <strong>Konfigurasi / otorisasi</strong>: entId tidak cocok dengan workbench (dimuat tapi agen tidak menerima chat), atau domain situs belum diotorisasi di konsol. ③ <strong>Integrasi framework</strong>: SPA Vue/React/Next menghancurkan kontainer saat ganti rute dan widget tidak dibangun ulang. ④ <strong>Tampilan / seluler / SDK</strong>: CSS situs mendorong gelembung ke luar layar, plugin pihak ketiga menumpuk DOM, seluler perlu deploy sendiri, in-app perlu SDK. Lebih lengkap: <a href="https://meiqis.com/website-integration/">panduan integrasi web 美洽</a>.</p>
+<div class="cat"><div class="catbox"><b>Gagal muat</b><span class="cs">penempatan · adblock · cache · HTTPS</span><div>Tempel JS 美洽 sebelum </body> (bukan di <head>); F12 → Network, cari meiqia.js dan periksa status (harus 200); ERR_BLOCKED_BY_CLIENT biasanya ekstensi adblock — uji di mode penyamaran atau whitelist; bersihkan cache CDN setelah publikasi; pastikan HTTPS penuh tanpa konten campuran.</div></div><div class="catbox"><b>Konfigurasi / otorisasi</b><span class="cs">entId · whitelist domain · sub-kanal</span><div>entId adalah id unik perusahaan Anda; jika tidak cocok dengan workbench «skrip dimuat tapi agen tidak menerima chat» (Pengaturan - Tim - cari ID); domain situs harus diotorisasi via «Tambah situs integrasi»; pakai sub-kanal (probe) per lini bisnis.</div></div><div class="catbox"><b>Integrasi framework</b><span class="cs">SPA · ganti rute · manualInit</span><div>SPA Vue/React/Next menghancurkan DOM saat ganti rute dan widget tidak dibangun ulang otomatis; pakai _MEIQIA('manualInit') untuk menghentikan auto-init dan panggil _MEIQIA('init') di hook rute (useEffect / mounted) untuk memasang ulang.</div></div><div class="catbox"><b>Masalah tampilan</b><span class="cs">konflik gaya · penumpukan · plugin pihak ketiga</span><div>Dimuat tapi tak terlihat: biasanya CSS global situs menimpa posisi gelembung, atau plugin heatmap / analitik / SEO mengubah DOM dan menutup kontainer; F12 → Elements, cari kontainer meiqia dan periksa display:none, z-index kalah, atau koordinat luar layar.</div></div><div class="catbox"><b>Seluler / SDK</b><span class="cs">web seluler · AppKey · push</span><div>Web seluler / PC adalah snippet yang sama tapi perlu deploy sendiri; in-app pakai SDK native (dulu «Tambah konfig APP» di konsol untuk AppKey); push terbagi «tanpa push» (hanya in-app) dan «server push kustom» (terkirim bahkan setelah keluar app).</div></div><div class="catbox"><b>Panggilan API</b><span class="cs">withoutBtn · showPanel · info pelanggan</span><div>Tombol sendiri? _MEIQIA('withoutBtn') menyembunyikan tombol native, dan panggil _MEIQIA('showPanel') saat klik untuk membuka chat; kirim / sinkron info pelanggan dalam waktu init, jika tidak takkan berlaku.</div></div></div><figure><svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram triase 美洽 chat tidak muncul" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">Triase jendela / tombol tidak muncul (dua langkah dulu: apakah skrip dimuat → apakah konfig benar)</text><rect x="20" y="46" width="150" height="46" rx="10" fill="#111"/><text x="95" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff">Chat tak muncul</text><path d="M170 69 H206" stroke="#999" stroke-width="2" fill="none" marker-end="url(#a)"/><rect x="206" y="46" width="172" height="46" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="292" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1d4ed8">Dua kelompok</text><rect x="440" y="20" width="262" height="56" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="455" y="42" font-family="system-ui,Arial" font-size="12.5" fill="#1d4ed8">Skrip tak dimuat →</text><text x="455" y="62" font-family="system-ui,Arial" font-size="11.5" fill="#1e3a8a">penempatan · adblock · cache</text><rect x="440" y="86" width="262" height="56" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="455" y="108" font-family="system-ui,Arial" font-size="12.5" fill="#b45309">Dimuat tapi tertutup / tak menyambung →</text><text x="455" y="128" font-family="system-ui,Arial" font-size="11.5" fill="#92400e">penumpukan · entId · domain · SPA</text><path d="M378 60 H410 V48 H440" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M378 78 H410 V114 H440" stroke="#d97706" stroke-width="2" fill="none" marker-end="url(#a)"/><text x="20" y="178" font-family="system-ui,Arial" font-size="13" font-weight="700" fill="#1d1d1f">Empat kelompok akar (sebab / solusi per item)</text><g font-family="system-ui,Arial" font-size="12"><rect x="20" y="190" width="162" height="92" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="32" y="212" font-weight="700" fill="#1d4ed8">① Gagal muat</text><text x="32" y="234" fill="#555" font-size="11">penempatan · blokir · cache</text><rect x="194" y="190" width="162" height="92" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="206" y="212" font-weight="700" fill="#1d4ed8">② Konfig / otorisasi</text><text x="206" y="234" fill="#555" font-size="11">entId · whitelist domain</text><rect x="368" y="190" width="162" height="92" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="380" y="212" font-weight="700" fill="#b45309">③ Framework</text><text x="380" y="234" fill="#555" font-size="11">rute SPA · init</text><rect x="542" y="190" width="160" height="92" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="554" y="212" font-weight="700" fill="#047857">④ Tampilan / seluler / SDK</text><text x="554" y="234" fill="#555" font-size="11">penumpukan · seluler · push</text></g><defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#999"/></marker></defs></svg><figcaption>Gbr 1: triase 美洽 tidak muncul — periksa pemuatan skrip (meiqia.js di F12), lalu muat / konfig / framework / tampilan</figcaption></figure>
+<h2>Langkah 2: akar masalah yang paling sering terlewat → L2 (widget = injeksi JS asinkron pihak ketiga lintas domain)</h2>
+<p>Satu gagasan cukup: <strong>widget web 美洽 bukan komponen statis yang tertanam di halaman Anda — ia adalah <code>meiqia.js</code> yang dimuat secara asinkron dari domain eksternal 美洽 lalu secara dinamis menyuntikkan kontainer chat (DOM / iframe) dan membuka koneksi lintas-asal yang bertahan lama ke server 美洽</strong>. Ini menjelaskan sebagian besar «hilang misterius»: ① <strong>ia skrip pihak ketiga lintas domain</strong>, jadi AdBlock / uBlock memblokirnya lewat daftar «pelacakan / iklan» (<code>ERR_BLOCKED_BY_CLIENT</code>) dan tombol tak pernah muncul (padahal konsol tampak baik); ② <strong>ia menyuntik DOM secara asinkron</strong>: di <code>&lt;head&gt;</code> ia memblokir, perubahan rute SPA menghancurkan kontainer dan tidak dibangun ulang otomatis (pakai <code>manualInit</code> + <code>_MEIQIA('init')</code>), dan plugin heatmap / analitik yang mengubah DOM bisa menutupinya; ③ <strong>ia terikat ke perusahaan Anda via entId dan digerbangi whitelist domain</strong>: dengan entId salah atau domain tak diotorisasi skrip dimuat tapi «tak menyambung chat»; ④ <strong>seluler dan PC adalah dua integrasi terpisah</strong>, in-app adalah SDK (AppKey), dan push terbagi «tanpa push» vs «server push kustom». Setelah Anda melihat rantai injeksi ini, setiap gejala di bawah punya satu logika. Di bawah panel swa-periksa; lebih bawah lima metode dan perkiraan 2026.</p>
+<figure><svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Panel swa-periksa pra-integrasi 美洽" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">Panel swa-periksa integrasi (hijau = terkonfirmasi / merah = mudah terlewat)</text><rect x="20" y="42" width="680" height="226" rx="14" fill="#f8fafc" stroke="#e2e8f0"/><text x="38" y="66" font-family="system-ui,Arial" font-size="12.5" font-weight="700" fill="#475569">Item periksa</text><text x="300" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">Putusan</text><text x="610" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">Status</text><line x1="38" y1="74" x2="682" y2="74" stroke="#e2e8f0" stroke-width="1"/><text x="38" y="98" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Kode 美洽 ditempel sebelum </body> (bukan <head>)</text><text x="300" y="98" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">penempatan</text><circle cx="612" cy="94" r="6" fill="#16a34a"/><text x="628" y="98" font-family="system-ui,Arial" font-size="12" fill="#16a34a">terkonfirmasi</text><text x="38" y="128" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Status 200 meiqia.js di F12 → Network</text><text x="300" y="128" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">muat skrip</text><circle cx="612" cy="124" r="6" fill="#16a34a"/><text x="628" y="128" font-family="system-ui,Arial" font-size="12" fill="#16a34a">terkonfirmasi</text><text x="38" y="158" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Konsol typeof _MEIQIA adalah function</text><text x="300" y="158" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">terinisialisasi</text><circle cx="612" cy="154" r="6" fill="#16a34a"/><text x="628" y="158" font-family="system-ui,Arial" font-size="12" fill="#16a34a">terkonfirmasi</text><text x="38" y="188" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Tampil di penyamaran / adblock mati</text><text x="300" y="188" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">adblock</text><circle cx="612" cy="184" r="6" fill="#ef4444"/><text x="628" y="188" font-family="system-ui,Arial" font-size="12" fill="#ef4444">perlu cek</text><text x="38" y="218" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">entId cocok dengan workbench + domain diotorisasi</text><text x="300" y="218" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">konfig / otorisasi</text><circle cx="612" cy="214" r="6" fill="#16a34a"/><text x="628" y="218" font-family="system-ui,Arial" font-size="12" fill="#16a34a">terkonfirmasi</text><text x="38" y="248" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Re-init setelah ganti rute SPA + tanpa overlay plugin</text><text x="300" y="248" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">framework / penumpukan</text><circle cx="612" cy="244" r="6" fill="#ef4444"/><text x="628" y="248" font-family="system-ui,Arial" font-size="12" fill="#ef4444">perlu cek</text><text x="20" y="296" font-family="system-ui,Arial" font-size="11.5" fill="#94a3b8">Catatan: merah = dua yang paling sering terlewat — ekstensi adblock (ERR_BLOCKED_BY_CLIENT) dan framework / penumpukan (ganti rute SPA, plugin pihak ketiga mengubah DOM); periksa dua ini dulu.</text></svg><figcaption>Gbr 2: panel swa-periksa integrasi 美洽 (hijau = terkonfirmasi / merah = mudah terlewat)</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_id.webp"><img src="/img/board_id.png" alt="Ilustrasi panel swa-periksa pra-integrasi 美洽, item hijau/merah" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Gbr: periksa «penempatan kode + meiqia.js 200 + terinisialisasi» dulu, lalu «adblock + framework/penumpukan» — dua terakhir paling sering terlewat</figcaption></figure>
+<h2>Tabel gejala lengkap (perilaku / posisi resmi · akar masalah L2)</h2>
+<table id="tbl"></table>
+<h2>Lima metode integrasi 美洽 dibandingkan (kode / kesulitan / fitur / skenario / waktu tayang · dok resmi)</h2>
+<table class="cmp"><tr><th>Metode integrasi</th><th>Kode / kesulitan</th><th>Kelengkapan fitur</th><th>Cocok untuk</th><th>Waktu tayang</th></tr><tr><td>Widget JS web</td><td>satu snippet JS · rendah</td><td>terlengkap (mengambang / popup / sapaan otomatis / jejak pengunjung)</td><td>situs PC + seluler (rekomendasi resmi)</td><td>~3-5 mnt</td></tr><tr><td>Tautan chat</td><td>tanpa kode · minimal</td><td>chat dasar</td><td>tanpa teknis / pasang tautan chat cepat</td><td>instan</td></tr><tr><td>API / SDK WebIM</td><td>perlu dev · tinggi</td><td>kustomisasi dalam (UI sendiri / sistem / integrasi pesanan)</td><td>tim dengan kapasitas dev untuk fusi dalam</td><td>tergantung dev</td></tr><tr><td>SDK native app</td><td>integrasi SDK · tinggi</td><td>chat in-app + push pesan</td><td>app iOS / Android</td><td>tergantung dev</td></tr><tr><td>Setup cepat CMS</td><td>plugin / satu klik · rendah</td><td>sama seperti widget JS</td><td>situs WordPress / Fkw / Shopify</td><td>menit</td></tr></table><section class="i4data">
+<h2>美洽 sebab tidak muncul & perbandingan metode integrasi (perkiraan 2026)</h2>
+<p>Berikut adalah <strong>perkiraan 2026</strong> yang dirangkum dari bantuan resmi 美洽 (Kanal akses / API widget web JavaScript) dan troubleshooting integrasi publik (bukan komitmen vendor maupun pengukuran langsung; sebagai acuan, berubah menurut versi dan kebijakan browser):</p>
+<table>
+<tr><th>Dimensi</th><th>Perkiraan / perbandingan</th></tr>
+<tr><td>Sebaran sebab tidak muncul (komunitas / tiket · perk.)</td><td><strong>penempatan / tak dimuat ~35%</strong> &gt; <strong>adblock / ekstensi browser ~25%</strong> &gt; konfig / otorisasi (entId / domain) ~20% &gt; framework (SPA) ~12% &gt; konflik gaya / plugin pihak ketiga ~8%</td></tr>
+<tr><td>Apa sebenarnya integrasi itu</td><td>widget web = <strong>JS asinkron pihak ketiga lintas domain yang menyuntik DOM + koneksi lintas-asal bertahan lama</strong> (bukan komponen statis tertanam); maka terpengaruh penempatan, aturan adblock, penumpukan CSS, siklus hidup SPA</td></tr>
+<tr><td>Integrasi per platform (perk.)</td><td>web PC / seluler = <strong>widget JS (kode sama, deploy terpisah)</strong>; app = <strong>SDK native (AppKey)</strong>; WeChat / Douyin / RED = integrasi otorisasi kanal</td></tr>
+<tr><td>Dampak adblock (perk.)</td><td>sekitar <strong>30-40%</strong> pengguna PC pakai ekstensi adblock → skrip chat pihak ketiga diblokir aturan iklan (ERR_BLOCKED_BY_CLIENT), sebab utama «konsol baik, sisi pengguna hilang»</td></tr>
+<tr><td>Waktu tayang widget JS (resmi)</td><td>tempel JS khusus di bagian bawah halaman dan tayang dalam sekitar <strong>3-5 menit</strong>; entId adalah id unik perusahaan, dan ketaksesuaian dengan workbench membuat agen tanpa chat</td></tr>
+</table>
+<p><small>Basis perkiraan: garis dasar sumber + ekstrapolasi waktu (meiqia.com/help Kanal akses / widget web JavaScript, panduan integrasi meiqia.im, troubleshooting publik, 2026); berubah menurut versi dan kebijakan pemblokiran browser. Ikuti info resmi 美洽 terbaru. Tidak resmi · lokalisasi LLM.</small></p>
+</section>
+<h2>Kasus nyata — baca cepat</h2>
+<ul class="scenes"><li>Kode ditempel tapi tak ada gelembung chat: pertama F12 → Network, cari meiqia.js — tanpa permintaan atau bukan-200 berarti salah tempat / tertahan cache; bersihkan cache CDN atau buka ulang di penyamaran.</li><li>Konsol bilang meiqia.js net::ERR_BLOCKED_BY_CLIENT: adblock (AdBlock / uBlock / AdGuard) memblokir skrip chat pihak ketiga lewat aturan iklan — matikan ekstensi atau whitelist situs; ini juga sebab «hilang bagi sebagian pengguna padahal konsol Anda baik».</li><li>Skrip dimuat (konsol typeof _MEIQIA adalah function) tapi tak ada tombol: biasanya CSS tema mendorong gelembung ke luar layar atau plugin heatmap / analitik mengubah penumpukan DOM — F12 → Elements, cari kontainer 美洽 dan periksa satu per satu.</li><li>Beranda punya chat di SPA Vue / React, tapi rute kedua tidak: ganti rute SPA menghancurkan kontainer dan widget tak dibangun ulang — pakai manualInit untuk menghentikan auto-init dan panggil _MEIQIA('init') di hook rute untuk memasang ulang.</li><li>Chat terbuka tapi agen tidak menerima pesan pengunjung: kemungkinan besar entId tidak cocok dengan workbench (menyalin snippet orang lain / akun tercampur) — bandingkan ID perusahaan di Pengaturan - Tim - cari ID dengan entId di kode.</li><li>Jalan di staging, tak dimuat di domain produksi: domain produksi belum diotorisasi via «Tambah situs integrasi» — tambahkan domain live ke daftar lalu publikasikan ulang.</li><li>Ingin membuang tombol bundar native 美洽 dan pakai tombol «Hubungi» sendiri: panggil _MEIQIA('withoutBtn') untuk menyembunyikan native, lalu ikat _MEIQIA('showPanel') ke tombol Anda untuk membuka chat.</li></ul><div class="related"><h2>Terkait</h2><ul><li><a href="https://meiqis.com/">Unduh 美洽 / pemasangan & panduan integrasi</a></li><li><a href="https://meiqis.com/id/website-integration/">Panduan integrasi web 美洽 (widget JS)</a></li><li><a href="https://meiqis.com/id/tools/meiqia-integration-troubleshooting/">Troubleshooting integrasi 美洽 (tabel lengkap otoritatif)</a></li><li><a href="https://meiqiaa.com/">Situs resmi 美洽 (situs saudara)</a></li></ul></div></main>
+<footer>Widget web / API JS (manualInit / init / withoutBtn / showPanel / kirim info pelanggan), otorisasi entId / domain, sub-kanal, AppKey SDK & mode push dirangkum dari Pusat Bantuan resmi 美洽 (meiqia.com/help · Kanal akses / widget web JavaScript) dan panduan integrasi 美洽 (meiqia.im); adblock ERR_BLOCKED_BY_CLIENT, konflik DOM heatmap / analitik dan integrasi SPA dari troubleshooting publik (diparafrasekan). Angka 2026 adalah perkiraan, bukan komitmen vendor maupun pengukuran langsung; sebagai acuan, ikuti info resmi 美洽 terbaru. Tidak resmi · lokalisasi LLM.<br>Halaman alat · triase integrasi, bukan pengganti konsol 美洽</footer>
+</div>
+<script src="/id/codes.js"></script><script src="/app.js"></script>
+</body></html>
