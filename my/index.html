@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="my"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>美洽(Meiqia) ချတ် widget မပေါ်ခြင်း / ပေါင်းစပ်အမှားဖြေရှင်းခြင်း - meiqia.js ပိတ်ဆို့, ခလုတ်မရှိ, entId, SPA, SDK push</title>
+<meta name="description" content="美洽(Meiqia) ဝက်ဘ်ချတ် widget မပေါ်, ခလုတ်ပျောက်, meiqia.js ကို ERR_BLOCKED_BY_CLIENT ဖြင့်ပိတ်ဆို့, style ပျက်, SPA route ပြောင်းပြီးနောက် ပျောက်, entId မကိုက်၍ agent များ chat မရ, mobile တွင်မပေါ်, SDK push မရောက်? လက္ခဏာရှာဖွေပြီး L1 အပြုအမူနှင့် L2 အရင်းခံအကြောင်းရင်းကိုကြည့်ပါ: တတိယပါတီ off-domain အချိန်မကိုက် JS injection, adblock စည်းမျဉ်း, CSS stacking, SPA lifecycle, entId နှင့် domain whitelist, AppKey နှင့် SDK push လမ်းကြောင်း; ပေါင်းစပ်နည်းငါးမျိုး နှိုင်းယှဉ်ချက်နှင့် 2026 ခန့်မှန်းချက်များဖြင့်.">
+<link rel="canonical" href="https://meiqiscom.github.io/my/">
+<link rel="alternate" hreflang="zh-Hans" href="https://meiqiscom.github.io/">
+<link rel="alternate" hreflang="en" href="https://meiqiscom.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://meiqiscom.github.io/ja/">
+<link rel="alternate" hreflang="zh-Hant" href="https://meiqiscom.github.io/zh-tw/">
+<link rel="alternate" hreflang="ko" href="https://meiqiscom.github.io/ko/">
+<link rel="alternate" hreflang="id" href="https://meiqiscom.github.io/id/">
+<link rel="alternate" hreflang="vi" href="https://meiqiscom.github.io/vi/">
+<link rel="alternate" hreflang="th" href="https://meiqiscom.github.io/th/">
+<link rel="alternate" hreflang="es" href="https://meiqiscom.github.io/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://meiqiscom.github.io/pt-br/">
+<link rel="alternate" hreflang="de" href="https://meiqiscom.github.io/de/">
+<link rel="alternate" hreflang="fr" href="https://meiqiscom.github.io/fr/">
+<link rel="alternate" hreflang="ru" href="https://meiqiscom.github.io/ru/">
+<link rel="alternate" hreflang="it" href="https://meiqiscom.github.io/it/">
+<link rel="alternate" hreflang="pl" href="https://meiqiscom.github.io/pl/">
+<link rel="alternate" hreflang="nl" href="https://meiqiscom.github.io/nl/">
+<link rel="alternate" hreflang="tr" href="https://meiqiscom.github.io/tr/">
+<link rel="alternate" hreflang="ar" href="https://meiqiscom.github.io/ar/">
+<link rel="alternate" hreflang="hi" href="https://meiqiscom.github.io/hi/">
+<link rel="alternate" hreflang="ms" href="https://meiqiscom.github.io/ms/">
+<link rel="alternate" hreflang="fa" href="https://meiqiscom.github.io/fa/">
+<link rel="alternate" hreflang="bn" href="https://meiqiscom.github.io/bn/">
+<link rel="alternate" hreflang="ta" href="https://meiqiscom.github.io/ta/">
+<link rel="alternate" hreflang="te" href="https://meiqiscom.github.io/te/">
+<link rel="alternate" hreflang="fil" href="https://meiqiscom.github.io/fil/">
+<link rel="alternate" hreflang="ur" href="https://meiqiscom.github.io/ur/">
+<link rel="alternate" hreflang="lo" href="https://meiqiscom.github.io/lo/">
+<link rel="alternate" hreflang="km" href="https://meiqiscom.github.io/km/">
+<link rel="alternate" hreflang="my" href="https://meiqiscom.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://meiqiscom.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "美洽 ချတ်မပေါ် / ပေါင်းစပ်အမှားဖြေရှင်း",
+   "url": "https://meiqiscom.github.io/my/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "inLanguage": "my",
+   "description": "美洽(Meiqia) ဝက်ဘ်ချတ် widget မပေါ်, ခလုတ်ပျောက်, meiqia.js ကို ERR_BLOCKED_BY_CLIENT ဖြင့်ပိတ်ဆို့, style ပျက်, SPA route ပြောင်းပြီးနောက် ပျောက်, entId မကိုက်၍ agent များ chat မရ, mobile တွင်မပေါ်, SDK push မရောက်? လက္ခဏာရှာဖွေပြီး L1 အပြုအမူနှင့် L2 အရင်းခံအကြောင်းရင်းကိုကြည့်ပါ: တတိယပါတီ off-domain အချိန်မကိုက် JS injection, adblock စည်းမျဉ်း, CSS stacking, SPA lifecycle, entId နှင့် domain whitelist, AppKey နှင့် SDK push လမ်းကြောင်း; ပေါင်းစပ်နည်းငါးမျိုး နှိုင်းယှဉ်ချက်နှင့် 2026 ခန့်မှန်းချက်များဖြင့်.",
+   "isAccessibleForFree": true,
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "my",
+   "url": "https://meiqiscom.github.io/my/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "美洽 chat window / bubble လုံးဝမပေါ် — ဘယ်လိုဖြေရှင်းမလဲ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽 ဝက်ဘ် widget သည် ကူးထည့်သော JS snippet တစ်ခုဖြင့် floating chat window load လုပ်; code မှန်ကန်စွာမြှုပ်ထားကြောင်းနှင့် ပေါင်းစပ်ဆိုဒ်ကို console တွင် config လုပ်ထားကြောင်းသေချာပါ. widget သည် အချိန်မကိုက် load ပြီးနောက် DOM ထဲ inject ဖြစ်သော meiqia.js ဖြစ်၍ «လုံးဝဘာမှမရှိ» က များသောအားဖြင့် «script ဘယ်တော့မှ load မဖြစ်» — နေရာမှား, adblock / cache ဖြင့်ပိတ်ဆို့, သို့မဟုတ် domain / entId မကိုက်, ၍ injection ဘယ်တော့မှ run မဖြစ်. F12 → Network, meiqia.js ရှာ: request မရှိ → code အကျိုးမသက် (နေရာစစ် / cache ရှင်း); request ပေမယ့် non-200 → ပိတ်ဆို့ သို့မဟုတ် path ပြဿနာ; အားလုံးကောင်းပေမယ့် ပုန်းနေ → entId / domain ခွင့်ပြုချက်နှင့် အောက်ပါအုပ်စုစစ်."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 script load ဖြစ်ပေမယ့် chat ခလုတ်ပျောက် — ဘယ်လိုဖြေရှင်းမလဲ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "widget code က ဆိုဒ်နှင့်လိုက်လျောညီထွေဖြစ်ပြီး chat ခလုတ်ပြ; ပြသမအောင်မြင်လျှင် style ဖြင့်ပုန်းနေလား init ပြတ်တောက်လားစစ်ပါ. script load ဖြစ်ပြီး ခလုတ်ပျောက်လျှင် များသောအားဖြင့် «ပြသ layer» ပြဿနာ: ဆိုဒ်တစ်ခုလုံး CSS က ခလုတ်တည်နေရာ override / display:none, z-index ရှုံး, သို့မဟုတ် အခြား fixed element ဖုံး; အခြား JS error ကလည်း init ပြတ်စေနိုင်. F12 → Elements, 美洽 container ရှာ — ရှိ, ပုန်း, screen ပြင်ပ?; ပြန်စမ်းရန် custom CSS / အခြား script ယာယီပိတ်; execution ရပ်စေသော error အတွက် console စစ်."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js ကို adblock extension ပိတ်ဆို့ — ဘယ်လိုဖြေရှင်းမလဲ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽 chat script က တတိယပါတီ domain မှလာ; ပိတ်ဆို့ extension တပ်ဆင်ထားလျှင် ၎င်းကို ကြော်ငြာ / tracker အဖြစ်ယူဆ၍ load တားနိုင် — ပိတ်ဆို့ခြင်းပိတ် သို့မဟုတ် whitelist. ERR_BLOCKED_BY_CLIENT ဆိုသည်မှာ browser extension (AdBlock / uBlock / AdGuard) က filter စာရင်းဖြင့် request ပိတ်ဆို့. 美洽 script က «တတိယပါတီ off-domain + real-time communication» ဖြစ်၍ ထိုစည်းမျဉ်းများက ကြော်ငြာ / tracker အဖြစ်မှားယွင်းယူဆတတ်, «console ကောင်း, အသုံးပြုသူဘက်ပျောက်» false failure ဖြစ်စေ. incognito တွင် သို့မဟုတ် adblock ပိတ်၍ပြန်စမ်း — ပေါ်လျှင် ပိတ်ဆို့ခြင်းကအကြောင်းရင်း; အသုံးပြုသူများကို ဆိုဒ် whitelist ခိုင်း; frontend က auto စည်းမျဉ်းအချို့ရှောင်ရန် chat script ကို delay / conditional load လုပ်နိုင်."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js 404 / status ဆိုး / mixed content — ဘယ်လိုဖြေရှင်းမလဲ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "deploy ပြီးနောက် Network panel တွင် meiqia.js ရှာ; status 200 ဆိုသည်မှာ script မှန်ကန်စွာထား၍ load ဖြစ်. non-200 အကြောင်းရင်းများ: code က page / CDN cache တွင်ပိတ်မိ (ထုတ်ဝေပြီး refresh မဖြစ်), HTTP page တွင် load / certificate chain မပြည့်စုံ၍ mixed-content ပိတ်ဆို့ ဖြစ်, သို့မဟုတ် code ပျက် / တစ်ပိုင်းတစ်စကူး. ဤအဆင့်မအောင်မြင်လျှင် injection နှင့် connection ဘယ်တော့မှမဖြစ်. ထုတ်ဝေပြီး CDN / browser cache ရှင်း (သို့မဟုတ် incognito); certificate chain ပြည့်စုံသော HTTPS အပြည့်နှင့် mixed content မပါဘဲသေချာ; ကူးသော code ပြည့်စုံ၍ escape မဖြစ်ကြောင်းအတည်ပြု."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 code နေရာမှား (head ပိတ်ဆို့ / အကျိုးမသက်) — ဘယ်လိုဖြေရှင်းမလဲ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽 က code ကို page အောက်, </body> ရှေ့ကူးထည့်ရန်အကြံပြု; widget က main content load ပြီးနောက် run. widget က DOM အဆင်သင့်ဖြစ်ပြီးနောက် container inject လုပ်ရ. <head> တွင် ၎င်းက render ပိတ်ဆို့ (network အားနည်းလျှင် page အလွတ်အရင်) သို့မဟုတ် DOM အဆင်သင့်မဖြစ်မီ run ၍မအောင်မြင်; async / module scope အချို့တွင် load order လည်းမှားနိုင်. 美洽 JS ကို page တိုင်း၏ shared footer, </body> ရှေ့ထား; SPA အတွက် «SPA route» entry ကြည့်ပြီး manualInit သုံး; bundler က tree-shaking ဖြင့်မဖယ်ကြောင်းသေချာ."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 chat window / ခလုတ် style ပျက် — ဘယ်လိုဖြေရှင်းမလဲ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "widget က ကိုယ်ပိုင် style inject လုပ်ပြီး ဆိုဒ်နှင့်လိုက်လျောညီထွေ; ဆိုဒ်တစ်ခုလုံး style နှင့်ပဋိပက္ခက visual ချွတ်ယွင်းစေနိုင်. 美洽 script က runtime တွင် CSS inject; ဆိုဒ်တစ်ခုလုံး style (universal selector / high-priority rule / reset) က ၎င်း class အရင် override လျှင် တည်နေရာ, stacking, font ပျက် — «dynamic injection + document style space တစ်ခုမျှဝေ» ၏ ဘေးထွက်ဆိုးကျိုး. ဘယ်ဆိုဒ် rule က 美洽 container override သည်ကို F12 ဖြင့်ကြည့်; ဆိုဒ်တစ်ခုလုံး style ကျဉ်း / common class အပေါ်အကျိုးသက်ရောက်မှုလျှော့; လိုအပ်လျှင် container stacking ချိန်ညှိရန် 美洽 ကိုခိုင်း."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 ခလုတ် screen ပြင်ပ / ဖုံး — ဘယ်လိုဖြေရှင်းမလဲ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "widget ခလုတ်က fixed-position floating အဖြစ်ပေါ်; အခြား fixed element ဖုံးလျှင် stacking သို့မဟုတ် တည်နေရာချိန်ညှိ. ဆိုဒ်၏ အခြား position:fixed element (အပေါ်သို့, floating ကြော်ငြာ, ကိုယ်ပိုင် support bar) က z-index မြင့်ဖြင့် 美洽 ခလုတ်ဖုံး, သို့မဟုတ် theme က coordinate မှားတွက်၍ «screen ပြင်ပ / ဖုံး» ထား. တကယ် coordinate / z-index ကြည့်ရန် F12 တွင် 美洽 container ရွေး; ၎င်းကိုမြှင့် သို့မဟုတ် ဖုံးသော element z-index လျှော့; ထောင့်တစ်ခုတွင် fixed floating များစုပုံခြင်းရှောင်."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 တတိယပါတီ plugin / analytics DOM ပဋိပက္ခ — ဘယ်လိုဖြေရှင်းမလဲ?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "DOM ပြောင်းသော သို့မဟုတ် request ကြားဖြတ်သော page ၏ အခြား script များက widget ၏ ပုံမှန် load နှင့် ပြသခြင်းကို သက်ရောက်နိုင်. heatmap / analytics / conversion script များက DOM ပြန်ရေး, overlay inject သို့မဟုတ် request ကြားဖြတ်; ၎င်းတို့နှင့် 美洽 က document တစ်ခုတည်းတွင် inject ဖြစ်၍ stacking / event နှောင့်ယှက်ကာ 美洽 container ဖုံး သို့မဟုတ် ၎င်း init ပြတ်. ပဋိပက္ခရှာရန် သံသယ plugin များတစ်ခုချင်းပိတ်; load order / container stacking ချိန်; heatmap စသည်တို့ကို 美洽 container ဧရိယာရှောင်စေ."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">ဘာသာ: <a href="/">简体中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/ko/">한국어</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/th/">ไทย</a> · <a href="/es/">Español</a> · <a href="/pt-br/">Português (BR)</a> · <a href="/de/">Deutsch</a> · <a href="/fr/">Français</a> · <a href="/ru/">Русский</a> · <a href="/it/">Italiano</a> · <a href="/pl/">Polski</a> · <a href="/nl/">Nederlands</a> · <a href="/tr/">Türkçe</a> · <a href="/ar/">العربية</a> · <a href="/hi/">हिन्दी</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fa/">فارسی</a> · <a href="/bn/">বাংলা</a> · <a href="/ta/">தமிழ்</a> · <a href="/te/">తెలుగు</a> · <a href="/fil/">Filipino</a> · <a href="/ur/">اردو</a> · <a href="/lo/">ພາສາລາວ</a> · <a href="/km/">ភាសាខ្មែរ</a> · <strong>မြန်မာ</strong></nav>
+<h1>美洽 ချတ် widget မပေါ်ခြင်း / ပေါင်းစပ်အမှားဖြေရှင်းခြင်း</h1>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_my.webp"><img src="/img/cover_my.png" alt="美洽 ချတ် widget မပေါ် / အမှားဖြေရှင်း tool ပုံ" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>ပုံ: 美洽 ချတ်မပေါ် / အမှားဖြေရှင်း (L1 အပြုအမူ + L2 အရင်းခံ + ပေါင်းစပ်နည်းငါးမျိုး)</figcaption></figure>
+<p><strong>美洽(Meiqia)</strong> code ကိုကူးထည့်ပြီးသော်လည်း <strong>ဝက်ဘ်ချတ် widget</strong> မပေါ်, <strong>ချတ်ခလုတ်ဘယ်တော့မှမပေါ်</strong>, console က <code>meiqia.js</code> ပိတ်ဆို့ထားကြောင်းပြ, သို့မဟုတ် <strong>agent များ chat မရ</strong>? အရင်ဆုံးအချက်သုံးချက်ရှင်းပါ: <strong>script လုံးဝ load မဖြစ်ဘူးလား (တည်နေရာ / adblock / cache), load ဖြစ်ပေမယ့် style / stacking ကြောင့်ပုန်းနေလား, ဒါမှမဟုတ် load ကောင်းပေမယ့် config မကိုက်ဘူးလား (entId / domain / SPA lifecycle)?</strong> သင့် <strong>လက္ခဏာ သို့မဟုတ် keyword</strong> ရှာပါ (ဥပမာ <code>not showing</code>, <code>adblock</code>, <code>entId</code>, <code>SPA</code>, <code>mobile</code>, <code>sdk push</code>): အရင် <strong>L1 အပြုအမူနှင့် တရားဝင်ရပ်တည်ချက်</strong>, ပြီးနောက် <strong>L2 အရင်းခံအကြောင်းရင်းနှင့် ဖြေရှင်းနည်း</strong>. ထည့်သွင်းခြင်း / လမ်းညွှန်? ကြည့်ရန် <a href="https://meiqis.com/">美洽 ဒေါင်းလုဒ် / customer service ပေါင်းစပ်လမ်းညွှန်</a>.</p>
+<input id="q" placeholder="လက္ခဏာ သို့မဟုတ် keyword ရိုက်ပါ, ဥပမာ not showing / adblock / entId / SPA / mobile / sdk push" autocomplete="off">
+<button id="go">ရှာဖွေ</button>
+<div id="out"></div>
+<h2>အဆင့် 1: script load ဖြစ်မဖြစ်ကြည့်, ပြီးနောက် လေးအုပ်စုခွဲပါ</h2>
+<p>美洽 chat မပေါ်သောအခါ 10 ကြိမ်တွင် 9 ကြိမ်က လေးအုပ်စုထဲမှ တစ်ခု; အရင် <strong>script တကယ် load ဖြစ်မဖြစ်</strong>ကြည့်ပါ: F12 → Network, <code>meiqia.js</code> ရှာပါ; request မရှိ သို့မဟုတ် status 200 မဟုတ်လျှင် load မဖြစ်ပါ. ① <strong>Load မအောင်မြင်</strong>: code နေရာမှား (<code>&lt;/body&gt;</code> ရှေ့မှာရှိရမည်, <code>&lt;head&gt;</code> ထဲမဟုတ်), adblock စည်းမျဉ်းဖြင့်ပိတ်ဆို့ (<code>ERR_BLOCKED_BY_CLIENT</code>), CDN / browser cache တွင်ပိတ်မိ, သို့မဟုတ် HTTPS certificate / mixed content. ② <strong>Config / ခွင့်ပြုချက်</strong>: entId က workbench နှင့်မကိုက် (load ဖြစ်ပေမယ့် agent များ chat မရ), သို့မဟုတ် ဆိုဒ် domain ကို console တွင်ခွင့်မပြု. ③ <strong>Framework ပေါင်းစပ်</strong>: Vue/React/Next SPA route ပြောင်းချိန် container ကိုဖျက်ပြီး widget ပြန်မတည်ဆောက်. ④ <strong>ပြသခြင်း / mobile / SDK</strong>: ဆိုဒ် CSS က bubble ကို screen ပြင်ပသို့တွန်း, တတိယပါတီ plugin က DOM ဖုံး, mobile သီးသန့် deploy လို, in-app SDK လို. ပိုပြည့်စုံ: <a href="https://meiqis.com/website-integration/">美洽 ဝက်ဘ်ပေါင်းစပ်လမ်းညွှန်</a>.</p>
+<div class="cat"><div class="catbox"><b>Load မအောင်မြင်</b><span class="cs">တည်နေရာ · adblock · cache · HTTPS</span><div>美洽 JS ကို </body> ရှေ့မှာကူးထည့် (<head> ထဲမဟုတ်); F12 → Network, meiqia.js ရှာပြီး status စစ် (200 ဖြစ်ရမည်); ERR_BLOCKED_BY_CLIENT များသောအားဖြင့် adblock extension — incognito တွင်စမ်း သို့မဟုတ် whitelist; ထုတ်ဝေပြီး CDN cache ရှင်း; mixed content မပါဘဲ HTTPS အပြည့်သေချာပါ.</div></div><div class="catbox"><b>Config / ခွင့်ပြုချက်</b><span class="cs">entId · domain whitelist · sub-channel</span><div>entId သည် သင့်ကုမ္ပဏီ၏ သီးသန့် id; workbench နှင့်မကိုက်လျှင် «script load ဖြစ်ပေမယ့် agent များ chat မရ» (settings - team - ID ရှာ); ဆိုဒ် domain ကို «ပေါင်းစပ်ဆိုဒ်ထည့်ရန်» ဖြင့်ခွင့်ပြုရမည်; business line တစ်ခုစီအတွက် သီးခြား sub-channel (probe) သုံးပါ.</div></div><div class="catbox"><b>Framework ပေါင်းစပ်</b><span class="cs">SPA · route ပြောင်း · manualInit</span><div>Vue/React/Next SPA route ပြောင်းချိန် DOM ဖျက်ပြီး widget ပြန်မတည်ဆောက်; auto-init ရပ်ရန် _MEIQIA('manualInit') သုံးပြီး ပြန် mount ရန် route hook (useEffect / mounted) တွင် _MEIQIA('init') ခေါ်ပါ.</div></div><div class="catbox"><b>ပြသခြင်းပြဿနာ</b><span class="cs">style ပဋိပက္ခ · stacking · တတိယပါတီ plugin</span><div>load ဖြစ်ပေမယ့်မမြင်ရ: များသောအားဖြင့် ဆိုဒ်တစ်ခုလုံး CSS က bubble တည်နေရာ override, သို့မဟုတ် heatmap / analytics / SEO plugin က DOM ပြောင်းပြီး container ဖုံး; F12 → Elements, meiqia container ရှာပြီး display:none, z-index ရှုံး, သို့မဟုတ် screen ပြင်ပ coordinate စစ်ပါ.</div></div><div class="catbox"><b>Mobile / SDK</b><span class="cs">mobile ဝက်ဘ် · AppKey · push</span><div>mobile / PC ဝက်ဘ်က snippet တူပေမယ့် သီးခြား deploy လို; in-app က native SDK သုံး (အရင် AppKey အတွက် console တွင် «APP config ထည့်»); push က «push မရှိ» (in-app သာ) နှင့် «custom push server» (app ထွက်ပြီးနောက်လည်းရောက်) ခွဲ.</div></div><div class="catbox"><b>API ခေါ်ဆိုမှု</b><span class="cs">withoutBtn · showPanel · customer info</span><div>ကိုယ်ပိုင်ခလုတ်? _MEIQIA('withoutBtn') က native ခလုတ်ဖုံး, chat ဖွင့်ရန် click တွင် _MEIQIA('showPanel') ခေါ်; customer info ကို init အချိန်တွင်ပို့ / sync, မဟုတ်လျှင်အကျိုးမသက်ရောက်.</div></div></div><figure><svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="美洽 ချတ်မပေါ် triage ပုံ" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">window / ခလုတ် မပေါ် triage (အရင်နှစ်ဆင့်: script load → config မှန်?)</text><rect x="20" y="46" width="150" height="46" rx="10" fill="#111"/><text x="95" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff">chat မမြင်</text><path d="M170 69 H206" stroke="#999" stroke-width="2" fill="none" marker-end="url(#a)"/><rect x="206" y="46" width="172" height="46" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="292" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1d4ed8">နှစ်အုပ်စု</text><rect x="440" y="20" width="262" height="56" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="455" y="42" font-family="system-ui,Arial" font-size="12.5" fill="#1d4ed8">script load မဖြစ် →</text><text x="455" y="62" font-family="system-ui,Arial" font-size="11.5" fill="#1e3a8a">တည်နေရာ · adblock · cache</text><rect x="440" y="86" width="262" height="56" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="455" y="108" font-family="system-ui,Arial" font-size="12.5" fill="#b45309">load ဖြစ်ပေမယ့်ပုန်း / မချိတ် →</text><text x="455" y="128" font-family="system-ui,Arial" font-size="11.5" fill="#92400e">stacking · entId · domain · SPA</text><path d="M378 60 H410 V48 H440" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M378 78 H410 V114 H440" stroke="#d97706" stroke-width="2" fill="none" marker-end="url(#a)"/><text x="20" y="178" font-family="system-ui,Arial" font-size="13" font-weight="700" fill="#1d1d1f">လေးအုပ်စုအရင်းခံ (item တစ်ခုစီ အကြောင်းရင်း / ဖြေရှင်းနည်း)</text><g font-family="system-ui,Arial" font-size="12"><rect x="20" y="190" width="162" height="92" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="32" y="212" font-weight="700" fill="#1d4ed8">① Load မအောင်မြင်</text><text x="32" y="234" fill="#555" font-size="11">တည်နေရာ · ပိတ်ဆို့ · cache</text><rect x="194" y="190" width="162" height="92" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="206" y="212" font-weight="700" fill="#1d4ed8">② Config / ခွင့်ပြုချက်</text><text x="206" y="234" fill="#555" font-size="11">entId · domain whitelist</text><rect x="368" y="190" width="162" height="92" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="380" y="212" font-weight="700" fill="#b45309">③ Framework</text><text x="380" y="234" fill="#555" font-size="11">SPA route · init</text><rect x="542" y="190" width="160" height="92" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="554" y="212" font-weight="700" fill="#047857">④ ပြသ / mobile / SDK</text><text x="554" y="234" fill="#555" font-size="11">stacking · mobile · push</text></g><defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#999"/></marker></defs></svg><figcaption>ပုံ 1: 美洽 မပေါ် triage — script load စစ်ဆေး (F12 တွင် meiqia.js), ပြီးနောက် load / config / framework / ပြသခြင်း</figcaption></figure>
+<h2>အဆင့် 2: အလျစ်လျူရှုခံရဆုံး အရင်းခံအကြောင်းရင်း → L2 (widget = တတိယပါတီ off-domain အချိန်မကိုက် JS injection)</h2>
+<p>အယူအဆတစ်ခုပင်လုံလောက်: <strong>美洽 ဝက်ဘ် widget သည် သင့်စာမျက်နှာတွင်မြှုပ်ထားသော static component မဟုတ် — ၎င်းသည် 美洽 ၏ off-domain မှ အချိန်မကိုက် load ဖြစ်သော <code>meiqia.js</code> ဖြစ်ပြီး chat container (DOM / iframe) ကို dynamic ထည့်သွင်းကာ 美洽 server များသို့ ရှည်လျားသော cross-origin connection ဖွင့်သည်</strong>. ၎င်းက «ထူးဆန်းစွာပျောက်ခြင်း» အများစုကိုရှင်းပြသည်: ① <strong>၎င်းသည် တတိယပါတီ off-domain script</strong> ဖြစ်၍ AdBlock / uBlock က «tracking / ကြော်ငြာ» စာရင်းများဖြင့်ပိတ်ဆို့ (<code>ERR_BLOCKED_BY_CLIENT</code>) ၍ ခလုတ်ဘယ်တော့မှမပေါ် (console ပုံမှန်ပြနေသော်လည်း); ② <strong>၎င်းသည် DOM ကိုအချိန်မကိုက် inject လုပ်သည်</strong>: <code>&lt;head&gt;</code> တွင် ၎င်းကပိတ်ဆို့, SPA route ပြောင်းခြင်းက container ဖျက်ပြီး အလိုအလျောက်ပြန်မတည်ဆောက် (<code>manualInit</code> + <code>_MEIQIA('init')</code> သုံးပါ), DOM ပြောင်းသော heatmap / analytics plugin များက ၎င်းကိုဖုံးနိုင်; ③ <strong>၎င်းသည် entId ဖြင့်သင့်ကုမ္ပဏီနှင့်ချိတ်ပြီး domain whitelist ဖြင့်ထိန်းချုပ်</strong>: entId မှား သို့မဟုတ် domain ခွင့်မပြုလျှင် script load ဖြစ်ပေမယ့် «chat မချိတ်»; ④ <strong>mobile နှင့် PC သည် သီးခြားပေါင်းစပ်နှစ်ခု</strong>, in-app က SDK (AppKey), push က «push မရှိ» နှင့် «custom push server» ခွဲ. ဤ injection ကွင်းဆက်ကိုမြင်ပြီးနောက် အောက်ပါလက္ခဏာတိုင်းတွင် ယုတ္တိတစ်ခုရှိ. အောက်တွင် self-check panel; အောက်ပိုင်းတွင် နည်းငါးမျိုးနှင့် 2026 ခန့်မှန်းချက်.</p>
+<figure><svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="美洽 ပေါင်းစပ်မလုပ်မီ self-check panel" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">ပေါင်းစပ် self-check panel (အစိမ်း = အတည်ပြု / အနီ = အလွယ်တကူ အလျစ်လျူရှု)</text><rect x="20" y="42" width="680" height="226" rx="14" fill="#f8fafc" stroke="#e2e8f0"/><text x="38" y="66" font-family="system-ui,Arial" font-size="12.5" font-weight="700" fill="#475569">စစ်ဆေးချက် item</text><text x="300" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">ဆုံးဖြတ်ချက်</text><text x="610" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">အခြေအနေ</text><line x1="38" y1="74" x2="682" y2="74" stroke="#e2e8f0" stroke-width="1"/><text x="38" y="98" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">美洽 code ကို </body> ရှေ့ကူးထည့် (<head> မဟုတ်)</text><text x="300" y="98" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">တည်နေရာ</text><circle cx="612" cy="94" r="6" fill="#16a34a"/><text x="628" y="98" font-family="system-ui,Arial" font-size="12" fill="#16a34a">အတည်ပြု</text><text x="38" y="128" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">F12 → Network တွင် meiqia.js status 200</text><text x="300" y="128" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">script load</text><circle cx="612" cy="124" r="6" fill="#16a34a"/><text x="628" y="128" font-family="system-ui,Arial" font-size="12" fill="#16a34a">အတည်ပြု</text><text x="38" y="158" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">console typeof _MEIQIA က function</text><text x="300" y="158" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">initialize</text><circle cx="612" cy="154" r="6" fill="#16a34a"/><text x="628" y="158" font-family="system-ui,Arial" font-size="12" fill="#16a34a">အတည်ပြု</text><text x="38" y="188" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">incognito တွင် / adblock ပိတ်လျှင်ပေါ်</text><text x="300" y="188" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">adblock</text><circle cx="612" cy="184" r="6" fill="#ef4444"/><text x="628" y="188" font-family="system-ui,Arial" font-size="12" fill="#ef4444">စစ်ရန်</text><text x="38" y="218" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">entId workbench နှင့်ကိုက် + domain ခွင့်ပြု</text><text x="300" y="218" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">config / ခွင့်ပြုချက်</text><circle cx="612" cy="214" r="6" fill="#16a34a"/><text x="628" y="218" font-family="system-ui,Arial" font-size="12" fill="#16a34a">အတည်ပြု</text><text x="38" y="248" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">SPA route ပြောင်းပြီး init ပြန် + plugin overlay မရှိ</text><text x="300" y="248" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">framework / stacking</text><circle cx="612" cy="244" r="6" fill="#ef4444"/><text x="628" y="248" font-family="system-ui,Arial" font-size="12" fill="#ef4444">စစ်ရန်</text><text x="20" y="296" font-family="system-ui,Arial" font-size="11.5" fill="#94a3b8">မှတ်ချက်: အနီ = အလျစ်လျူရှုခံရဆုံးနှစ်ခု — adblock extension (ERR_BLOCKED_BY_CLIENT) နှင့် framework / stacking (SPA route ပြောင်း, DOM ပြောင်းသော တတိယပါတီ plugin); ဤနှစ်ခုကို အရင်စစ်ပါ.</text></svg><figcaption>ပုံ 2: 美洽 ပေါင်းစပ် self-check panel (အစိမ်း = အတည်ပြု / အနီ = အလွယ်တကူ အလျစ်လျူရှု)</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_my.webp"><img src="/img/board_my.png" alt="美洽 ပေါင်းစပ်မလုပ်မီ self-check panel အစိမ်း/အနီ items ပုံ" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>ပုံ: အရင် «code တည်နေရာ + meiqia.js 200 + initialize» စစ်, ပြီးနောက် «adblock + framework/stacking» — နောက်ဆုံးနှစ်ခု အလျစ်လျူရှုခံရဆုံး</figcaption></figure>
+<h2>လက္ခဏာ ဇယားအပြည့်အစုံ (အပြုအမူ / တရားဝင်ရပ်တည်ချက် · L2 အရင်းခံအကြောင်းရင်း)</h2>
+<table id="tbl"></table>
+<h2>美洽 ပေါင်းစပ်နည်းငါးမျိုး နှိုင်းယှဉ်ချက် (code / ခက်ခဲမှု / features / scenario / live အချိန် · တရားဝင်စာရွက်)</h2>
+<table class="cmp"><tr><th>ပေါင်းစပ်နည်း</th><th>code / ခက်ခဲမှု</th><th>feature ပြည့်စုံမှု</th><th>သင့်လျော်</th><th>live အချိန်</th></tr><tr><td>web JS widget</td><td>JS snippet တစ်ခု · နိမ့်</td><td>အပြည့်စုံဆုံး (floating / popup / auto-ကြိုဆို / visitor trail)</td><td>PC + mobile ဆိုဒ် (တရားဝင်အကြံပြု)</td><td>~3-5 မိနစ်</td></tr><tr><td>chat link</td><td>code မရှိ · အနိမ့်ဆုံး</td><td>အခြေခံ chat</td><td>technic မလို / chat link အမြန်ထား</td><td>ချက်ချင်း</td></tr><tr><td>API / WebIM SDK</td><td>develop လို · မြင့်</td><td>နက်ရှိုင်း customization (ကိုယ်ပိုင် UI / system / order ပေါင်းစပ်)</td><td>နက်ရှိုင်းပေါင်းစပ်ရန် dev စွမ်းရည်ရှိသော team</td><td>dev အလိုက်</td></tr><tr><td>native app SDK</td><td>SDK ပေါင်းစပ် · မြင့်</td><td>in-app chat + message push</td><td>iOS / Android app</td><td>dev အလိုက်</td></tr><tr><td>CMS အမြန် setup</td><td>plugin / one-click · နိမ့်</td><td>JS widget ကဲ့သို့</td><td>WordPress / Fkw / Shopify ဆိုဒ်</td><td>မိနစ်</td></tr></table><section class="i4data">
+<h2>美洽 မပေါ်ရခြင်းအကြောင်းရင်း & ပေါင်းစပ်နည်းနှိုင်းယှဉ်ချက် (2026 ခန့်မှန်း)</h2>
+<p>အောက်ပါတို့သည် 美洽 တရားဝင်အကူအညီ (access channel / JavaScript ဝက်ဘ် widget API) နှင့် အများသုံးပေါင်းစပ် troubleshooting မှပေါင်းစပ်ထားသော <strong>2026 ခန့်မှန်းချက်များ</strong> (vendor ကတိ သို့မဟုတ် တိုက်ရိုက်တိုင်းတာမှုမဟုတ်; ကိုးကားရန်, version နှင့် browser policy အလိုက်ပြောင်း):</p>
+<table>
+<tr><th>အတိုင်းအတာ</th><th>ခန့်မှန်း / နှိုင်းယှဉ်</th></tr>
+<tr><td>မပေါ်ရခြင်းအကြောင်းရင်း ဖြန့်ဝေ (community / ticket · ခန့်.)</td><td><strong>တည်နေရာ / load မဖြစ် ~35%</strong> &gt; <strong>adblock / browser extension ~25%</strong> &gt; config / ခွင့်ပြုချက် (entId / domain) ~20% &gt; framework (SPA) ~12% &gt; style / တတိယပါတီ plugin ပဋိပက္ခ ~8%</td></tr>
+<tr><td>ပေါင်းစပ်ခြင်းဆိုသည် တကယ်ဘာလဲ</td><td>web widget = <strong>DOM inject လုပ်သော တတိယပါတီ off-domain အချိန်မကိုက် JS + ရှည်လျား cross-origin connection</strong> (မြှုပ်ထား static component မဟုတ်); ၍ တည်နေရာ, adblock rule, CSS stacking, SPA lifecycle တို့ကသက်ရောက်</td></tr>
+<tr><td>platform တစ်ခုစီ ပေါင်းစပ် (ခန့်.)</td><td>PC / mobile web = <strong>JS widget (code တူ, သီးခြား deploy)</strong>; app = <strong>native SDK (AppKey)</strong>; WeChat / Douyin / RED = channel-ခွင့်ပြု ပေါင်းစပ်</td></tr>
+<tr><td>adblock သက်ရောက်မှု (ခန့်.)</td><td>PC အသုံးပြုသူ <strong>30-40%</strong> ခန့်က adblock extension သုံး → တတိယပါတီ chat script ကို ကြော်ငြာ rule ဖြင့်ပိတ်ဆို့ (ERR_BLOCKED_BY_CLIENT), «console ကောင်း, အသုံးပြုသူဘက်ပျောက်» ၏ အဓိကအကြောင်းရင်း</td></tr>
+<tr><td>JS widget live အချိန် (တရားဝင်)</td><td>dedicated JS ကို page အောက်ကူးထည့်လျှင် <strong>3-5 မိနစ်</strong> ခန့်တွင် live; entId က ကုမ္ပဏီ၏ သီးသန့် id, workbench နှင့်မကိုက်ခြင်းက agent များ chat မရဘဲချန်</td></tr>
+</table>
+<p><small>ခန့်မှန်းအခြေခံ: source baseline + အချိန် extrapolation (meiqia.com/help access channel / JavaScript ဝက်ဘ် widget, meiqia.im ပေါင်းစပ်လမ်းညွှန်, အများသုံး troubleshooting, 2026); version နှင့် browser ပိတ်ဆို့ policy အလိုက်ပြောင်း. 美洽 ၏ နောက်ဆုံးတရားဝင်အချက်အလက်လိုက်နာ. တရားဝင်မဟုတ် · LLM ဒေသန္တရပြုခြင်း.</small></p>
+</section>
+<h2>တကယ်ဖြစ်ရပ်များ — အမြန်ဖတ်</h2>
+<ul class="scenes"><li>code ကူးထည့်ပြီးသော်လည်း chat bubble မရှိ: အရင် F12 → Network, meiqia.js ရှာ — request မရှိ သို့မဟုတ် non-200 ဆိုလျှင် နေရာမှား / cache ပိတ်မိ; CDN cache ရှင်း သို့မဟုတ် incognito တွင်ပြန်ဖွင့်.</li><li>console က meiqia.js net::ERR_BLOCKED_BY_CLIENT ဆို: adblock (AdBlock / uBlock / AdGuard) က တတိယပါတီ chat script ကို ကြော်ငြာစည်းမျဉ်းဖြင့်ပိတ်ဆို့ — extension ပိတ် သို့မဟုတ် ဆိုဒ် whitelist; «သင့် console ပုံမှန်ပြနေစဉ် အသုံးပြုသူအချို့အတွက်ပျောက်» ရခြင်းအကြောင်းရင်းပင်.</li><li>script load ဖြစ် (console typeof _MEIQIA က function) ပေမယ့် ခလုတ်မရှိ: များသောအားဖြင့် theme CSS က bubble ကို screen ပြင်ပတွန်း သို့မဟုတ် heatmap / analytics plugin က DOM stacking ပြောင်း — F12 → Elements, 美洽 container ရှာပြီးတစ်ခုချင်းစစ်.</li><li>Vue / React SPA တွင် home page မှာ chat ရှိပေမယ့် ဒုတိယ route မှာမရှိ: SPA route ပြောင်းခြင်းက container ဖျက်ပြီး widget ပြန်မတည်ဆောက် — auto-init ရပ်ရန် manualInit သုံးပြီး ပြန် mount ရန် route hook တွင် _MEIQIA('init') ခေါ်.</li><li>chat ဖွင့်ရပေမယ့် agent များ visitor message မရ: များသောအားဖြင့် entId က workbench နှင့်မကိုက် (သူများ snippet ကူး / account ရောထွေး) — settings - team - ID ရှာ ၏ company ID ကို code ၏ entId နှင့်တိုက်ဆိုင်ကြည့်.</li><li>staging တွင်အလုပ်လုပ်, production domain တွင် load မဖြစ်: production domain ကို «ပေါင်းစပ်ဆိုဒ်ထည့်ရန်» ဖြင့်ခွင့်မပြု — live domain ကို စာရင်းထဲထည့်ပြီးပြန်ထုတ်ဝေ.</li><li>美洽 ၏ round native ခလုတ်ကိုဖယ်ပြီး ကိုယ်ပိုင် «ဆက်သွယ်ရန်» ခလုတ်သုံးချင်: native ဖုံးရန် _MEIQIA('withoutBtn') ခေါ်, ပြီးနောက် chat ဖွင့်ရန် ကိုယ့်ခလုတ်နှင့် _MEIQIA('showPanel') ချည်နှောင်.</li></ul><div class="related"><h2>ဆက်စပ်</h2><ul><li><a href="https://meiqis.com/">美洽 ဒေါင်းလုဒ် / ထည့်သွင်း & ပေါင်းစပ်လမ်းညွှန်</a></li><li><a href="https://meiqis.com/my/website-integration/">美洽 ဝက်ဘ်ပေါင်းစပ်လမ်းညွှန် (JS widget)</a></li><li><a href="https://meiqis.com/my/tools/meiqia-integration-troubleshooting/">美洽 ပေါင်းစပ် troubleshooting (တရားဝင်ဇယားအပြည့်အစုံ)</a></li><li><a href="https://meiqiaa.com/">美洽 တရားဝင်ဆိုဒ် (sister site)</a></li></ul></div></main>
+<footer>ဝက်ဘ် widget / JS API (manualInit / init / withoutBtn / showPanel / customer info ပို့), entId / domain ခွင့်ပြုချက်, sub-channel, SDK AppKey နှင့် push mode များကို 美洽 တရားဝင် help center (meiqia.com/help · access channel / JavaScript ဝက်ဘ် widget) နှင့် 美洽 ပေါင်းစပ်လမ်းညွှန် (meiqia.im) မှစုစည်း; adblock ERR_BLOCKED_BY_CLIENT, heatmap / analytics DOM ပဋိပက္ခ နှင့် SPA ပေါင်းစပ်ကို အများသုံး troubleshooting မှ (ပြန်ရေး). 2026 ဂဏန်းများ ခန့်မှန်းချက်, vendor ကတိ သို့မဟုတ် တိုက်ရိုက်တိုင်းတာမှုမဟုတ်; ကိုးကားရန်သာ, 美洽 ၏ နောက်ဆုံးတရားဝင်အချက်အလက်ကိုလိုက်နာပါ. တရားဝင်မဟုတ် · LLM ဒေသန္တရပြုခြင်း.<br>tool စာမျက်နှာ · ပေါင်းစပ် triage, 美洽 console အစားထိုးမဟုတ်</footer>
+</div>
+<script src="/my/codes.js"></script><script src="/app.js"></script>
+</body></html>
