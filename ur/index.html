@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="ur" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>美洽(Meiqia) چیٹ ویجٹ ظاہر نہیں ہو رہا / انٹیگریشن خرابی ٹھیک کریں - meiqia.js بلاک، کوئی بٹن نہیں، entId، SPA، SDK پش</title>
+<meta name="description" content="美洽(Meiqia) ویب چیٹ ویجٹ ظاہر نہیں ہو رہا، بٹن غائب، meiqia.js ERR_BLOCKED_BY_CLIENT سے بلاک، اسٹائل ٹوٹا، SPA روٹ تبدیلی کے بعد غائب، entId غیر مطابق تو ایجنٹس کو چیٹ نہیں ملتیں، موبائل پر نہیں آتا، SDK پش نہیں آتا؟ علامت تلاش کر کے L1 رویہ اور L2 بنیادی وجہ دیکھیں: تھرڈ پارٹی آف-ڈومین غیر متزامن JS انجیکشن، adblock اصول، CSS اسٹیکنگ، SPA لائف سائیکل، entId اور ڈومین وائٹ لسٹ، AppKey اور SDK پش راستہ؛ پانچ انٹیگریشن طریقوں کا موازنہ اور 2026 تخمینوں کے ساتھ۔">
+<link rel="canonical" href="https://meiqiscom.github.io/ur/">
+<link rel="alternate" hreflang="zh-Hans" href="https://meiqiscom.github.io/">
+<link rel="alternate" hreflang="en" href="https://meiqiscom.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://meiqiscom.github.io/ja/">
+<link rel="alternate" hreflang="zh-Hant" href="https://meiqiscom.github.io/zh-tw/">
+<link rel="alternate" hreflang="ko" href="https://meiqiscom.github.io/ko/">
+<link rel="alternate" hreflang="id" href="https://meiqiscom.github.io/id/">
+<link rel="alternate" hreflang="vi" href="https://meiqiscom.github.io/vi/">
+<link rel="alternate" hreflang="th" href="https://meiqiscom.github.io/th/">
+<link rel="alternate" hreflang="es" href="https://meiqiscom.github.io/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://meiqiscom.github.io/pt-br/">
+<link rel="alternate" hreflang="de" href="https://meiqiscom.github.io/de/">
+<link rel="alternate" hreflang="fr" href="https://meiqiscom.github.io/fr/">
+<link rel="alternate" hreflang="ru" href="https://meiqiscom.github.io/ru/">
+<link rel="alternate" hreflang="it" href="https://meiqiscom.github.io/it/">
+<link rel="alternate" hreflang="pl" href="https://meiqiscom.github.io/pl/">
+<link rel="alternate" hreflang="nl" href="https://meiqiscom.github.io/nl/">
+<link rel="alternate" hreflang="tr" href="https://meiqiscom.github.io/tr/">
+<link rel="alternate" hreflang="ar" href="https://meiqiscom.github.io/ar/">
+<link rel="alternate" hreflang="hi" href="https://meiqiscom.github.io/hi/">
+<link rel="alternate" hreflang="ms" href="https://meiqiscom.github.io/ms/">
+<link rel="alternate" hreflang="fa" href="https://meiqiscom.github.io/fa/">
+<link rel="alternate" hreflang="bn" href="https://meiqiscom.github.io/bn/">
+<link rel="alternate" hreflang="ta" href="https://meiqiscom.github.io/ta/">
+<link rel="alternate" hreflang="te" href="https://meiqiscom.github.io/te/">
+<link rel="alternate" hreflang="fil" href="https://meiqiscom.github.io/fil/">
+<link rel="alternate" hreflang="ur" href="https://meiqiscom.github.io/ur/">
+<link rel="alternate" hreflang="lo" href="https://meiqiscom.github.io/lo/">
+<link rel="alternate" hreflang="km" href="https://meiqiscom.github.io/km/">
+<link rel="alternate" hreflang="my" href="https://meiqiscom.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://meiqiscom.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "美洽 چیٹ ظاہر نہیں ہو رہا / انٹیگریشن خرابی حل",
+   "url": "https://meiqiscom.github.io/ur/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "inLanguage": "ur",
+   "description": "美洽(Meiqia) ویب چیٹ ویجٹ ظاہر نہیں ہو رہا، بٹن غائب، meiqia.js ERR_BLOCKED_BY_CLIENT سے بلاک، اسٹائل ٹوٹا، SPA روٹ تبدیلی کے بعد غائب، entId غیر مطابق تو ایجنٹس کو چیٹ نہیں ملتیں، موبائل پر نہیں آتا، SDK پش نہیں آتا؟ علامت تلاش کر کے L1 رویہ اور L2 بنیادی وجہ دیکھیں: تھرڈ پارٹی آف-ڈومین غیر متزامن JS انجیکشن، adblock اصول، CSS اسٹیکنگ، SPA لائف سائیکل، entId اور ڈومین وائٹ لسٹ، AppKey اور SDK پش راستہ؛ پانچ انٹیگریشن طریقوں کا موازنہ اور 2026 تخمینوں کے ساتھ۔",
+   "isAccessibleForFree": true,
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "ur",
+   "url": "https://meiqiscom.github.io/ur/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "美洽 چیٹ ونڈو / ببل بالکل ظاہر نہیں ہوتا — کیسے ٹھیک کریں؟",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽 ویب ویجٹ ایک چسپاں شدہ JS اسنپٹ سے تیرتی چیٹ ونڈو لوڈ کرتا ہے؛ تصدیق کریں کہ کوڈ درست سرایت شدہ ہے اور انٹیگریشن سائٹ کنسول میں کنفیگر ہے۔ ویجٹ غیر متزامن لوڈ کے بعد DOM میں انجیکٹ ہونے والا meiqia.js ہے، لہٰذا «بالکل کچھ نہیں» عموماً «اسکرپٹ کبھی لوڈ نہیں ہوا» — غلط مقام، adblock / کیشے سے بلاک، یا غیر مطابق ڈومین / entId، لہٰذا انجیکشن کبھی نہیں چلا۔ F12 → Network، meiqia.js تلاش کریں: کوئی درخواست نہیں ← کوڈ بے اثر (مقام چیک کریں / کیشے صاف کریں)؛ درخواست مگر غیر-200 ← بلاک یا راستے کا مسئلہ؛ سب ٹھیک مگر اب بھی چھپا ← entId / ڈومین اجازت اور نیچے گروہ چیک کریں۔"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 اسکرپٹ لوڈ مگر چیٹ بٹن غائب — کیسے ٹھیک کریں؟",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ویجٹ کوڈ سائٹ کے مطابق ہو کر چیٹ بٹن دکھاتا ہے؛ ڈسپلے ناکام ہو تو چیک کریں کہ اسٹائلز سے چھپا یا ابتدائیہ رکا۔ اگر اسکرپٹ لوڈ ہو مگر بٹن غائب ہو، عموماً «ڈسپلے پرت» مسئلہ: سائٹ-وسیع CSS بٹن مقام اوور رائیڈ / display:none، z-index ہارتا، یا کوئی اور مقررہ عنصر ڈھانپتا ہے؛ کوئی اور JS خرابی بھی ابتدائیہ روک سکتی ہے۔ F12 → Elements، 美洽 کنٹینر تلاش کریں — موجود، چھپا، یا اسکرین سے باہر؟؛ دوبارہ جانچ کو عارضی طور پر کسٹم CSS / دیگر اسکرپٹ بند کریں؛ عمل روکنے والی خرابی کو کنسول میں دیکھیں۔"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js adblock ایکسٹینشن سے بلاک — کیسے ٹھیک کریں؟",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽 چیٹ اسکرپٹ تھرڈ پارٹی ڈومین سے آتا ہے؛ بلاکنگ ایکسٹینشن نصب ہو تو اسے اشتہار / ٹریکر سمجھ کر لوڈ روک سکتا ہے — بلاکنگ بند کریں یا وائٹ لسٹ کریں۔ ERR_BLOCKED_BY_CLIENT یعنی براؤزر ایکسٹینشن (AdBlock / uBlock / AdGuard) نے فلٹر فہرستوں سے درخواست بلاک کی۔ 美洽 اسکرپٹ «تھرڈ پارٹی آف-ڈومین + ریئل ٹائم رابطہ» ہے، جسے ایسے اصول اکثر اشتہار / ٹریکر سمجھ بیٹھتے ہیں، «کنسول ٹھیک، صارف طرف غائب» جھوٹی ناکامی پیدا کرتے ہیں۔ اِنکوگنیٹو میں یا adblock بند کر کے دوبارہ جانچیں — ظاہر ہو تو بلاکنگ ہی وجہ؛ صارفین سے سائٹ وائٹ لسٹ کرائیں؛ فرنٹ اینڈ کچھ auto اصول بچانے کو چیٹ اسکرپٹ تاخیر سے / مشروط لوڈ کر سکتا ہے۔"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js 404 / بری حیثیت / مخلوط مواد — کیسے ٹھیک کریں؟",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "تعیناتی کے بعد Network پینل میں meiqia.js تلاش کریں؛ 200 حیثیت یعنی اسکرپٹ درست رکھا اور لوڈ ہوا۔ عام غیر-200 وجوہات: کوڈ صفحہ / CDN کیشے میں پھنسا (اشاعت کے بعد ریفریش نہیں)، HTTP صفحے پر لوڈ / نامکمل سرٹیفکیٹ چین مخلوط-مواد بلاکنگ متحرک کرتی، یا ٹوٹا / جزوی کاپی کوڈ۔ یہ مرحلہ ناکام ہو تو انجیکشن اور کنکشن کبھی نہیں ہوتے۔ اشاعت کے بعد CDN / براؤزر کیشے صاف کریں (یا اِنکوگنیٹو)؛ مکمل سرٹیفکیٹ چین کے ساتھ مکمل HTTPS اور مخلوط مواد کے بغیر یقینی بنائیں؛ کاپی کوڈ مکمل اور escape سے پاک تصدیق کریں۔"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 کوڈ غلط مقام پر (head بلاکنگ / بے اثر) — کیسے ٹھیک کریں؟",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽 کوڈ کو صفحے کے نیچے، </body> سے پہلے چسپاں کرنے کی سفارش کرتا ہے؛ ویجٹ مرکزی مواد لوڈ ہونے کے بعد چلتا ہے۔ ویجٹ کو DOM تیار ہونے کے بعد کنٹینر انجیکٹ کرنا ہوتا ہے۔ <head> میں یہ رینڈر بلاک کرتا ہے (کمزور نیٹ ورک پر پہلے خالی اسکرین) یا DOM تیار ہونے سے پہلے چل کر ناکام ہوتا ہے؛ کچھ async / module scope میں لوڈ ترتیب بھی بگڑ سکتی ہے۔ 美洽 JS کو ہر صفحے کے مشترکہ فوٹر میں، </body> سے پہلے رکھیں؛ SPA کے لیے «SPA روٹ» اندراج دیکھیں اور manualInit استعمال کریں؛ یقینی بنائیں bundler اسے tree-shaking سے نہ ہٹائے۔"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 چیٹ ونڈو / بٹن اسٹائل ٹوٹا — کیسے ٹھیک کریں؟",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ویجٹ اپنے اسٹائلز انجیکٹ کر کے سائٹ کے مطابق ہوتا ہے؛ سائٹ-وسیع اسٹائلز سے تصادم بصری خرابی کر سکتا ہے۔ 美洽 اسکرپٹ رن ٹائم پر CSS انجیکٹ کرتا ہے؛ سائٹ-وسیع اسٹائلز (یونیورسل سلیکٹرز / اعلیٰ ترجیحی اصول / reset) پہلے اس کی کلاسز اوور رائیڈ کریں تو مقام، اسٹیکنگ اور فونٹ ٹوٹتے ہیں — «متحرک انجیکشن + ایک دستاویز اسٹائل اسپیس شیئر» کا ضمنی اثر۔ F12 سے دیکھیں کون سا سائٹ اصول 美洽 کنٹینر اوور رائیڈ کرتا ہے؛ سائٹ-وسیع اسٹائلز تنگ کریں / عمومی کلاسز پر اثر کم کریں؛ ضرورت ہو تو کنٹینر اسٹیکنگ ایڈجسٹ کرنے کو 美洽 سے کہیں۔"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 بٹن اسکرین سے باہر / ڈھکا — کیسے ٹھیک کریں؟",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ویجٹ بٹن مقررہ مقام تیرتے کے طور پر ظاہر ہوتا ہے؛ دیگر مقررہ عناصر سے ڈھکا ہو تو اسٹیکنگ یا مقام ایڈجسٹ کریں۔ سائٹ کے دیگر position:fixed عناصر (اوپر جائیں، تیرتے اشتہار، اپنا سپورٹ بار) زیادہ z-index سے 美洽 بٹن ڈھانپتے ہیں، یا تھیم اس کے کوآرڈینیٹس غلط حساب کرتا ہے، «اسکرین سے باہر / ڈھکا» چھوڑتا ہے۔ حقیقی کوآرڈینیٹس / z-index دیکھنے کو F12 میں 美洽 کنٹینر منتخب کریں؛ اسے اونچا کریں یا ڈھانپنے والے عنصر کا z-index کم کریں؛ ایک کونے میں کئی مقررہ تیرتے ڈھیر نہ کریں۔"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 تھرڈ پارٹی پلگ ان / اینالیٹکس DOM تصادم — کیسے ٹھیک کریں؟",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "صفحے کے دیگر اسکرپٹ جو DOM بدلتے یا درخواستیں روکتے ہیں ویجٹ کی عام لوڈنگ اور ڈسپلے کو متاثر کر سکتے ہیں۔ ہیٹ میپ / اینالیٹکس / کنورژن اسکرپٹ DOM دوبارہ لکھتے، اوورلے انجیکٹ یا درخواستیں روکتے ہیں؛ وہ اور 美洽 ایک ہی دستاویز میں انجیکٹ ہونے سے اسٹیکنگ / ایونٹس مداخلت کرتے ہیں اور 美洽 کنٹینر ڈھک جاتا یا اس کا init رک جاتا ہے۔ تصادم تلاش کرنے کو مشکوک پلگ ان ایک ایک بند کریں؛ لوڈ ترتیب / کنٹینر اسٹیکنگ ایڈجسٹ کریں؛ ہیٹ میپ وغیرہ کو 美洽 کنٹینر علاقے سے بچائیں۔"
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">زبان: <a href="/">简体中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/ko/">한국어</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/th/">ไทย</a> · <a href="/es/">Español</a> · <a href="/pt-br/">Português (BR)</a> · <a href="/de/">Deutsch</a> · <a href="/fr/">Français</a> · <a href="/ru/">Русский</a> · <a href="/it/">Italiano</a> · <a href="/pl/">Polski</a> · <a href="/nl/">Nederlands</a> · <a href="/tr/">Türkçe</a> · <a href="/ar/">العربية</a> · <a href="/hi/">हिन्दी</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fa/">فارسی</a> · <a href="/bn/">বাংলা</a> · <a href="/ta/">தமிழ்</a> · <a href="/te/">తెలుగు</a> · <a href="/fil/">Filipino</a> · <strong>اردو</strong> · <a href="/lo/">ພາສາລາວ</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>美洽 چیٹ ویجٹ ظاہر نہیں ہو رہا / انٹیگریشن خرابی ٹھیک کریں</h1>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_ur.webp"><img src="/img/cover_ur.png" alt="美洽 چیٹ ویجٹ ظاہر نہیں ہو رہا / خرابی حل ٹول کی تصویر" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>تصویر: 美洽 چیٹ ظاہر نہیں ہو رہا / خرابی حل (L1 رویہ + L2 بنیادی وجہ + پانچ انٹیگریشن طریقے)</figcaption></figure>
+<p><strong>美洽(Meiqia)</strong> کوڈ چسپاں کیا مگر <strong>ویب چیٹ ویجٹ</strong> ظاہر نہیں ہو رہا، <strong>چیٹ بٹن کبھی نہیں آتا</strong>، کنسول <code>meiqia.js</code> بلاک بتا رہا ہے، یا <strong>ایجنٹس کو چیٹ نہیں ملتیں</strong>؟ پہلے تین باتیں واضح کریں: <strong>کیا اسکرپٹ بالکل لوڈ نہیں ہوا (مقام / adblock / کیشے)، لوڈ ہوا مگر اسٹائل / اسٹیکنگ سے چھپ گیا، یا اچھا لوڈ ہوا مگر کنفیگ مطابقت نہیں رکھتا (entId / ڈومین / SPA لائف سائیکل)؟</strong> اپنی <strong>علامت یا کلیدی لفظ</strong> تلاش کریں (مثلاً <code>not showing</code>، <code>adblock</code>، <code>entId</code>، <code>SPA</code>، <code>mobile</code>، <code>sdk push</code>): پہلے <strong>L1 رویہ اور سرکاری مقام</strong>، پھر <strong>L2 بنیادی وجہ اور حل</strong>۔ انسٹال / گائیڈ؟ دیکھیں <a href="https://meiqis.com/">美洽 ڈاؤن لوڈ / کسٹمر سروس انٹیگریشن گائیڈ</a>۔</p>
+<input id="q" placeholder="علامت یا کلیدی لفظ لکھیں، مثلاً not showing / adblock / entId / SPA / mobile / sdk push" autocomplete="off">
+<button id="go">تلاش</button>
+<div id="out"></div>
+<h2>مرحلہ 1: دیکھیں اسکرپٹ لوڈ ہوا یا نہیں، پھر چار گروہوں میں بانٹیں</h2>
+<p>جب 美洽 چیٹ ظاہر نہ ہو، 10 میں سے 9 بار یہ چار گروہوں میں سے ایک ہوتا ہے؛ پہلے دیکھیں <strong>کیا اسکرپٹ بالکل لوڈ ہوا</strong>: F12 → Network، <code>meiqia.js</code> تلاش کریں؛ کوئی درخواست نہیں یا حیثیت 200 نہیں تو لوڈ نہیں ہوا۔ ① <strong>لوڈ ناکامی</strong>: کوڈ غلط جگہ (<code>&lt;/body&gt;</code> سے پہلے ہونا چاہیے، <code>&lt;head&gt;</code> میں نہیں)، adblock اصول سے بلاک (<code>ERR_BLOCKED_BY_CLIENT</code>)، CDN / براؤزر کیشے میں پھنسا، یا HTTPS سرٹیفکیٹ / مخلوط مواد۔ ② <strong>کنفیگ / اجازت</strong>: entId ورک بینچ سے غیر مطابق (لوڈ ہوتا ہے مگر ایجنٹس کو چیٹ نہیں ملتیں)، یا سائٹ ڈومین کنسول میں مجاز نہیں۔ ③ <strong>فریم ورک انٹیگریشن</strong>: Vue/React/Next SPA روٹ تبدیلی پر کنٹینر تباہ کر دیتا ہے اور ویجٹ دوبارہ نہیں بنتا۔ ④ <strong>ڈسپلے / موبائل / SDK</strong>: سائٹ CSS ببل کو اسکرین سے باہر دھکیلتا ہے، تھرڈ پارٹی پلگ ان DOM ڈھانپتا ہے، موبائل کو الگ تعیناتی چاہیے، ان-ایپ کو SDK چاہیے۔ مزید مکمل: <a href="https://meiqis.com/website-integration/">美洽 ویب انٹیگریشن گائیڈ</a>۔</p>
+<div class="cat"><div class="catbox"><b>لوڈ ناکامی</b><span class="cs">مقام · adblock · کیشے · HTTPS</span><div>美洽 JS کو </body> سے پہلے چسپاں کریں (<head> میں نہیں)؛ F12 → Network، meiqia.js تلاش کر کے حیثیت چیک کریں (200 ہونی چاہیے)؛ ERR_BLOCKED_BY_CLIENT عموماً adblock ایکسٹینشن — اِنکوگنیٹو میں جانچیں یا وائٹ لسٹ کریں؛ اشاعت کے بعد CDN کیشے صاف کریں؛ مخلوط مواد کے بغیر مکمل HTTPS یقینی بنائیں۔</div></div><div class="catbox"><b>کنفیگ / اجازت</b><span class="cs">entId · ڈومین وائٹ لسٹ · ذیلی چینل</span><div>entId آپ کی کمپنی کی منفرد ID ہے؛ ورک بینچ سے عدم مطابقت پر «اسکرپٹ لوڈ ہوتا ہے مگر ایجنٹس کو چیٹ نہیں ملتیں» (ترتیبات - ٹیم - ID تلاش)؛ سائٹ ڈومین کو «انٹیگریشن سائٹ شامل کریں» سے مجاز کرنا ہوگا؛ ہر کاروباری لائن کے لیے الگ ذیلی چینل (پروب) استعمال کریں۔</div></div><div class="catbox"><b>فریم ورک انٹیگریشن</b><span class="cs">SPA · روٹ تبدیلی · manualInit</span><div>Vue/React/Next SPA روٹ تبدیلی پر DOM تباہ کرتا ہے اور ویجٹ دوبارہ نہیں بنتا؛ auto-init روکنے کو _MEIQIA('manualInit') استعمال کریں اور دوبارہ ماؤنٹ کے لیے روٹ ہک (useEffect / mounted) میں _MEIQIA('init') کال کریں۔</div></div><div class="catbox"><b>ڈسپلے مسائل</b><span class="cs">اسٹائل تصادم · اسٹیکنگ · تھرڈ پارٹی پلگ ان</span><div>لوڈ مگر نظر نہیں آتا: عموماً سائٹ-وسیع CSS ببل کا مقام اوور رائیڈ کرتا ہے، یا ہیٹ میپ / اینالیٹکس / SEO پلگ ان DOM بدل کر کنٹینر ڈھانپتا ہے؛ F12 → Elements، meiqia کنٹینر تلاش کر کے display:none، ہارا z-index، یا اسکرین سے باہر کوآرڈینیٹس چیک کریں۔</div></div><div class="catbox"><b>موبائل / SDK</b><span class="cs">موبائل ویب · AppKey · پش</span><div>موبائل / PC ویب ایک ہی اسنپٹ ہے مگر الگ تعیناتی چاہیے؛ ان-ایپ نیٹو SDK استعمال کرتا ہے (پہلے AppKey کے لیے کنسول میں «APP کنفیگ شامل کریں»)؛ پش «کوئی پش نہیں» (صرف ان-ایپ) اور «کسٹم پش سرور» (ایپ چھوڑنے کے بعد بھی پہنچتا) میں بٹتا ہے۔</div></div><div class="catbox"><b>API کالز</b><span class="cs">withoutBtn · showPanel · کسٹمر معلومات</span><div>اپنا بٹن؟ _MEIQIA('withoutBtn') نیٹو بٹن چھپاتا ہے، اور چیٹ کھولنے کو کلک پر _MEIQIA('showPanel') کال کریں؛ کسٹمر معلومات init وقت میں بھیجیں / مطابق کریں، ورنہ اثر نہیں ہوگا۔</div></div></div><figure><svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="美洽 چیٹ ظاہر نہیں ہو رہا ٹرائج خاکہ" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">ونڈو / بٹن ظاہر نہیں ہو رہا ٹرائج (پہلے دو مرحلے: اسکرپٹ لوڈ ہوا ← کنفیگ درست ہے؟)</text><rect x="20" y="46" width="150" height="46" rx="10" fill="#111"/><text x="95" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff">چیٹ نظر نہیں آتی</text><path d="M170 69 H206" stroke="#999" stroke-width="2" fill="none" marker-end="url(#a)"/><rect x="206" y="46" width="172" height="46" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="292" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1d4ed8">دو گروہ</text><rect x="440" y="20" width="262" height="56" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="455" y="42" font-family="system-ui,Arial" font-size="12.5" fill="#1d4ed8">اسکرپٹ لوڈ نہیں ہوا ←</text><text x="455" y="62" font-family="system-ui,Arial" font-size="11.5" fill="#1e3a8a">مقام · adblock · کیشے</text><rect x="440" y="86" width="262" height="56" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="455" y="108" font-family="system-ui,Arial" font-size="12.5" fill="#b45309">لوڈ مگر چھپا / کنکشن نہیں ←</text><text x="455" y="128" font-family="system-ui,Arial" font-size="11.5" fill="#92400e">اسٹیکنگ · entId · ڈومین · SPA</text><path d="M378 60 H410 V48 H440" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M378 78 H410 V114 H440" stroke="#d97706" stroke-width="2" fill="none" marker-end="url(#a)"/><text x="20" y="178" font-family="system-ui,Arial" font-size="13" font-weight="700" fill="#1d1d1f">چار بنیادی گروہ (فی آئٹم وجہ / حل)</text><g font-family="system-ui,Arial" font-size="12"><rect x="20" y="190" width="162" height="92" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="32" y="212" font-weight="700" fill="#1d4ed8">① لوڈ ناکامی</text><text x="32" y="234" fill="#555" font-size="11">مقام · بلاک · کیشے</text><rect x="194" y="190" width="162" height="92" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="206" y="212" font-weight="700" fill="#1d4ed8">② کنفیگ / اجازت</text><text x="206" y="234" fill="#555" font-size="11">entId · ڈومین وائٹ لسٹ</text><rect x="368" y="190" width="162" height="92" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="380" y="212" font-weight="700" fill="#b45309">③ فریم ورک</text><text x="380" y="234" fill="#555" font-size="11">SPA روٹ · init</text><rect x="542" y="190" width="160" height="92" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="554" y="212" font-weight="700" fill="#047857">④ ڈسپلے / موبائل / SDK</text><text x="554" y="234" fill="#555" font-size="11">اسٹیکنگ · موبائل · پش</text></g><defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#999"/></marker></defs></svg><figcaption>تصویر 1: 美洽 ظاہر نہیں ہو رہا ٹرائج — اسکرپٹ لوڈ چیک کریں (F12 میں meiqia.js)، پھر لوڈ / کنفیگ / فریم ورک / ڈسپلے</figcaption></figure>
+<h2>مرحلہ 2: سب سے زیادہ نظرانداز بنیادی وجہ → L2 (ویجٹ = تھرڈ پارٹی آف-ڈومین غیر متزامن JS انجیکشن)</h2>
+<p>ایک خیال کافی ہے: <strong>美洽 ویب ویجٹ آپ کے صفحے میں سرایت شدہ جامد جزو نہیں — یہ ایک <code>meiqia.js</code> ہے جو 美洽 کے آف-ڈومین سے غیر متزامن لوڈ ہوتا ہے، پھر متحرک طور پر چیٹ کنٹینر (DOM / iframe) انجیکٹ کرتا ہے اور 美洽 سرورز سے طویل کراس-اوریجن کنکشن کھولتا ہے</strong>۔ یہ زیادہ تر «پراسرار غائب ہونے» کی وضاحت کرتا ہے: ① <strong>یہ تھرڈ پارٹی آف-ڈومین اسکرپٹ ہے</strong>، لہٰذا AdBlock / uBlock «ٹریکنگ / اشتہار» فہرستوں سے بلاک کرتے ہیں (<code>ERR_BLOCKED_BY_CLIENT</code>) اور بٹن کبھی نہیں آتا (چاہے کنسول ٹھیک لگے)؛ ② <strong>یہ DOM کو غیر متزامن انجیکٹ کرتا ہے</strong>: <code>&lt;head&gt;</code> میں یہ بلاک کرتا ہے، SPA روٹ تبدیلی کنٹینر تباہ کرتی ہے اور خود دوبارہ نہیں بنتا (<code>manualInit</code> + <code>_MEIQIA('init')</code> استعمال کریں)، اور DOM بدلنے والے ہیٹ میپ / اینالیٹکس پلگ ان اسے ڈھانپ سکتے ہیں؛ ③ <strong>یہ entId سے آپ کی کمپنی سے جڑتا ہے اور ڈومین وائٹ لسٹ سے کنٹرول ہوتا ہے</strong>: غلط entId یا غیر مجاز ڈومین پر اسکرپٹ لوڈ ہوتا ہے مگر «چیٹ کنیکٹ نہیں کرتا»؛ ④ <strong>موبائل اور PC دو الگ انٹیگریشنز ہیں</strong>، ان-ایپ SDK (AppKey) ہے، اور پش «کوئی پش نہیں» بمقابلہ «کسٹم پش سرور» میں بٹتا ہے۔ یہ انجیکشن سلسلہ دیکھنے کے بعد نیچے کی ہر علامت کا ایک منطق ہے۔ نیچے سیلف-چیک پینل؛ مزید نیچے پانچ طریقے اور 2026 تخمینے۔</p>
+<figure><svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="美洽 پری-انٹیگریشن سیلف-چیک پینل" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">انٹیگریشن سیلف-چیک پینل (سبز = تصدیق شدہ / سرخ = آسانی سے نظرانداز)</text><rect x="20" y="42" width="680" height="226" rx="14" fill="#f8fafc" stroke="#e2e8f0"/><text x="38" y="66" font-family="system-ui,Arial" font-size="12.5" font-weight="700" fill="#475569">چیک آئٹم</text><text x="300" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">فیصلہ</text><text x="610" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">حالت</text><line x1="38" y1="74" x2="682" y2="74" stroke="#e2e8f0" stroke-width="1"/><text x="38" y="98" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">美洽 کوڈ </body> سے پہلے چسپاں (<head> نہیں)</text><text x="300" y="98" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">مقام</text><circle cx="612" cy="94" r="6" fill="#16a34a"/><text x="628" y="98" font-family="system-ui,Arial" font-size="12" fill="#16a34a">تصدیق شدہ</text><text x="38" y="128" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">F12 → Network میں meiqia.js حیثیت 200</text><text x="300" y="128" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">اسکرپٹ لوڈ</text><circle cx="612" cy="124" r="6" fill="#16a34a"/><text x="628" y="128" font-family="system-ui,Arial" font-size="12" fill="#16a34a">تصدیق شدہ</text><text x="38" y="158" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">کنسول typeof _MEIQIA function</text><text x="300" y="158" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">ابتدائی</text><circle cx="612" cy="154" r="6" fill="#16a34a"/><text x="628" y="158" font-family="system-ui,Arial" font-size="12" fill="#16a34a">تصدیق شدہ</text><text x="38" y="188" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">اِنکوگنیٹو میں / adblock بند پر ظاہر ہوتا ہے</text><text x="300" y="188" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">adblock</text><circle cx="612" cy="184" r="6" fill="#ef4444"/><text x="628" y="188" font-family="system-ui,Arial" font-size="12" fill="#ef4444">جانچنا ہے</text><text x="38" y="218" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">entId ورک بینچ سے مطابق + ڈومین مجاز</text><text x="300" y="218" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">کنفیگ / اجازت</text><circle cx="612" cy="214" r="6" fill="#16a34a"/><text x="628" y="218" font-family="system-ui,Arial" font-size="12" fill="#16a34a">تصدیق شدہ</text><text x="38" y="248" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">SPA روٹ تبدیلی کے بعد دوبارہ init + کوئی پلگ ان اوورلے نہیں</text><text x="300" y="248" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">فریم ورک / اسٹیکنگ</text><circle cx="612" cy="244" r="6" fill="#ef4444"/><text x="628" y="248" font-family="system-ui,Arial" font-size="12" fill="#ef4444">جانچنا ہے</text><text x="20" y="296" font-family="system-ui,Arial" font-size="11.5" fill="#94a3b8">نوٹ: سرخ = سب سے زیادہ نظرانداز دو — adblock ایکسٹینشنز (ERR_BLOCKED_BY_CLIENT) اور فریم ورک / اسٹیکنگ (SPA روٹ تبدیلیاں، DOM بدلنے والے تھرڈ پارٹی پلگ ان)؛ یہ دونوں پہلے چیک کریں۔</text></svg><figcaption>تصویر 2: 美洽 انٹیگریشن سیلف-چیک پینل (سبز = تصدیق شدہ / سرخ = آسانی سے نظرانداز)</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_ur.webp"><img src="/img/board_ur.png" alt="美洽 پری-انٹیگریشن سیلف-چیک پینل سبز/سرخ آئٹمز کی تصویر" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>تصویر: پہلے «کوڈ مقام + meiqia.js 200 + ابتدائی» چیک کریں، پھر «adblock + فریم ورک/اسٹیکنگ» — آخری دو سب سے زیادہ نظرانداز</figcaption></figure>
+<h2>مکمل علامات جدول (رویہ / سرکاری مقام · L2 بنیادی وجہ)</h2>
+<table id="tbl"></table>
+<h2>پانچ 美洽 انٹیگریشن طریقوں کا موازنہ (کوڈ / مشکل / خصوصیات / منظرنامہ / لائیو وقت · سرکاری دستاویز)</h2>
+<table class="cmp"><tr><th>انٹیگریشن طریقہ</th><th>کوڈ / مشکل</th><th>خصوصیات مکمل</th><th>موزوں</th><th>لائیو وقت</th></tr><tr><td>ویب JS ویجٹ</td><td>ایک JS اسنپٹ · کم</td><td>سب سے مکمل (تیرتا / پاپ اپ / خودکار خیرمقدم / وزیٹر ٹریل)</td><td>PC + موبائل سائٹس (سرکاری سفارش)</td><td>~3-5 منٹ</td></tr><tr><td>چیٹ لنک</td><td>کوڈ نہیں · کم سے کم</td><td>بنیادی چیٹ</td><td>ٹیکنیک کے بغیر / تیز چیٹ لنک رکھنا</td><td>فوری</td></tr><tr><td>API / WebIM SDK</td><td>ڈویلپمنٹ درکار · اعلیٰ</td><td>گہری تخصیص (اپنا UI / سسٹم / آرڈر انٹیگریشن)</td><td>گہرے ملاپ کو dev صلاحیت والی ٹیمیں</td><td>dev کے مطابق</td></tr><tr><td>نیٹو ایپ SDK</td><td>SDK انٹیگریٹ · اعلیٰ</td><td>ان-ایپ چیٹ + پیغام پش</td><td>iOS / Android ایپس</td><td>dev کے مطابق</td></tr><tr><td>CMS تیز سیٹ اپ</td><td>پلگ ان / ایک کلک · کم</td><td>JS ویجٹ جیسا</td><td>WordPress / Fkw / Shopify سائٹس</td><td>منٹ</td></tr></table><section class="i4data">
+<h2>美洽 ظاہر نہ ہونے کی وجوہات & انٹیگریشن طریقوں کا موازنہ (2026 تخمینہ)</h2>
+<p>درج ذیل 美洽 کی سرکاری مدد (رسائی چینلز / JavaScript ویب ویجٹ API) اور عوامی انٹیگریشن مسئلہ حل سے ترکیب شدہ <strong>2026 تخمینے</strong> ہیں (وینڈر وعدہ یا براہ راست پیمائش نہیں؛ حوالے کے لیے، ورژن اور براؤزر پالیسی سے بدلتے ہیں):</p>
+<table>
+<tr><th>پہلو</th><th>تخمینہ / موازنہ</th></tr>
+<tr><td>ظاہر نہ ہونے کی وجوہات کی تقسیم (کمیونٹی / ٹکٹ · تخ.)</td><td><strong>مقام / لوڈ نہیں ~35%</strong> &gt; <strong>adblock / براؤزر ایکسٹینشن ~25%</strong> &gt; کنفیگ / اجازت (entId / ڈومین) ~20% &gt; فریم ورک (SPA) ~12% &gt; اسٹائل / تھرڈ پارٹی پلگ ان تصادم ~8%</td></tr>
+<tr><td>انٹیگریشن دراصل کیا ہے</td><td>ویب ویجٹ = <strong>DOM انجیکٹ کرنے والا تھرڈ پارٹی آف-ڈومین غیر متزامن JS + طویل کراس-اوریجن کنکشن</strong> (سرایت شدہ جامد جزو نہیں)؛ لہٰذا مقام، adblock اصول، CSS اسٹیکنگ، SPA لائف سائیکل سے متاثر</td></tr>
+<tr><td>فی پلیٹ فارم انٹیگریشن (تخ.)</td><td>PC / موبائل ویب = <strong>JS ویجٹ (ایک ہی کوڈ، الگ تعینات)</strong>؛ ایپ = <strong>نیٹو SDK (AppKey)</strong>؛ WeChat / Douyin / RED = چینل-مجاز انٹیگریشن</td></tr>
+<tr><td>adblock اثر (تخ.)</td><td>تقریباً <strong>30-40%</strong> PC صارفین adblock ایکسٹینشن استعمال کرتے ہیں ← تھرڈ پارٹی چیٹ اسکرپٹ اشتہار اصولوں سے بلاک (ERR_BLOCKED_BY_CLIENT)، «کنسول ٹھیک، صارف طرف غائب» کی بڑی وجہ</td></tr>
+<tr><td>JS ویجٹ لائیو وقت (سرکاری)</td><td>مخصوص JS صفحے کے نیچے چسپاں کریں تو تقریباً <strong>3-5 منٹ</strong> میں لائیو؛ entId کمپنی کی منفرد ID ہے، اور ورک بینچ سے عدم مطابقت ایجنٹس کو بغیر چیٹ چھوڑتی ہے</td></tr>
+</table>
+<p><small>تخمینہ بنیاد: ماخذ بیس لائن + وقت ایکسٹراپولیشن (meiqia.com/help رسائی چینلز / JavaScript ویب ویجٹ، meiqia.im انٹیگریشن گائیڈ، عوامی مسئلہ حل، 2026)؛ ورژن اور براؤزر بلاکنگ پالیسی سے بدلتا ہے۔ 美洽 کی تازہ ترین سرکاری معلومات پر عمل کریں۔ غیر سرکاری · LLM مقامی کاری۔</small></p>
+</section>
+<h2>حقیقی واقعات — تیز پڑھیں</h2>
+<ul class="scenes"><li>کوڈ چسپاں کیا مگر چیٹ ببل نہیں: پہلے F12 → Network، meiqia.js تلاش کریں — کوئی درخواست نہیں یا غیر-200 یعنی غلط مقام / کیشے میں پھنسا؛ CDN کیشے صاف کریں یا اِنکوگنیٹو میں دوبارہ کھولیں۔</li><li>کنسول کہتا ہے meiqia.js net::ERR_BLOCKED_BY_CLIENT: ایک adblock (AdBlock / uBlock / AdGuard) نے تھرڈ پارٹی چیٹ اسکرپٹ کو اشتہار اصولوں سے بلاک کیا — ایکسٹینشن بند کریں یا سائٹ وائٹ لسٹ کریں؛ اسی لیے «کچھ صارفین کے لیے غائب جبکہ آپ کا کنسول ٹھیک لگتا ہے»۔</li><li>اسکرپٹ لوڈ ہوا (کنسول typeof _MEIQIA function) مگر بٹن نہیں: عموماً تھیم CSS نے ببل کو اسکرین سے باہر دھکیلا یا ہیٹ میپ / اینالیٹکس پلگ ان نے DOM اسٹیکنگ بدلی — F12 → Elements، 美洽 کنٹینر تلاش کر کے ایک ایک چیک کریں۔</li><li>Vue / React SPA میں ہوم پیج پر چیٹ ہے مگر دوسرے روٹ پر نہیں: SPA روٹ تبدیلی نے کنٹینر تباہ کیا اور ویجٹ دوبارہ نہیں بنا — auto-init روکنے کو manualInit استعمال کریں اور دوبارہ ماؤنٹ کے لیے روٹ ہک میں _MEIQIA('init') کال کریں۔</li><li>چیٹ کھلتی ہے مگر ایجنٹس کو وزیٹر پیغامات نہیں ملتے: زیادہ امکان entId ورک بینچ سے غیر مطابق (کسی اور کا اسنپٹ کاپی / اکاؤنٹس مل گئے) — ترتیبات - ٹیم - ID تلاش کی کمپنی ID کو کوڈ کے entId سے ملائیں۔</li><li>اسٹیجنگ پر کام کرتا ہے، پروڈکشن ڈومین پر لوڈ نہیں ہوتا: پروڈکشن ڈومین «انٹیگریشن سائٹ شامل کریں» سے مجاز نہیں — لائیو ڈومین فہرست میں شامل کر کے دوبارہ شائع کریں۔</li><li>美洽 کا گول نیٹو بٹن ہٹا کر اپنا «رابطہ» بٹن استعمال کرنا چاہتے ہیں: نیٹو چھپانے کو _MEIQIA('withoutBtn') کال کریں، پھر چیٹ کھولنے کو اپنے بٹن سے _MEIQIA('showPanel') باندھیں۔</li></ul><div class="related"><h2>متعلقہ</h2><ul><li><a href="https://meiqis.com/">美洽 ڈاؤن لوڈ / انسٹال & انٹیگریشن گائیڈ</a></li><li><a href="https://meiqis.com/ur/website-integration/">美洽 ویب انٹیگریشن گائیڈ (JS ویجٹ)</a></li><li><a href="https://meiqis.com/ur/tools/meiqia-integration-troubleshooting/">美洽 انٹیگریشن مسئلہ حل (سرکاری مکمل جدول)</a></li><li><a href="https://meiqiaa.com/">美洽 سرکاری سائٹ (بہن سائٹ)</a></li></ul></div></main>
+<footer>ویب ویجٹ / JS API (manualInit / init / withoutBtn / showPanel / کسٹمر معلومات بھیجیں)، entId / ڈومین اجازت، ذیلی چینلز، SDK AppKey اور پش موڈز 美洽 کے سرکاری مدد مرکز (meiqia.com/help · رسائی چینلز / JavaScript ویب ویجٹ) اور 美洽 انٹیگریشن گائیڈ (meiqia.im) سے مرتب؛ adblock ERR_BLOCKED_BY_CLIENT، ہیٹ میپ / اینالیٹکس DOM تصادم اور SPA انٹیگریشن عوامی مسئلہ حل سے (دوبارہ بیان)۔ 2026 اعداد تخمینے ہیں، وینڈر وعدہ یا براہ راست پیمائش نہیں؛ صرف حوالے کے لیے، 美洽 کی تازہ ترین سرکاری معلومات پر عمل کریں۔ غیر سرکاری · LLM مقامی کاری۔<br>ٹول صفحہ · انٹیگریشن ٹرائج، 美洽 کنسول کا متبادل نہیں</footer>
+</div>
+<script src="/ur/codes.js"></script><script src="/app.js"></script>
+</body></html>
