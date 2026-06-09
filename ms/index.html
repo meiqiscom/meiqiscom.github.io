@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="ms"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>美洽(Meiqia) widget sembang tidak muncul / baiki ralat integrasi - meiqia.js disekat, tiada butang, entId, SPA, tolak SDK</title>
+<meta name="description" content="Widget sembang web 美洽(Meiqia) tidak muncul, butang hilang, meiqia.js disekat oleh ERR_BLOCKED_BY_CLIENT, gaya rosak, hilang selepas tukar laluan SPA, entId tidak padan jadi ejen tidak menerima sembang, tidak keluar di mudah alih, tolak SDK tidak sampai? Cari simptom untuk tingkah laku L1 dan punca akar L2: suntikan JS tak segerak pihak ketiga luar domain, peraturan adblock, penindanan CSS, kitaran hayat SPA, entId dan senarai putih domain, AppKey dan laluan tolak SDK; dengan perbandingan lima kaedah integrasi dan anggaran 2026.">
+<link rel="canonical" href="https://meiqiscom.github.io/ms/">
+<link rel="alternate" hreflang="zh-Hans" href="https://meiqiscom.github.io/">
+<link rel="alternate" hreflang="en" href="https://meiqiscom.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://meiqiscom.github.io/ja/">
+<link rel="alternate" hreflang="zh-Hant" href="https://meiqiscom.github.io/zh-tw/">
+<link rel="alternate" hreflang="ko" href="https://meiqiscom.github.io/ko/">
+<link rel="alternate" hreflang="id" href="https://meiqiscom.github.io/id/">
+<link rel="alternate" hreflang="vi" href="https://meiqiscom.github.io/vi/">
+<link rel="alternate" hreflang="th" href="https://meiqiscom.github.io/th/">
+<link rel="alternate" hreflang="es" href="https://meiqiscom.github.io/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://meiqiscom.github.io/pt-br/">
+<link rel="alternate" hreflang="de" href="https://meiqiscom.github.io/de/">
+<link rel="alternate" hreflang="fr" href="https://meiqiscom.github.io/fr/">
+<link rel="alternate" hreflang="ru" href="https://meiqiscom.github.io/ru/">
+<link rel="alternate" hreflang="it" href="https://meiqiscom.github.io/it/">
+<link rel="alternate" hreflang="pl" href="https://meiqiscom.github.io/pl/">
+<link rel="alternate" hreflang="nl" href="https://meiqiscom.github.io/nl/">
+<link rel="alternate" hreflang="tr" href="https://meiqiscom.github.io/tr/">
+<link rel="alternate" hreflang="ar" href="https://meiqiscom.github.io/ar/">
+<link rel="alternate" hreflang="hi" href="https://meiqiscom.github.io/hi/">
+<link rel="alternate" hreflang="ms" href="https://meiqiscom.github.io/ms/">
+<link rel="alternate" hreflang="fa" href="https://meiqiscom.github.io/fa/">
+<link rel="alternate" hreflang="bn" href="https://meiqiscom.github.io/bn/">
+<link rel="alternate" hreflang="ta" href="https://meiqiscom.github.io/ta/">
+<link rel="alternate" hreflang="te" href="https://meiqiscom.github.io/te/">
+<link rel="alternate" hreflang="fil" href="https://meiqiscom.github.io/fil/">
+<link rel="alternate" hreflang="ur" href="https://meiqiscom.github.io/ur/">
+<link rel="alternate" hreflang="lo" href="https://meiqiscom.github.io/lo/">
+<link rel="alternate" hreflang="km" href="https://meiqiscom.github.io/km/">
+<link rel="alternate" hreflang="my" href="https://meiqiscom.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://meiqiscom.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "美洽 sembang tidak muncul / pembaikan ralat integrasi",
+   "url": "https://meiqiscom.github.io/ms/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "inLanguage": "ms",
+   "description": "Widget sembang web 美洽(Meiqia) tidak muncul, butang hilang, meiqia.js disekat oleh ERR_BLOCKED_BY_CLIENT, gaya rosak, hilang selepas tukar laluan SPA, entId tidak padan jadi ejen tidak menerima sembang, tidak keluar di mudah alih, tolak SDK tidak sampai? Cari simptom untuk tingkah laku L1 dan punca akar L2: suntikan JS tak segerak pihak ketiga luar domain, peraturan adblock, penindanan CSS, kitaran hayat SPA, entId dan senarai putih domain, AppKey dan laluan tolak SDK; dengan perbandingan lima kaedah integrasi dan anggaran 2026.",
+   "isAccessibleForFree": true,
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "ms",
+   "url": "https://meiqiscom.github.io/ms/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "美洽 Tetingkap / gelembung sembang langsung tidak muncul — bagaimana membaikinya?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Widget web 美洽 memuatkan tetingkap sembang terapung dengan satu snippet JS yang ditampal; sahkan kod tertanam betul dan tapak integrasi dikonfigur dalam konsol. Widget ialah meiqia.js yang disuntik ke DOM selepas muatan tak segerak, jadi «tiada langsung» biasanya bermaksud «skrip tak pernah dimuatkan»: salah tempat, disekat adblock / cache, atau domain / entId tak padan, jadi suntikan tak pernah berjalan. F12 → Network, cari meiqia.js: tiada permintaan → kod tak berkesan (semak penempatan / bersih cache); ada permintaan tetapi bukan-200 → disekat atau masalah laluan; semua baik tetapi masih tertutup → semak entId / kebenaran domain dan kumpulan di bawah."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Skrip dimuatkan tetapi butang sembang hilang — bagaimana membaikinya?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Kod widget menyesuaikan tapak dan tunjuk butang sembang; jika paparan gagal, semak sama ada disembunyikan oleh gaya atau pemulaan terganggu. Jika skrip dimuatkan tetapi butang hilang, biasanya masalah «lapisan paparan»: CSS seluruh tapak menindih kedudukan butang / set display:none, z-index kalah, atau elemen tetap lain menutupnya; ralat JS lain juga boleh batal pemulaan. F12 → Elements, cari bekas 美洽 — wujud, tersembunyi, atau luar skrin?; nyahaktif sementara CSS / skrip sendiri untuk uji semula; semak konsol untuk ralat yang membatalkan pelaksanaan."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js disekat sambungan adblock — bagaimana membaikinya?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Skrip sembang 美洽 datang dari domain pihak ketiga; jika sambungan penyekat dipasang, ia mungkin anggap ia iklan / penjejak dan halang muatan — matikan penyekatan atau senarai putih. ERR_BLOCKED_BY_CLIENT bermakna sambungan pelayar (AdBlock / uBlock / AdGuard) menyekat permintaan melalui senarai penapis. Skrip 美洽 ialah «pihak ketiga luar domain + komunikasi masa nyata», yang sering disalah anggap peraturan itu sebagai iklan / penjejak, menyebabkan kegagalan palsu «konsol baik, sisi pengguna hilang». Uji semula dalam menyamar atau adblock mati — jika muncul, penyekatan puncanya; minta pengguna senarai putih tapak; bahagian depan boleh muat skrip sembang bertangguh / bersyarat untuk elak sebahagian peraturan auto."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js 404 / status buruk / kandungan campuran — bagaimana membaikinya?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Selepas kerah, cari meiqia.js dalam panel Network; status 200 bermakna skrip diletak betul dan dimuatkan. Punca biasa bukan-200: kod tertahan cache halaman / CDN (tak segar selepas terbit), muat pada halaman HTTP / rantai sijil tak lengkap mencetus sekatan kandungan campuran, atau kod rosak / disalin separa. Jika langkah ini gagal, suntikan dan sambungan tak pernah berlaku. Bersih cache CDN / pelayar (atau menyamar) selepas terbit; pastikan HTTPS penuh dengan rantai sijil utuh dan tanpa kandungan campuran; sahkan kod disalin lengkap dan tak ter-escape."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Kod salah tempat (sekat head / tak berkesan) — bagaimana membaikinya?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽 mengesyorkan tampal kod di bahagian bawah halaman, sebelum </body>; widget berjalan selepas kandungan utama dimuatkan. Widget perlu suntik bekas selepas DOM sedia. Dalam <head> ia menyekat papar (skrin kosong dahulu pada rangkaian lemah) atau berjalan sebelum DOM sedia dan gagal; dalam sesetengah skop async / modul susunan muat juga boleh kacau. Letak JS 美洽 dalam pengaki sepunya setiap halaman, sebelum </body>; untuk SPA lihat entri «laluan SPA» dan guna manualInit; pastikan bundler tak buang ia melalui tree-shaking."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Gaya tetingkap / butang sembang rosak — bagaimana membaikinya?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Widget menyuntik gayanya sendiri dan menyesuaikan tapak; konflik dengan gaya global boleh menyebabkan anomali visual. Skrip 美洽 menyuntik CSS semasa runtime; jika gaya global (pemilih sejagat / peraturan keutamaan tinggi / reset) menindih kelasnya dahulu, kedudukan, penindanan dan fon rosak — kesan sampingan «suntikan dinamik + kongsi satu ruang gaya dokumen». F12 untuk lihat peraturan tapak mana menindih bekas 美洽; sempitkan gaya global / kurangkan kesan pada kelas umum; jika perlu minta 美洽 laras penindanan bekas."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Butang luar skrin / tertutup — bagaimana membaikinya?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Butang widget muncul sebagai terapung kedudukan tetap; jika tertutup elemen tetap lain, laras penindanan atau kedudukan. Elemen position:fixed lain pada tapak (kembali atas, iklan terapung, bar sokongan sendiri) dengan z-index lebih tinggi menutup butang 美洽, atau tema salah kira koordinatnya, jadikannya «luar skrin / tertutup». Pilih bekas 美洽 dalam F12 untuk lihat koordinat / z-index sebenar; naikkannya atau turun z-index elemen penutup; elak tindan banyak terapung tetap di satu sudut."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Konflik DOM pemalam / analitik pihak ketiga — bagaimana membaikinya?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Skrip lain pada halaman yang mengubah DOM atau memintas permintaan boleh menjejas muatan dan paparan normal widget. Skrip heatmap / analitik / penukaran menulis semula DOM, menyuntik tindihan atau memintas permintaan; kerana ia dan 美洽 menyuntik ke dokumen sama, penindanan / peristiwa berganggu dan bekas 美洽 tertutup atau init-nya terganggu. Nyahaktif pemalam disyaki satu per satu untuk cari konflik; laras susunan muat / penindanan bekas; buat heatmap dsb. elak kawasan bekas 美洽."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">Bahasa: <a href="/">简体中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/ko/">한국어</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/th/">ไทย</a> · <a href="/es/">Español</a> · <a href="/pt-br/">Português (BR)</a> · <a href="/de/">Deutsch</a> · <a href="/fr/">Français</a> · <a href="/ru/">Русский</a> · <a href="/it/">Italiano</a> · <a href="/pl/">Polski</a> · <a href="/nl/">Nederlands</a> · <a href="/tr/">Türkçe</a> · <a href="/ar/">العربية</a> · <a href="/hi/">हिन्दी</a> · <strong>Bahasa Melayu</strong> · <a href="/fa/">فارسی</a> · <a href="/bn/">বাংলা</a> · <a href="/ta/">தமிழ்</a> · <a href="/te/">తెలుగు</a> · <a href="/fil/">Filipino</a> · <a href="/ur/">اردو</a> · <a href="/lo/">ພາສາລາວ</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>美洽 widget sembang tidak muncul / baiki ralat integrasi</h1>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_ms.webp"><img src="/img/cover_ms.png" alt="Ilustrasi alat 美洽 widget sembang tidak muncul / pembaikan ralat" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Raj: 美洽 sembang tidak muncul / pembaikan ralat (tingkah laku L1 + punca akar L2 + lima kaedah integrasi)</figcaption></figure>
+<p>Sudah tampal kod <strong>美洽(Meiqia)</strong> tetapi <strong>widget sembang web</strong> tidak muncul, <strong>butang sembang tak pernah keluar</strong>, konsol melaporkan <code>meiqia.js</code> disekat, atau <strong>ejen tidak menerima sembang</strong>? Jelaskan tiga perkara dahulu: <strong>adakah skrip langsung tidak dimuatkan (penempatan / adblock / cache), dimuatkan tetapi disembunyikan oleh gaya / penindanan, atau dimuatkan baik tetapi konfigurasi tidak padan (entId / domain / kitaran hayat SPA)?</strong> Cari <strong>simptom atau kata kunci</strong> (cth. <code>not showing</code>, <code>adblock</code>, <code>entId</code>, <code>SPA</code>, <code>mobile</code>, <code>sdk push</code>): dahulu <strong>tingkah laku L1 & kedudukan rasmi</strong>, kemudian <strong>punca akar L2 & penyelesaian</strong>. Pemasangan / panduan? Lihat <a href="https://meiqis.com/">muat turun 美洽 / panduan integrasi khidmat pelanggan</a>.</p>
+<input id="q" placeholder="Taip simptom atau kata kunci, cth. not showing / adblock / entId / SPA / mobile / sdk push" autocomplete="off">
+<button id="go">Cari</button>
+<div id="out"></div>
+<h2>Langkah 1: periksa sama ada skrip dimuatkan, kemudian bahagi kepada empat kumpulan</h2>
+<p>Apabila sembang 美洽 tidak muncul, 9 daripada 10 kali ia salah satu daripada empat kumpulan; lihat dahulu <strong>sama ada skrip langsung dimuatkan</strong>: F12 → Network, cari <code>meiqia.js</code>; tiada permintaan atau status bukan 200 bermakna tidak dimuatkan. ① <strong>Gagal muat</strong>: kod di tempat salah (patut sebelum <code>&lt;/body&gt;</code>, bukan dalam <code>&lt;head&gt;</code>), disekat oleh peraturan adblock (<code>ERR_BLOCKED_BY_CLIENT</code>), tertahan cache CDN / pelayar, atau sijil HTTPS / kandungan campuran. ② <strong>Konfigurasi / kebenaran</strong>: entId tidak padan dengan papan kerja (dimuatkan tetapi ejen tidak menerima sembang), atau domain tapak belum dibenarkan dalam konsol. ③ <strong>Integrasi rangka kerja</strong>: SPA Vue/React/Next memusnahkan bekas semasa tukar laluan dan widget tidak dibina semula. ④ <strong>Paparan / mudah alih / SDK</strong>: CSS tapak menolak gelembung keluar skrin, pemalam pihak ketiga menindih DOM, mudah alih perlu pengerahan sendiri, dalam apl perlu SDK. Lebih lengkap: <a href="https://meiqis.com/website-integration/">panduan integrasi web 美洽</a>.</p>
+<div class="cat"><div class="catbox"><b>Gagal muat</b><span class="cs">penempatan · adblock · cache · HTTPS</span><div>Tampal JS 美洽 sebelum </body> (bukan dalam <head>); F12 → Network, cari meiqia.js dan periksa status (patut 200); ERR_BLOCKED_BY_CLIENT biasanya sambungan adblock — uji dalam mod menyamar atau senarai putih; bersihkan cache CDN selepas terbit; pastikan HTTPS penuh tanpa kandungan campuran.</div></div><div class="catbox"><b>Konfigurasi / kebenaran</b><span class="cs">entId · senarai putih domain · subsaluran</span><div>entId ialah id unik syarikat anda; jika tidak padan dengan papan kerja «skrip dimuatkan tetapi ejen tidak menerima sembang» (Tetapan - Pasukan - cari ID); domain tapak mesti dibenarkan melalui «Tambah tapak integrasi»; guna subsaluran (kuar) berasingan setiap barisan perniagaan.</div></div><div class="catbox"><b>Integrasi rangka kerja</b><span class="cs">SPA · tukar laluan · manualInit</span><div>SPA Vue/React/Next memusnahkan DOM semasa tukar laluan dan widget tidak dibina semula; guna _MEIQIA('manualInit') untuk hentikan auto-init dan panggil _MEIQIA('init') dalam cangkuk laluan (useEffect / mounted) untuk memasang semula.</div></div><div class="catbox"><b>Masalah paparan</b><span class="cs">konflik gaya · penindanan · pemalam pihak ketiga</span><div>Dimuatkan tetapi halimunan: biasanya CSS seluruh tapak menindih kedudukan gelembung, atau pemalam heatmap / analitik / SEO mengubah DOM dan menutup bekas; F12 → Elements, cari bekas meiqia dan periksa display:none, z-index kalah, atau koordinat luar skrin.</div></div><div class="catbox"><b>Mudah alih / SDK</b><span class="cs">web mudah alih · AppKey · tolak</span><div>Web mudah alih / PC ialah snippet sama tetapi perlu pengerahan sendiri; dalam apl guna SDK natif (dahulu «Tambah konfig APP» dalam konsol untuk AppKey); tolak terbahagi «tiada tolak» (dalam apl sahaja) dan «pelayan tolak tersuai» (dihantar walaupun keluar apl).</div></div><div class="catbox"><b>Panggilan API</b><span class="cs">withoutBtn · showPanel · maklumat pelanggan</span><div>Butang sendiri? _MEIQIA('withoutBtn') sembunyi butang natif, dan panggil _MEIQIA('showPanel') semasa klik untuk buka sembang; hantar / segerak maklumat pelanggan dalam masa init, jika tidak takkan berkesan.</div></div></div><figure><svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rajah triage 美洽 sembang tidak muncul" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">Triage tetingkap / butang tidak muncul (dua langkah dahulu: adakah skrip dimuatkan → adakah konfig betul?)</text><rect x="20" y="46" width="150" height="46" rx="10" fill="#111"/><text x="95" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff">Sembang tak muncul</text><path d="M170 69 H206" stroke="#999" stroke-width="2" fill="none" marker-end="url(#a)"/><rect x="206" y="46" width="172" height="46" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="292" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1d4ed8">Dua kumpulan</text><rect x="440" y="20" width="262" height="56" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="455" y="42" font-family="system-ui,Arial" font-size="12.5" fill="#1d4ed8">Skrip tak dimuatkan →</text><text x="455" y="62" font-family="system-ui,Arial" font-size="11.5" fill="#1e3a8a">penempatan · adblock · cache</text><rect x="440" y="86" width="262" height="56" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="455" y="108" font-family="system-ui,Arial" font-size="12.5" fill="#b45309">Dimuatkan tetapi tertutup / tak sambung →</text><text x="455" y="128" font-family="system-ui,Arial" font-size="11.5" fill="#92400e">penindanan · entId · domain · SPA</text><path d="M378 60 H410 V48 H440" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M378 78 H410 V114 H440" stroke="#d97706" stroke-width="2" fill="none" marker-end="url(#a)"/><text x="20" y="178" font-family="system-ui,Arial" font-size="13" font-weight="700" fill="#1d1d1f">Empat kumpulan akar (punca / penyelesaian setiap item)</text><g font-family="system-ui,Arial" font-size="12"><rect x="20" y="190" width="162" height="92" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="32" y="212" font-weight="700" fill="#1d4ed8">① Gagal muat</text><text x="32" y="234" fill="#555" font-size="11">penempatan · sekat · cache</text><rect x="194" y="190" width="162" height="92" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="206" y="212" font-weight="700" fill="#1d4ed8">② Konfig / kebenaran</text><text x="206" y="234" fill="#555" font-size="11">entId · senarai putih domain</text><rect x="368" y="190" width="162" height="92" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="380" y="212" font-weight="700" fill="#b45309">③ Rangka kerja</text><text x="380" y="234" fill="#555" font-size="11">laluan SPA · init</text><rect x="542" y="190" width="160" height="92" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="554" y="212" font-weight="700" fill="#047857">④ Paparan / mudah alih / SDK</text><text x="554" y="234" fill="#555" font-size="11">penindanan · mudah alih · tolak</text></g><defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#999"/></marker></defs></svg><figcaption>Raj 1: triage 美洽 tidak muncul — periksa pemuatan skrip (meiqia.js dalam F12), kemudian muat / konfig / rangka kerja / paparan</figcaption></figure>
+<h2>Langkah 2: punca akar paling kerap terlepas pandang → L2 (widget = suntikan JS tak segerak pihak ketiga luar domain)</h2>
+<p>Satu idea memadai: <strong>widget web 美洽 bukan komponen statik yang tertanam dalam halaman anda — ia <code>meiqia.js</code> yang dimuatkan secara tak segerak dari domain luar 美洽 lalu menyuntik secara dinamik bekas sembang (DOM / iframe) dan membuka sambungan rentas-asal berpanjangan ke pelayan 美洽</strong>. Ini menjelaskan kebanyakan «hilang misteri»: ① <strong>ia skrip pihak ketiga luar domain</strong>, jadi AdBlock / uBlock menyekatnya melalui senarai «penjejakan / iklan» (<code>ERR_BLOCKED_BY_CLIENT</code>) dan butang tak pernah keluar (walaupun konsol nampak baik); ② <strong>ia menyuntik DOM secara tak segerak</strong>: dalam <code>&lt;head&gt;</code> ia menyekat, tukar laluan SPA memusnahkan bekas dan ia tidak dibina semula sendiri (guna <code>manualInit</code> + <code>_MEIQIA('init')</code>), dan pemalam heatmap / analitik yang mengubah DOM boleh menutupinya; ③ <strong>ia terikat pada syarikat anda melalui entId dan dipintu oleh senarai putih domain</strong>: dengan entId salah atau domain tak dibenarkan skrip dimuatkan tetapi «tidak menyambung sembang»; ④ <strong>mudah alih dan PC ialah dua integrasi berasingan</strong>, dalam apl ialah SDK (AppKey), dan tolak terbahagi «tiada tolak» vs «pelayan tolak tersuai». Setelah anda lihat rantai suntikan ini, setiap simptom di bawah ada satu logik. Di bawah panel semak sendiri; lebih bawah lima kaedah dan anggaran 2026.</p>
+<figure><svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Panel semak sendiri pra-integrasi 美洽" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">Panel semak sendiri integrasi (hijau = disahkan / merah = mudah terlepas pandang)</text><rect x="20" y="42" width="680" height="226" rx="14" fill="#f8fafc" stroke="#e2e8f0"/><text x="38" y="66" font-family="system-ui,Arial" font-size="12.5" font-weight="700" fill="#475569">Item semak</text><text x="300" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">Keputusan</text><text x="610" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">Status</text><line x1="38" y1="74" x2="682" y2="74" stroke="#e2e8f0" stroke-width="1"/><text x="38" y="98" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Kod 美洽 ditampal sebelum </body> (bukan <head>)</text><text x="300" y="98" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">penempatan</text><circle cx="612" cy="94" r="6" fill="#16a34a"/><text x="628" y="98" font-family="system-ui,Arial" font-size="12" fill="#16a34a">disahkan</text><text x="38" y="128" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Status 200 meiqia.js dalam F12 → Network</text><text x="300" y="128" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">muat skrip</text><circle cx="612" cy="124" r="6" fill="#16a34a"/><text x="628" y="128" font-family="system-ui,Arial" font-size="12" fill="#16a34a">disahkan</text><text x="38" y="158" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Konsol typeof _MEIQIA ialah function</text><text x="300" y="158" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">dimulakan</text><circle cx="612" cy="154" r="6" fill="#16a34a"/><text x="628" y="158" font-family="system-ui,Arial" font-size="12" fill="#16a34a">disahkan</text><text x="38" y="188" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Muncul dalam menyamar / adblock mati</text><text x="300" y="188" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">adblock</text><circle cx="612" cy="184" r="6" fill="#ef4444"/><text x="628" y="188" font-family="system-ui,Arial" font-size="12" fill="#ef4444">perlu semak</text><text x="38" y="218" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">entId padan papan kerja + domain dibenarkan</text><text x="300" y="218" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">konfig / kebenaran</text><circle cx="612" cy="214" r="6" fill="#16a34a"/><text x="628" y="218" font-family="system-ui,Arial" font-size="12" fill="#16a34a">disahkan</text><text x="38" y="248" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Re-init selepas tukar laluan SPA + tiada tindih pemalam</text><text x="300" y="248" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">rangka kerja / penindanan</text><circle cx="612" cy="244" r="6" fill="#ef4444"/><text x="628" y="248" font-family="system-ui,Arial" font-size="12" fill="#ef4444">perlu semak</text><text x="20" y="296" font-family="system-ui,Arial" font-size="11.5" fill="#94a3b8">Nota: merah = dua paling kerap terlepas — sambungan adblock (ERR_BLOCKED_BY_CLIENT) dan rangka kerja / penindanan (tukar laluan SPA, pemalam pihak ketiga mengubah DOM); semak dua ini dahulu.</text></svg><figcaption>Raj 2: panel semak sendiri integrasi 美洽 (hijau = disahkan / merah = mudah terlepas pandang)</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_ms.webp"><img src="/img/board_ms.png" alt="Ilustrasi panel semak sendiri pra-integrasi 美洽, item hijau/merah" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Raj: periksa «penempatan kod + meiqia.js 200 + dimulakan» dahulu, kemudian «adblock + rangka kerja/penindanan» — dua terakhir paling kerap terlepas</figcaption></figure>
+<h2>Jadual simptom penuh (tingkah laku / kedudukan rasmi · punca akar L2)</h2>
+<table id="tbl"></table>
+<h2>Lima kaedah integrasi 美洽 dibandingkan (kod / kesukaran / ciri / senario / masa langsung · dok rasmi)</h2>
+<table class="cmp"><tr><th>Kaedah integrasi</th><th>Kod / kesukaran</th><th>Kelengkapan ciri</th><th>Sesuai untuk</th><th>Masa langsung</th></tr><tr><td>Widget JS web</td><td>satu snippet JS · rendah</td><td>paling lengkap (terapung / popup / sapaan auto / jejak pelawat)</td><td>tapak PC + mudah alih (disyorkan rasmi)</td><td>~3-5 min</td></tr><tr><td>Pautan sembang</td><td>tiada kod · minimum</td><td>sembang asas</td><td>tanpa teknikal / letak pautan sembang pantas</td><td>serta-merta</td></tr><tr><td>API / SDK WebIM</td><td>perlu dev · tinggi</td><td>penyesuaian dalam (UI sendiri / sistem / integrasi pesanan)</td><td>pasukan dengan kapasiti dev untuk gabungan dalam</td><td>ikut dev</td></tr><tr><td>SDK natif apl</td><td>integrasi SDK · tinggi</td><td>sembang dalam apl + tolak mesej</td><td>apl iOS / Android</td><td>ikut dev</td></tr><tr><td>Sediaan pantas CMS</td><td>pemalam / satu klik · rendah</td><td>sama widget JS</td><td>tapak WordPress / Fkw / Shopify</td><td>minit</td></tr></table><section class="i4data">
+<h2>美洽 punca tidak muncul & perbandingan kaedah integrasi (anggaran 2026)</h2>
+<p>Berikut ialah <strong>anggaran 2026</strong> yang dirumus daripada bantuan rasmi 美洽 (Saluran akses / API widget web JavaScript) dan penyelesaian masalah integrasi awam (bukan komitmen vendor mahupun pengukuran tangan pertama; sebagai rujukan, berubah ikut versi dan dasar pelayar):</p>
+<table>
+<tr><th>Dimensi</th><th>Anggaran / perbandingan</th></tr>
+<tr><td>Taburan punca tidak muncul (komuniti / tiket · angg.)</td><td><strong>penempatan / tak dimuatkan ~35%</strong> &gt; <strong>adblock / sambungan pelayar ~25%</strong> &gt; konfig / kebenaran (entId / domain) ~20% &gt; rangka kerja (SPA) ~12% &gt; konflik gaya / pemalam pihak ketiga ~8%</td></tr>
+<tr><td>Apa sebenarnya integrasi</td><td>widget web = <strong>JS tak segerak pihak ketiga luar domain menyuntik DOM + sambungan rentas-asal berpanjangan</strong> (bukan komponen statik tertanam); maka terkesan penempatan, peraturan adblock, penindanan CSS, kitaran hayat SPA</td></tr>
+<tr><td>Integrasi setiap platform (angg.)</td><td>web PC / mudah alih = <strong>widget JS (kod sama, dikerah berasingan)</strong>; apl = <strong>SDK natif (AppKey)</strong>; WeChat / Douyin / RED = integrasi dibenar saluran</td></tr>
+<tr><td>Kesan adblock (angg.)</td><td>kira-kira <strong>30-40%</strong> pengguna PC guna sambungan adblock → skrip sembang pihak ketiga disekat peraturan iklan (ERR_BLOCKED_BY_CLIENT), punca utama «konsol baik, sisi pengguna hilang»</td></tr>
+<tr><td>Masa langsung widget JS (rasmi)</td><td>tampal JS khas di bawah halaman dan ia langsung dalam kira-kira <strong>3-5 minit</strong>; entId ialah id unik syarikat, dan ketakpadanan dengan papan kerja tinggalkan ejen tanpa sembang</td></tr>
+</table>
+<p><small>Asas anggaran: garis dasar sumber + ekstrapolasi masa (meiqia.com/help Saluran akses / widget web JavaScript, panduan integrasi meiqia.im, penyelesaian masalah awam, 2026); berubah ikut versi dan dasar sekatan pelayar. Ikut maklumat rasmi 美洽 terkini. Tidak rasmi · penyetempatan LLM.</small></p>
+</section>
+<h2>Kes sebenar — baca pantas</h2>
+<ul class="scenes"><li>Kod ditampal tetapi tiada gelembung sembang: dahulu F12 → Network, cari meiqia.js — tiada permintaan atau bukan-200 bermakna salah tempat / tertahan cache; bersihkan cache CDN atau buka semula dalam menyamar.</li><li>Konsol kata meiqia.js net::ERR_BLOCKED_BY_CLIENT: adblock (AdBlock / uBlock / AdGuard) menyekat skrip sembang pihak ketiga melalui peraturan iklan — matikan sambungan atau senarai putih tapak; ini juga sebab «hilang bagi sesetengah pengguna walaupun konsol anda nampak baik».</li><li>Skrip dimuatkan (konsol typeof _MEIQIA ialah function) tetapi tiada butang: biasanya CSS tema menolak gelembung keluar skrin atau pemalam heatmap / analitik menukar penindanan DOM — F12 → Elements, cari bekas 美洽 dan periksa satu per satu.</li><li>Laman utama ada sembang dalam SPA Vue / React, tetapi laluan kedua tiada: tukar laluan SPA memusnahkan bekas dan widget tidak dibina semula — guna manualInit untuk hentikan auto-init dan panggil _MEIQIA('init') dalam cangkuk laluan untuk memasang semula.</li><li>Sembang terbuka tetapi ejen tidak menerima mesej pelawat: berkemungkinan besar entId tidak padan dengan papan kerja (salin snippet orang lain / akaun bercampur) — banding ID syarikat di Tetapan - Pasukan - cari ID dengan entId dalam kod.</li><li>Berfungsi di staging, tidak dimuatkan pada domain pengeluaran: domain pengeluaran belum dibenarkan melalui «Tambah tapak integrasi» — tambah domain langsung ke senarai dan terbit semula.</li><li>Mahu buang butang bulat natif 美洽 dan guna butang «Hubungi» sendiri: panggil _MEIQIA('withoutBtn') untuk sembunyi natif, kemudian ikat _MEIQIA('showPanel') pada butang anda untuk buka sembang.</li></ul><div class="related"><h2>Berkaitan</h2><ul><li><a href="https://meiqis.com/">Muat turun 美洽 / pemasangan & panduan integrasi</a></li><li><a href="https://meiqis.com/ms/website-integration/">Panduan integrasi web 美洽 (widget JS)</a></li><li><a href="https://meiqis.com/ms/tools/meiqia-integration-troubleshooting/">Penyelesaian masalah integrasi 美洽 (jadual penuh berwibawa)</a></li><li><a href="https://meiqiaa.com/">Tapak rasmi 美洽 (tapak adik-beradik)</a></li></ul></div></main>
+<footer>Widget web / API JS (manualInit / init / withoutBtn / showPanel / hantar maklumat pelanggan), kebenaran entId / domain, subsaluran, AppKey SDK & mod tolak dirumus daripada Pusat Bantuan rasmi 美洽 (meiqia.com/help · Saluran akses / widget web JavaScript) dan panduan integrasi 美洽 (meiqia.im); adblock ERR_BLOCKED_BY_CLIENT, konflik DOM heatmap / analitik dan integrasi SPA daripada penyelesaian masalah awam (diparafrasa). Angka 2026 ialah anggaran, bukan komitmen vendor mahupun pengukuran tangan pertama; sebagai rujukan, ikut maklumat rasmi 美洽 terkini. Tidak rasmi · penyetempatan LLM.<br>Halaman alat · triage integrasi, bukan ganti konsol 美洽</footer>
+</div>
+<script src="/ms/codes.js"></script><script src="/app.js"></script>
+</body></html>
