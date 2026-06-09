@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="vi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>美洽(Meiqia) widget chat không hiển thị / sửa lỗi tích hợp - meiqia.js bị chặn, mất nút, entId, SPA, push SDK</title>
+<meta name="description" content="Widget chat web 美洽(Meiqia) không hiển thị, mất nút, meiqia.js bị ERR_BLOCKED_BY_CLIENT chặn, vỡ kiểu, biến mất sau khi đổi route SPA, entId không khớp nên nhân viên không nhận chat, không hiện trên di động, push SDK không tới? Tra triệu chứng để xem hành vi L1 và nguyên nhân gốc L2: chèn JS bất đồng bộ bên thứ ba ngoài miền, quy tắc adblock, xếp chồng CSS, vòng đời SPA, entId và danh sách trắng miền, AppKey và đường push SDK; kèm so sánh năm phương thức tích hợp và ước tính 2026.">
+<link rel="canonical" href="https://meiqiscom.github.io/vi/">
+<link rel="alternate" hreflang="zh-Hans" href="https://meiqiscom.github.io/">
+<link rel="alternate" hreflang="en" href="https://meiqiscom.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://meiqiscom.github.io/ja/">
+<link rel="alternate" hreflang="zh-Hant" href="https://meiqiscom.github.io/zh-tw/">
+<link rel="alternate" hreflang="ko" href="https://meiqiscom.github.io/ko/">
+<link rel="alternate" hreflang="id" href="https://meiqiscom.github.io/id/">
+<link rel="alternate" hreflang="vi" href="https://meiqiscom.github.io/vi/">
+<link rel="alternate" hreflang="th" href="https://meiqiscom.github.io/th/">
+<link rel="alternate" hreflang="es" href="https://meiqiscom.github.io/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://meiqiscom.github.io/pt-br/">
+<link rel="alternate" hreflang="de" href="https://meiqiscom.github.io/de/">
+<link rel="alternate" hreflang="fr" href="https://meiqiscom.github.io/fr/">
+<link rel="alternate" hreflang="ru" href="https://meiqiscom.github.io/ru/">
+<link rel="alternate" hreflang="it" href="https://meiqiscom.github.io/it/">
+<link rel="alternate" hreflang="pl" href="https://meiqiscom.github.io/pl/">
+<link rel="alternate" hreflang="nl" href="https://meiqiscom.github.io/nl/">
+<link rel="alternate" hreflang="tr" href="https://meiqiscom.github.io/tr/">
+<link rel="alternate" hreflang="ar" href="https://meiqiscom.github.io/ar/">
+<link rel="alternate" hreflang="hi" href="https://meiqiscom.github.io/hi/">
+<link rel="alternate" hreflang="ms" href="https://meiqiscom.github.io/ms/">
+<link rel="alternate" hreflang="fa" href="https://meiqiscom.github.io/fa/">
+<link rel="alternate" hreflang="bn" href="https://meiqiscom.github.io/bn/">
+<link rel="alternate" hreflang="ta" href="https://meiqiscom.github.io/ta/">
+<link rel="alternate" hreflang="te" href="https://meiqiscom.github.io/te/">
+<link rel="alternate" hreflang="fil" href="https://meiqiscom.github.io/fil/">
+<link rel="alternate" hreflang="ur" href="https://meiqiscom.github.io/ur/">
+<link rel="alternate" hreflang="lo" href="https://meiqiscom.github.io/lo/">
+<link rel="alternate" hreflang="km" href="https://meiqiscom.github.io/km/">
+<link rel="alternate" hreflang="my" href="https://meiqiscom.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://meiqiscom.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "美洽 chat không hiển thị / sửa lỗi tích hợp",
+   "url": "https://meiqiscom.github.io/vi/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "inLanguage": "vi",
+   "description": "Widget chat web 美洽(Meiqia) không hiển thị, mất nút, meiqia.js bị ERR_BLOCKED_BY_CLIENT chặn, vỡ kiểu, biến mất sau khi đổi route SPA, entId không khớp nên nhân viên không nhận chat, không hiện trên di động, push SDK không tới? Tra triệu chứng để xem hành vi L1 và nguyên nhân gốc L2: chèn JS bất đồng bộ bên thứ ba ngoài miền, quy tắc adblock, xếp chồng CSS, vòng đời SPA, entId và danh sách trắng miền, AppKey và đường push SDK; kèm so sánh năm phương thức tích hợp và ước tính 2026.",
+   "isAccessibleForFree": true,
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "vi",
+   "url": "https://meiqiscom.github.io/vi/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "美洽 Cửa sổ / bong bóng chat hoàn toàn không hiển thị — khắc phục thế nào?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Widget web 美洽 tải cửa sổ chat nổi bằng một snippet JS được dán; xác nhận mã đã nhúng đúng và trang tích hợp đã cấu hình trong console. Widget là meiqia.js được chèn vào DOM sau khi tải bất đồng bộ, nên «không có gì» thường nghĩa là «script chưa từng tải»: sai vị trí, bị adblock / cache chặn, hoặc miền / entId không khớp, nên bước chèn không bao giờ chạy. F12 → Network, tìm meiqia.js: không request → mã không có hiệu lực (kiểm vị trí / xóa cache); có request nhưng khác 200 → bị chặn hoặc lỗi đường dẫn; mọi thứ ổn mà vẫn ẩn → kiểm entId / cấp phép miền và các nhóm dưới."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Script đã tải nhưng mất nút chat — khắc phục thế nào?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Mã widget tự thích ứng site và hiện nút chat; nếu hiển thị lỗi, kiểm xem có bị kiểu ẩn hay khởi tạo bị ngắt. Nếu script tải nhưng mất nút, thường là vấn đề «lớp hiển thị»: CSS toàn site ghi đè vị trí nút / đặt display:none, z-index thua, hoặc phần tử cố định khác che; lỗi JS khác cũng có thể ngắt khởi tạo. F12 → Elements, tìm container 美洽 — có, bị ẩn, hay ngoài màn hình?; tạm tắt CSS / script riêng để thử lại; kiểm console xem lỗi ngắt thực thi."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js bị tiện ích adblock chặn — khắc phục thế nào?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Script chat 美洽 đến từ miền bên thứ ba; nếu có tiện ích chặn cài đặt, nó có thể coi là quảng cáo / theo dõi và ngăn tải — tắt chặn hoặc whitelist. ERR_BLOCKED_BY_CLIENT nghĩa là tiện ích trình duyệt (AdBlock / uBlock / AdGuard) chặn request theo danh sách lọc. Script 美洽 là «bên thứ ba ngoài miền + giao tiếp thời gian thực», thường bị quy tắc đó hiểu nhầm là quảng cáo / theo dõi, gây lỗi giả «console ổn, phía người dùng mất». Thử lại ở ẩn danh hoặc tắt adblock — nếu hiện, chặn là nguyên nhân; nhắc người dùng whitelist site; frontend có thể tải script chat trễ / có điều kiện để né một số quy tắc tự động."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js 404 / trạng thái xấu / nội dung hỗn hợp — khắc phục thế nào?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sau khi deploy, tìm meiqia.js trong bảng Network; trạng thái 200 nghĩa là script đặt đúng và đã tải. Nguyên nhân khác-200 thường gặp: mã bị cache trang / CDN giữ (chưa làm mới sau xuất bản), tải trên trang HTTP / chuỗi chứng chỉ không đầy đủ kích hoạt chặn nội dung hỗn hợp, hoặc mã hỏng / sao chép thiếu. Bước này lỗi thì chèn và kết nối không bao giờ xảy ra. Xóa cache CDN / trình duyệt (hoặc ẩn danh) sau xuất bản; đảm bảo HTTPS đầy đủ với chuỗi chứng chỉ nguyên vẹn và không nội dung hỗn hợp; xác minh mã sao chép đầy đủ và không bị escape."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Mã sai vị trí (chặn head / không hiệu lực) — khắc phục thế nào?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽 khuyến nghị dán mã ở cuối trang, trước </body>; widget chạy sau khi nội dung chính tải xong. Widget phải chèn container sau khi DOM sẵn sàng. Trong <head> nó chặn render (màn hình trắng trước trên mạng yếu) hoặc chạy trước khi DOM sẵn sàng và chèn lỗi; trong một số scope async / module thứ tự tải cũng có thể sai. Đặt JS 美洽 ở footer chung mọi trang, trước </body>; với SPA xem mục «route SPA» và dùng manualInit; đảm bảo bundler không loại bỏ nó qua tree-shaking."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Kiểu cửa sổ / nút chat vỡ — khắc phục thế nào?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Widget chèn kiểu riêng và tự thích ứng site; xung đột với kiểu toàn site có thể gây bất thường thị giác. Script 美洽 chèn CSS lúc runtime; nếu kiểu toàn site (bộ chọn phổ quát / quy tắc ưu tiên cao / reset) ghi đè lớp của nó trước, vị trí, xếp chồng và phông vỡ — tác dụng phụ của «chèn động + chia sẻ một không gian kiểu tài liệu». F12 để xem quy tắc site nào ghi đè container 美洽; thu hẹp kiểu toàn site / giảm tác động lên lớp chung; nếu cần nhờ 美洽 chỉnh xếp chồng container."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Nút ra ngoài màn hình / bị che — khắc phục thế nào?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Nút widget xuất hiện dạng nổi vị trí cố định; nếu bị phần tử cố định khác che, chỉnh xếp chồng hoặc vị trí. Phần tử position:fixed khác trên site (lên đầu, quảng cáo nổi, thanh hỗ trợ riêng) với z-index cao hơn che nút 美洽, hoặc theme tính sai tọa độ, để nó «ngoài màn hình / bị che». Chọn container 美洽 trong F12 để xem tọa độ / z-index thực; nâng nó lên hoặc hạ z-index phần tử che; tránh xếp nhiều nổi cố định một góc."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Xung đột DOM plugin / phân tích bên thứ ba — khắc phục thế nào?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Script khác trên trang sửa DOM hoặc chặn request có thể ảnh hưởng việc tải và hiển thị bình thường của widget. Script heatmap / phân tích / chuyển đổi viết lại DOM, chèn overlay hoặc chặn request; vì chúng và 美洽 cùng chèn vào một tài liệu, xếp chồng / sự kiện nhiễu nhau và container 美洽 bị che hoặc init bị ngắt. Tắt từng plugin nghi ngờ để khoanh xung đột; chỉnh thứ tự tải / xếp chồng container; cho heatmap v.v. né vùng container 美洽."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">Ngôn ngữ: <a href="/">简体中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/ko/">한국어</a> · <a href="/id/">Bahasa Indonesia</a> · <strong>Tiếng Việt</strong> · <a href="/th/">ไทย</a> · <a href="/es/">Español</a> · <a href="/pt-br/">Português (BR)</a> · <a href="/de/">Deutsch</a> · <a href="/fr/">Français</a> · <a href="/ru/">Русский</a> · <a href="/it/">Italiano</a> · <a href="/pl/">Polski</a> · <a href="/nl/">Nederlands</a> · <a href="/tr/">Türkçe</a> · <a href="/ar/">العربية</a> · <a href="/hi/">हिन्दी</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fa/">فارسی</a> · <a href="/bn/">বাংলা</a> · <a href="/ta/">தமிழ்</a> · <a href="/te/">తెలుగు</a> · <a href="/fil/">Filipino</a> · <a href="/ur/">اردو</a> · <a href="/lo/">ພາສາລາວ</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>美洽 widget chat không hiển thị / sửa lỗi tích hợp</h1>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_vi.webp"><img src="/img/cover_vi.png" alt="Minh họa công cụ 美洽 widget chat không hiển thị / sửa lỗi" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Hình: 美洽 chat không hiển thị / sửa lỗi (hành vi L1 + nguyên nhân gốc L2 + năm phương thức tích hợp)</figcaption></figure>
+<p>Đã dán mã <strong>美洽(Meiqia)</strong> mà <strong>widget chat web</strong> không hiển thị, <strong>nút chat không bao giờ hiện</strong>, console báo <code>meiqia.js</code> bị chặn, hay <strong>nhân viên không nhận chat</strong>? Làm rõ ba điều trước: <strong>script hoàn toàn chưa tải (vị trí / adblock / cache), đã tải nhưng bị che bởi kiểu / xếp chồng, hay tải tốt nhưng cấu hình không khớp (entId / miền / vòng đời SPA)?</strong> Tra <strong>triệu chứng hoặc từ khóa</strong> (vd. <code>not showing</code>, <code>adblock</code>, <code>entId</code>, <code>SPA</code>, <code>mobile</code>, <code>sdk push</code>): trước là <strong>hành vi L1 & định vị chính thức</strong>, rồi <strong>nguyên nhân gốc L2 & cách sửa</strong>. Cài đặt / hướng dẫn? Xem <a href="https://meiqis.com/">tải 美洽 / hướng dẫn tích hợp CSKH</a>.</p>
+<input id="q" placeholder="Nhập triệu chứng hoặc từ khóa, vd. not showing / adblock / entId / SPA / mobile / sdk push" autocomplete="off">
+<button id="go">Tra cứu</button>
+<div id="out"></div>
+<h2>Bước 1: kiểm tra script đã tải chưa, rồi chia bốn nhóm</h2>
+<p>Khi chat 美洽 không hiển thị, 9/10 lần là một trong bốn nhóm; trước hết xem <strong>script có tải hay không</strong>: F12 → Network, tìm <code>meiqia.js</code>; không có request hoặc trạng thái khác 200 nghĩa là chưa tải. ① <strong>Tải lỗi</strong>: mã sai vị trí (phải trước <code>&lt;/body&gt;</code>, không phải trong <code>&lt;head&gt;</code>), bị quy tắc adblock chặn (<code>ERR_BLOCKED_BY_CLIENT</code>), bị cache CDN / trình duyệt giữ, hoặc chứng chỉ HTTPS / nội dung hỗn hợp. ② <strong>Cấu hình / cấp phép</strong>: entId không khớp workbench (tải nhưng nhân viên không nhận chat), hoặc miền chưa được cấp phép trong console. ③ <strong>Tích hợp framework</strong>: SPA Vue/React/Next hủy container khi đổi route và widget không được dựng lại. ④ <strong>Hiển thị / di động / SDK</strong>: CSS site đẩy bong bóng ra ngoài màn hình, plugin bên thứ ba phủ DOM, di động cần deploy riêng, in-app cần SDK. Đầy đủ hơn: <a href="https://meiqis.com/website-integration/">hướng dẫn tích hợp web 美洽</a>.</p>
+<div class="cat"><div class="catbox"><b>Tải lỗi</b><span class="cs">vị trí · adblock · cache · HTTPS</span><div>Dán JS 美洽 trước </body> (không phải trong <head>); F12 → Network, tìm meiqia.js và kiểm tra trạng thái (phải 200); ERR_BLOCKED_BY_CLIENT thường là tiện ích adblock — thử ở chế độ ẩn danh hoặc whitelist; xóa cache CDN sau khi xuất bản; đảm bảo HTTPS đầy đủ không nội dung hỗn hợp.</div></div><div class="catbox"><b>Cấu hình / cấp phép</b><span class="cs">entId · danh sách trắng miền · kênh con</span><div>entId là id duy nhất của công ty bạn; không khớp workbench thì «script tải nhưng nhân viên không nhận chat» (Cài đặt - Nhóm - tra ID); miền site phải được cấp phép qua «Thêm trang tích hợp»; dùng kênh con (probe) riêng mỗi mảng kinh doanh.</div></div><div class="catbox"><b>Tích hợp framework</b><span class="cs">SPA · đổi route · manualInit</span><div>SPA Vue/React/Next hủy DOM khi đổi route và widget không tự dựng lại; dùng _MEIQIA('manualInit') để dừng auto-init và gọi _MEIQIA('init') trong hook route (useEffect / mounted) để gắn lại.</div></div><div class="catbox"><b>Lỗi hiển thị</b><span class="cs">xung đột kiểu · xếp chồng · plugin bên thứ ba</span><div>Đã tải nhưng vô hình: thường CSS toàn site ghi đè vị trí bong bóng, hoặc plugin heatmap / phân tích / SEO sửa DOM và phủ container; F12 → Elements, tìm container meiqia và kiểm tra display:none, z-index thua, hay tọa độ ngoài màn hình.</div></div><div class="catbox"><b>Di động / SDK</b><span class="cs">web di động · AppKey · push</span><div>Web di động / PC cùng snippet nhưng cần deploy riêng; in-app dùng SDK gốc (trước hết «Thêm cấu hình APP» trong console để lấy AppKey); push chia «không push» (chỉ in-app) và «máy chủ push tùy chỉnh» (nhận cả khi đã thoát app).</div></div><div class="catbox"><b>Gọi API</b><span class="cs">withoutBtn · showPanel · thông tin khách</span><div>Nút riêng? _MEIQIA('withoutBtn') ẩn nút gốc, và gọi _MEIQIA('showPanel') khi nhấp để mở chat; truyền / đồng bộ thông tin khách trong thời gian init, nếu không sẽ không có hiệu lực.</div></div></div><figure><svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sơ đồ phân loại 美洽 chat không hiển thị" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">Phân loại cửa sổ / nút không hiển thị (hai bước trước: script đã tải chưa → cấu hình đúng chưa)</text><rect x="20" y="46" width="150" height="46" rx="10" fill="#111"/><text x="95" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff">Chat không hiện</text><path d="M170 69 H206" stroke="#999" stroke-width="2" fill="none" marker-end="url(#a)"/><rect x="206" y="46" width="172" height="46" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="292" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1d4ed8">Hai nhóm</text><rect x="440" y="20" width="262" height="56" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="455" y="42" font-family="system-ui,Arial" font-size="12.5" fill="#1d4ed8">Script chưa tải →</text><text x="455" y="62" font-family="system-ui,Arial" font-size="11.5" fill="#1e3a8a">vị trí · adblock · cache</text><rect x="440" y="86" width="262" height="56" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="455" y="108" font-family="system-ui,Arial" font-size="12.5" fill="#b45309">Đã tải nhưng bị che / không nối →</text><text x="455" y="128" font-family="system-ui,Arial" font-size="11.5" fill="#92400e">xếp chồng · entId · miền · SPA</text><path d="M378 60 H410 V48 H440" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M378 78 H410 V114 H440" stroke="#d97706" stroke-width="2" fill="none" marker-end="url(#a)"/><text x="20" y="178" font-family="system-ui,Arial" font-size="13" font-weight="700" fill="#1d1d1f">Bốn nhóm gốc (nguyên nhân / cách sửa mỗi mục)</text><g font-family="system-ui,Arial" font-size="12"><rect x="20" y="190" width="162" height="92" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="32" y="212" font-weight="700" fill="#1d4ed8">① Tải lỗi</text><text x="32" y="234" fill="#555" font-size="11">vị trí · chặn · cache</text><rect x="194" y="190" width="162" height="92" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="206" y="212" font-weight="700" fill="#1d4ed8">② Cấu hình / cấp phép</text><text x="206" y="234" fill="#555" font-size="11">entId · danh sách trắng miền</text><rect x="368" y="190" width="162" height="92" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="380" y="212" font-weight="700" fill="#b45309">③ Framework</text><text x="380" y="234" fill="#555" font-size="11">route SPA · init</text><rect x="542" y="190" width="160" height="92" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="554" y="212" font-weight="700" fill="#047857">④ Hiển thị / di động / SDK</text><text x="554" y="234" fill="#555" font-size="11">xếp chồng · di động · push</text></g><defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#999"/></marker></defs></svg><figcaption>Hình 1: phân loại 美洽 không hiển thị — kiểm tra tải script (meiqia.js trong F12), rồi tải / cấu hình / framework / hiển thị</figcaption></figure>
+<h2>Bước 2: nguyên nhân gốc bị bỏ sót nhiều nhất → L2 (widget = chèn JS bất đồng bộ bên thứ ba ngoài miền)</h2>
+<p>Một ý là đủ: <strong>widget web 美洽 không phải thành phần tĩnh nhúng trong trang của bạn — nó là <code>meiqia.js</code> được tải bất đồng bộ từ miền ngoài của 美洽 rồi chèn động một container chat (DOM / iframe) và mở kết nối lâu dài xuyên nguồn tới máy chủ 美洽</strong>. Điều này giải thích phần lớn «biến mất bí ẩn»: ① <strong>nó là script bên thứ ba ngoài miền</strong>, nên AdBlock / uBlock chặn theo danh sách «theo dõi / quảng cáo» (<code>ERR_BLOCKED_BY_CLIENT</code>) và nút không bao giờ hiện (dù console trông ổn); ② <strong>nó chèn DOM bất đồng bộ</strong>: trong <code>&lt;head&gt;</code> nó chặn render, đổi route SPA hủy container và không tự dựng lại (dùng <code>manualInit</code> + <code>_MEIQIA('init')</code>), và plugin heatmap / phân tích sửa DOM có thể phủ lên; ③ <strong>nó gắn vào công ty bạn qua entId và bị kiểm soát bởi danh sách trắng miền</strong>: entId sai hoặc miền chưa cấp phép thì script tải nhưng «không nối được chat»; ④ <strong>di động và PC là hai tích hợp riêng</strong>, in-app là SDK (AppKey), và push chia «không push» vs «máy chủ push tùy chỉnh». Khi đã thấy chuỗi chèn này, mỗi triệu chứng dưới đây có một logic chung. Dưới là bảng tự kiểm; xa hơn là năm phương thức và ước tính 2026.</p>
+<figure><svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bảng tự kiểm trước tích hợp 美洽" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">Bảng tự kiểm tích hợp (xanh = đã xác nhận / đỏ = dễ bỏ sót)</text><rect x="20" y="42" width="680" height="226" rx="14" fill="#f8fafc" stroke="#e2e8f0"/><text x="38" y="66" font-family="system-ui,Arial" font-size="12.5" font-weight="700" fill="#475569">Mục kiểm</text><text x="300" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">Kết luận</text><text x="610" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">Trạng thái</text><line x1="38" y1="74" x2="682" y2="74" stroke="#e2e8f0" stroke-width="1"/><text x="38" y="98" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Mã 美洽 dán trước </body> (không phải <head>)</text><text x="300" y="98" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">vị trí</text><circle cx="612" cy="94" r="6" fill="#16a34a"/><text x="628" y="98" font-family="system-ui,Arial" font-size="12" fill="#16a34a">đã xác nhận</text><text x="38" y="128" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Trạng thái 200 của meiqia.js ở F12 → Network</text><text x="300" y="128" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">tải script</text><circle cx="612" cy="124" r="6" fill="#16a34a"/><text x="628" y="128" font-family="system-ui,Arial" font-size="12" fill="#16a34a">đã xác nhận</text><text x="38" y="158" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Console typeof _MEIQIA là function</text><text x="300" y="158" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">đã khởi tạo</text><circle cx="612" cy="154" r="6" fill="#16a34a"/><text x="628" y="158" font-family="system-ui,Arial" font-size="12" fill="#16a34a">đã xác nhận</text><text x="38" y="188" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Hiện ở ẩn danh / tắt adblock</text><text x="300" y="188" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">adblock</text><circle cx="612" cy="184" r="6" fill="#ef4444"/><text x="628" y="188" font-family="system-ui,Arial" font-size="12" fill="#ef4444">cần kiểm</text><text x="38" y="218" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">entId khớp workbench + miền được cấp phép</text><text x="300" y="218" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">cấu hình / cấp phép</text><circle cx="612" cy="214" r="6" fill="#16a34a"/><text x="628" y="218" font-family="system-ui,Arial" font-size="12" fill="#16a34a">đã xác nhận</text><text x="38" y="248" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Re-init sau khi đổi route SPA + không overlay plugin</text><text x="300" y="248" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">framework / xếp chồng</text><circle cx="612" cy="244" r="6" fill="#ef4444"/><text x="628" y="248" font-family="system-ui,Arial" font-size="12" fill="#ef4444">cần kiểm</text><text x="20" y="296" font-family="system-ui,Arial" font-size="11.5" fill="#94a3b8">Lưu ý: đỏ = hai cái dễ bỏ sót nhất — tiện ích adblock (ERR_BLOCKED_BY_CLIENT) và framework / xếp chồng (đổi route SPA, plugin bên thứ ba sửa DOM); kiểm hai cái này trước.</text></svg><figcaption>Hình 2: bảng tự kiểm tích hợp 美洽 (xanh = đã xác nhận / đỏ = dễ bỏ sót)</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_vi.webp"><img src="/img/board_vi.png" alt="Minh họa bảng tự kiểm trước tích hợp 美洽, mục xanh/đỏ" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Hình: kiểm tra «vị trí mã + meiqia.js 200 + đã khởi tạo» trước, rồi «adblock + framework/xếp chồng» — hai cái sau dễ bỏ sót nhất</figcaption></figure>
+<h2>Bảng triệu chứng đầy đủ (hành vi / định vị chính thức · nguyên nhân gốc L2)</h2>
+<table id="tbl"></table>
+<h2>So sánh năm phương thức tích hợp 美洽 (mã / độ khó / tính năng / kịch bản / thời gian lên · tài liệu chính thức)</h2>
+<table class="cmp"><tr><th>Phương thức tích hợp</th><th>Mã / độ khó</th><th>Đầy đủ tính năng</th><th>Phù hợp</th><th>Thời gian lên</th></tr><tr><td>Widget JS web</td><td>một snippet JS · thấp</td><td>đầy nhất (nổi / popup / chào tự động / dấu vết khách)</td><td>site PC + di động (khuyến nghị chính thức)</td><td>~3-5 phút</td></tr><tr><td>Link chat</td><td>không mã · tối thiểu</td><td>chat cơ bản</td><td>không kỹ thuật / đặt nhanh link chat</td><td>tức thì</td></tr><tr><td>API / SDK WebIM</td><td>cần dev · cao</td><td>tùy biến sâu (UI riêng / hệ thống / tích hợp đơn)</td><td>nhóm có năng lực dev cho hợp nhất sâu</td><td>tùy dev</td></tr><tr><td>SDK gốc app</td><td>tích hợp SDK · cao</td><td>chat in-app + push tin</td><td>app iOS / Android</td><td>tùy dev</td></tr><tr><td>Cấu hình nhanh CMS</td><td>plugin / một nhấp · thấp</td><td>như widget JS</td><td>site WordPress / Fkw / Shopify</td><td>vài phút</td></tr></table><section class="i4data">
+<h2>美洽 nguyên nhân không hiển thị & so sánh phương thức tích hợp (ước tính 2026)</h2>
+<p>Dưới đây là <strong>ước tính 2026</strong> tổng hợp từ trợ giúp chính thức 美洽 (Kênh tiếp cận / API widget web JavaScript) và khắc phục sự cố tích hợp công khai (không phải cam kết của nhà cung cấp hay đo trực tiếp; để tham khảo, thay đổi theo phiên bản và chính sách trình duyệt):</p>
+<table>
+<tr><th>Chiều</th><th>Ước tính / so sánh</th></tr>
+<tr><td>Phân bố nguyên nhân không hiển thị (cộng đồng / ticket · ước.)</td><td><strong>vị trí / chưa tải ~35%</strong> &gt; <strong>adblock / tiện ích trình duyệt ~25%</strong> &gt; cấu hình / cấp phép (entId / miền) ~20% &gt; framework (SPA) ~12% &gt; xung đột kiểu / plugin bên thứ ba ~8%</td></tr>
+<tr><td>Tích hợp thực chất là gì</td><td>widget web = <strong>JS bất đồng bộ bên thứ ba ngoài miền chèn DOM + kết nối xuyên nguồn lâu dài</strong> (không phải thành phần tĩnh nhúng); do đó chịu ảnh hưởng vị trí, quy tắc adblock, xếp chồng CSS, vòng đời SPA</td></tr>
+<tr><td>Tích hợp theo nền tảng (ước.)</td><td>web PC / di động = <strong>widget JS (cùng mã, deploy riêng)</strong>; app = <strong>SDK gốc (AppKey)</strong>; WeChat / Douyin / RED = tích hợp được cấp phép kênh</td></tr>
+<tr><td>Tác động adblock (ước.)</td><td>khoảng <strong>30-40%</strong> người dùng PC dùng tiện ích adblock → script chat bên thứ ba bị chặn theo quy tắc quảng cáo (ERR_BLOCKED_BY_CLIENT), nguyên nhân chính của «console ổn, phía người dùng mất»</td></tr>
+<tr><td>Thời gian lên của widget JS (chính thức)</td><td>dán JS riêng ở cuối trang và lên trong khoảng <strong>3-5 phút</strong>; entId là id duy nhất của công ty, và không khớp workbench khiến nhân viên không có chat</td></tr>
+</table>
+<p><small>Cơ sở ước tính: nền nguồn + ngoại suy thời gian (meiqia.com/help Kênh tiếp cận / widget web JavaScript, hướng dẫn tích hợp meiqia.im, khắc phục sự cố công khai, 2026); thay đổi theo phiên bản và chính sách chặn của trình duyệt. Hãy theo info chính thức mới nhất của 美洽. Không chính thức · bản địa hóa LLM.</small></p>
+</section>
+<h2>Tình huống thực — đọc nhanh</h2>
+<ul class="scenes"><li>Dán mã nhưng không có bong bóng chat: trước hết F12 → Network, tìm meiqia.js — không có request hoặc khác 200 nghĩa là sai vị trí / bị cache giữ; xóa cache CDN hoặc mở lại ở ẩn danh.</li><li>Console báo meiqia.js net::ERR_BLOCKED_BY_CLIENT: adblock (AdBlock / uBlock / AdGuard) chặn script chat bên thứ ba theo quy tắc quảng cáo — tắt tiện ích hoặc whitelist site; đây cũng là lý do «mất với một số người dùng trong khi console bạn vẫn ổn».</li><li>Script đã tải (console typeof _MEIQIA là function) nhưng không có nút: thường CSS theme đẩy bong bóng ra ngoài màn hình hoặc plugin heatmap / phân tích đổi xếp chồng DOM — F12 → Elements, tìm container 美洽 và kiểm tra từng mục.</li><li>Trang chủ có chat trong SPA Vue / React, nhưng route thứ hai thì không: đổi route SPA hủy container và widget không được dựng lại — dùng manualInit để dừng auto-init và gọi _MEIQIA('init') trong hook route để gắn lại.</li><li>Chat mở được nhưng nhân viên không nhận tin của khách: nhiều khả năng entId không khớp workbench (sao chép snippet người khác / lẫn tài khoản) — đối chiếu ID công ty ở Cài đặt - Nhóm - tra ID với entId trong mã.</li><li>Chạy ở staging, không tải trên miền sản xuất: miền sản xuất chưa được cấp phép qua «Thêm trang tích hợp» — thêm miền live vào danh sách rồi xuất bản lại.</li><li>Muốn bỏ nút tròn gốc của 美洽 và dùng nút «Liên hệ» riêng: gọi _MEIQIA('withoutBtn') để ẩn nút gốc, rồi gắn _MEIQIA('showPanel') vào nút của bạn để mở chat.</li></ul><div class="related"><h2>Liên quan</h2><ul><li><a href="https://meiqis.com/">Tải 美洽 / cài đặt & hướng dẫn tích hợp</a></li><li><a href="https://meiqis.com/vi/website-integration/">Hướng dẫn tích hợp web 美洽 (widget JS)</a></li><li><a href="https://meiqis.com/vi/tools/meiqia-integration-troubleshooting/">Khắc phục tích hợp 美洽 (bảng đầy đủ thẩm quyền)</a></li><li><a href="https://meiqiaa.com/">Site chính thức 美洽 (site anh em)</a></li></ul></div></main>
+<footer>Widget web / API JS (manualInit / init / withoutBtn / showPanel / truyền thông tin khách), cấp phép entId / miền, kênh con, AppKey SDK & chế độ push được tổng hợp từ Trung tâm Trợ giúp chính thức 美洽 (meiqia.com/help · Kênh tiếp cận / widget web JavaScript) và hướng dẫn tích hợp 美洽 (meiqia.im); adblock ERR_BLOCKED_BY_CLIENT, xung đột DOM heatmap / phân tích và tích hợp SPA từ khắc phục sự cố công khai (diễn đạt lại). Số liệu 2026 là ước tính, không phải cam kết của nhà cung cấp hay đo lường trực tiếp; chỉ để tham khảo, hãy theo thông tin chính thức mới nhất của 美洽. Không chính thức · bản địa hóa LLM.<br>Trang công cụ · phân loại tích hợp, không thay thế console 美洽</footer>
+</div>
+<script src="/vi/codes.js"></script><script src="/app.js"></script>
+</body></html>
