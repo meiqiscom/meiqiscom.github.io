@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="km"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>美洽(Meiqia) widget ឆាតមិនបង្ហាញ / ជួសជុលកំហុសការរួមបញ្ចូល - meiqia.js ត្រូវបានទប់ស្កាត់, គ្មានប៊ូតុង, entId, SPA, push SDK</title>
+<meta name="description" content="Widget ឆាតគេហទំព័រ 美洽(Meiqia) មិនបង្ហាញ, បាត់ប៊ូតុង, meiqia.js ត្រូវ ERR_BLOCKED_BY_CLIENT ទប់ស្កាត់, រចនាបថខូច, បាត់បន្ទាប់ពីផ្លាស់ប្ដូរ route SPA, entId មិនត្រូវគ្នាធ្វើឱ្យភ្នាក់ងារមិនទទួលឆាត, មិនលេចលើទូរស័ព្ទ, push SDK មិនមកដល់? ស្វែងរករោគសញ្ញាដើម្បីមើលឥរិយាបថ L1 និងមូលហេតុឫស L2: ការចាក់ JS អសមកាលរបស់ភាគីទីបីក្រៅដែន, ច្បាប់ adblock, ការដាក់ត្រួត CSS, វដ្តជីវិត SPA, entId និងបញ្ជីសរ domain, AppKey និងផ្លូវ push SDK; ជាមួយការប្រៀបធៀបវិធីរួមបញ្ចូលប្រាំ និងការប៉ាន់ស្មាន 2026.">
+<link rel="canonical" href="https://meiqiscom.github.io/km/">
+<link rel="alternate" hreflang="zh-Hans" href="https://meiqiscom.github.io/">
+<link rel="alternate" hreflang="en" href="https://meiqiscom.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://meiqiscom.github.io/ja/">
+<link rel="alternate" hreflang="zh-Hant" href="https://meiqiscom.github.io/zh-tw/">
+<link rel="alternate" hreflang="ko" href="https://meiqiscom.github.io/ko/">
+<link rel="alternate" hreflang="id" href="https://meiqiscom.github.io/id/">
+<link rel="alternate" hreflang="vi" href="https://meiqiscom.github.io/vi/">
+<link rel="alternate" hreflang="th" href="https://meiqiscom.github.io/th/">
+<link rel="alternate" hreflang="es" href="https://meiqiscom.github.io/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://meiqiscom.github.io/pt-br/">
+<link rel="alternate" hreflang="de" href="https://meiqiscom.github.io/de/">
+<link rel="alternate" hreflang="fr" href="https://meiqiscom.github.io/fr/">
+<link rel="alternate" hreflang="ru" href="https://meiqiscom.github.io/ru/">
+<link rel="alternate" hreflang="it" href="https://meiqiscom.github.io/it/">
+<link rel="alternate" hreflang="pl" href="https://meiqiscom.github.io/pl/">
+<link rel="alternate" hreflang="nl" href="https://meiqiscom.github.io/nl/">
+<link rel="alternate" hreflang="tr" href="https://meiqiscom.github.io/tr/">
+<link rel="alternate" hreflang="ar" href="https://meiqiscom.github.io/ar/">
+<link rel="alternate" hreflang="hi" href="https://meiqiscom.github.io/hi/">
+<link rel="alternate" hreflang="ms" href="https://meiqiscom.github.io/ms/">
+<link rel="alternate" hreflang="fa" href="https://meiqiscom.github.io/fa/">
+<link rel="alternate" hreflang="bn" href="https://meiqiscom.github.io/bn/">
+<link rel="alternate" hreflang="ta" href="https://meiqiscom.github.io/ta/">
+<link rel="alternate" hreflang="te" href="https://meiqiscom.github.io/te/">
+<link rel="alternate" hreflang="fil" href="https://meiqiscom.github.io/fil/">
+<link rel="alternate" hreflang="ur" href="https://meiqiscom.github.io/ur/">
+<link rel="alternate" hreflang="lo" href="https://meiqiscom.github.io/lo/">
+<link rel="alternate" hreflang="km" href="https://meiqiscom.github.io/km/">
+<link rel="alternate" hreflang="my" href="https://meiqiscom.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://meiqiscom.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "美洽 ឆាតមិនបង្ហាញ / ជួសជុលកំហុសការរួមបញ្ចូល",
+   "url": "https://meiqiscom.github.io/km/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "inLanguage": "km",
+   "description": "Widget ឆាតគេហទំព័រ 美洽(Meiqia) មិនបង្ហាញ, បាត់ប៊ូតុង, meiqia.js ត្រូវ ERR_BLOCKED_BY_CLIENT ទប់ស្កាត់, រចនាបថខូច, បាត់បន្ទាប់ពីផ្លាស់ប្ដូរ route SPA, entId មិនត្រូវគ្នាធ្វើឱ្យភ្នាក់ងារមិនទទួលឆាត, មិនលេចលើទូរស័ព្ទ, push SDK មិនមកដល់? ស្វែងរករោគសញ្ញាដើម្បីមើលឥរិយាបថ L1 និងមូលហេតុឫស L2: ការចាក់ JS អសមកាលរបស់ភាគីទីបីក្រៅដែន, ច្បាប់ adblock, ការដាក់ត្រួត CSS, វដ្តជីវិត SPA, entId និងបញ្ជីសរ domain, AppKey និងផ្លូវ push SDK; ជាមួយការប្រៀបធៀបវិធីរួមបញ្ចូលប្រាំ និងការប៉ាន់ស្មាន 2026.",
+   "isAccessibleForFree": true,
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "km",
+   "url": "https://meiqiscom.github.io/km/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "美洽 បង្អួច / ពពុះឆាតមិនបង្ហាញទាល់តែសោះ — ដោះស្រាយយ៉ាងណា?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "widget គេហទំព័រ 美洽 ផ្ទុកបង្អួចឆាតអណ្ដែតដោយ snippet JS តែមួយដែលបិទភ្ជាប់; បញ្ជាក់ថាកូដបង្កប់ត្រឹមត្រូវ ហើយគេហទំព័ររួមបញ្ចូលកំណត់ក្នុង console. widget ជា meiqia.js ដែលចាក់ចូល DOM បន្ទាប់ផ្ទុកអសមកាល, ដូច្នេះ «គ្មានអ្វីទាល់តែសោះ» ជាញឹកញាប់មានន័យ «script មិនដែលផ្ទុក»: ខុសទីតាំង, ត្រូវ adblock / cache ទប់ស្កាត់, ឬ domain / entId មិនត្រូវ, ដូច្នេះការចាក់មិនដែលដំណើរការ. F12 → Network, ស្វែងរក meiqia.js: គ្មានសំណើ → កូដគ្មានប្រសិទ្ធភាព (ពិនិត្យទីតាំង / សម្អាត cache); សំណើប៉ុន្តែមិន-200 → ត្រូវទប់ស្កាត់ ឬបញ្ហាផ្លូវ; អ្វីៗល្អប៉ុន្តែនៅលាក់ → ពិនិត្យ entId / ការអនុញ្ញាត domain និងក្រុមខាងក្រោម."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 script ផ្ទុកប៉ុន្តែបាត់ប៊ូតុងឆាត — ដោះស្រាយយ៉ាងណា?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "កូដ widget សម្របទៅគេហទំព័រ ហើយបង្ហាញប៊ូតុងឆាត; បើការបង្ហាញបរាជ័យ ពិនិត្យថាត្រូវលាក់ដោយរចនាបថ ឬ init ត្រូវរំខាន. បើ script ផ្ទុកប៉ុន្តែបាត់ប៊ូតុង, ជាញឹកញាប់បញ្ហា «ស្រទាប់បង្ហាញ»: CSS ទូទាំងគេហទំព័រ override ទីតាំងប៊ូតុង / កំណត់ display:none, z-index ចាញ់, ឬធាតុថេរផ្សេងគ្រប; កំហុស JS ផ្សេងក៏អាចបញ្ឈប់ init. F12 → Elements, ស្វែងរក container 美洽 — មាន, លាក់, ឬក្រៅអេក្រង់?; បិទ CSS / script ផ្ទាល់ជាបណ្ដោះអាសន្នដើម្បីសាកម្ដងទៀត; ពិនិត្យ console រកកំហុសដែលបញ្ឈប់ការប្រតិបត្តិ."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js ត្រូវផ្នែកបន្ថែម adblock ទប់ស្កាត់ — ដោះស្រាយយ៉ាងណា?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "script ឆាត 美洽 មកពី domain ភាគីទីបី; បើផ្នែកបន្ថែមទប់ស្កាត់ដំឡើង វាអាចចាត់ទុកជាផ្សាយ / អ្នកតាមដាន ហើយរារាំងការផ្ទុក — បិទការទប់ស្កាត់ ឬ whitelist. ERR_BLOCKED_BY_CLIENT មានន័យថាផ្នែកបន្ថែម browser (AdBlock / uBlock / AdGuard) ទប់ស្កាត់សំណើតាមបញ្ជីត្រង. script 美洽 ជា «ភាគីទីបីក្រៅដែន + ទំនាក់ទំនងពេលវេលាពិត», ដែលច្បាប់បែបនេះច្រើនយល់ច្រឡំជាផ្សាយ / អ្នកតាមដាន, បង្កបរាជ័យក្លែងក្លាយ «console ល្អ, ខាងអ្នកប្រើបាត់». សាកម្ដងទៀតក្នុងរបៀបអនាមិក ឬបិទ adblock — បើលេច ការទប់ស្កាត់ជាមូលហេតុ; សុំអ្នកប្រើ whitelist គេហទំព័រ; front-end អាចផ្ទុក script ឆាតយឺត / មានលក្ខខណ្ឌដើម្បីជៀសច្បាប់ auto ខ្លះ."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js 404 / ស្ថានភាពអាក្រក់ / មាតិកាចម្រុះ — ដោះស្រាយយ៉ាងណា?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "បន្ទាប់ deploy, ស្វែងរក meiqia.js ក្នុង panel Network; ស្ថានភាព 200 មានន័យថា script ដាក់ត្រឹមត្រូវ ហើយផ្ទុក. មូលហេតុមិន-200 ទូទៅ: កូដជាប់ cache ទំព័រ / CDN (មិន refresh បន្ទាប់បោះពុម្ព), ផ្ទុកលើទំព័រ HTTP / ខ្សែសង្វាក់វិញ្ញាបនបត្រមិនពេញធ្វើឱ្យទប់ស្កាត់មាតិកាចម្រុះ, ឬកូដខូច / ចម្លងមិនពេញ. ជំហាននេះបរាជ័យ ការចាក់ និងការតភ្ជាប់មិនដែលកើតឡើង. សម្អាត cache CDN / browser (ឬអនាមិក) បន្ទាប់បោះពុម្ព; ធានា HTTPS ពេញដោយខ្សែសង្វាក់វិញ្ញាបនបត្រពេញ និងគ្មានមាតិកាចម្រុះ; ផ្ទៀងផ្ទាត់កូដចម្លងពេញ និងមិន escape."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 កូដខុសកន្លែង (ទប់ស្កាត់ក្នុង head / គ្មានប្រសិទ្ធភាព) — ដោះស្រាយយ៉ាងណា?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽 ណែនាំឱ្យបិទភ្ជាប់កូដនៅខាងក្រោមទំព័រ, មុន </body>; widget ដំណើរការបន្ទាប់មាតិកាសំខាន់ផ្ទុក. widget ត្រូវចាក់ container បន្ទាប់ DOM រួចរាល់. ក្នុង <head> វាទប់ស្កាត់ render (អេក្រង់ទទេជាមុនលើបណ្ដាញខ្សោយ) ឬដំណើរការមុន DOM រួចរាល់ហើយបរាជ័យ; ក្នុង async / module scope ខ្លះលំដាប់ផ្ទុកក៏អាចខុស. ដាក់ JS 美洽 ក្នុង footer រួមនៃរាល់ទំព័រ, មុន </body>; សម្រាប់ SPA មើលធាតុ «route SPA» ហើយប្រើ manualInit; ធានា bundler មិនលុបវាតាម tree-shaking."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 រចនាបថ បង្អួច / ប៊ូតុង ឆាតខូច — ដោះស្រាយយ៉ាងណា?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "widget ចាក់រចនាបថផ្ទាល់ ហើយសម្របទៅគេហទំព័រ; ការប៉ះទង្គិចជាមួយរចនាបថទូទាំងគេហទំព័រអាចបង្កភាពមិនប្រក្រតីមើលឃើញ. script 美洽 ចាក់ CSS ពេល runtime; បើរចនាបថទូទាំងគេហទំព័រ (selector សកល / ច្បាប់អាទិភាពខ្ពស់ / reset) override class វាជាមុន, ទីតាំង, ការដាក់ត្រួត និង font ខូច — ផលរំខាននៃ «ការចាក់ថាមវន្ត + ចែករំលែកលំហរចនាបថឯកសារតែមួយ». F12 ដើម្បីមើលច្បាប់គេហទំព័រណា override container 美洽; បង្រួមរចនាបថទូទាំងគេហទំព័រ / កាត់បន្ថយផលលើ class ទូទៅ; បើចាំបាច់សុំ 美洽 កែការដាក់ត្រួត container."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 ប៊ូតុងក្រៅអេក្រង់ / ត្រូវគ្រប — ដោះស្រាយយ៉ាងណា?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "ប៊ូតុង widget លេចជាអណ្ដែតទីតាំងថេរ; បើត្រូវធាតុថេរផ្សេងគ្រប កែការដាក់ត្រួត ឬទីតាំង. ធាតុ position:fixed ផ្សេងនៃគេហទំព័រ (ឡើងលើ, ផ្សាយអណ្ដែត, របារគាំទ្រផ្ទាល់) ដោយ z-index ខ្ពស់ជាងគ្របប៊ូតុង 美洽, ឬ theme គណនាកូអរដោនេខុស, ទុកវា «ក្រៅអេក្រង់ / ត្រូវគ្រប». ជ្រើស container 美洽 ក្នុង F12 ដើម្បីមើលកូអរដោនេ / z-index ពិត; លើកវាឡើង ឬបន្ថយ z-index ធាតុដែលគ្រប; ជៀសការដាក់ត្រួតអណ្ដែតថេរច្រើនក្នុងជ្រុងតែមួយ."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 ការប៉ះទង្គិច DOM plugin / analytics ភាគីទីបី — ដោះស្រាយយ៉ាងណា?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "script ផ្សេងលើទំព័រដែលកែ DOM ឬស្ទាក់សំណើអាចប៉ះពាល់ការផ្ទុក និងការបង្ហាញធម្មតារបស់ widget. script heatmap / analytics / conversion សរសេរ DOM ឡើងវិញ, ចាក់ overlay ឬស្ទាក់សំណើ; ដោយវា និង 美洽 ចាក់ចូលឯកសារតែមួយ, ការដាក់ត្រួត / events រំខានគ្នា ហើយ container 美洽 ត្រូវគ្រប ឬ init វារំខាន. បិទ plugin សង្ស័យម្ដងមួយដើម្បីរក conflict; កែលំដាប់ផ្ទុក / ការដាក់ត្រួត container; ឱ្យ heatmap ។ល។ ជៀសតំបន់ container 美洽."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">ភាសា: <a href="/">简体中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/ko/">한국어</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/th/">ไทย</a> · <a href="/es/">Español</a> · <a href="/pt-br/">Português (BR)</a> · <a href="/de/">Deutsch</a> · <a href="/fr/">Français</a> · <a href="/ru/">Русский</a> · <a href="/it/">Italiano</a> · <a href="/pl/">Polski</a> · <a href="/nl/">Nederlands</a> · <a href="/tr/">Türkçe</a> · <a href="/ar/">العربية</a> · <a href="/hi/">हिन्दी</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fa/">فارسی</a> · <a href="/bn/">বাংলা</a> · <a href="/ta/">தமிழ்</a> · <a href="/te/">తెలుగు</a> · <a href="/fil/">Filipino</a> · <a href="/ur/">اردو</a> · <a href="/lo/">ພາສາລາວ</a> · <strong>ភាសាខ្មែរ</strong> · <a href="/my/">မြန်မာ</a></nav>
+<h1>美洽 widget ឆាតមិនបង្ហាញ / ជួសជុលកំហុសការរួមបញ្ចូល</h1>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_km.webp"><img src="/img/cover_km.png" alt="រូបឧបករណ៍ 美洽 widget ឆាតមិនបង្ហាញ / ជួសជុលកំហុស" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>រូប: 美洽 ឆាតមិនបង្ហាញ / ជួសជុលកំហុស (ឥរិយាបថ L1 + មូលហេតុឫស L2 + វិធីរួមបញ្ចូលប្រាំ)</figcaption></figure>
+<p>បានបិទភ្ជាប់កូដ <strong>美洽(Meiqia)</strong> ប៉ុន្តែ <strong>widget ឆាតគេហទំព័រ</strong> មិនបង្ហាញ, <strong>ប៊ូតុងឆាតមិនដែលលេច</strong>, console រាយការណ៍ថា <code>meiqia.js</code> ត្រូវបានទប់ស្កាត់, ឬ <strong>ភ្នាក់ងារមិនទទួលឆាត</strong>? បញ្ជាក់បីរឿងជាមុនសិន: <strong>តើ script មិនបានផ្ទុកទាល់តែសោះ (ទីតាំង / adblock / cache), ផ្ទុកប៉ុន្តែលាក់ដោយរចនាបថ / ការដាក់ត្រួត, ឬផ្ទុកល្អប៉ុន្តែ config មិនត្រូវគ្នា (entId / domain / វដ្តជីវិត SPA)?</strong> ស្វែងរក <strong>រោគសញ្ញា ឬពាក្យគន្លឹះ</strong> (ឧ. <code>not showing</code>, <code>adblock</code>, <code>entId</code>, <code>SPA</code>, <code>mobile</code>, <code>sdk push</code>): ដំបូង <strong>ឥរិយាបថ L1 និងទីតាំងផ្លូវការ</strong>, បន្ទាប់មក <strong>មូលហេតុឫស L2 និងដំណោះស្រាយ</strong>. ដំឡើង / មគ្គុទ្ទេសក៍? មើល <a href="https://meiqis.com/">ទាញយក 美洽 / មគ្គុទ្ទេសក៍រួមបញ្ចូលសេវាអតិថិជន</a>.</p>
+<input id="q" placeholder="វាយរោគសញ្ញា ឬពាក្យគន្លឹះ, ឧ. not showing / adblock / entId / SPA / mobile / sdk push" autocomplete="off">
+<button id="go">ស្វែងរក</button>
+<div id="out"></div>
+<h2>ជំហាន 1: ពិនិត្យថា script ផ្ទុកឬអត់, បន្ទាប់មកបែងចែកជាបួនក្រុម</h2>
+<p>ពេល 美洽 ឆាតមិនបង្ហាញ, 9 ក្នុង 10 ដងវាជាមួយក្នុងបួនក្រុម; មើលជាមុនថា <strong>script ផ្ទុកពិតឬអត់</strong>: F12 → Network, ស្វែងរក <code>meiqia.js</code>; គ្មានសំណើ ឬស្ថានភាពមិនមែន 200 មានន័យថាមិនបានផ្ទុក. ① <strong>បរាជ័យផ្ទុក</strong>: កូដខុសកន្លែង (ត្រូវនៅមុន <code>&lt;/body&gt;</code>, មិនមែនក្នុង <code>&lt;head&gt;</code>), ត្រូវច្បាប់ adblock ទប់ស្កាត់ (<code>ERR_BLOCKED_BY_CLIENT</code>), ជាប់ក្នុង cache CDN / browser, ឬវិញ្ញាបនបត្រ HTTPS / មាតិកាចម្រុះ. ② <strong>Config / ការអនុញ្ញាត</strong>: entId មិនត្រូវនឹង workbench (ផ្ទុកប៉ុន្តែភ្នាក់ងារមិនទទួលឆាត), ឬ domain គេហទំព័រមិនបានអនុញ្ញាតក្នុង console. ③ <strong>ការរួមបញ្ចូល framework</strong>: Vue/React/Next SPA បំផ្លាញ container ពេលផ្លាស់ route ហើយ widget មិនត្រូវបានបង្កើតឡើងវិញ. ④ <strong>ការបង្ហាញ / ទូរស័ព្ទ / SDK</strong>: CSS គេហទំព័រច្រានពពុះចេញក្រៅអេក្រង់, plugin ភាគីទីបីគ្របលើ DOM, ទូរស័ព្ទត្រូវ deploy ផ្ទាល់, ក្នុង app ត្រូវ SDK. ពេញលេញជាង: <a href="https://meiqis.com/website-integration/">មគ្គុទ្ទេសក៍រួមបញ្ចូលគេហទំព័រ 美洽</a>.</p>
+<div class="cat"><div class="catbox"><b>បរាជ័យផ្ទុក</b><span class="cs">ទីតាំង · adblock · cache · HTTPS</span><div>បិទភ្ជាប់ JS 美洽 មុន </body> (មិនមែនក្នុង <head>); F12 → Network, ស្វែងរក meiqia.js ហើយពិនិត្យស្ថានភាព (គួរ 200); ERR_BLOCKED_BY_CLIENT ជាញឹកញាប់ផ្នែកបន្ថែម adblock — សាកក្នុងរបៀបអនាមិក ឬ whitelist; សម្អាត cache CDN បន្ទាប់ពីបោះពុម្ព; ធានា HTTPS ពេញដោយគ្មានមាតិកាចម្រុះ.</div></div><div class="catbox"><b>Config / ការអនុញ្ញាត</b><span class="cs">entId · បញ្ជីសរ domain · ឆានែលរង</span><div>entId ជា id តែមួយរបស់ក្រុមហ៊ុនអ្នក; មិនត្រូវនឹង workbench «script ផ្ទុកប៉ុន្តែភ្នាក់ងារមិនទទួលឆាត» (ការកំណត់ - ក្រុម - ស្វែងរក ID); domain គេហទំព័រត្រូវអនុញ្ញាតតាម «បន្ថែមគេហទំព័ររួមបញ្ចូល»; ប្រើឆានែលរង (probe) ដាច់ដោយឡែកក្នុងមួយខ្សែអាជីវកម្ម.</div></div><div class="catbox"><b>ការរួមបញ្ចូល framework</b><span class="cs">SPA · ផ្លាស់ route · manualInit</span><div>Vue/React/Next SPA បំផ្លាញ DOM ពេលផ្លាស់ route ហើយ widget មិនបង្កើតឡើងវិញ; ប្រើ _MEIQIA('manualInit') ដើម្បីបញ្ឈប់ auto-init ហើយហៅ _MEIQIA('init') ក្នុង route hook (useEffect / mounted) ដើម្បី mount ឡើងវិញ.</div></div><div class="catbox"><b>បញ្ហាការបង្ហាញ</b><span class="cs">ប៉ះទង្គិចរចនាបថ · ការដាក់ត្រួត · plugin ភាគីទីបី</span><div>ផ្ទុកប៉ុន្តែមើលមិនឃើញ: ជាញឹកញាប់ CSS ទូទាំងគេហទំព័រ override ទីតាំងពពុះ, ឬ plugin heatmap / analytics / SEO កែ DOM ហើយគ្រប container; F12 → Elements, ស្វែងរក container meiqia ហើយពិនិត្យ display:none, z-index ចាញ់, ឬកូអរដោនេក្រៅអេក្រង់.</div></div><div class="catbox"><b>ទូរស័ព្ទ / SDK</b><span class="cs">គេហទំព័រទូរស័ព្ទ · AppKey · push</span><div>គេហទំព័រទូរស័ព្ទ / PC ជា snippet ដូចគ្នាប៉ុន្តែត្រូវ deploy ផ្ទាល់; ក្នុង app ប្រើ SDK native (ដំបូង «បន្ថែម config APP» ក្នុង console សម្រាប់ AppKey); push បែងជា «គ្មាន push» (ក្នុង app តែប៉ុណ្ណោះ) និង «server push ផ្ទាល់ខ្លួន» (បញ្ជូនទោះចេញ app).</div></div><div class="catbox"><b>ការហៅ API</b><span class="cs">withoutBtn · showPanel · ព័ត៌មានអតិថិជន</span><div>ប៊ូតុងផ្ទាល់? _MEIQIA('withoutBtn') លាក់ប៊ូតុង native, ហើយហៅ _MEIQIA('showPanel') ពេលចុចដើម្បីបើកឆាត; បញ្ជូន / sync ព័ត៌មានអតិថិជនក្នុងពេល init, បើមិនដូច្នេះនឹងគ្មានប្រសិទ្ធភាព.</div></div></div><figure><svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ដ្យាក្រាមបែងចែក 美洽 ឆាតមិនបង្ហាញ" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">បែងចែក បង្អួច / ប៊ូតុង មិនបង្ហាញ (ពីរជំហានជាមុន: script ផ្ទុក → config ត្រឹមត្រូវ?)</text><rect x="20" y="46" width="150" height="46" rx="10" fill="#111"/><text x="95" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff">ឆាតមិនឃើញ</text><path d="M170 69 H206" stroke="#999" stroke-width="2" fill="none" marker-end="url(#a)"/><rect x="206" y="46" width="172" height="46" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="292" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1d4ed8">ពីរក្រុម</text><rect x="440" y="20" width="262" height="56" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="455" y="42" font-family="system-ui,Arial" font-size="12.5" fill="#1d4ed8">script មិនផ្ទុក →</text><text x="455" y="62" font-family="system-ui,Arial" font-size="11.5" fill="#1e3a8a">ទីតាំង · adblock · cache</text><rect x="440" y="86" width="262" height="56" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="455" y="108" font-family="system-ui,Arial" font-size="12.5" fill="#b45309">ផ្ទុកប៉ុន្តែលាក់ / គ្មានការតភ្ជាប់ →</text><text x="455" y="128" font-family="system-ui,Arial" font-size="11.5" fill="#92400e">ការដាក់ត្រួត · entId · domain · SPA</text><path d="M378 60 H410 V48 H440" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M378 78 H410 V114 H440" stroke="#d97706" stroke-width="2" fill="none" marker-end="url(#a)"/><text x="20" y="178" font-family="system-ui,Arial" font-size="13" font-weight="700" fill="#1d1d1f">បួនក្រុមឫស (មូលហេតុ / ដំណោះស្រាយក្នុងមួយធាតុ)</text><g font-family="system-ui,Arial" font-size="12"><rect x="20" y="190" width="162" height="92" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="32" y="212" font-weight="700" fill="#1d4ed8">① បរាជ័យផ្ទុក</text><text x="32" y="234" fill="#555" font-size="11">ទីតាំង · ទប់ស្កាត់ · cache</text><rect x="194" y="190" width="162" height="92" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="206" y="212" font-weight="700" fill="#1d4ed8">② Config / ការអនុញ្ញាត</text><text x="206" y="234" fill="#555" font-size="11">entId · បញ្ជីសរ domain</text><rect x="368" y="190" width="162" height="92" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="380" y="212" font-weight="700" fill="#b45309">③ framework</text><text x="380" y="234" fill="#555" font-size="11">route SPA · init</text><rect x="542" y="190" width="160" height="92" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="554" y="212" font-weight="700" fill="#047857">④ ការបង្ហាញ / ទូរស័ព្ទ / SDK</text><text x="554" y="234" fill="#555" font-size="11">ការដាក់ត្រួត · ទូរស័ព្ទ · push</text></g><defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#999"/></marker></defs></svg><figcaption>រូប 1: ការបែងចែក 美洽 មិនបង្ហាញ — ពិនិត្យការផ្ទុក script (meiqia.js ក្នុង F12), បន្ទាប់មក ផ្ទុក / config / framework / ការបង្ហាញ</figcaption></figure>
+<h2>ជំហាន 2: មូលហេតុឫសដែលមើលរំលងច្រើនបំផុត → L2 (widget = ការចាក់ JS អសមកាលរបស់ភាគីទីបីក្រៅដែន)</h2>
+<p>គំនិតមួយក៏គ្រប់គ្រាន់: <strong>widget គេហទំព័រ 美洽 មិនមែនជាសមាសភាគឋិតិវន្តដែលបង្កប់ក្នុងទំព័ររបស់អ្នក — វាជា <code>meiqia.js</code> ដែលផ្ទុកអសមកាលពីដែនក្រៅរបស់ 美洽 រួចចាក់ container ឆាត (DOM / iframe) ដោយថាមវន្ត ហើយបើកការតភ្ជាប់ cross-origin យូរអង្វែងទៅម៉ាស៊ីនមេ 美洽</strong>. នេះពន្យល់ការ «បាត់អាថ៌កំបាំង» ភាគច្រើន: ① <strong>វាជា script ភាគីទីបីក្រៅដែន</strong>, ដូច្នេះ AdBlock / uBlock ទប់ស្កាត់តាមបញ្ជី «តាមដាន / ផ្សាយ» (<code>ERR_BLOCKED_BY_CLIENT</code>) ហើយប៊ូតុងមិនដែលលេច (ទោះ console មើលធម្មតា); ② <strong>វាចាក់ DOM ដោយអសមកាល</strong>: ក្នុង <code>&lt;head&gt;</code> វាទប់ស្កាត់, ការផ្លាស់ route SPA បំផ្លាញ container ហើយមិនបង្កើតឡើងវិញដោយខ្លួនឯង (ប្រើ <code>manualInit</code> + <code>_MEIQIA('init')</code>), ហើយ plugin heatmap / analytics ដែលកែ DOM អាចគ្របលើវា; ③ <strong>វាភ្ជាប់ទៅក្រុមហ៊ុនរបស់អ្នកតាម entId ហើយគ្រប់គ្រងដោយបញ្ជីសរ domain</strong>: entId ខុស ឬ domain មិនបានអនុញ្ញាត script ផ្ទុកប៉ុន្តែ «មិនតភ្ជាប់ឆាត»; ④ <strong>ទូរស័ព្ទ និង PC ជាការរួមបញ្ចូលពីរផ្សេងគ្នា</strong>, ក្នុង app ជា SDK (AppKey), ហើយ push បែងជា «គ្មាន push» និង «server push ផ្ទាល់ខ្លួន». ពេលឃើញខ្សែសង្វាក់ចាក់នេះ រាល់រោគសញ្ញាខាងក្រោមមានតក្កៈតែមួយ. ខាងក្រោមជា panel ត្រួតពិនិត្យខ្លួនឯង; ទាបជាងជាវិធីប្រាំ និងការប៉ាន់ស្មាន 2026.</p>
+<figure><svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="panel ត្រួតពិនិត្យខ្លួនឯងមុនរួមបញ្ចូល 美洽" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">panel ត្រួតពិនិត្យខ្លួនឯងការរួមបញ្ចូល (បៃតង = បានបញ្ជាក់ / ក្រហម = មើលរំលងងាយ)</text><rect x="20" y="42" width="680" height="226" rx="14" fill="#f8fafc" stroke="#e2e8f0"/><text x="38" y="66" font-family="system-ui,Arial" font-size="12.5" font-weight="700" fill="#475569">ធាតុពិនិត្យ</text><text x="300" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">សេចក្ដីសម្រេច</text><text x="610" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">ស្ថានភាព</text><line x1="38" y1="74" x2="682" y2="74" stroke="#e2e8f0" stroke-width="1"/><text x="38" y="98" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">កូដ 美洽 បិទភ្ជាប់មុន </body> (មិនមែន <head>)</text><text x="300" y="98" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">ទីតាំង</text><circle cx="612" cy="94" r="6" fill="#16a34a"/><text x="628" y="98" font-family="system-ui,Arial" font-size="12" fill="#16a34a">បានបញ្ជាក់</text><text x="38" y="128" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">ស្ថានភាព meiqia.js 200 ក្នុង F12 → Network</text><text x="300" y="128" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">ផ្ទុក script</text><circle cx="612" cy="124" r="6" fill="#16a34a"/><text x="628" y="128" font-family="system-ui,Arial" font-size="12" fill="#16a34a">បានបញ្ជាក់</text><text x="38" y="158" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">console typeof _MEIQIA ជា function</text><text x="300" y="158" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">បានចាប់ផ្ដើម</text><circle cx="612" cy="154" r="6" fill="#16a34a"/><text x="628" y="158" font-family="system-ui,Arial" font-size="12" fill="#16a34a">បានបញ្ជាក់</text><text x="38" y="188" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">បង្ហាញក្នុងរបៀបអនាមិក / បិទ adblock</text><text x="300" y="188" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">adblock</text><circle cx="612" cy="184" r="6" fill="#ef4444"/><text x="628" y="188" font-family="system-ui,Arial" font-size="12" fill="#ef4444">ត្រូវពិនិត្យ</text><text x="38" y="218" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">entId ត្រូវនឹង workbench + domain បានអនុញ្ញាត</text><text x="300" y="218" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">config / ការអនុញ្ញាត</text><circle cx="612" cy="214" r="6" fill="#16a34a"/><text x="628" y="218" font-family="system-ui,Arial" font-size="12" fill="#16a34a">បានបញ្ជាក់</text><text x="38" y="248" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">init ឡើងវិញបន្ទាប់ផ្លាស់ route SPA + គ្មាន overlay plugin</text><text x="300" y="248" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">framework / ការដាក់ត្រួត</text><circle cx="612" cy="244" r="6" fill="#ef4444"/><text x="628" y="248" font-family="system-ui,Arial" font-size="12" fill="#ef4444">ត្រូវពិនិត្យ</text><text x="20" y="296" font-family="system-ui,Arial" font-size="11.5" fill="#94a3b8">ចំណាំ: ក្រហម = ពីរដែលមើលរំលងច្រើនបំផុត — ផ្នែកបន្ថែម adblock (ERR_BLOCKED_BY_CLIENT) និង framework / ការដាក់ត្រួត (ការផ្លាស់ route SPA, plugin ភាគីទីបីដែលកែ DOM); ពិនិត្យពីរនេះជាមុន.</text></svg><figcaption>រូប 2: panel ត្រួតពិនិត្យខ្លួនឯងការរួមបញ្ចូល 美洽 (បៃតង = បានបញ្ជាក់ / ក្រហម = មើលរំលងងាយ)</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_km.webp"><img src="/img/board_km.png" alt="រូប panel ត្រួតពិនិត្យខ្លួនឯងមុនរួមបញ្ចូល 美洽 ធាតុបៃតង/ក្រហម" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>រូប: ពិនិត្យ «ទីតាំងកូដ + meiqia.js 200 + បានចាប់ផ្ដើម» ជាមុន, បន្ទាប់មក «adblock + framework/ការដាក់ត្រួត» — ពីរចុងក្រោយមើលរំលងច្រើនបំផុត</figcaption></figure>
+<h2>តារាងរោគសញ្ញាពេញលេញ (ឥរិយាបថ / ទីតាំងផ្លូវការ · មូលហេតុឫស L2)</h2>
+<table id="tbl"></table>
+<h2>ប្រៀបធៀបវិធីរួមបញ្ចូល 美洽 ប្រាំ (កូដ / ភាពលំបាក / មុខងារ / សេណារីយ៉ូ / ពេលផ្សាយ · ឯកសារផ្លូវការ)</h2>
+<table class="cmp"><tr><th>វិធីរួមបញ្ចូល</th><th>កូដ / ភាពលំបាក</th><th>ភាពពេញលេញមុខងារ</th><th>សមរម្យសម្រាប់</th><th>ពេលផ្សាយ</th></tr><tr><td>widget JS web</td><td>snippet JS តែមួយ · ទាប</td><td>ពេញបំផុត (អណ្ដែត / popup / ស្វាគមន៍ស្វ័យ / ដាននៃអ្នកទស្សនា)</td><td>គេហទំព័រ PC + ទូរស័ព្ទ (ណែនាំផ្លូវការ)</td><td>~3-5 នាទី</td></tr><tr><td>តំណឆាត</td><td>គ្មានកូដ · ទាបបំផុត</td><td>ឆាតមូលដ្ឋាន</td><td>គ្មានបច្ចេកទេស / ដាក់តំណឆាតលឿន</td><td>ភ្លាមៗ</td></tr><tr><td>API / WebIM SDK</td><td>ត្រូវអភិវឌ្ឍ · ខ្ពស់</td><td>ប្ដូរតាមបំណងស៊ីជម្រៅ (UI ផ្ទាល់ / ប្រព័ន្ធ / រួមបញ្ចូលការបញ្ជាទិញ)</td><td>ក្រុមមានសមត្ថភាព dev សម្រាប់ការលាយស៊ីជម្រៅ</td><td>តាម dev</td></tr><tr><td>SDK native app</td><td>រួមបញ្ចូល SDK · ខ្ពស់</td><td>ឆាតក្នុង app + push សារ</td><td>app iOS / Android</td><td>តាម dev</td></tr><tr><td>ការកំណត់រហ័ស CMS</td><td>plugin / ចុចមួយ · ទាប</td><td>ដូច widget JS</td><td>គេហទំព័រ WordPress / Fkw / Shopify</td><td>នាទី</td></tr></table><section class="i4data">
+<h2>美洽 មូលហេតុមិនបង្ហាញ & ការប្រៀបធៀបវិធីរួមបញ្ចូល (ការប៉ាន់ស្មាន 2026)</h2>
+<p>ខាងក្រោមជា <strong>ការប៉ាន់ស្មាន 2026</strong> ដែលសំយោគពីជំនួយផ្លូវការ 美洽 (ឆានែលចូល / API widget គេហទំព័រ JavaScript) និងការដោះស្រាយបញ្ហារួមបញ្ចូលសាធារណៈ (មិនមែនការសន្យារបស់អ្នកលក់ ឬការវាស់វែងផ្ទាល់; សម្រាប់យោង, ប្រែតាមកំណែ និងគោលការណ៍ browser):</p>
+<table>
+<tr><th>វិមាត្រ</th><th>ការប៉ាន់ស្មាន / ការប្រៀបធៀប</th></tr>
+<tr><td>ការបែងចែកមូលហេតុមិនបង្ហាញ (សហគមន៍ / ticket · ប៉ាន់.)</td><td><strong>ទីតាំង / មិនផ្ទុក ~35%</strong> &gt; <strong>adblock / ផ្នែកបន្ថែម browser ~25%</strong> &gt; config / ការអនុញ្ញាត (entId / domain) ~20% &gt; framework (SPA) ~12% &gt; ប៉ះទង្គិចរចនាបថ / plugin ភាគីទីបី ~8%</td></tr>
+<tr><td>ការរួមបញ្ចូលពិតជាអ្វី</td><td>widget web = <strong>JS អសមកាលភាគីទីបីក្រៅដែនដែលចាក់ DOM + ការតភ្ជាប់ cross-origin យូរអង្វែង</strong> (មិនមែនសមាសភាគឋិតិវន្តបង្កប់); ដូច្នេះរងផលពីទីតាំង, ច្បាប់ adblock, ការដាក់ត្រួត CSS, វដ្តជីវិត SPA</td></tr>
+<tr><td>ការរួមបញ្ចូលក្នុងមួយ platform (ប៉ាន់.)</td><td>web PC / ទូរស័ព្ទ = <strong>widget JS (កូដដូចគ្នា, deploy ដាច់)</strong>; app = <strong>SDK native (AppKey)</strong>; WeChat / Douyin / RED = ការរួមបញ្ចូលអនុញ្ញាតឆានែល</td></tr>
+<tr><td>ផល adblock (ប៉ាន់.)</td><td>ប្រហែល <strong>30-40%</strong> នៃអ្នកប្រើ PC ប្រើផ្នែកបន្ថែម adblock → script ឆាតភាគីទីបីត្រូវទប់ស្កាត់តាមច្បាប់ផ្សាយ (ERR_BLOCKED_BY_CLIENT), មូលហេតុចម្បងនៃ «console ល្អ, ខាងអ្នកប្រើបាត់»</td></tr>
+<tr><td>ពេលផ្សាយ widget JS (ផ្លូវការ)</td><td>បិទភ្ជាប់ JS ឯកទេសនៅខាងក្រោមទំព័រហើយផ្សាយក្នុងប្រហែល <strong>3-5 នាទី</strong>; entId ជា id តែមួយរបស់ក្រុមហ៊ុន, ហើយការមិនត្រូវនឹង workbench ទុកភ្នាក់ងារគ្មានឆាត</td></tr>
+</table>
+<p><small>មូលដ្ឋានការប៉ាន់ស្មាន: baseline ប្រភព + ការ extrapolate ពេលវេលា (meiqia.com/help ឆានែលចូល / widget គេហទំព័រ JavaScript, មគ្គុទ្ទេសក៍រួមបញ្ចូល meiqia.im, ការដោះស្រាយបញ្ហាសាធារណៈ, 2026); ប្រែតាមកំណែ និងគោលការណ៍ទប់ស្កាត់ browser. អនុវត្តតាមព័ត៌មានផ្លូវការថ្មីបំផុតរបស់ 美洽. មិនផ្លូវការ · មូលដ្ឋានីយកម្ម LLM.</small></p>
+</section>
+<h2>ករណីពិត — អានលឿន</h2>
+<ul class="scenes"><li>បិទភ្ជាប់កូដប៉ុន្តែគ្មានពពុះឆាត: ដំបូង F12 → Network, ស្វែងរក meiqia.js — គ្មានសំណើ ឬមិន-200 មានន័យថាខុសកន្លែង / ជាប់ cache; សម្អាត cache CDN ឬបើកម្ដងទៀតក្នុងរបៀបអនាមិក.</li><li>console និយាយ meiqia.js net::ERR_BLOCKED_BY_CLIENT: adblock (AdBlock / uBlock / AdGuard) ទប់ស្កាត់ script ឆាតភាគីទីបីតាមច្បាប់ផ្សាយ — បិទផ្នែកបន្ថែម ឬ whitelist គេហទំព័រ; នេះក៏ជាមូលហេតុ «បាត់សម្រាប់អ្នកប្រើខ្លះ ខណៈ console របស់អ្នកមើលធម្មតា».</li><li>script ផ្ទុក (console typeof _MEIQIA ជា function) ប៉ុន្តែគ្មានប៊ូតុង: ជាញឹកញាប់ CSS theme ច្រានពពុះក្រៅអេក្រង់ ឬ plugin heatmap / analytics ផ្លាស់ការដាក់ត្រួត DOM — F12 → Elements, ស្វែងរក container 美洽 ហើយពិនិត្យម្ដងមួយ.</li><li>Vue / React SPA ទំព័រដើមមានឆាតប៉ុន្តែ route ទីពីរគ្មាន: ការផ្លាស់ route SPA បំផ្លាញ container ហើយ widget មិនបង្កើតឡើងវិញ — ប្រើ manualInit បញ្ឈប់ auto-init ហើយហៅ _MEIQIA('init') ក្នុង route hook ដើម្បី mount ឡើងវិញ.</li><li>ឆាតបើកប៉ុន្តែភ្នាក់ងារមិនទទួលសារអ្នកទស្សនា: ភាគច្រើន entId មិនត្រូវនឹង workbench (ចម្លង snippet អ្នកដទៃ / គណនីលាយ) — ប្រៀបធៀប ID ក្រុមហ៊ុនក្នុង ការកំណត់ - ក្រុម - ស្វែងរក ID នឹង entId ក្នុងកូដ.</li><li>ដំណើរការលើ staging, មិនផ្ទុកលើ domain production: domain production មិនបានអនុញ្ញាតតាម «បន្ថែមគេហទំព័ររួមបញ្ចូល» — បន្ថែម domain live ទៅបញ្ជីហើយបោះពុម្ពម្ដងទៀត.</li><li>ចង់ដក ប៊ូតុងមូល native របស់ 美洽 ហើយប្រើ ប៊ូតុង «ទំនាក់ទំនង» ផ្ទាល់: ហៅ _MEIQIA('withoutBtn') ដើម្បីលាក់ native, បន្ទាប់មកចង _MEIQIA('showPanel') ទៅប៊ូតុងអ្នកដើម្បីបើកឆាត.</li></ul><div class="related"><h2>ពាក់ព័ន្ធ</h2><ul><li><a href="https://meiqis.com/">ទាញយក 美洽 / ដំឡើង & មគ្គុទ្ទេសក៍រួមបញ្ចូល</a></li><li><a href="https://meiqis.com/km/website-integration/">មគ្គុទ្ទេសក៍រួមបញ្ចូលគេហទំព័រ 美洽 (widget JS)</a></li><li><a href="https://meiqis.com/km/tools/meiqia-integration-troubleshooting/">ការដោះស្រាយបញ្ហារួមបញ្ចូល 美洽 (តារាងពេញលេញផ្លូវការ)</a></li><li><a href="https://meiqiaa.com/">គេហទំព័រផ្លូវការ 美洽 (គេហទំព័របងប្អូន)</a></li></ul></div></main>
+<footer>widget គេហទំព័រ / JS API (manualInit / init / withoutBtn / showPanel / បញ្ជូនព័ត៌មានអតិថិជន), ការអនុញ្ញាត entId / domain, ឆានែលរង, AppKey SDK និងរបៀប push ប្រមូលពីមជ្ឈមណ្ឌលជំនួយផ្លូវការ 美洽 (meiqia.com/help · ឆានែលចូល / widget គេហទំព័រ JavaScript) និងមគ្គុទ្ទេសក៍រួមបញ្ចូល 美洽 (meiqia.im); adblock ERR_BLOCKED_BY_CLIENT, ការប៉ះទង្គិច DOM heatmap / analytics និងការរួមបញ្ចូល SPA ពីការដោះស្រាយបញ្ហាសាធារណៈ (សរសេរឡើងវិញ). លេខ 2026 ជាការប៉ាន់ស្មាន, មិនមែនការសន្យារបស់អ្នកលក់ ឬការវាស់វែងផ្ទាល់; សម្រាប់យោងតែប៉ុណ្ណោះ, សូមអនុវត្តតាមព័ត៌មានផ្លូវការថ្មីបំផុតរបស់ 美洽. មិនផ្លូវការ · មូលដ្ឋានីយកម្ម LLM.<br>ទំព័រឧបករណ៍ · ការបែងចែកការរួមបញ្ចូល, មិនជំនួស console 美洽</footer>
+</div>
+<script src="/km/codes.js"></script><script src="/app.js"></script>
+</body></html>
