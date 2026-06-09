@@ -7,6 +7,31 @@
 <link rel="alternate" hreflang="en" href="https://meiqiscom.github.io/en/">
 <link rel="alternate" hreflang="ja" href="https://meiqiscom.github.io/ja/">
 <link rel="alternate" hreflang="zh-Hant" href="https://meiqiscom.github.io/zh-tw/">
+<link rel="alternate" hreflang="ko" href="https://meiqiscom.github.io/ko/">
+<link rel="alternate" hreflang="id" href="https://meiqiscom.github.io/id/">
+<link rel="alternate" hreflang="vi" href="https://meiqiscom.github.io/vi/">
+<link rel="alternate" hreflang="th" href="https://meiqiscom.github.io/th/">
+<link rel="alternate" hreflang="es" href="https://meiqiscom.github.io/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://meiqiscom.github.io/pt-br/">
+<link rel="alternate" hreflang="de" href="https://meiqiscom.github.io/de/">
+<link rel="alternate" hreflang="fr" href="https://meiqiscom.github.io/fr/">
+<link rel="alternate" hreflang="ru" href="https://meiqiscom.github.io/ru/">
+<link rel="alternate" hreflang="it" href="https://meiqiscom.github.io/it/">
+<link rel="alternate" hreflang="pl" href="https://meiqiscom.github.io/pl/">
+<link rel="alternate" hreflang="nl" href="https://meiqiscom.github.io/nl/">
+<link rel="alternate" hreflang="tr" href="https://meiqiscom.github.io/tr/">
+<link rel="alternate" hreflang="ar" href="https://meiqiscom.github.io/ar/">
+<link rel="alternate" hreflang="hi" href="https://meiqiscom.github.io/hi/">
+<link rel="alternate" hreflang="ms" href="https://meiqiscom.github.io/ms/">
+<link rel="alternate" hreflang="fa" href="https://meiqiscom.github.io/fa/">
+<link rel="alternate" hreflang="bn" href="https://meiqiscom.github.io/bn/">
+<link rel="alternate" hreflang="ta" href="https://meiqiscom.github.io/ta/">
+<link rel="alternate" hreflang="te" href="https://meiqiscom.github.io/te/">
+<link rel="alternate" hreflang="fil" href="https://meiqiscom.github.io/fil/">
+<link rel="alternate" hreflang="ur" href="https://meiqiscom.github.io/ur/">
+<link rel="alternate" hreflang="lo" href="https://meiqiscom.github.io/lo/">
+<link rel="alternate" hreflang="km" href="https://meiqiscom.github.io/km/">
+<link rel="alternate" hreflang="my" href="https://meiqiscom.github.io/my/">
 <link rel="alternate" hreflang="x-default" href="https://meiqiscom.github.io/">
 <link rel="stylesheet" href="/style.css">
 <script type="application/ld+json">
@@ -104,7 +129,7 @@
 </script>
 </head>
 <body><div class="wrap"><main>
-<nav class="lang">言語：<a href="/">简体中文</a> · <a href="/en/">English</a> · <strong>日本語</strong> · <a href="/zh-tw/">繁體中文</a></nav>
+<nav class="lang">言語：<a href="/">简体中文</a> · <a href="/en/">English</a> · <strong>日本語</strong> · <a href="/zh-tw/">繁體中文</a> · <a href="/ko/">한국어</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/th/">ไทย</a> · <a href="/es/">Español</a> · <a href="/pt-br/">Português (BR)</a> · <a href="/de/">Deutsch</a> · <a href="/fr/">Français</a> · <a href="/ru/">Русский</a> · <a href="/it/">Italiano</a> · <a href="/pl/">Polski</a> · <a href="/nl/">Nederlands</a> · <a href="/tr/">Türkçe</a> · <a href="/ar/">العربية</a> · <a href="/hi/">हिन्दी</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fa/">فارسی</a> · <a href="/bn/">বাংলা</a> · <a href="/ta/">தமிழ்</a> · <a href="/te/">తెలుగు</a> · <a href="/fil/">Filipino</a> · <a href="/ur/">اردو</a> · <a href="/lo/">ພາສາລາວ</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/my/">မြန်မာ</a></nav>
 <h1>美洽 チャットが表示されない / 設置エラー 対処検索</h1>
 <figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_ja.webp"><img src="/img/cover_ja.png" alt="美洽 チャット非表示 / 設置エラー 対処検索ツールの図" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>図：美洽 チャット設置 非表示 / エラー 対処検索（L1 現象 + L2 根本原因 + 5 つの設置方式）</figcaption></figure>
 <p><strong>美洽</strong>の<strong>ウェブ接客チャット</strong>がコードを貼っても<strong>表示されない</strong>、<strong>チャットボタンが出ない</strong>、コンソールに <code>meiqia.js</code> 拒否、または<strong>対話を受けられない</strong>？まず 3 つを切り分け——<strong>スクリプトがそもそも読み込まれていないのか（位置 / 広告ブロック / キャッシュ）、読み込まれたがページの装飾 / 重なりで隠れているのか、読み込みは正常だが設定が合っていないのか（entId / ドメイン / SPA ライフサイクル）</strong>。出会った<strong>症状やキーワード</strong>（例：<code>非表示</code>、<code>広告ブロック</code>、<code>entid</code>、<code>spa</code>、<code>モバイル</code>、<code>sdk プッシュ</code>）を検索し、まず <strong>L1 現象と公式の位置づけ</strong>、次に <strong>L2 根本原因と対処</strong>、最後に 5 つの設置方式と実例を確認。導入 / 設定は <a href="https://meiqis.com/">美洽ダウンロード / 接客システム設置ガイド</a> へ。</p>
