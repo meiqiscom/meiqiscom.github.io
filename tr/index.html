@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="tr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>美洽(Meiqia) sohbet widget'ı görünmüyor / entegrasyon hatasını düzelt - meiqia.js engellendi, düğme yok, entId, SPA, SDK push</title>
+<meta name="description" content="美洽(Meiqia) web sohbet widget'ı görünmüyor, düğme yok, meiqia.js ERR_BLOCKED_BY_CLIENT ile engellendi, stil bozuk, SPA rota değişiminden sonra kayboluyor, entId uyuşmuyor ve temsilciler sohbet almıyor, mobilde çıkmıyor, SDK push gelmiyor mu? Belirtiyi arayın ve L1 davranışı ile L2 kök nedenini görün: üçüncü taraf alan dışı asenkron JS enjeksiyonu, adblock kuralları, CSS yığılması, SPA yaşam döngüsü, entId ve alan beyaz listesi, AppKey ve SDK push yolu; beş entegrasyon yönteminin karşılaştırması ve 2026 tahminleriyle.">
+<link rel="canonical" href="https://meiqiscom.github.io/tr/">
+<link rel="alternate" hreflang="zh-Hans" href="https://meiqiscom.github.io/">
+<link rel="alternate" hreflang="en" href="https://meiqiscom.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://meiqiscom.github.io/ja/">
+<link rel="alternate" hreflang="zh-Hant" href="https://meiqiscom.github.io/zh-tw/">
+<link rel="alternate" hreflang="ko" href="https://meiqiscom.github.io/ko/">
+<link rel="alternate" hreflang="id" href="https://meiqiscom.github.io/id/">
+<link rel="alternate" hreflang="vi" href="https://meiqiscom.github.io/vi/">
+<link rel="alternate" hreflang="th" href="https://meiqiscom.github.io/th/">
+<link rel="alternate" hreflang="es" href="https://meiqiscom.github.io/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://meiqiscom.github.io/pt-br/">
+<link rel="alternate" hreflang="de" href="https://meiqiscom.github.io/de/">
+<link rel="alternate" hreflang="fr" href="https://meiqiscom.github.io/fr/">
+<link rel="alternate" hreflang="ru" href="https://meiqiscom.github.io/ru/">
+<link rel="alternate" hreflang="it" href="https://meiqiscom.github.io/it/">
+<link rel="alternate" hreflang="pl" href="https://meiqiscom.github.io/pl/">
+<link rel="alternate" hreflang="nl" href="https://meiqiscom.github.io/nl/">
+<link rel="alternate" hreflang="tr" href="https://meiqiscom.github.io/tr/">
+<link rel="alternate" hreflang="ar" href="https://meiqiscom.github.io/ar/">
+<link rel="alternate" hreflang="hi" href="https://meiqiscom.github.io/hi/">
+<link rel="alternate" hreflang="ms" href="https://meiqiscom.github.io/ms/">
+<link rel="alternate" hreflang="fa" href="https://meiqiscom.github.io/fa/">
+<link rel="alternate" hreflang="bn" href="https://meiqiscom.github.io/bn/">
+<link rel="alternate" hreflang="ta" href="https://meiqiscom.github.io/ta/">
+<link rel="alternate" hreflang="te" href="https://meiqiscom.github.io/te/">
+<link rel="alternate" hreflang="fil" href="https://meiqiscom.github.io/fil/">
+<link rel="alternate" hreflang="ur" href="https://meiqiscom.github.io/ur/">
+<link rel="alternate" hreflang="lo" href="https://meiqiscom.github.io/lo/">
+<link rel="alternate" hreflang="km" href="https://meiqiscom.github.io/km/">
+<link rel="alternate" hreflang="my" href="https://meiqiscom.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://meiqiscom.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "美洽 sohbet görünmüyor / entegrasyon hatası düzeltme",
+   "url": "https://meiqiscom.github.io/tr/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "inLanguage": "tr",
+   "description": "美洽(Meiqia) web sohbet widget'ı görünmüyor, düğme yok, meiqia.js ERR_BLOCKED_BY_CLIENT ile engellendi, stil bozuk, SPA rota değişiminden sonra kayboluyor, entId uyuşmuyor ve temsilciler sohbet almıyor, mobilde çıkmıyor, SDK push gelmiyor mu? Belirtiyi arayın ve L1 davranışı ile L2 kök nedenini görün: üçüncü taraf alan dışı asenkron JS enjeksiyonu, adblock kuralları, CSS yığılması, SPA yaşam döngüsü, entId ve alan beyaz listesi, AppKey ve SDK push yolu; beş entegrasyon yönteminin karşılaştırması ve 2026 tahminleriyle.",
+   "isAccessibleForFree": true,
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "tr",
+   "url": "https://meiqiscom.github.io/tr/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "美洽 Sohbet penceresi / baloncuğu hiç görünmüyor — nasıl çözülür?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽 web widget'ı tek bir yapıştırılan JS parçasıyla yüzen bir sohbet penceresi yükler; kodun doğru gömüldüğünü ve entegrasyon sitesinin konsolda yapılandırıldığını doğrulayın. Widget, asenkron yüklemeden sonra DOM'a enjekte edilen meiqia.js'tir, bu yüzden «hiçbir şey yok» genelde «betik hiç yüklenmedi» demektir: yanlış konum, adblock / önbellek ile engellenmiş veya uyuşmayan alan / entId, bu yüzden enjeksiyon hiç çalışmadı. F12 → Network, meiqia.js arayın: istek yok → kod etkisiz (konumu kontrol edin / önbelleği temizleyin); istek var ama 200 değil → engellendi veya yol sorunu; her şey iyi ama hâlâ gizli → entId / alan yetkisini ve aşağıdaki grupları kontrol edin."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Betik yüklendi ama sohbet düğmesi eksik — nasıl çözülür?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Widget kodu siteye uyum sağlar ve bir sohbet düğmesi gösterir; görüntüleme başarısızsa stillerle gizlenip gizlenmediğini veya başlatmanın kesilip kesilmediğini kontrol edin. Betik yüklenir ama düğme eksikse, genelde «görüntüleme katmanı» sorunudur: genel CSS düğme konumunu geçersiz kılar / display:none yapar, z-index kaybeder veya başka sabit bir öğe onu kaplar; başka bir JS hatası da başlatmayı durdurabilir. F12 → Elements, 美洽 kapsayıcısını bulun — var mı, gizli mi, ekran dışı mı?; yeniden test için özel CSS / betikleri geçici devre dışı bırakın; yürütmeyi durduran bir hata için konsolu kontrol edin."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js bir adblock uzantısıyla engellendi — nasıl çözülür?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽 sohbet betiği üçüncü taraf bir alandan gelir; bir engelleme uzantısı kuruluysa onu reklam / izleyici sayıp yüklemeyi engelleyebilir — engellemeyi kapatın veya beyaz listeye alın. ERR_BLOCKED_BY_CLIENT, bir tarayıcı uzantısının (AdBlock / uBlock / AdGuard) isteği filtre listeleriyle engellediği anlamına gelir. 美洽 betiği «üçüncü taraf alan dışı + gerçek zamanlı iletişim»dir; bu kurallar genelde onu reklam / izleyici sanıp «konsol iyi, kullanıcı tarafı eksik» sahte hatasına yol açar. Gizli modda veya adblock kapalı yeniden test edin — görünürse neden engellemedir; kullanıcılardan siteyi beyaz listeye almasını isteyin; ön uç bazı otomatik kuralları atlatmak için sohbet betiğini gecikmeli / koşullu yükleyebilir."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js 404 / kötü durum / karışık içerik — nasıl çözülür?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Dağıtımdan sonra Network panelinde meiqia.js arayın; 200 durumu betiğin doğru yerleştirildiği ve yüklendiği anlamına gelir. Yaygın 200-olmayan nedenler: kod sayfa / CDN önbelleğinde takılı (yayından sonra yenilenmedi), HTTP sayfada yükleme / eksik sertifika zinciri karışık içerik engellemesini tetikler veya bozuk / kısmen kopyalanmış kod. Bu adım başarısız olursa enjeksiyon ve bağlantı asla gerçekleşmez. Yayından sonra CDN / tarayıcı önbelleğini temizleyin (veya gizli mod); bütün sertifika zinciriyle tam HTTPS ve karışık içerik olmadan sağlayın; kopyalanan kodun tam ve kaçışsız olduğunu doğrulayın."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Kod yanlış yerde (head engellemesi / etkisiz) — nasıl çözülür?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽, kodu sayfanın altına, </body> öncesine yapıştırmayı önerir; widget ana içerik yüklendikten sonra çalışır. Widget, kapsayıcısını DOM hazır olduktan sonra enjekte etmelidir. <head> içinde işlemeyi engeller (zayıf ağda önce boş ekran) veya DOM hazır olmadan çalışıp başarısız olur; bazı async / modül kapsamlarında yükleme sırası da bozulabilir. 美洽 JS'i her sayfanın ortak alt bilgisine, </body> öncesine koyun; SPA'lar için «SPA rota» girdisine bakın ve manualInit kullanın; bir paketleyicinin onu tree-shaking ile kaldırmadığından emin olun."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Sohbet penceresi / düğme stili bozuk — nasıl çözülür?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Widget kendi stillerini enjekte eder ve siteye uyum sağlar; genel stillerle çakışma görsel anomalilere yol açabilir. 美洽 betiği çalışma zamanında CSS enjekte eder; genel stiller (evrensel seçiciler / yüksek öncelikli kurallar / resetler) sınıflarını önce geçersiz kılarsa konum, yığılma ve yazı tipleri bozulur — «dinamik enjeksiyon + tek belge stil alanını paylaşma»nın yan etkisi. Hangi site kuralının 美洽 kapsayıcısını geçersiz kıldığını görmek için F12; genel stilleri daraltın / genel sınıflar üzerindeki etkiyi azaltın; gerekirse 美洽'den kapsayıcı yığılmasını ayarlamasını isteyin."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Düğme ekran dışı / kaplı — nasıl çözülür?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Widget düğmesi sabit konumlu yüzen olarak görünür; başka sabit öğelerce kaplıysa yığılmayı veya konumu ayarlayın. Sitenin diğer position:fixed öğeleri (başa dön, yüzen reklamlar, özel destek çubuğu) daha yüksek z-index ile 美洽 düğmesini kaplar veya tema koordinatlarını yanlış hesaplar, onu «ekran dışı / kaplı» bırakır. Gerçek koordinatları / z-index'i görmek için F12'de 美洽 kapsayıcısını seçin; onu yükseltin veya kaplayan öğenin z-index'ini düşürün; bir köşede birden çok sabit yüzeni yığmaktan kaçının."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Üçüncü taraf eklenti / analitik DOM çakışması — nasıl çözülür?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sayfadaki DOM'u değiştiren veya istekleri yakalayan diğer betikler widget'ın normal yüklenmesini ve görüntülenmesini etkileyebilir. Isı haritası / analitik / dönüşüm betikleri DOM'u yeniden yazar, kaplamalar enjekte eder veya istekleri yakalar; onlar ve 美洽 aynı belgeye enjekte ettiğinden yığılma / olaylar çakışır ve 美洽 kapsayıcısı kaplanır veya init'i kesilir. Çakışmayı yerelleştirmek için şüpheli eklentileri tek tek devre dışı bırakın; yükleme sırasını / kapsayıcı yığılmasını ayarlayın; ısı haritalarının vb. 美洽 kapsayıcı alanından kaçınmasını sağlayın."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">Dil: <a href="/">简体中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/ko/">한국어</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/th/">ไทย</a> · <a href="/es/">Español</a> · <a href="/pt-br/">Português (BR)</a> · <a href="/de/">Deutsch</a> · <a href="/fr/">Français</a> · <a href="/ru/">Русский</a> · <a href="/it/">Italiano</a> · <a href="/pl/">Polski</a> · <a href="/nl/">Nederlands</a> · <strong>Türkçe</strong> · <a href="/ar/">العربية</a> · <a href="/hi/">हिन्दी</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fa/">فارسی</a> · <a href="/bn/">বাংলা</a> · <a href="/ta/">தமிழ்</a> · <a href="/te/">తెలుగు</a> · <a href="/fil/">Filipino</a> · <a href="/ur/">اردو</a> · <a href="/lo/">ພາສາລາວ</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>美洽 sohbet widget'ı görünmüyor / entegrasyon hatasını düzelt</h1>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_tr.webp"><img src="/img/cover_tr.png" alt="美洽 sohbet widget'ı görünmüyor / hata düzeltme aracı görseli" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Şek: 美洽 sohbet görünmüyor / hata düzeltme (L1 davranışı + L2 kök neden + beş entegrasyon yöntemi)</figcaption></figure>
+<p><strong>美洽(Meiqia)</strong> kodunu yapıştırdınız ama <strong>web sohbet widget'ı</strong> görünmüyor, <strong>sohbet düğmesi hiç çıkmıyor</strong>, konsol <code>meiqia.js</code> engellendi diyor ya da <strong>temsilciler sohbet almıyor</strong> mu? Önce üç şeyi netleştirin: <strong>betik hiç yüklenmedi mi (konum / adblock / önbellek), yüklendi ama stil / yığılma ile gizlendi mi, yoksa iyi yüklendi ama yapılandırma uyuşmuyor mu (entId / alan / SPA yaşam döngüsü)?</strong> Karşılaştığınız <strong>belirti veya anahtar kelimeyi</strong> arayın (örn. <code>not showing</code>, <code>adblock</code>, <code>entId</code>, <code>SPA</code>, <code>mobile</code>, <code>sdk push</code>): önce <strong>L1 davranışı & resmi konumlandırma</strong>, sonra <strong>L2 kök neden & çözüm</strong>. Kurulum / kılavuz mu? Bkz. <a href="https://meiqis.com/">美洽 indirme / müşteri hizmetleri entegrasyon kılavuzu</a>.</p>
+<input id="q" placeholder="Bir belirti veya anahtar kelime yazın, örn. not showing / adblock / entId / SPA / mobile / sdk push" autocomplete="off">
+<button id="go">Ara</button>
+<div id="out"></div>
+<h2>Adım 1: betiğin yüklenip yüklenmediğini kontrol edin, sonra dört gruba ayırın</h2>
+<p>美洽 sohbeti görünmediğinde, 10 vakanın 9'unda dört gruptan biridir; önce <strong>betiğin yüklenip yüklenmediğine</strong> bakın: F12 → Network, <code>meiqia.js</code> arayın; istek yoksa veya durum 200 değilse yüklenmemiştir. ① <strong>Yükleme hatası</strong>: kod yanlış yerde (<code>&lt;/body&gt;</code> öncesinde olmalı, <code>&lt;head&gt;</code> içinde değil), bir adblock kuralıyla engellendi (<code>ERR_BLOCKED_BY_CLIENT</code>), CDN / tarayıcı önbelleğinde takılı veya HTTPS sertifikası / karışık içerik. ② <strong>Yapılandırma / yetki</strong>: entId çalışma masasıyla uyuşmuyor (yükleniyor ama temsilciler sohbet almıyor) veya site alanı konsolda yetkilendirilmemiş. ③ <strong>Çerçeve entegrasyonu</strong>: bir Vue/React/Next SPA rota değişiminde kapsayıcıyı yok eder ve widget yeniden oluşturulmaz. ④ <strong>Görüntüleme / mobil / SDK</strong>: site CSS'i baloncuğu ekran dışına iter, üçüncü taraf eklenti DOM'u kaplar, mobil kendi dağıtımını gerektirir, uygulama içi SDK gerektirir. Daha kapsamlı: <a href="https://meiqis.com/website-integration/">美洽 web entegrasyon kılavuzu</a>.</p>
+<div class="cat"><div class="catbox"><b>Yükleme hatası</b><span class="cs">konum · adblock · önbellek · HTTPS</span><div>美洽 JS'i </body> öncesine yapıştırın (<head> içine değil); F12 → Network, meiqia.js arayın ve durumu kontrol edin (200 olmalı); ERR_BLOCKED_BY_CLIENT genelde adblock uzantısıdır — gizli modda test edin veya beyaz listeye ekleyin; yayından sonra CDN önbelleğini temizleyin; karışık içerik olmadan tam HTTPS sağlayın.</div></div><div class="catbox"><b>Yapılandırma / yetki</b><span class="cs">entId · alan beyaz listesi · alt kanallar</span><div>entId şirketinizin benzersiz kimliğidir; çalışma masasıyla uyuşmazsa «betik yüklenir ama temsilciler sohbet almaz» (Ayarlar - Ekip - kimlik arama); site alanı «Entegrasyon sitesi ekle» ile yetkilendirilmeli; iş kolu başına ayrı alt kanal (sonda) kullanın.</div></div><div class="catbox"><b>Çerçeve entegrasyonu</b><span class="cs">SPA · rota değişimi · manualInit</span><div>Bir Vue/React/Next SPA rota değişiminde DOM'u yok eder ve widget yeniden oluşturulmaz; auto-init'i durdurmak için _MEIQIA('manualInit') kullanın ve yeniden bağlamak için bir rota kancasında (useEffect / mounted) _MEIQIA('init') çağırın.</div></div><div class="catbox"><b>Görüntüleme sorunları</b><span class="cs">stil çakışması · yığılma · üçüncü taraf eklentiler</span><div>Yüklendi ama görünmez: genelde site genel CSS'i baloncuk konumunu geçersiz kılar veya bir ısı haritası / analitik / SEO eklentisi DOM'u düzenleyip kapsayıcıyı kaplar; F12 → Elements, meiqia kapsayıcısını arayın ve display:none, kaybeden z-index veya ekran dışı koordinatları kontrol edin.</div></div><div class="catbox"><b>Mobil / SDK</b><span class="cs">mobil web · AppKey · push</span><div>Mobil / PC web aynı parçadır ama kendi dağıtımını gerektirir; uygulama içi yerel SDK kullanır (önce konsolda AppKey için «APP yapılandırması ekle»); push «push yok» (yalnızca uygulama içi) ve «özel push sunucusu» (uygulamadan çıkıldıktan sonra bile teslim) olarak ikiye ayrılır.</div></div><div class="catbox"><b>API çağrıları</b><span class="cs">withoutBtn · showPanel · müşteri bilgisi</span><div>Kendi düğmeniz mi? _MEIQIA('withoutBtn') yerel düğmeyi gizler ve sohbeti açmak için tıklamada _MEIQIA('showPanel') çağırın; müşteri bilgisini init zamanı içinde geçin / senkronize edin, yoksa etkisiz olur.</div></div></div><figure><svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="美洽 sohbet görünmüyor triyaj diyagramı" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">Pencere / düğme görünmüyor triyajı (önce iki adım: betik yüklendi mi → yapılandırma doğru mu?)</text><rect x="20" y="46" width="150" height="46" rx="10" fill="#111"/><text x="95" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff">Sohbet görünmüyor</text><path d="M170 69 H206" stroke="#999" stroke-width="2" fill="none" marker-end="url(#a)"/><rect x="206" y="46" width="172" height="46" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="292" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1d4ed8">İki grup</text><rect x="440" y="20" width="262" height="56" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="455" y="42" font-family="system-ui,Arial" font-size="12.5" fill="#1d4ed8">Betik yüklenmedi →</text><text x="455" y="62" font-family="system-ui,Arial" font-size="11.5" fill="#1e3a8a">konum · adblock · önbellek</text><rect x="440" y="86" width="262" height="56" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="455" y="108" font-family="system-ui,Arial" font-size="12.5" fill="#b45309">Yüklendi ama gizli / bağlanmıyor →</text><text x="455" y="128" font-family="system-ui,Arial" font-size="11.5" fill="#92400e">yığılma · entId · alan · SPA</text><path d="M378 60 H410 V48 H440" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M378 78 H410 V114 H440" stroke="#d97706" stroke-width="2" fill="none" marker-end="url(#a)"/><text x="20" y="178" font-family="system-ui,Arial" font-size="13" font-weight="700" fill="#1d1d1f">Dört kök grubu (öğe başına neden / çözüm)</text><g font-family="system-ui,Arial" font-size="12"><rect x="20" y="190" width="162" height="92" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="32" y="212" font-weight="700" fill="#1d4ed8">① Yükleme hatası</text><text x="32" y="234" fill="#555" font-size="11">konum · engel · önbellek</text><rect x="194" y="190" width="162" height="92" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="206" y="212" font-weight="700" fill="#1d4ed8">② Yapılandırma / yetki</text><text x="206" y="234" fill="#555" font-size="11">entId · alan beyaz listesi</text><rect x="368" y="190" width="162" height="92" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="380" y="212" font-weight="700" fill="#b45309">③ Çerçeve</text><text x="380" y="234" fill="#555" font-size="11">SPA rota · init</text><rect x="542" y="190" width="160" height="92" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="554" y="212" font-weight="700" fill="#047857">④ Görüntüleme / mobil / SDK</text><text x="554" y="234" fill="#555" font-size="11">yığılma · mobil · push</text></g><defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#999"/></marker></defs></svg><figcaption>Şek 1: 美洽 görünmüyor triyajı — betik yüklemesini kontrol edin (F12'de meiqia.js), sonra yükleme / yapılandırma / çerçeve / görüntüleme</figcaption></figure>
+<h2>Adım 2: en çok gözden kaçan kök neden → L2 (widget = üçüncü taraf alan dışı asenkron JS enjeksiyonu)</h2>
+<p>Tek bir fikir yeter: <strong>美洽 web widget'ı sayfanıza gömülü statik bir bileşen değildir — 美洽'nin alan dışı kaynağından asenkron yüklenen, ardından dinamik olarak bir sohbet kapsayıcısı (DOM / iframe) enjekte eden ve 美洽 sunucularına çapraz kaynaklı uzun ömürlü bir bağlantı açan bir <code>meiqia.js</code>'tir</strong>. Bu, çoğu «gizemli kaybolmayı» açıklar: ① <strong>üçüncü taraf alan dışı bir betiktir</strong>, bu yüzden AdBlock / uBlock onu «izleme / reklam» listeleriyle engeller (<code>ERR_BLOCKED_BY_CLIENT</code>) ve düğme hiç çıkmaz (konsol iyi görünse de); ② <strong>DOM'u asenkron enjekte eder</strong>: <code>&lt;head&gt;</code> içinde engeller, bir SPA rota değişimi kapsayıcıyı yok eder ve kendiliğinden yeniden oluşturulmaz (<code>manualInit</code> + <code>_MEIQIA('init')</code> kullanın), ve DOM'u düzenleyen ısı haritası / analitik eklentileri onu kaplayabilir; ③ <strong>entId ile şirketinize bağlanır ve alan beyaz listesiyle geçit kontrollüdür</strong>: yanlış entId veya yetkisiz alanda betik yüklenir ama «sohbet bağlamaz»; ④ <strong>mobil ve PC iki ayrı entegrasyondur</strong>, uygulama içi SDK'dır (AppKey), ve push «push yok» ile «özel push sunucusu» olarak ikiye ayrılır. Bu enjeksiyon zincirini gördükten sonra aşağıdaki her belirtinin tek bir mantığı olur. Aşağıda öz denetim paneli; daha aşağıda beş yöntem ve 2026 tahminleri.</p>
+<figure><svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="美洽 entegrasyon öncesi öz denetim paneli" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">Entegrasyon öz denetim paneli (yeşil = onaylandı / kırmızı = kolayca gözden kaçar)</text><rect x="20" y="42" width="680" height="226" rx="14" fill="#f8fafc" stroke="#e2e8f0"/><text x="38" y="66" font-family="system-ui,Arial" font-size="12.5" font-weight="700" fill="#475569">Denetim öğesi</text><text x="300" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">Karar</text><text x="610" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">Durum</text><line x1="38" y1="74" x2="682" y2="74" stroke="#e2e8f0" stroke-width="1"/><text x="38" y="98" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">美洽 kodu </body> öncesine yapıştırıldı (<head> değil)</text><text x="300" y="98" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">konum</text><circle cx="612" cy="94" r="6" fill="#16a34a"/><text x="628" y="98" font-family="system-ui,Arial" font-size="12" fill="#16a34a">onaylandı</text><text x="38" y="128" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">F12 → Network'te meiqia.js durumu 200</text><text x="300" y="128" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">betik yükleme</text><circle cx="612" cy="124" r="6" fill="#16a34a"/><text x="628" y="128" font-family="system-ui,Arial" font-size="12" fill="#16a34a">onaylandı</text><text x="38" y="158" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Konsol typeof _MEIQIA function</text><text x="300" y="158" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">başlatıldı</text><circle cx="612" cy="154" r="6" fill="#16a34a"/><text x="628" y="158" font-family="system-ui,Arial" font-size="12" fill="#16a34a">onaylandı</text><text x="38" y="188" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Gizli modda / adblock kapalıyken görünüyor</text><text x="300" y="188" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">adblock</text><circle cx="612" cy="184" r="6" fill="#ef4444"/><text x="628" y="188" font-family="system-ui,Arial" font-size="12" fill="#ef4444">doğrulanacak</text><text x="38" y="218" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">entId çalışma masasıyla uyumlu + alan yetkili</text><text x="300" y="218" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">yapılandırma / yetki</text><circle cx="612" cy="214" r="6" fill="#16a34a"/><text x="628" y="218" font-family="system-ui,Arial" font-size="12" fill="#16a34a">onaylandı</text><text x="38" y="248" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">SPA rota değişiminden sonra yeniden init + eklenti kaplaması yok</text><text x="300" y="248" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">çerçeve / yığılma</text><circle cx="612" cy="244" r="6" fill="#ef4444"/><text x="628" y="248" font-family="system-ui,Arial" font-size="12" fill="#ef4444">doğrulanacak</text><text x="20" y="296" font-family="system-ui,Arial" font-size="11.5" fill="#94a3b8">Not: kırmızı = en çok gözden kaçan ikisi — adblock uzantıları (ERR_BLOCKED_BY_CLIENT) ve çerçeve / yığılma (SPA rota değişimleri, DOM'u düzenleyen üçüncü taraf eklentiler); önce bu ikisini kontrol edin.</text></svg><figcaption>Şek 2: 美洽 entegrasyon öz denetim paneli (yeşil = onaylandı / kırmızı = kolayca gözden kaçar)</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_tr.webp"><img src="/img/board_tr.png" alt="美洽 entegrasyon öncesi öz denetim paneli yeşil/kırmızı öğeler görseli" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Şek: önce «kod konumu + meiqia.js 200 + başlatıldı», sonra «adblock + çerçeve/yığılma» kontrol edin — son ikisi en çok gözden kaçar</figcaption></figure>
+<h2>Tam belirti tablosu (davranış / resmi konumlandırma · L2 kök neden)</h2>
+<table id="tbl"></table>
+<h2>Beş 美洽 entegrasyon yöntemi karşılaştırması (kod / zorluk / özellikler / senaryo / yayına alma süresi · resmi belge)</h2>
+<table class="cmp"><tr><th>Entegrasyon yöntemi</th><th>Kod / zorluk</th><th>Özellik bütünlüğü</th><th>En uygun</th><th>Yayına alma süresi</th></tr><tr><td>Web JS widget'ı</td><td>tek JS parçası · düşük</td><td>en bütün (yüzen / pop-up / otomatik karşılama / ziyaretçi izi)</td><td>PC + mobil siteler (resmi önerilen)</td><td>~3-5 dk</td></tr><tr><td>Sohbet bağlantısı</td><td>kod yok · en az</td><td>temel sohbet</td><td>teknik yok / hızlı bir sohbet bağlantısı koymak</td><td>anında</td></tr><tr><td>API / WebIM SDK</td><td>geliştirme gerekir · yüksek</td><td>derin özelleştirme (özel arayüz / sistem / sipariş entegrasyonu)</td><td>derin füzyon için geliştirme kapasitesi olan ekipler</td><td>geliştirmeye göre</td></tr><tr><td>Yerel uygulama SDK</td><td>SDK entegre · yüksek</td><td>uygulama içi sohbet + mesaj push'u</td><td>iOS / Android uygulamaları</td><td>geliştirmeye göre</td></tr><tr><td>CMS hızlı kurulum</td><td>eklenti / tek tık · düşük</td><td>JS widget'ı gibi</td><td>WordPress / Fkw / Shopify siteleri</td><td>dakikalar</td></tr></table><section class="i4data">
+<h2>美洽 görünmeme nedenleri & entegrasyon yöntemleri karşılaştırması (2026 tahmini)</h2>
+<p>Aşağıdakiler, resmi 美洽 yardımından (Erişim kanalları / JavaScript web widget'ı API) ve kamuya açık entegrasyon sorun gidermeden sentezlenen <strong>2026 tahminleridir</strong> (satıcı taahhüdü veya birinci elden ölçüm değil; referans amaçlı, sürüm ve tarayıcı politikasına göre değişir):</p>
+<table>
+<tr><th>Boyut</th><th>Tahmin / karşılaştırma</th></tr>
+<tr><td>Görünmeme nedenleri dağılımı (topluluk / talepler · tah.)</td><td><strong>konum / yüklenmedi ~35%</strong> &gt; <strong>adblock / tarayıcı uzantısı ~25%</strong> &gt; yapılandırma / yetki (entId / alan) ~20% &gt; çerçeve (SPA) ~12% &gt; stil / üçüncü taraf eklenti çakışması ~8%</td></tr>
+<tr><td>Entegrasyon gerçekte nedir</td><td>web widget'ı = <strong>DOM'u enjekte eden üçüncü taraf alan dışı asenkron JS + çapraz kaynaklı uzun ömürlü bağlantı</strong> (gömülü statik bileşen değil); bu yüzden konum, adblock kuralları, CSS yığılması, SPA yaşam döngüsünden etkilenir</td></tr>
+<tr><td>Platform başına entegrasyon (tah.)</td><td>PC / mobil web = <strong>JS widget'ı (aynı kod, ayrı dağıtılır)</strong>; uygulama = <strong>yerel SDK (AppKey)</strong>; WeChat / Douyin / RED = kanal yetkili entegrasyon</td></tr>
+<tr><td>Adblock etkisi (tah.)</td><td>PC kullanıcılarının yaklaşık <strong>%30-40'ı</strong> adblock uzantısı kullanır → üçüncü taraf sohbet betiği reklam kurallarıyla engellenir (ERR_BLOCKED_BY_CLIENT), «konsol iyi, kullanıcı tarafı eksik»in başlıca nedeni</td></tr>
+<tr><td>JS widget'ı yayına alma süresi (resmi)</td><td>özel JS'i sayfa altına yapıştırın, yaklaşık <strong>3-5 dakikada</strong> yayına girer; entId şirketin benzersiz kimliğidir ve çalışma masasıyla uyuşmazlık temsilcileri sohbetsiz bırakır</td></tr>
+</table>
+<p><small>Tahmin temeli: kaynak taban çizgisi + zaman dışı çıkarım (meiqia.com/help Erişim kanalları / JavaScript web widget'ı, meiqia.im entegrasyon kılavuzu, kamuya açık sorun giderme, 2026); sürüm ve tarayıcı engelleme politikasına göre değişir. En güncel resmi 美洽 bilgilerine uyun. Resmi değil · LLM yerelleştirmesi.</small></p>
+</section>
+<h2>Gerçek vakalar — hızlı okuma</h2>
+<ul class="scenes"><li>Kod yapıştırıldı ama sohbet baloncuğu yok: önce F12 → Network, meiqia.js arayın — istek yoksa veya 200 değilse yanlış yerleştirilmiş / önbellekte takılı; CDN önbelleğini temizleyin veya gizli modda yeniden açın.</li><li>Konsol meiqia.js net::ERR_BLOCKED_BY_CLIENT diyor: bir adblock (AdBlock / uBlock / AdGuard) üçüncü taraf sohbet betiğini reklam kurallarıyla engelledi — uzantıyı kapatın veya siteyi beyaz listeye alın; «konsolunuz iyi görünürken bazı kullanıcılar için eksik» olmasının nedeni de budur.</li><li>Betik yüklendi (konsol typeof _MEIQIA function) ama düğme yok: genelde bir tema CSS'i baloncuğu ekran dışına itti veya bir ısı haritası / analitik eklentisi DOM yığılmasını değiştirdi — F12 → Elements, 美洽 kapsayıcısını arayın ve öğe öğe kontrol edin.</li><li>Vue / React SPA'da ana sayfada sohbet var ama ikinci rotada yok: SPA rota değişimi kapsayıcıyı yok etti ve widget yeniden oluşturulmadı — auto-init'i durdurmak için manualInit kullanın ve yeniden bağlamak için rota kancasında _MEIQIA('init') çağırın.</li><li>Sohbet açılıyor ama temsilciler ziyaretçi mesajı almıyor: büyük olasılıkla entId çalışma masasıyla uyuşmuyor (başkasının parçası kopyalandı / hesaplar karıştı) — Ayarlar - Ekip - kimlik arama'daki şirket kimliğini koddaki entId ile karşılaştırın.</li><li>Staging'de çalışıyor, üretim alanında yüklenmiyor: üretim alanı «Entegrasyon sitesi ekle» ile yetkilendirilmedi — canlı alanı listeye ekleyin ve yeniden yayınlayın.</li><li>美洽'nin yuvarlak yerel düğmesini kaldırıp kendi «Destek» düğmenizi kullanmak istiyorsunuz: yereli gizlemek için _MEIQIA('withoutBtn') çağırın, sonra sohbeti açmak için düğmenize _MEIQIA('showPanel') bağlayın.</li></ul><div class="related"><h2>İlgili</h2><ul><li><a href="https://meiqis.com/">美洽 indirme / kurulum & entegrasyon kılavuzu</a></li><li><a href="https://meiqis.com/tr/website-integration/">美洽 web entegrasyon kılavuzu (JS widget'ı)</a></li><li><a href="https://meiqis.com/tr/tools/meiqia-integration-troubleshooting/">美洽 entegrasyon sorun giderme (yetkili tam tablo)</a></li><li><a href="https://meiqiaa.com/">美洽 resmi sitesi (kardeş site)</a></li></ul></div></main>
+<footer>Web widget'ı / JS API (manualInit / init / withoutBtn / showPanel / müşteri bilgisi geç), entId / alan yetkisi, alt kanallar, SDK AppKey & push modları resmi 美洽 Yardım Merkezi'nden (meiqia.com/help · Erişim kanalları / JavaScript web widget'ı) ve 美洽 entegrasyon kılavuzundan (meiqia.im) derlenmiştir; adblock ERR_BLOCKED_BY_CLIENT, ısı haritası / analitik DOM çakışmaları ve SPA entegrasyonu kamuya açık sorun gidermeden (yeniden ifade edildi). 2026 sayıları tahmindir, satıcı taahhüdü veya birinci elden ölçüm değildir; yalnızca referans, en güncel resmi 美洽 bilgilerine uyun. Resmi değil · LLM yerelleştirmesi.<br>Araç sayfası · entegrasyon triyajı, 美洽 konsolunun yerini tutmaz</footer>
+</div>
+<script src="/tr/codes.js"></script><script src="/app.js"></script>
+</body></html>
