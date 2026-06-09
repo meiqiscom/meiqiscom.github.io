@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>美洽(Meiqia) chatwidget verschijnt niet / integratiefout oplossen - meiqia.js geblokkeerd, geen knop, entId, SPA, SDK-push</title>
+<meta name="description" content="Verschijnt de 美洽(Meiqia) webchatwidget niet, ontbreekt de knop, wordt meiqia.js door ERR_BLOCKED_BY_CLIENT geblokkeerd, gebroken styling, weg na een SPA-routewissel, entId komt niet overeen zodat agents geen chats krijgen, niet zichtbaar op mobiel, SDK-push komt niet aan? Zoek het symptoom voor het L1-gedrag en de L2-grondoorzaak: asynchrone JS-injectie van derden buiten het domein, adblock-regels, CSS-stapeling, SPA-levenscyclus, entId en domein-whitelist, AppKey en SDK-push-pad; met vergelijking van vijf integratiemethoden en 2026-schattingen.">
+<link rel="canonical" href="https://meiqiscom.github.io/nl/">
+<link rel="alternate" hreflang="zh-Hans" href="https://meiqiscom.github.io/">
+<link rel="alternate" hreflang="en" href="https://meiqiscom.github.io/en/">
+<link rel="alternate" hreflang="ja" href="https://meiqiscom.github.io/ja/">
+<link rel="alternate" hreflang="zh-Hant" href="https://meiqiscom.github.io/zh-tw/">
+<link rel="alternate" hreflang="ko" href="https://meiqiscom.github.io/ko/">
+<link rel="alternate" hreflang="id" href="https://meiqiscom.github.io/id/">
+<link rel="alternate" hreflang="vi" href="https://meiqiscom.github.io/vi/">
+<link rel="alternate" hreflang="th" href="https://meiqiscom.github.io/th/">
+<link rel="alternate" hreflang="es" href="https://meiqiscom.github.io/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://meiqiscom.github.io/pt-br/">
+<link rel="alternate" hreflang="de" href="https://meiqiscom.github.io/de/">
+<link rel="alternate" hreflang="fr" href="https://meiqiscom.github.io/fr/">
+<link rel="alternate" hreflang="ru" href="https://meiqiscom.github.io/ru/">
+<link rel="alternate" hreflang="it" href="https://meiqiscom.github.io/it/">
+<link rel="alternate" hreflang="pl" href="https://meiqiscom.github.io/pl/">
+<link rel="alternate" hreflang="nl" href="https://meiqiscom.github.io/nl/">
+<link rel="alternate" hreflang="tr" href="https://meiqiscom.github.io/tr/">
+<link rel="alternate" hreflang="ar" href="https://meiqiscom.github.io/ar/">
+<link rel="alternate" hreflang="hi" href="https://meiqiscom.github.io/hi/">
+<link rel="alternate" hreflang="ms" href="https://meiqiscom.github.io/ms/">
+<link rel="alternate" hreflang="fa" href="https://meiqiscom.github.io/fa/">
+<link rel="alternate" hreflang="bn" href="https://meiqiscom.github.io/bn/">
+<link rel="alternate" hreflang="ta" href="https://meiqiscom.github.io/ta/">
+<link rel="alternate" hreflang="te" href="https://meiqiscom.github.io/te/">
+<link rel="alternate" hreflang="fil" href="https://meiqiscom.github.io/fil/">
+<link rel="alternate" hreflang="ur" href="https://meiqiscom.github.io/ur/">
+<link rel="alternate" hreflang="lo" href="https://meiqiscom.github.io/lo/">
+<link rel="alternate" hreflang="km" href="https://meiqiscom.github.io/km/">
+<link rel="alternate" hreflang="my" href="https://meiqiscom.github.io/my/">
+<link rel="alternate" hreflang="x-default" href="https://meiqiscom.github.io/">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebApplication",
+   "name": "美洽 chat verschijnt niet / integratiefouten oplossen",
+   "url": "https://meiqiscom.github.io/nl/",
+   "applicationCategory": "UtilitiesApplication",
+   "operatingSystem": "Web browser",
+   "inLanguage": "nl",
+   "description": "Verschijnt de 美洽(Meiqia) webchatwidget niet, ontbreekt de knop, wordt meiqia.js door ERR_BLOCKED_BY_CLIENT geblokkeerd, gebroken styling, weg na een SPA-routewissel, entId komt niet overeen zodat agents geen chats krijgen, niet zichtbaar op mobiel, SDK-push komt niet aan? Zoek het symptoom voor het L1-gedrag en de L2-grondoorzaak: asynchrone JS-injectie van derden buiten het domein, adblock-regels, CSS-stapeling, SPA-levenscyclus, entId en domein-whitelist, AppKey en SDK-push-pad; met vergelijking van vijf integratiemethoden en 2026-schattingen.",
+   "isAccessibleForFree": true,
+   "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "inLanguage": "nl",
+   "url": "https://meiqiscom.github.io/nl/",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "美洽 Chatvenster / bubbel verschijnt helemaal niet — hoe op te lossen?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "De 美洽-webwidget laadt een zwevend chatvenster met één geplakte JS-snippet; bevestig dat de code goed is ingebed en de integratiesite in de console is geconfigureerd. De widget is meiqia.js die na een asynchrone lading in het DOM wordt geïnjecteerd, dus «helemaal niets» betekent meestal «het script is nooit geladen»: verkeerde plaatsing, geblokkeerd door adblock / cache, of niet-overeenkomend domein / entId, zodat de injectie nooit liep. F12 → Network, zoek meiqia.js: geen verzoek → code zonder effect (controleer plaatsing / wis cache); verzoek maar niet-200 → geblokkeerd of padprobleem; alles ok maar nog verborgen → controleer entId / domeinautorisatie en de groepen hieronder."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Script geladen maar chatknop ontbreekt — hoe op te lossen?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "De widgetcode past zich aan de site aan en toont een chatknop; als de weergave faalt, controleer of hij door stijlen is verborgen of de initialisatie is onderbroken. Als het script laadt maar de knop ontbreekt, is het meestal een «weergavelaag»-probleem: de site-brede CSS overschrijft de knoppositie / zet display:none, de z-index verliest, of een ander vast element bedekt hem; een andere JS-fout kan de initialisatie ook afbreken. F12 → Elements, vind de 美洽-container — aanwezig, verborgen of buiten beeld?; schakel tijdelijk eigen CSS / scripts uit om opnieuw te testen; controleer de console op een fout die de uitvoering afbrak."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js geblokkeerd door een adblock-extensie — hoe op te lossen?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Het 美洽-chatscript komt van een domein van derden; als er een blokkeer-extensie is geïnstalleerd, kan die het als advertentie / tracker behandelen en het laden verhinderen — schakel blokkeren uit of whitelist. ERR_BLOCKED_BY_CLIENT betekent dat een browserextensie (AdBlock / uBlock / AdGuard) het verzoek via zijn filterlijsten blokkeerde. Het 美洽-script is «derden buiten het domein + realtime communicatie», wat zulke regels vaak verwarren met advertentie / tracker, een valse fout «console ok, gebruikerskant ontbreekt». Test opnieuw in incognito of met adblock uit — verschijnt het, dan was blokkeren de oorzaak; vraag gebruikers de site te whitelisten; de front-end kan het chatscript vertraagd / voorwaardelijk laden om sommige autoregels te omzeilen."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 meiqia.js 404 / verkeerde status / gemengde inhoud — hoe op te lossen?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Zoek na het deployen meiqia.js in het Network-paneel; een 200-status betekent dat het script goed geplaatst en geladen is. Veelvoorkomende niet-200-oorzaken: code vastgehouden door pagina- / CDN-cache (niet ververst na publicatie), laden op een HTTP-pagina / onvolledige certificaatketen die gemengde-inhoud-blokkering triggert, of gebroken / deels gekopieerde code. Faalt deze stap, dan gebeuren injectie en verbinding nooit. Wis de CDN- / browsercache (of incognito) na publicatie; zorg voor volledig HTTPS met een intacte certificaatketen en zonder gemengde inhoud; controleer of de gekopieerde code volledig en niet-escaped is."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Code verkeerd geplaatst (head-blokkering / geen effect) — hoe op te lossen?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "美洽 raadt aan de code onderaan de pagina te plakken, vóór </body>; de widget draait nadat de hoofdinhoud is geladen. De widget moet zijn container injecteren nadat het DOM klaar is. In <head> blokkeert het de render (eerst leeg scherm bij zwak netwerk) of draait vóór DOM-gereedheid en faalt; in sommige async- / modulescopes kan de laadvolgorde ook misgaan. Zet de 美洽-JS in de gemeenschappelijke footer van elke pagina, vóór </body>; voor SPA's zie het item «SPA-route» en gebruik manualInit; zorg dat een bundler hem niet via tree-shaking verwijdert."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Gebroken styling van chatvenster / knop — hoe op te lossen?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "De widget injecteert eigen stijlen en past zich aan de site aan; conflicten met site-brede stijlen kunnen visuele afwijkingen veroorzaken. Het 美洽-script injecteert CSS tijdens runtime; overschrijven site-brede stijlen (universele selectors / regels met hoge prioriteit / resets) zijn klassen eerst, dan breken positie, stapeling en lettertypen — een neveneffect van «dynamische injectie + delen van één documentstijlruimte». F12 om te zien welke siteregel de 美洽-container overschrijft; versmal de site-brede stijlen / verminder de impact op generieke klassen; vraag indien nodig 美洽 de containerstapeling aan te passen."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 Knop buiten beeld / bedekt — hoe op te lossen?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "De widgetknop verschijnt als zwevend met vaste positie; als bedekt door andere vaste elementen, pas stapeling of positie aan. Andere position:fixed-elementen van de site (terug naar boven, zwevende advertenties, een eigen supportbalk) met hogere z-index bedekken de 美洽-knop, of het thema berekent zijn coördinaten verkeerd, waardoor hij «buiten beeld / bedekt» is. Selecteer de 美洽-container in F12 om echte coördinaten / z-index te zien; verhoog hem of verlaag de z-index van het bedekkende element; vermijd meerdere vaste zwevers in één hoek te stapelen."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "美洽 DOM-conflict met plugin / analytics van derden — hoe op te lossen?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Andere scripts op de pagina die het DOM wijzigen of verzoeken onderscheppen, kunnen het normale laden en weergeven van de widget beïnvloeden. Heatmap- / analytics- / conversiescripts herschrijven het DOM, injecteren overlays of onderscheppen verzoeken; omdat zij en 美洽 in hetzelfde document injecteren, interfereren stapeling / events en raakt de 美洽-container bedekt of zijn init onderbroken. Schakel verdachte plugins één voor één uit om het conflict te lokaliseren; pas laadvolgorde / containerstapeling aan; laat heatmaps enz. het 美洽-containergebied vermijden."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body><div class="wrap"><main>
+<nav class="lang">Taal: <a href="/">简体中文</a> · <a href="/en/">English</a> · <a href="/ja/">日本語</a> · <a href="/zh-tw/">繁體中文</a> · <a href="/ko/">한국어</a> · <a href="/id/">Bahasa Indonesia</a> · <a href="/vi/">Tiếng Việt</a> · <a href="/th/">ไทย</a> · <a href="/es/">Español</a> · <a href="/pt-br/">Português (BR)</a> · <a href="/de/">Deutsch</a> · <a href="/fr/">Français</a> · <a href="/ru/">Русский</a> · <a href="/it/">Italiano</a> · <a href="/pl/">Polski</a> · <strong>Nederlands</strong> · <a href="/tr/">Türkçe</a> · <a href="/ar/">العربية</a> · <a href="/hi/">हिन्दी</a> · <a href="/ms/">Bahasa Melayu</a> · <a href="/fa/">فارسی</a> · <a href="/bn/">বাংলা</a> · <a href="/ta/">தமிழ்</a> · <a href="/te/">తెలుగు</a> · <a href="/fil/">Filipino</a> · <a href="/ur/">اردو</a> · <a href="/lo/">ພາສາລາວ</a> · <a href="/km/">ភាសាខ្មែរ</a> · <a href="/my/">မြန်မာ</a></nav>
+<h1>美洽 chatwidget verschijnt niet / integratiefout oplossen</h1>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/cover_nl.webp"><img src="/img/cover_nl.png" alt="Illustratie van de tool 美洽 chatwidget verschijnt niet / foutoplossing" fetchpriority="high" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Fig: 美洽 chat verschijnt niet / foutoplossing (L1-gedrag + L2-grondoorzaak + vijf integratiemethoden)</figcaption></figure>
+<p>Heb je de <strong>美洽(Meiqia)</strong>-code geplakt en verschijnt de <strong>webchatwidget</strong> niet, komt de <strong>chatknop nooit op</strong>, meldt de console <code>meiqia.js</code> geblokkeerd, of <strong>krijgen agents geen chats</strong>? Verhelder eerst drie dingen: <strong>is het script helemaal niet geladen (plaatsing / adblock / cache), wél geladen maar verborgen door styling / stapeling, of goed geladen maar de config klopt niet (entId / domein / SPA-levenscyclus)?</strong> Zoek het <strong>symptoom of trefwoord</strong> (bijv. <code>not showing</code>, <code>adblock</code>, <code>entId</code>, <code>SPA</code>, <code>mobile</code>, <code>sdk push</code>): eerst het <strong>L1-gedrag & de officiële positionering</strong>, dan de <strong>L2-grondoorzaak & oplossing</strong>. Installatie / gids? Zie <a href="https://meiqis.com/">美洽 download / integratiegids klantenservice</a>.</p>
+<input id="q" placeholder="Typ een symptoom of trefwoord, bijv. not showing / adblock / entId / SPA / mobile / sdk push" autocomplete="off">
+<button id="go">Zoeken</button>
+<div id="out"></div>
+<h2>Stap 1: controleer of het script is geladen en verdeel dan in vier groepen</h2>
+<p>Wanneer de 美洽-chat niet verschijnt, is het 9 van de 10 keer één van vier groepen; kijk eerst <strong>of het script überhaupt is geladen</strong>: F12 → Network, zoek <code>meiqia.js</code>; geen verzoek of een status anders dan 200 betekent niet geladen. ① <strong>Laadfout</strong>: code op de verkeerde plek (hoort vóór <code>&lt;/body&gt;</code>, niet in <code>&lt;head&gt;</code>), geblokkeerd door een adblock-regel (<code>ERR_BLOCKED_BY_CLIENT</code>), vastgehouden door CDN- / browsercache, of HTTPS-certificaat / gemengde inhoud. ② <strong>Config / autorisatie</strong>: entId komt niet overeen met de workbench (laadt maar agents krijgen geen chats), of het sitedomein is niet geautoriseerd in de console. ③ <strong>Framework-integratie</strong>: een Vue/React/Next-SPA vernietigt de container bij een routewissel en de widget wordt niet herbouwd. ④ <strong>Weergave / mobiel / SDK</strong>: de site-CSS duwt de bubbel buiten beeld, een plugin van derden overlapt het DOM, mobiel heeft een eigen deploy nodig, in-app heeft de SDK nodig. Vollediger: <a href="https://meiqis.com/website-integration/">美洽 webintegratiegids</a>.</p>
+<div class="cat"><div class="catbox"><b>Laadfout</b><span class="cs">plaatsing · adblock · cache · HTTPS</span><div>Plak de 美洽-JS vóór </body> (niet in <head>); F12 → Network, zoek meiqia.js en controleer de status (moet 200 zijn); ERR_BLOCKED_BY_CLIENT betekent meestal een adblock-extensie — test in incognito of whitelist; wis de CDN-cache na publicatie; zorg voor volledig HTTPS zonder gemengde inhoud.</div></div><div class="catbox"><b>Config / autorisatie</b><span class="cs">entId · domein-whitelist · subkanalen</span><div>entId is de unieke id van je bedrijf; bij verschil met de workbench «laadt het script maar agents krijgen geen chats» (Instellingen - Team - ID-opzoeken); het sitedomein moet geautoriseerd via «Integratiesite toevoegen»; gebruik per business line een eigen subkanaal (probe).</div></div><div class="catbox"><b>Framework-integratie</b><span class="cs">SPA · routewissel · manualInit</span><div>Een Vue/React/Next-SPA vernietigt het DOM bij een routewissel en de widget wordt niet herbouwd; gebruik _MEIQIA('manualInit') om auto-init te stoppen en roep _MEIQIA('init') aan in een route-hook (useEffect / mounted) om hem opnieuw te mounten.</div></div><div class="catbox"><b>Weergaveproblemen</b><span class="cs">stijlconflict · stapeling · plugins van derden</span><div>Geladen maar onzichtbaar: meestal overschrijft de site-brede CSS de bubbelpositie, of een heatmap- / analytics- / SEO-plugin bewerkt het DOM en bedekt de container; F12 → Elements, zoek de meiqia-container en controleer display:none, verloren z-index of coördinaten buiten beeld.</div></div><div class="catbox"><b>Mobiel / SDK</b><span class="cs">mobiel web · AppKey · push</span><div>Mobiel / pc-web is dezelfde snippet maar vereist een eigen deploy; in-app gebruikt de native SDK (eerst «APP-config toevoegen» in de console voor een AppKey); push splitst in «geen push» (alleen in-app) en «eigen push-server» (geleverd zelfs na het verlaten van de app).</div></div><div class="catbox"><b>API-aanroepen</b><span class="cs">withoutBtn · showPanel · klantgegevens</span><div>Eigen knop? _MEIQIA('withoutBtn') verbergt de native knop, en roep _MEIQIA('showPanel') aan bij klik om de chat te openen; geef / synchroniseer klantgegevens binnen de init-timing, anders heeft het geen effect.</div></div></div><figure><svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Triage-diagram 美洽 chat verschijnt niet" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">Triage venster / knop verschijnt niet (eerst twee stappen: is het script geladen → is de config correct?)</text><rect x="20" y="46" width="150" height="46" rx="10" fill="#111"/><text x="95" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#fff">Chat onzichtbaar</text><path d="M170 69 H206" stroke="#999" stroke-width="2" fill="none" marker-end="url(#a)"/><rect x="206" y="46" width="172" height="46" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="292" y="74" text-anchor="middle" font-family="system-ui,Arial" font-size="13" fill="#1d4ed8">Twee groepen</text><rect x="440" y="20" width="262" height="56" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="455" y="42" font-family="system-ui,Arial" font-size="12.5" fill="#1d4ed8">Script niet geladen →</text><text x="455" y="62" font-family="system-ui,Arial" font-size="11.5" fill="#1e3a8a">plaatsing · adblock · cache</text><rect x="440" y="86" width="262" height="56" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="455" y="108" font-family="system-ui,Arial" font-size="12.5" fill="#b45309">Geladen maar verborgen / geen verbinding →</text><text x="455" y="128" font-family="system-ui,Arial" font-size="11.5" fill="#92400e">stapeling · entId · domein · SPA</text><path d="M378 60 H410 V48 H440" stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#a)"/><path d="M378 78 H410 V114 H440" stroke="#d97706" stroke-width="2" fill="none" marker-end="url(#a)"/><text x="20" y="178" font-family="system-ui,Arial" font-size="13" font-weight="700" fill="#1d1d1f">Vier grondgroepen (oorzaak / oplossing per item)</text><g font-family="system-ui,Arial" font-size="12"><rect x="20" y="190" width="162" height="92" rx="10" fill="#eef4ff" stroke="#cfe0ff"/><text x="32" y="212" font-weight="700" fill="#1d4ed8">① Laadfout</text><text x="32" y="234" fill="#555" font-size="11">plaatsing · blok · cache</text><rect x="194" y="190" width="162" height="92" rx="10" fill="#eef5ff" stroke="#cfe0ff"/><text x="206" y="212" font-weight="700" fill="#1d4ed8">② Config / autoris.</text><text x="206" y="234" fill="#555" font-size="11">entId · domein-whitelist</text><rect x="368" y="190" width="162" height="92" rx="10" fill="#fffbeb" stroke="#fde68a"/><text x="380" y="212" font-weight="700" fill="#b45309">③ Framework</text><text x="380" y="234" fill="#555" font-size="11">SPA-route · init</text><rect x="542" y="190" width="160" height="92" rx="10" fill="#ecfdf5" stroke="#bbf7e0"/><text x="554" y="212" font-weight="700" fill="#047857">④ Weergave / mobiel / SDK</text><text x="554" y="234" fill="#555" font-size="11">stapeling · mobiel · push</text></g><defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#999"/></marker></defs></svg><figcaption>Fig 1: triage van 美洽 verschijnt niet — controleer het laden van het script (meiqia.js in F12), dan laden / config / framework / weergave</figcaption></figure>
+<h2>Stap 2: de meest over het hoofd geziene grondoorzaak → L2 (de widget = asynchrone JS-injectie van derden buiten het domein)</h2>
+<p>Eén idee volstaat: <strong>de 美洽-webwidget is geen statisch component ingebed in je pagina — het is een <code>meiqia.js</code> die asynchroon vanaf het externe domein van 美洽 wordt geladen en vervolgens dynamisch een chatcontainer (DOM / iframe) injecteert en een langlevende cross-origin verbinding opent naar de servers van 美洽</strong>. Dat verklaart de meeste «mysterieuze verdwijningen»: ① <strong>het is een script van derden buiten het domein</strong>, dus AdBlock / uBlock blokkeren het via hun «tracking / advertenties»-lijsten (<code>ERR_BLOCKED_BY_CLIENT</code>) en de knop komt nooit op (terwijl de console er goed uitziet); ② <strong>het injecteert het DOM asynchroon</strong>: in <code>&lt;head&gt;</code> blokkeert het, een SPA-routewissel vernietigt de container en hij wordt niet vanzelf herbouwd (gebruik <code>manualInit</code> + <code>_MEIQIA('init')</code>), en heatmap- / analytics-plugins die het DOM bewerken kunnen hem bedekken; ③ <strong>het bindt aan je bedrijf via entId en wordt gegate door een domein-whitelist</strong>: bij een verkeerd entId of niet-geautoriseerd domein laadt het script maar «verbindt geen chat»; ④ <strong>mobiel en pc zijn twee aparte integraties</strong>, in-app is de SDK (AppKey), en push splitst in «geen push» vs «eigen push-server». Zodra je deze injectieketen ziet, heeft elk symptoom hieronder één logica. Hieronder het zelfcontrolepaneel; verderop de vijf methoden en 2026-schattingen.</p>
+<figure><svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="美洽 pre-integratie-zelfcontrolepaneel" style="width:100%;height:auto;border:1px solid #eee;border-radius:12px;background:#fff"><text x="20" y="28" font-family="system-ui,Arial" font-size="15.5" font-weight="700" fill="#1d1d1f">Integratie-zelfcontrolepaneel (groen = bevestigd / rood = makkelijk gemist)</text><rect x="20" y="42" width="680" height="226" rx="14" fill="#f8fafc" stroke="#e2e8f0"/><text x="38" y="66" font-family="system-ui,Arial" font-size="12.5" font-weight="700" fill="#475569">Item</text><text x="300" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">Oordeel</text><text x="610" y="66" font-family="system-ui,Arial" font-size="12" fill="#94a3b8">Status</text><line x1="38" y1="74" x2="682" y2="74" stroke="#e2e8f0" stroke-width="1"/><text x="38" y="98" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">美洽-code geplakt vóór </body> (niet <head>)</text><text x="300" y="98" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">plaatsing</text><circle cx="612" cy="94" r="6" fill="#16a34a"/><text x="628" y="98" font-family="system-ui,Arial" font-size="12" fill="#16a34a">bevestigd</text><text x="38" y="128" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">meiqia.js-status 200 in F12 → Network</text><text x="300" y="128" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">script laden</text><circle cx="612" cy="124" r="6" fill="#16a34a"/><text x="628" y="128" font-family="system-ui,Arial" font-size="12" fill="#16a34a">bevestigd</text><text x="38" y="158" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Console typeof _MEIQIA is function</text><text x="300" y="158" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">geïnitialiseerd</text><circle cx="612" cy="154" r="6" fill="#16a34a"/><text x="628" y="158" font-family="system-ui,Arial" font-size="12" fill="#16a34a">bevestigd</text><text x="38" y="188" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Zichtbaar in incognito / met adblock uit</text><text x="300" y="188" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">adblock</text><circle cx="612" cy="184" r="6" fill="#ef4444"/><text x="628" y="188" font-family="system-ui,Arial" font-size="12" fill="#ef4444">te checken</text><text x="38" y="218" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">entId komt overeen met workbench + domein geautoriseerd</text><text x="300" y="218" font-family="system-ui,Arial" font-size="12.5" fill="#16a34a">config / autoris.</text><circle cx="612" cy="214" r="6" fill="#16a34a"/><text x="628" y="218" font-family="system-ui,Arial" font-size="12" fill="#16a34a">bevestigd</text><text x="38" y="248" font-family="system-ui,Arial" font-size="13" fill="#1d1d1f">Re-init na SPA-routewissel + geen plugin-overlay</text><text x="300" y="248" font-family="system-ui,Arial" font-size="12.5" fill="#ef4444">framework / stapeling</text><circle cx="612" cy="244" r="6" fill="#ef4444"/><text x="628" y="248" font-family="system-ui,Arial" font-size="12" fill="#ef4444">te checken</text><text x="20" y="296" font-family="system-ui,Arial" font-size="11.5" fill="#94a3b8">Let op: rood = de twee meest gemiste — adblock-extensies (ERR_BLOCKED_BY_CLIENT) en framework / stapeling (SPA-routewissels, plugins van derden die het DOM bewerken); check deze twee eerst.</text></svg><figcaption>Fig 2: 美洽-integratie-zelfcontrolepaneel (groen = bevestigd / rood = makkelijk gemist)</figcaption></figure>
+<figure class="i4png"><picture><source type="image/webp" srcset="/img/board_nl.webp"><img src="/img/board_nl.png" alt="Illustratie van het 美洽 pre-integratie-zelfcontrolepaneel, groene/rode items" loading="lazy" width="1120" height="746" style="width:100%;height:auto;border-radius:12px;border:1px solid #eee"></picture><figcaption>Fig: controleer eerst «codeplaatsing + meiqia.js 200 + geïnitialiseerd», dan «adblock + framework/stapeling» — de laatste twee worden het meest gemist</figcaption></figure>
+<h2>Volledige symptoomtabel (gedrag / officiële positionering · L2-grondoorzaak)</h2>
+<table id="tbl"></table>
+<h2>Vijf 美洽-integratiemethoden vergeleken (code / moeilijkheid / functies / scenario / live-tijd · officiële doc)</h2>
+<table class="cmp"><tr><th>Integratiemethode</th><th>Code / moeilijkheid</th><th>Volledige functies</th><th>Beste voor</th><th>Live-tijd</th></tr><tr><td>Web-JS-widget</td><td>één JS-snippet · laag</td><td>het volledigst (zwevend / popup / autobegroeting / bezoekersspoor)</td><td>pc- + mobiele sites (officieel aanbevolen)</td><td>~3-5 min</td></tr><tr><td>Chatlink</td><td>geen code · minimaal</td><td>basischat</td><td>geen techniek / snel een chatlink plaatsen</td><td>direct</td></tr><tr><td>API / WebIM-SDK</td><td>vereist dev · hoog</td><td>diepe aanpassing (eigen UI / systeem / orderintegratie)</td><td>teams met dev-capaciteit voor diepe fusie</td><td>afhankelijk van dev</td></tr><tr><td>Native app-SDK</td><td>SDK integreren · hoog</td><td>in-app-chat + berichtpush</td><td>iOS- / Android-apps</td><td>afhankelijk van dev</td></tr><tr><td>CMS-snelconfig</td><td>plugin / één klik · laag</td><td>zoals de JS-widget</td><td>WordPress- / Fkw- / Shopify-sites</td><td>minuten</td></tr></table><section class="i4data">
+<h2>美洽 oorzaken van niet verschijnen & vergelijking van integratiemethoden (schatting 2026)</h2>
+<p>Het volgende zijn <strong>2026-schattingen</strong> gesynthetiseerd uit de officiële 美洽-help (Toegangskanalen / JavaScript-webwidget-API) en openbare integratie-troubleshooting (geen toezeggingen van de leverancier of eerstehands meting; ter referentie, verandert per versie en browserbeleid):</p>
+<table>
+<tr><th>Dimensie</th><th>Schatting / vergelijking</th></tr>
+<tr><td>Verdeling van oorzaken van niet verschijnen (community / tickets · schat.)</td><td><strong>plaatsing / niet geladen ~35%</strong> &gt; <strong>adblock / browserextensie ~25%</strong> &gt; config / autorisatie (entId / domein) ~20% &gt; framework (SPA) ~12% &gt; stijl- / plugin-van-derden-conflict ~8%</td></tr>
+<tr><td>Wat integratie echt is</td><td>de webwidget = <strong>asynchrone JS van derden buiten het domein die het DOM injecteert + een langlevende cross-origin verbinding</strong> (geen ingebed statisch component); vandaar de invloed van plaatsing, adblock-regels, CSS-stapeling, SPA-levenscyclus</td></tr>
+<tr><td>Integratie per platform (schat.)</td><td>pc- / mobiel web = <strong>JS-widget (zelfde code, apart gedeployed)</strong>; app = <strong>native SDK (AppKey)</strong>; WeChat / Douyin / RED = kanaal-geautoriseerde integratie</td></tr>
+<tr><td>Impact van adblock (schat.)</td><td>ongeveer <strong>30-40%</strong> van de pc-gebruikers gebruikt een adblock-extensie → het chatscript van derden wordt door advertentieregels geblokkeerd (ERR_BLOCKED_BY_CLIENT), een hoofdoorzaak van «console ok, gebruikerskant ontbreekt»</td></tr>
+<tr><td>Live-tijd van de JS-widget (officieel)</td><td>plak de dedicated JS onderaan de pagina en hij gaat in ongeveer <strong>3-5 minuten</strong> live; entId is de unieke bedrijfs-id, en een verschil met de workbench laat agents zonder chats</td></tr>
+</table>
+<p><small>Schattingsbasis: bronbasislijn + tijdsextrapolatie (meiqia.com/help Toegangskanalen / JavaScript-webwidget, meiqia.im-integratiegids, openbare troubleshooting, 2026); verandert per versie en browserblokkeerbeleid. Volg de nieuwste officiële 美洽-info. Niet-officieel · LLM-lokalisatie.</small></p>
+</section>
+<h2>Echte gevallen — snel lezen</h2>
+<ul class="scenes"><li>Code geplakt maar geen chatbubbel: eerst F12 → Network, zoek meiqia.js — geen verzoek of niet-200 betekent verkeerd geplaatst / door cache vastgehouden; wis de CDN-cache of heropen in incognito.</li><li>Console zegt meiqia.js net::ERR_BLOCKED_BY_CLIENT: een adblocker (AdBlock / uBlock / AdGuard) blokkeerde het chatscript van derden via zijn advertentieregels — schakel de extensie uit of whitelist de site; daarom «ontbreekt het voor sommige gebruikers terwijl jouw console er goed uitziet».</li><li>Script geladen (console typeof _MEIQIA is function) maar geen knop: meestal duwde een thema-CSS de bubbel buiten beeld of veranderde een heatmap- / analytics-plugin de DOM-stapeling — F12 → Elements, zoek de 美洽-container en controleer item voor item.</li><li>De homepagina heeft chat in een Vue / React-SPA, maar een tweede route niet: de SPA-routewissel vernietigde de container en de widget werd niet herbouwd — gebruik manualInit om auto-init te stoppen en roep _MEIQIA('init') aan in de route-hook om opnieuw te mounten.</li><li>De chat opent maar agents krijgen geen bezoekersberichten: hoogstwaarschijnlijk komt het entId niet overeen met de workbench (andermans snippet gekopieerd / accounts door elkaar) — vergelijk de bedrijfs-ID in Instellingen - Team - ID-opzoeken met het entId in de code.</li><li>Werkt op staging, laadt niet op het productiedomein: het productiedomein is niet geautoriseerd via «Integratiesite toevoegen» — voeg het live domein toe aan de lijst en publiceer opnieuw.</li><li>Je wilt de ronde native 美洽-knop weghalen en je eigen «Contact»-knop gebruiken: roep _MEIQIA('withoutBtn') aan om de native te verbergen, koppel daarna _MEIQIA('showPanel') aan je knop om de chat te openen.</li></ul><div class="related"><h2>Gerelateerd</h2><ul><li><a href="https://meiqis.com/">美洽 download / installatie & integratiegids</a></li><li><a href="https://meiqis.com/nl/website-integration/">美洽 webintegratiegids (JS-widget)</a></li><li><a href="https://meiqis.com/nl/tools/meiqia-integration-troubleshooting/">美洽 integratie-troubleshooting (gezaghebbende volledige tabel)</a></li><li><a href="https://meiqiaa.com/">美洽 officiële site (zustersite)</a></li></ul></div></main>
+<footer>Webwidget / JS-API (manualInit / init / withoutBtn / showPanel / klantgegevens doorgeven), entId / domeinautorisatie, subkanalen, SDK-AppKey & push-modi zijn samengesteld uit het officiële 美洽-Helpcentrum (meiqia.com/help · Toegangskanalen / JavaScript-webwidget) en de 美洽-integratiegids (meiqia.im); adblock ERR_BLOCKED_BY_CLIENT, heatmap- / analytics-DOM-conflicten en SPA-integratie komen uit openbare troubleshooting (geherformuleerd). 2026-cijfers zijn schattingen, geen toezeggingen van de leverancier of eerstehands meting; alleen ter referentie, volg de nieuwste officiële 美洽-info. Niet-officieel · LLM-lokalisatie.<br>Toolpagina · integratie-triage, geen vervanging van de 美洽-console</footer>
+</div>
+<script src="/nl/codes.js"></script><script src="/app.js"></script>
+</body></html>
